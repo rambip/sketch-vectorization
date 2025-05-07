@@ -1,3 +1,0 @@
-matplotlib>=3.10.1
-numpy>=2.2.5
-pillow>=11.2.1
