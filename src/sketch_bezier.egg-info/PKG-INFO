@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: sketch-bezier
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib>=3.10.1
+Requires-Dist: numpy>=2.2.5
+Requires-Dist: pillow>=11.2.1
+
+# sketch-vectorization
+
+## Goal
+
+implementing: <https://www-sop.inria.fr/reves/Basilic/2016/FLB16/fidelity_simplicity.pdf>

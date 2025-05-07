@@ -1,0 +1,2 @@
+def segments():
+    print("TODO")
