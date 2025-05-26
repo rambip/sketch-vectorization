@@ -17,7 +17,7 @@ def interpolant(t):
     )
 
 
-def bez(coeffs, t):
+def interpolate_bezier(coeffs, t):
     """
     compute the trajectory of a bezier-curve.
 
@@ -47,7 +47,7 @@ def std_distance(traj, traj_target, weights: Optional[np.ndarray] = None):
     x_target, y_target = traj_target
     d_x = np.var(weights * (x - x_target))
     d_y = np.var(weights * (y - y_target))
-    np.sqrt(d_x + d_y)
+    return np.sqrt(d_x + d_y)
 
 
 def fit_bezier(traj, t, weights: Optional[np.ndarray] = None):
