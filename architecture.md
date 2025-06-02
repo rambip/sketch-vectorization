@@ -1,6 +1,6 @@
 # Goal
 
-This file contains all the step needed to implement our algorith, along with some implementation details.
+This file contains all the step needed to implement our algorithm, along with some implementation details.
 
 # Overview
 
@@ -15,7 +15,7 @@ original image ───────►│  pixel graph   │ ──────
                                                                                                     (5)
 
                           nodes = pixels           nodes = clusters of pixels    nodes = same
-                       edges = 8-neighbourhood     edges = linked clusters       edges = set of nodes
+                       edges = 8-neighborhood     edges = linked clusters       edges = set of nodes
                                                    +path of pixels
                                                     for each edge
 
