@@ -1,0 +1,4761 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="2928"
+   width="3948"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="$$test3_bezier_end____.svg">
+  <metadata
+     id="metadata681">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs679" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1525"
+     id="namedview677"
+     showgrid="false"
+     inkscape:zoom="0.080601093"
+     inkscape:cx="1974"
+     inkscape:cy="1464"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     id="curve_0"
+     d="M3621.89,737.348 L3640.38,779.609"
+     stroke="#00009a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_1"
+     d="M269.602,2561.42 L498.504,2564.53"
+     stroke="#0045ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_2"
+     d="M1397.21,2276.77 L1463.83,2314.46"
+     stroke="#ffa000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_3"
+     d="M3826.07,2767.41 L3828.24,2780.31"
+     stroke="#c9ff35"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_4"
+     d="M1378.83,1280.61 L1573.71,733.428"
+     stroke="#007aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_5"
+     d="M2014.66,1015.96 C2014.41,1033.61 2013.91,1044.21 2019.36,1057.29"
+     stroke="#66ff98"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_6"
+     d="M2697.4,2232.64 C2750.77,2219.19 2790.41,2228.46 2840.83,2217.39"
+     stroke="#ff3000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_7"
+     d="M1688.86,944.61 C1857.91,946.192 2012.18,940.462 2180.98,941.336"
+     stroke="#8d0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_8"
+     d="M1725.9,1374.85 C1723.97,1759.1 1731.96,2124.8 1728.67,2506.79"
+     stroke="#ff7600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_9"
+     d="M2262.28,2179 C2269.64,2130.49 2256.89,2080.04 2270.95,2032.72"
+     stroke="#89ff75"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_10"
+     d="M1099.71,2020.07 C1111.75,2035.84 1117.41,2032.36 1130.5,2022.62"
+     stroke="#ff0400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_11"
+     d="M2165.75,1192.83 C2155.06,1217.41 2170.57,1217.78 2165.94,1239.4"
+     stroke="#ffae00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_12"
+     d="M1681.93,548.937 L2175.59,542.8"
+     stroke="#07fff7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_13"
+     d="M3035.01,1111.4 Q3048.46,1126.08 3058.27,1141.9"
+     stroke="#00c6ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_14"
+     d="M1682.81,608.9 Q1932.08,602.666 2176.13,597.833"
+     stroke="#0085ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_15"
+     d="M3268.75,966.353 Q3286.08,980.608 3289.66,996.414"
+     stroke="#00c7ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_16"
+     d="M2707.92,2552.25 Q2778.06,2557.06 2851.17,2566.98"
+     stroke="#0005ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_17"
+     d="M2445.77,1662.04 L2608.59,1861.02"
+     stroke="#5bffa3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_18"
+     d="M1680.74,459.661 C1852.79,451.902 2006.33,465.873 2175.6,454.367"
+     stroke="#000087"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_19"
+     d="M2535.22,2485.68 L2536.11,2072.11"
+     stroke="#ffc400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_20"
+     d="M2126.92,1141.58 L2132,1198.37"
+     stroke="#e5ff19"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_21"
+     d="M1684.36,705.649 L2177.85,706.116"
+     stroke="#001fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_22"
+     d="M1085.01,2030.89 C1097.26,1968.58 1137.61,2062.26 1163.44,2007.85"
+     stroke="#ff3a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_23"
+     d="M2576.42,1438.6 C2631.47,1447.7 2665.75,1418.45 2717.84,1431.07"
+     stroke="#29ffd5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_24"
+     d="M433.936,1020.02 C462.892,1019.93 469.003,1020.67 498.397,1023.12"
+     stroke="#a20000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_25"
+     d="M1685.71,783.1 Q1932.64,779.026 2179.12,777.722"
+     stroke="#00d2ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_26"
+     d="M1687.27,865.818 Q1933.03,861.934 2180.35,861.012"
+     stroke="#e60000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_27"
+     d="M1690.89,1037.81 C1787.12,1036.43 1868.41,1031.7 1960.74,1033.06"
+     stroke="#96ff68"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_28"
+     d="M3219.01,130.24 Q3209.5,219.686 3237.82,304.932"
+     stroke="#0053ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_29"
+     d="M132.651,733.289 L136.345,647.55"
+     stroke="#ffb400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_30"
+     d="M2691.64,2579.39 Q2421.57,2545.84 2170.46,2585.06"
+     stroke="#00e4ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_31"
+     d="M2130.21,1244.35 Q2127,1260.44 2135.18,1273.26"
+     stroke="#1affe4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_32"
+     d="M2187.54,1273.01 C2194.65,1257.99 2183.38,1252.84 2195.01,1235.86"
+     stroke="#ff9800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_33"
+     d="M931.862,1603.76 Q987.793,1596.78 1042.36,1601.54"
+     stroke="#ff1100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_34"
+     d="M457.677,1068.08 C481.734,1062.18 490.718,1068.04 513.773,1061.48"
+     stroke="#0094ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_35"
+     d="M1335.28,1510.64 C1292.3,1478.78 1250.47,1527.91 1251.4,1573.55"
+     stroke="#e00000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_36"
+     d="M2756.81,1551.39 C2800.63,1539.21 2826.45,1530.08 2865.37,1510.81"
+     stroke="#b30000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_37"
+     d="M3592.67,2669.59 C3681.78,2668.26 3795.63,2700.73 3896.12,2691.22"
+     stroke="#ff3900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_38"
+     d="M1019.22,1622.56 C1027.87,1642.36 1059.75,1663.38 1067.7,1675.11"
+     stroke="#da0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_39"
+     d="M2865.24,1429.59 C2873.01,1492.03 2860.47,1513.45 2865.2,1575.28"
+     stroke="#990000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_40"
+     d="M2213.39,1042.98 C2222.4,1121.93 2213.16,1199.78 2216.65,1272.67"
+     stroke="#870000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_41"
+     d="M1692.57,1110.3 L1898.2,1106.37"
+     stroke="#0059ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_42"
+     d="M543.839,1774.34 Q663.336,1759.69 783.32,1773.18"
+     stroke="#42ffbc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_43"
+     d="M2662.28,1332.6 C2681.81,1350.8 2690.76,1324.23 2709,1344.53"
+     stroke="#000099"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_44"
+     d="M3492.96,822.401 Q3515.99,848.964 3514.89,853.891"
+     stroke="#ffd300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_45"
+     d="M517.853,1220.67 Q550.707,1216.07 577.688,1211.49"
+     stroke="#00c4ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_46"
+     d="M520.906,1187.41 L565.389,1181.81"
+     stroke="#0027ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_47"
+     d="M1996.21,1126.42 C1988.99,1127.86 1974.03,1144.56 1959.97,1143.08"
+     stroke="#0010ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_48"
+     d="M2066.95,1273.29 L2067.38,1252.8"
+     stroke="#5affa4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_49"
+     d="M2299.14,1663.56 L2461.53,1863.22"
+     stroke="#1fffdf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_50"
+     d="M2154.1,1665.33 L2317.95,1865.32"
+     stroke="#ffe100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_51"
+     d="M519.46,1255.54 Q558.598,1257.56 590.631,1243.86"
+     stroke="#ff3d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_52"
+     d="M3356.58,1800.55 Q3421.72,1772.19 3491.15,1770.82"
+     stroke="#0000d5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_53"
+     d="M899.125,1630.5 C914.918,1749.38 910.759,1847.91 908.242,1968.58"
+     stroke="#e2ff1c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_54"
+     d="M3618.12,925.094 C3616.35,949.09 3624.08,962.695 3638.24,976.834"
+     stroke="#d9ff25"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_55"
+     d="M3454.37,776.964 C3459.38,798.588 3446.78,833.085 3445.41,849.992"
+     stroke="#ff6e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_56"
+     d="M3881.1,2018.24 C3752.33,2036.79 3633.88,2074.03 3504.16,2072.71"
+     stroke="#0000e5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_57"
+     d="M2126.68,1056.56 C2132.41,1069.76 2126.49,1077.31 2131.74,1087.84"
+     stroke="#00008a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_58"
+     d="M1109.69,2011.15 C1131.13,2000.01 1140.16,2010.13 1163.44,2007.85"
+     stroke="#ff0e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_59"
+     d="M492.872,2465.85 C385.025,2468.02 282.232,2493.8 171.284,2498.94"
+     stroke="#0013ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_60"
+     d="M3221.26,2351.2 C3221.68,2172.34 3223.35,2020.07 3223.51,1846.82"
+     stroke="#ff1600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_61"
+     d="M2108.83,1924.68 L2702.9,1915.6"
+     stroke="#7eff80"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_62"
+     d="M2502.18,1517.37 C2501.03,1553.91 2498.94,1577.49 2505.36,1610.57"
+     stroke="#ffa500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_63"
+     d="M3286.31,998.569 L3395.1,1058.86"
+     stroke="#ff5c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_64"
+     d="M513.735,2676.82 Q516.38,2704.6 516.459,2737.12"
+     stroke="#0000ae"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_65"
+     d="M2332.25,2485.33 C2333.37,2348.04 2327.73,2210.22 2329.01,2070.28"
+     stroke="#002bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_66"
+     d="M1753.16,2509.62 C1725.97,2519.29 1724.99,2489.15 1685.6,2495.28"
+     stroke="#d80000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_67"
+     d="M2129.48,2035.99 C2130.37,2047.1 2127.72,2097.08 2127.91,2124.19"
+     stroke="#adff51"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_68"
+     d="M1996.55,1668.97 Q2079.66,1768.38 2159.13,1868.22"
+     stroke="#005cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_69"
+     d="M1679.04,2206.84 Q1664.99,2202.77 1646.79,2208.3"
+     stroke="#7dff81"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_70"
+     d="M3357.59,854.15 C3383.85,853.527 3426.12,847.528 3452.51,848.732"
+     stroke="#850000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_71"
+     d="M505.503,1147.53 L547.356,1139.99"
+     stroke="#005dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_72"
+     d="M931.457,1579.25 C930.606,1719.11 939.885,1874.44 940.484,2025.62"
+     stroke="#f3ff0b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_73"
+     d="M2845.24,2034.71 C2831.63,1988.1 2840.22,1955.81 2839.02,1900.87"
+     stroke="#cc0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_74"
+     d="M920.021,2159.44 C923.242,2212.37 915.284,2250.26 926.652,2301.55"
+     stroke="#c4ff3a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_75"
+     d="M2803.51,364.085 C2855.85,417.148 2886.64,450.121 2949.05,451.025"
+     stroke="#c30000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_76"
+     d="M3910.28,760.157 C3877.86,723.358 3853.9,732.96 3809.86,689.804"
+     stroke="#d70000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_77"
+     d="M2804.93,1282.13 C3154.98,1109.26 3458.51,860.984 3809.86,689.804"
+     stroke="#00007f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_78"
+     d="M553.894,2168.12 C560.575,1953.58 524.204,1748.95 559.174,1562.86"
+     stroke="#ff7c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_79"
+     d="M3009.33,2018.33 L3498.6,1951.27"
+     stroke="#ff8f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_80"
+     d="M1905.99,2362.07 C1969.57,2365.89 2018.3,2356.89 2082.22,2356.95"
+     stroke="#45ffb9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_81"
+     d="M133.626,1179.05 C138.863,1122.86 123.885,1067.5 129.627,1012.96"
+     stroke="#000085"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_82"
+     d="M1735.72,2601.35 C1882.74,2625.94 2024.29,2604.26 2179.73,2606.18"
+     stroke="#0066ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_83"
+     d="M2837.89,1956.08 C2797.5,1966.46 2764.43,1953.77 2723.33,1973.42"
+     stroke="#0098ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_84"
+     d="M3489.4,1721.66 Q3490.14,1799.03 3499.41,1884.35"
+     stroke="#840000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_85"
+     d="M1830.94,2347.93 L1905.99,2358.76"
+     stroke="#ff9400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_86"
+     d="M3336.42,1087.22 C3329.28,1036.42 3262.33,1097.42 3274.8,1118.57"
+     stroke="#81ff7d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_87"
+     d="M3274.8,1118.57 C3271.6,1170.95 3333.24,1193.38 3361.57,1131.98"
+     stroke="#ffcc00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_88"
+     d="M2539.37,1425.06 L2559.76,1451.02"
+     stroke="#13ffeb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_89"
+     d="M2170.46,2585.06 C2196.09,2621.96 2158.84,2625.2 2183.71,2650.77"
+     stroke="#0071ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_90"
+     d="M1902.29,1243.33 C1883.83,1252.22 1857.22,1281.32 1843.66,1285.31"
+     stroke="#0000d7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_91"
+     d="M3605.46,1378.17 L3610.92,1540.25"
+     stroke="#ff5600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_92"
+     d="M3897.04,2779.97 C3766.21,2778.17 3637.79,2793.16 3506.87,2776.64"
+     stroke="#ff1b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_93"
+     d="M1126.78,1909.34 C1117.55,1864.81 1066.02,1904.04 1070.68,1890.35"
+     stroke="#ffcd00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_94"
+     d="M3503.56,2497.34 C3474.44,2565.63 3504.87,2662.24 3481.62,2737.52"
+     stroke="#0048ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_95"
+     d="M276.496,1294.81 C284.631,1219.52 260.311,1138.08 265.976,1066.47"
+     stroke="#83ff7b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_96"
+     d="M1443.99,1526.85 Q1456.83,1475.31 1438.7,1416.64"
+     stroke="#aaff54"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_97"
+     d="M542.13,2562.39 C592.582,2560.88 626.924,2523.89 671.148,2516.03"
+     stroke="#ffe600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_98"
+     d="M1826.29,1371.95 C1829.4,1760.51 1829.91,2189.44 1831.75,2514.72"
+     stroke="#d0ff2e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_99"
+     d="M2276.51,1271.19 C2437.2,1277.31 2618.36,1258.66 2755.95,1278.16"
+     stroke="#fff600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_100"
+     d="M1876.05,1198.75 C1871.95,1181.65 1874.02,1158.48 1866.47,1145.8"
+     stroke="#28ffd6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_101"
+     d="M3580.71,151.696 C3672.01,167.09 3815.44,234.727 3819.9,350.232"
+     stroke="#ffb700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_102"
+     d="M1830,2103.67 Q1869.63,2095.9 1905.42,2109.11"
+     stroke="#86ff78"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_103"
+     d="M1019.23,1966.52 C1016.54,1962.23 1010.16,1933.69 1029.34,1924.98"
+     stroke="#f20000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_104"
+     d="M1046.19,1966.07 C1038.22,1974.07 1029.28,1979.99 1019.23,1966.52"
+     stroke="#22ffdc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_105"
+     d="M3369.93,297.939 Q3377.05,213.209 3385.8,125.363"
+     stroke="#10ffee"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_106"
+     d="M2717.5,1968.62 C2695.58,1965.93 2688.8,1974.34 2694.78,1987.94"
+     stroke="#940000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_107"
+     d="M93.5988,2717.3 C103.192,2734.01 85.1968,2765.66 124.803,2769.25"
+     stroke="#009eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_108"
+     d="M1991.38,1019.89 C1995.33,1105.03 2000.26,1182.56 1991.73,1273.4"
+     stroke="#ffd000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_109"
+     d="M1000.18,1624.73 C1061.57,1725.32 1194.21,1746.87 1332.17,1746.01"
+     stroke="#af0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_110"
+     d="M1826.29,1371.95 Q1861.55,1316.88 1905.52,1274.32"
+     stroke="#ff7900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_111"
+     d="M1905.52,1274.32 C2027.82,1271.93 2175.63,1275.01 2276.51,1271.19"
+     stroke="#b9ff45"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_112"
+     d="M1275.05,2307.01 C1284.22,2326.68 1269.19,2350.97 1283.03,2370.6"
+     stroke="#ff5f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_113"
+     d="M272.451,2662.41 C225.591,2678.43 192.169,2693.98 141.556,2697.2"
+     stroke="#0095ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_114"
+     d="M2700.07,2142.53 C2747.04,2135.98 2793.76,2127.89 2841.24,2128.62"
+     stroke="#0054ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_115"
+     d="M335.462,1552.68 C347.901,1491.81 327.656,1439.03 340.359,1376.05"
+     stroke="#34ffca"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_116"
+     d="M1564.58,1239.8 C1665.5,1226.97 1745.62,1234.12 1842.09,1227.24"
+     stroke="#64ff9a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_117"
+     d="M1570.28,595.577 C1578.24,560.477 1586.51,526.836 1613.49,491.567"
+     stroke="#005fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_118"
+     d="M2759.54,1478.43 C2806.21,1475.27 2871.29,1451.79 2868.62,1412.25"
+     stroke="#afff4f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_119"
+     d="M1277,2342.94 C1246.44,2370.69 1232.03,2344.65 1196.13,2361.59"
+     stroke="#e4ff1a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_120"
+     d="M3909.62,766.039 C3863.57,774.477 3815.31,815.573 3778.04,834.567"
+     stroke="#880000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_121"
+     d="M1891.32,1288.62 C1895.25,1424.48 1888.86,1544.79 1892.47,1679.96"
+     stroke="#ff8300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_122"
+     d="M559.174,1562.86 Q429.363,1549.29 277.99,1553.91"
+     stroke="#a00000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_123"
+     d="M2064.58,1151.48 C2062.61,1178.29 2067.7,1186.12 2072.81,1209.44"
+     stroke="#006bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_124"
+     d="M2095.72,1249.19 Q2091.07,1228.93 2098.36,1204.79"
+     stroke="#0051ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_125"
+     d="M2643.1,1343.65 C3028.03,1122.19 3416.78,878.891 3776.27,633.163"
+     stroke="#00008e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_126"
+     d="M2920.95,505.201 C2924.85,576.125 2927.35,632.606 2934.97,704.919"
+     stroke="#ff5a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_127"
+     d="M2934.97,704.919 C2905.08,720.953 2904.77,797.227 2915.11,839.573"
+     stroke="#ffda00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_128"
+     d="M3493.12,2249.68 C3455.25,2227.33 3480.23,2154.45 3473.29,2111.63"
+     stroke="#004eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_129"
+     d="M1879.37,2043.31 C1867.11,1938.01 1875.11,1816.93 1869.24,1706.24"
+     stroke="#00dbff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_130"
+     d="M2180.78,1016.69 C2182.55,815.497 2173.38,615.8 2175.86,430.388"
+     stroke="#fffb00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_131"
+     d="M2854.35,288.744 C2834.22,175.192 2978.13,79.6224 3082.69,68.7244"
+     stroke="#0069ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_132"
+     d="M228.181,730.227 C229.948,698.554 228.426,676.814 227.731,644.293"
+     stroke="#00fffe"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_133"
+     d="M2962.25,1342.17 C2967.48,1482.31 2966.38,1613.74 2972.95,1751.3"
+     stroke="#c60000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_134"
+     d="M2567.93,1511.04 C2562.24,1546.01 2562.54,1569.56 2564.89,1603.1"
+     stroke="#000084"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_135"
+     d="M3617.12,2502.93 C3577.5,2480.76 3546.47,2511.66 3503.56,2497.34"
+     stroke="#960000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_136"
+     d="M45.0695,799.678 C70.3226,812.872 116.933,825.615 123.066,852.223"
+     stroke="#000082"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_137"
+     d="M43.116,960.572 C45.006,908.335 41.2222,849.839 45.0695,799.678"
+     stroke="#ffe700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_138"
+     d="M43.8202,2044.11 C79.2331,2020.27 102.18,1997.41 134.828,1976.67"
+     stroke="#0083ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_139"
+     d="M3008.49,2133.41 C3158.36,2122.9 3318.83,2093.36 3471.93,2086.02"
+     stroke="#0092ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_140"
+     d="M1936.1,1074.62 C1952.04,972.416 2133.07,1037.5 2215.95,1010.31"
+     stroke="#a60000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_141"
+     d="M482.266,1107.46 C496.052,1141.88 533.045,1167.63 517.853,1220.67"
+     stroke="#a80000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_142"
+     d="M158.921,1855.76 C115.012,1860.95 81.3135,1847.38 43.855,1857.73"
+     stroke="#9dff61"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_143"
+     d="M3747.76,916.878 C3715.62,941.969 3676.97,949.141 3638.24,976.834"
+     stroke="#cdff31"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_144"
+     d="M2847.97,1338.03 C2809.54,1316.34 2778.42,1346.33 2730.44,1330.17"
+     stroke="#ff3700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_145"
+     d="M3658,579.121 C3720.06,604.108 3783.82,617.216 3785.24,701.965"
+     stroke="#003cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_146"
+     d="M1438.7,1416.64 C1399.76,1494.51 1368.94,1599.64 1330.05,1688.07"
+     stroke="#000091"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_147"
+     d="M1355.21,2395.36 Q1343.36,2050.56 1330.05,1688.07"
+     stroke="#ff0a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_148"
+     d="M3622.02,2619.53 C3625.55,2643.33 3620.31,2647.97 3620.55,2670.15"
+     stroke="#0057ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_149"
+     d="M1277.16,2234.16 C1305.96,2224.65 1317.86,2242.14 1349.53,2231.4"
+     stroke="#cb0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_150"
+     d="M305.182,2781.92 C239.044,2785.29 177.472,2797.67 108.754,2782.75"
+     stroke="#00f5ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_151"
+     d="M3874.25,1459.59 Q3901.04,1256.79 3905.13,1054.26"
+     stroke="#00e6ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_152"
+     d="M3550.85,872.906 L3604.41,893.747"
+     stroke="#ff6300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_153"
+     d="M363.169,744.303 Q430.755,854.082 484.929,962.448"
+     stroke="#b70000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_154"
+     d="M3362.27,743.459 C3354.8,784.045 3357.48,813.686 3357.59,854.15"
+     stroke="#ccff32"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_155"
+     d="M559.174,1562.86 C608.914,1610.83 627.878,1646.43 667.278,1706.56"
+     stroke="#ce0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_156"
+     d="M1940.88,1132.7 Q1940.24,1100.39 1938.07,1065.52"
+     stroke="#ff2e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_157"
+     d="M710.184,1930.92 C778.945,1991.79 835.109,2046.96 889.268,2112.02"
+     stroke="#ff0800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_158"
+     d="M1736.98,1230.8 C1736.3,1262.62 1748.28,1274.78 1752.62,1299.91"
+     stroke="#0000fd"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_159"
+     d="M2791.91,1473.48 C2804.95,1438.16 2850.49,1426.14 2868.62,1412.25"
+     stroke="#ffe300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_160"
+     d="M744.576,1961.88 Q799.138,1949.32 844.91,1944.71"
+     stroke="#eeff10"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_161"
+     d="M1994.96,1099.09 C2036.48,1097.03 2022.06,1128.16 2034.67,1155.84"
+     stroke="#2effd0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_162"
+     d="M1106.93,2310.67 C1134.49,2333.95 1093.76,2345.11 1087.66,2359.48"
+     stroke="#a90000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_163"
+     d="M3757.81,1092.22 C3706.95,1113.13 3655.85,1115.91 3610.77,1142.36"
+     stroke="#60ff9e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_164"
+     d="M1650.49,2278.77 C1666.25,2278.3 1666.88,2275.7 1680.33,2273.32"
+     stroke="#0000e2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_165"
+     d="M1650.49,2278.77 C1640.67,2257.9 1645.54,2233.87 1646.79,2208.3"
+     stroke="#00009c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_166"
+     d="M1097.21,2370.67 C1119.35,2388.55 1220.06,2379.35 1196.13,2361.59"
+     stroke="#0000fe"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_167"
+     d="M1464.23,2252.66 C1436.55,2251.38 1428.59,2263.32 1400.39,2262.87"
+     stroke="#ff1e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_168"
+     d="M1394.51,2411.08 C1400.91,2360.3 1388.74,2299.79 1400.39,2262.87"
+     stroke="#deff20"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_169"
+     d="M2471.53,939.307 C2539.4,862.866 2559.8,793.062 2558.37,715.622"
+     stroke="#fff500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_170"
+     d="M2217.14,1099.18 C2149.66,1082.75 2090.11,1084.12 2016.01,1102.64"
+     stroke="#16ffe8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_171"
+     d="M1103.42,2008.9 C1101.35,2031.4 1072.99,2040.75 1053.17,2022.5"
+     stroke="#dcff22"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_172"
+     d="M3757.81,1092.22 C3807.71,1075.58 3853.63,1081.59 3905.13,1054.26"
+     stroke="#55ffa9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_173"
+     d="M1901.94,2308.02 Q1909.81,2166.02 1902.69,2041.92"
+     stroke="#ffd700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_174"
+     d="M844.83,2456.09 C861.765,2438.65 878.247,2442.99 894.756,2422.95"
+     stroke="#00e0ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_175"
+     d="M682.89,2482.12 C719.809,2473.04 752.283,2464.01 791.439,2443.22"
+     stroke="#00feff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_176"
+     d="M2848.88,2485.96 C2799.22,2472.89 2756.51,2489.76 2708.01,2478.76"
+     stroke="#bd0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_177"
+     d="M2724.38,2525.1 C2740.24,2501.01 2679.27,2500.16 2708.01,2478.76"
+     stroke="#0000d2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_178"
+     d="M3580.71,151.696 C3428.76,121.731 3273.44,108.593 3127.92,148.44"
+     stroke="#0000cf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_179"
+     d="M942.515,2359.03 C882.172,2333.68 937.091,2301.65 939.868,2274"
+     stroke="#a50000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_180"
+     d="M3874.25,1459.59 C3772.19,1483.46 3698.54,1505.9 3610.92,1540.25"
+     stroke="#0056ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_181"
+     d="M1029.34,1924.98 C1045.07,1916.76 1048.24,1899.53 1070.68,1890.35"
+     stroke="#0000ee"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_182"
+     d="M1156.48,2018.79 C1167.36,1982.73 1201.97,2025.44 1218.33,2005.03"
+     stroke="#a6ff58"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_183"
+     d="M3149.16,1263.02 C3158.44,1255.18 3183.68,1244.33 3173.15,1228.77"
+     stroke="#820000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_184"
+     d="M2724.38,2525.1 C2692.51,2515.17 2724.64,2559.31 2698.6,2553.62"
+     stroke="#ffa900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_185"
+     d="M2617.71,1660.98 C2657.54,1720.9 2709.03,1769.5 2748.72,1823.39"
+     stroke="#0000ba"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_186"
+     d="M1612.75,450.207 C1617.56,708.944 1625.94,966.037 1636.47,1233.45"
+     stroke="#0000e0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_187"
+     d="M2699.02,2024.15 C2711.27,2015.7 2711.93,1998.48 2694.78,1987.94"
+     stroke="#0011ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_188"
+     d="M342.24,631.607 C348.347,677.503 340.438,697.263 342.493,736.037"
+     stroke="#0062ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_189"
+     d="M103.511,625.557 C180.885,617.782 275.782,611.931 342.24,631.607"
+     stroke="#00fbff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_190"
+     d="M536.367,2663.37 C532.872,2643.51 524.445,2646.99 501.934,2645.76"
+     stroke="#ffec00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_191"
+     d="M492.872,2465.85 C510.724,2531.47 488.189,2583.48 501.934,2645.76"
+     stroke="#17ffe7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_192"
+     d="M553.894,2168.12 C565.483,2295.81 543.054,2438.94 560.345,2560.28"
+     stroke="#dd0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_193"
+     d="M151.753,1376.33 C155.547,1492.69 164.192,1613.92 156.015,1729.87"
+     stroke="#0000f2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_194"
+     d="M1054.75,1728.66 C1048.04,1701.68 1066.66,1676.59 1068.18,1674.45"
+     stroke="#006cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_195"
+     d="M3068.32,1228.67 C3082,1228.16 3090.77,1211.62 3105.01,1210.65"
+     stroke="#0000a0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_196"
+     d="M198.035,2178.72 C182.622,2110.33 155.281,2042.53 134.828,1976.67"
+     stroke="#ffc000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_197"
+     d="M2610.35,709.846 C2605.33,762.449 2597.98,807.707 2571.29,859.819"
+     stroke="#ff3c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_198"
+     d="M2610.35,709.846 Q2737.87,686.043 2870.79,569.475"
+     stroke="#9f0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_199"
+     d="M2934.97,704.919 C2981.81,676.253 3028.53,641.402 3075.33,623.68"
+     stroke="#bfff3f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_200"
+     d="M1375.82,2443.2 C1315.67,2420.82 1252.12,2408.44 1191.96,2373.86"
+     stroke="#0037ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_201"
+     d="M441.462,1554.47 C433.825,1619.09 449.261,1676.06 438.007,1745.28"
+     stroke="#0000ce"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_202"
+     d="M1905.44,2110.11 C1967.15,2100.28 2022.11,2110.68 2085.64,2108.34"
+     stroke="#63ff9b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_203"
+     d="M2710.83,2623.31 C2741.06,2651.46 2819.85,2620.47 2852.15,2649.1"
+     stroke="#002eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_204"
+     d="M810.479,1885.52 C761.086,1894.99 730.8,1876.64 685.568,1893.17"
+     stroke="#0033ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_205"
+     d="M3068.32,1228.67 C3007.24,1214.75 2944.81,1232.39 2909.45,1187.29"
+     stroke="#ff0b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_206"
+     d="M3819.9,350.232 C3828.26,376.637 3835.47,409.712 3815.03,432.665"
+     stroke="#00cdff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_207"
+     d="M3729.3,445.268 Q3775.88,461.714 3815.03,432.665"
+     stroke="#fe0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_208"
+     d="M476.545,1522.2 L340.359,1376.05"
+     stroke="#9eff60"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_209"
+     d="M113.821,2426.75 C116.842,2361.53 104.302,2304.77 100.671,2241.52"
+     stroke="#d8ff26"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_210"
+     d="M2468.19,1521.32 C2579.5,1434.05 2684.15,1357.76 2804.93,1282.13"
+     stroke="#ff4400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_211"
+     d="M1826.29,1371.95 C1788.48,1370.13 1734.88,1361.71 1716.02,1381.69"
+     stroke="#008cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_212"
+     d="M1666.95,1443.78 C1686.1,1419.78 1700.66,1404.54 1716.02,1381.69"
+     stroke="#cfff2f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_213"
+     d="M268.946,1661.36 Q254.841,1887.12 271.274,2107.77"
+     stroke="#fff300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_214"
+     d="M271.274,2107.77 Q263.043,2276.01 271.582,2437.73"
+     stroke="#0002ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_215"
+     d="M2093.64,1089.14 Q2094.21,1121.73 2094.2,1146.57"
+     stroke="#ffa600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_216"
+     d="M2051.64,1055.58 Q2055.69,1076.5 2056.3,1094.03"
+     stroke="#26ffd8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_217"
+     d="M1018.1,1963.86 C999.691,1978.35 1003.21,1994.03 1019.92,2004"
+     stroke="#0000d1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_218"
+     d="M2847.89,1289.06 C2881.82,1305.77 2913.96,1285.83 2950.07,1299.87"
+     stroke="#0000e6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_219"
+     d="M1505.28,1223.9 L1564.04,2477.25"
+     stroke="#000088"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_220"
+     d="M3297.21,1164.41 C3234.8,1191.32 3198.72,1217.87 3140.12,1244.54"
+     stroke="#8aff74"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_221"
+     d="M3504.85,627.661 C3413.92,612.972 3322.97,624.734 3232.05,639.481"
+     stroke="#6bff93"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_222"
+     d="M2273.38,1071.3 C2274.55,1122.24 2272.09,1203.64 2276.51,1271.19"
+     stroke="#00b4ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_223"
+     d="M3504.85,627.661 C3570.35,649.514 3626.19,626.1 3697.36,686.75"
+     stroke="#0000de"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_224"
+     d="M2273.74,1110.1 C2393.02,1103.37 2534.33,955.914 2571.29,859.819"
+     stroke="#52ffac"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_225"
+     d="M2662.98,1380.51 C2713.47,1385.02 2760.24,1358.15 2812.41,1376.65"
+     stroke="#0000a6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_226"
+     d="M482.266,1107.46 C501.786,1101.98 511.733,1107.01 529.905,1098.98"
+     stroke="#48ffb6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_227"
+     d="M2698.72,2390.64 C2747.35,2396.01 2796.08,2389.91 2845.78,2399.4"
+     stroke="#0000d8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_228"
+     d="M2840.02,553.846 C2860.13,558.977 2893.54,591.078 2925.36,585.014"
+     stroke="#001cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_229"
+     d="M3740.76,849.322 C3695.64,879.014 3653.88,898.094 3618.12,925.094"
+     stroke="#ffba00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_230"
+     d="M3771.86,796.644 C3789.8,802.842 3800.63,787.608 3816.3,811.634"
+     stroke="#ff5700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_231"
+     d="M677.155,1710.16 Q684.863,1572.61 688.599,1447.18"
+     stroke="#c80000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_232"
+     d="M3668.96,958.389 C3674.35,995.621 3629.96,1015.73 3600.7,1019.38"
+     stroke="#19ffe5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_233"
+     d="M2148.9,1017.61 C2122.28,1066.33 2209.7,1058.57 2186.76,1016.14"
+     stroke="#0000b3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_234"
+     d="M1920.95,1671.9 C1902.65,1662.91 1882.77,1689.02 1869.24,1706.24"
+     stroke="#0000e9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_235"
+     d="M2100.88,1869.58 C2283.76,1864.98 2479.02,1863.44 2665.71,1860.03"
+     stroke="#ffbd00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_236"
+     d="M538.815,1007.32 C586.4,1115.35 635.068,1214.13 668.916,1330.61"
+     stroke="#0000f5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_237"
+     d="M546.419,1667.18 C647.697,1699.18 706.539,1715.66 790.154,1762.32"
+     stroke="#e20000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_238"
+     d="M3606.86,1315.18 C3617.58,1335.76 3612.58,1357.47 3605.46,1378.17"
+     stroke="#0000c8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_239"
+     d="M3606.86,1315.18 C3644.1,1299.29 3667.29,1280.23 3713.04,1283.6"
+     stroke="#0082ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_240"
+     d="M3713.58,407.385 C3741.78,461.16 3754.79,547.176 3739.8,615.031"
+     stroke="#00009d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_241"
+     d="M2870.86,1575.87 C2874.95,1653.52 2868.69,1700.33 2869.15,1782.05"
+     stroke="#ff2500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_242"
+     d="M1260.2,2006.92 C1246.08,2024.77 1232.86,2017.7 1218.33,2005.03"
+     stroke="#7aff84"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_243"
+     d="M2661.88,1496.17 C2666.17,1481.44 2655.35,1472.65 2671.84,1459.2"
+     stroke="#e1ff1d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_244"
+     d="M3278.29,1110.11 C3233.93,1145.98 3165.11,1169 3126.58,1204.17"
+     stroke="#43ffbb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_245"
+     d="M43.327,1390.32 C44.093,1545.08 42.9874,1704.55 43.855,1857.73"
+     stroke="#ff5900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_246"
+     d="M45.0695,799.678 C38.6537,747.587 54.8368,676.404 51.4294,624.408"
+     stroke="#e80000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_247"
+     d="M2804.93,1282.13 C2825.36,1302.95 2832.13,1275.2 2847.89,1289.06"
+     stroke="#46ffb8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_248"
+     d="M1877.93,2029.96 L2108.83,1924.68"
+     stroke="#0028ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_249"
+     d="M3713.58,407.385 C3519.22,241.09 3009.44,255.828 2920.95,505.201"
+     stroke="#b3ff4b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_250"
+     d="M1830.71,2292.14 Q1872.98,2293.16 1901.94,2308.02"
+     stroke="#5dffa1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_251"
+     d="M1901.94,2308.02 L2082.99,2308.01"
+     stroke="#00008b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_252"
+     d="M3868.93,1634.2 C3474.74,1710.78 3084.51,1840.43 2708.13,1934.6"
+     stroke="#0000b1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_253"
+     d="M3592.67,2669.59 C3599.06,2650.36 3605.43,2625.53 3622.02,2619.53"
+     stroke="#0050ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_254"
+     d="M3491.02,2670.05 C3530.72,2670.34 3558.47,2668.08 3592.67,2669.59"
+     stroke="#ff7700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_255"
+     d="M1593.19,2279.23 C1606.07,2279.53 1612.25,2262.08 1621.36,2265.49"
+     stroke="#0065ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_256"
+     d="M2080.04,2485.19 C2287.25,2487.23 2500.11,2481.59 2700.2,2489.62"
+     stroke="#ff9500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_257"
+     d="M1993.01,1258.61 C2079,1255.69 2140.97,1240.12 2215.82,1233.79"
+     stroke="#f9ff05"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_258"
+     d="M1995.51,1216.49 C2079.21,1216.88 2129.59,1190.77 2216.46,1188.78"
+     stroke="#0018ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_259"
+     d="M1438.7,1416.64 C1452.24,1373.26 1475.79,1326.59 1458.69,1274.86"
+     stroke="#00d7ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_260"
+     d="M1103.74,2374.37 C874.827,2500.39 659.729,2652 436.253,2786.14"
+     stroke="#ff1800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_261"
+     d="M2760.05,1774.26 C2755.24,1789.09 2758.43,1806.01 2759.99,1819.06"
+     stroke="#00f9ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_262"
+     d="M3504.16,2072.71 C3488.2,2071.65 3455.11,2085.45 3473.29,2111.63"
+     stroke="#ff1f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_263"
+     d="M690.149,1311.6 C679.516,1343.28 641.829,1328.8 617.712,1322"
+     stroke="#0dfff1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_264"
+     d="M46.5702,2788.95 C47.4863,2617.3 44.0906,2425.97 45.7066,2266.35"
+     stroke="#bcff42"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_265"
+     d="M2454,1484.03 C2519.58,1442.34 2580.41,1394.81 2643.1,1343.65"
+     stroke="#008fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_266"
+     d="M2468.19,1521.32 C2455.79,1519.01 2424.08,1492.39 2454,1484.03"
+     stroke="#0030ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_267"
+     d="M545.466,1842.38 Q663.122,1845.53 780.872,1842.43"
+     stroke="#d20000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_268"
+     d="M684.441,1562.32 C714.761,1588.89 705.727,1609.21 739.912,1633.2"
+     stroke="#feff00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_269"
+     d="M739.912,1633.2 C769.913,1650.73 799.476,1675.64 828.834,1636.34"
+     stroke="#ff1000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_270"
+     d="M536.367,2663.37 C735.345,2573.77 883.653,2432.69 1097.21,2370.67"
+     stroke="#0036ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_271"
+     d="M3495.77,2390.09 C3546.54,2392.67 3591.69,2387.55 3640.61,2380.05"
+     stroke="#ff0200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_272"
+     d="M3640.61,2380.05 C3728.53,2387.91 3799.78,2363.71 3898.23,2365.77"
+     stroke="#4cffb2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_273"
+     d="M2468.19,1521.32 C2517.52,1514.25 2602.79,1511.14 2661.88,1496.17"
+     stroke="#0000b6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_274"
+     d="M2702.9,1915.6 L2955.01,1836.07"
+     stroke="#d50000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_275"
+     d="M2793.16,474.868 C2834.97,485.228 2873.68,516.18 2920.95,505.201"
+     stroke="#fff200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_276"
+     d="M3215.79,2396.67 C3210.42,2485.35 3211.89,2592.56 3213.64,2691.97"
+     stroke="#ff1500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_277"
+     d="M1993.61,1067.12 C2028.63,1041.48 2089.24,1077.85 2082.6,1015.11"
+     stroke="#ff4000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_278"
+     d="M2705.23,2597.58 C2715.28,2606.24 2702.91,2612.21 2710.83,2623.31"
+     stroke="#ff5000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_279"
+     d="M141.556,2697.2 C129.799,2638.81 131.928,2578.11 138.771,2517.66"
+     stroke="#25ffd9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_280"
+     d="M45.7066,2266.35 C109.068,2237.22 144.444,2225.84 198.035,2178.72"
+     stroke="#c20000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_281"
+     d="M1313.7,2032.14 C1327.08,2088.37 1311.14,2154.04 1348.52,2202.74"
+     stroke="#ffb100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_282"
+     d="M2845.24,2034.71 C2831.92,2234.17 2851.93,2439.3 2852.15,2649.1"
+     stroke="#007cff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_283"
+     d="M926.117,2440.83 Q928.111,2460.07 929.066,2476.2"
+     stroke="#0000ec"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_284"
+     d="M3356.58,1800.55 C3360.26,1999.85 3353.87,2165.67 3355.19,2344.65"
+     stroke="#00f2ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_285"
+     d="M1213.62,2356.06 C1264.58,2326.23 1277.16,2292.88 1277.16,2234.16"
+     stroke="#0039ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_286"
+     d="M780.872,1842.43 C855.012,1939.77 897.276,2075.87 986.94,2153.93"
+     stroke="#fcff02"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_287"
+     d="M2755.25,2737.13 C2798.03,2758.61 2850.38,2750.43 2893.95,2787.39"
+     stroke="#35ffc9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_288"
+     d="M2170.46,2585.06 C2380.43,2661.17 2554.56,2667.49 2755.25,2737.13"
+     stroke="#00afff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_289"
+     d="M1564.04,2477.25 Q1615.77,2478.32 1685.15,2478.83"
+     stroke="#ff6f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_290"
+     d="M1313.7,2032.14 L1341.34,1999.78"
+     stroke="#a9ff55"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_291"
+     d="M356.408,931.336 C428.166,954.71 496.412,957.322 553.323,986.752"
+     stroke="#ff5d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_292"
+     d="M1271.18,1518.73 C1244.11,1486.92 1186.73,1534.77 1187.88,1553.71"
+     stroke="#0000af"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_293"
+     d="M2786.4,1741.47 Q2826.94,1725.22 2870.22,1712.11"
+     stroke="#0024ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_294"
+     d="M2760.05,1774.26 C2738.19,1756.87 2770.91,1733.27 2786.4,1741.47"
+     stroke="#000097"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_295"
+     d="M3747.76,916.878 C3755.57,923.365 3766.47,936.196 3776.47,933.701"
+     stroke="#ff0100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_296"
+     d="M3838.46,872.407 C3863.66,917.317 3800.54,930.847 3776.47,933.701"
+     stroke="#f70000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_297"
+     d="M2871.09,1210.19 C2866.78,1112.98 2879.63,1026.33 2858.91,936.46"
+     stroke="#ff2a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_298"
+     d="M2858.91,936.46 C2895.15,832.83 2994.03,757.968 3072.45,706.545"
+     stroke="#00f3ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_299"
+     d="M2986.13,1328.84 C3011.07,1355.13 3058.83,1326.27 3056.07,1294.82"
+     stroke="#4bffb3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_300"
+     d="M2079.17,2531.89 Q2083.64,2298.92 2086.43,2037.35"
+     stroke="#ff9a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_301"
+     d="M1564.04,2477.25 C1464.12,2445.92 1384.64,2400.74 1283.03,2370.6"
+     stroke="#00baff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_302"
+     d="M682.667,1602.47 C727.894,1644.15 759.848,1673.16 800.091,1683.9"
+     stroke="#40ffbe"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_303"
+     d="M521.113,1290.45 C556.866,1285.44 574.532,1296.44 604.386,1281.34"
+     stroke="#004aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_304"
+     d="M553.323,986.752 C610.638,1089.51 646.336,1202.24 690.149,1311.6"
+     stroke="#00e7ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_305"
+     d="M2929.19,2635.5 C2901.74,2637.53 2875.7,2641.05 2847.31,2645.45"
+     stroke="#810000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_306"
+     d="M3709.64,2756.58 C3761.27,2775.71 3842.85,2763.79 3890.98,2767.32"
+     stroke="#001eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_307"
+     d="M3890.98,2767.32 C3927.3,2321.46 3848.19,1908.74 3874.25,1459.59"
+     stroke="#00b7ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_308"
+     d="M3014.76,2352.04 C3049.04,2351.94 3072.02,2337.69 3103.63,2346.49"
+     stroke="#0000bf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_309"
+     d="M868.542,1633.32 C843.46,1627.3 819.783,1648.74 798.62,1625.85"
+     stroke="#00d8ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_310"
+     d="M868.542,1633.32 C882.239,1631.82 909.229,1641.24 898.686,1614.78"
+     stroke="#cf0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_311"
+     d="M305.182,2781.92 C371.085,2736.8 467.534,2707.28 536.367,2663.37"
+     stroke="#9bff63"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_312"
+     d="M436.253,2786.14 C394.182,2782.36 342.415,2796.38 305.182,2781.92"
+     stroke="#f40000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_313"
+     d="M2141.72,2035.34 C2079.43,2039.15 1968.05,2037.27 1879.37,2043.31"
+     stroke="#000aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_314"
+     d="M3530.44,844.4 Q3553.33,864.591 3550.85,872.906"
+     stroke="#f10000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_315"
+     d="M247.346,644.192 C247.596,678.844 251.727,698.457 246.498,734.809"
+     stroke="#ffc900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_316"
+     d="M3016.09,1310.43 C2991.47,1258.28 3050.51,1258.14 3068.32,1228.67"
+     stroke="#ff9100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_317"
+     d="M3149.16,1263.02 C3098.47,1256.26 3068.78,1298.25 3016.09,1310.43"
+     stroke="#f7ff07"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_318"
+     d="M2175.86,430.388 C2218.73,442.068 2224.78,427.202 2262.05,437.793"
+     stroke="#0000c6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_319"
+     d="M2262.05,437.793 C2269.23,634.426 2265.54,852.24 2273.38,1071.3"
+     stroke="#b40000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_320"
+     d="M790.154,1762.32 Q887.764,1931.12 983.019,2101.36"
+     stroke="#ffd500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_321"
+     d="M2708.16,2426.44 C2691.05,2427.62 2682.01,2401.95 2698.72,2390.64"
+     stroke="#0000d4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_322"
+     d="M2698.72,2390.64 C2686.67,2339.14 2706.31,2308.12 2692.18,2239.96"
+     stroke="#0007ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_323"
+     d="M2986.13,1328.84 C2980.37,1305.76 2970.44,1281.05 2985.71,1261.91"
+     stroke="#ffb200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_324"
+     d="M519.037,2417.91 C383.889,2439.55 234.39,2422.65 125.776,2471.04"
+     stroke="#ff7100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_325"
+     d="M93.5988,2717.3 C91.5702,2634.23 41.9465,2555.26 125.776,2471.04"
+     stroke="#000081"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_326"
+     d="M3373.93,899.43 Q3397.1,908.614 3388,930.193"
+     stroke="#0000db"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_327"
+     d="M1949.83,1212.89 Q1976.34,1195.08 1996.34,1183.59"
+     stroke="#000094"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_328"
+     d="M2661.88,1496.17 C2687.37,1527.97 2739.55,1453.15 2759.54,1478.43"
+     stroke="#e8ff16"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_329"
+     d="M3502.06,1073.57 C3507.75,1063.44 3505.9,1062.43 3503.15,1054.37"
+     stroke="#005aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_330"
+     d="M3565.09,959.539 C3568.52,982.694 3565.42,986.048 3578.07,1014.91"
+     stroke="#ffa300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_331"
+     d="M3871.61,1811.1 C3749.11,1852.63 3589.84,1851.39 3481.14,1890.4"
+     stroke="#a3ff5b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_332"
+     d="M3504.16,2072.71 C3484.63,2012.6 3517.25,1958.05 3481.14,1890.4"
+     stroke="#ff2d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_333"
+     d="M3419.12,1046.91 Q3418.51,1068.84 3429.38,1091.18"
+     stroke="#9a0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_334"
+     d="M220.294,1491.29 Q219.291,1633.84 218.425,1758.57"
+     stroke="#ff3f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_335"
+     d="M228.181,730.227 C262.607,745.412 330.356,721.499 363.169,744.303"
+     stroke="#ff6800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_336"
+     d="M156.423,732.183 C157.195,698.593 160.404,680.668 158.54,646.393"
+     stroke="#00edff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_337"
+     d="M2923.5,2338.97 C2924.97,2192.06 2935.28,2039.97 2932.05,1875.67"
+     stroke="#8cff72"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_338"
+     d="M3452.48,1028.62 C3485.84,1011.24 3536.99,987.496 3570.78,954.155"
+     stroke="#58ffa6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_339"
+     d="M3651.48,902.656 C3616.17,861.205 3561.15,920.788 3570.78,954.155"
+     stroke="#ff8600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_340"
+     d="M2756.66,2302.62 C2788.23,2294.56 2808.95,2294.41 2842.32,2294.89"
+     stroke="#0034ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_341"
+     d="M3082.69,68.7244 C3188.86,33.8834 3301.58,50.4669 3414.27,54.2365"
+     stroke="#001bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_342"
+     d="M3414.27,54.2365 C3481.86,60.3675 3546.34,54.6207 3615.86,74.8173"
+     stroke="#74ff8a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_343"
+     d="M3104.03,338.835 Q3057.51,260.744 3038.55,165.44"
+     stroke="#e30000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_344"
+     d="M2803.51,364.085 C2864.21,251.466 2971.22,161.44 3127.92,148.44"
+     stroke="#004bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_345"
+     d="M2840.02,553.846 C2795.04,512.475 2769.13,435.424 2803.51,364.085"
+     stroke="#ff8200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_346"
+     d="M476.545,1522.2 C489.782,1502.03 511.948,1480.12 515.724,1460.29"
+     stroke="#ff1300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_347"
+     d="M3610.92,1540.25 C3467.33,1597.57 3318.67,1635.94 3173.52,1688.89"
+     stroke="#e90000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_348"
+     d="M844.83,2456.09 Q847.326,2467.85 863.578,2475.42"
+     stroke="#0000fb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_349"
+     d="M716.831,2565.07 Q718.003,2585.5 723.385,2605.72"
+     stroke="#004dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_350"
+     d="M3365.46,736.372 C3395.02,729.407 3421.23,736.511 3448.86,739.621"
+     stroke="#0000c0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_351"
+     d="M999.682,2255.44 C1022.9,2244.41 1063.92,2236.01 1074.32,2269.96"
+     stroke="#00f8ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_352"
+     d="M939.868,2274 C953.081,2254.61 972.012,2237.82 999.682,2255.44"
+     stroke="#84ff7a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_353"
+     d="M308.555,653.721 C318.599,683.461 300.133,702.948 306.935,733.976"
+     stroke="#0086ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_354"
+     d="M308.555,653.721 C289.733,631.688 260.309,641.758 247.346,644.192"
+     stroke="#bbff43"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_355"
+     d="M1685.6,2495.28 C1676.85,2184.78 1673.01,1794.35 1666.95,1443.78"
+     stroke="#fb0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_356"
+     d="M2757.63,1658.37 C2769.33,1643.74 2753.64,1625.47 2763.9,1610.32"
+     stroke="#ae0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_357"
+     d="M2571.4,1659.96 C2632.74,1663.66 2696,1656.35 2757.63,1658.37"
+     stroke="#00ccff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_358"
+     d="M798.62,1625.85 C801.48,1615.94 796.68,1616.98 802.464,1607.34"
+     stroke="#c1ff3d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_359"
+     d="M802.464,1607.34 C836.201,1601.3 862.621,1609.98 897.488,1606.47"
+     stroke="#0076ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_360"
+     d="M2783.05,1262.27 C2795.28,1268.83 2800.53,1286.08 2804.93,1282.13"
+     stroke="#900000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_361"
+     d="M3472.89,1018.15 C3464.02,969.119 3404.83,1026.37 3419.12,1046.91"
+     stroke="#000096"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_362"
+     d="M1920.95,1671.9 C2126.92,1662.49 2367.58,1664.51 2571.4,1659.96"
+     stroke="#caff34"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_363"
+     d="M356.332,963.035 C416.139,984.611 484.809,989.481 538.815,1007.32"
+     stroke="#54ffaa"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_364"
+     d="M356.408,931.336 C368.714,871.279 365.422,816.094 369.999,755.449"
+     stroke="#00a0ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_365"
+     d="M2840.09,1364.55 C2836.54,1336.07 2871.66,1310.34 2892.15,1333.49"
+     stroke="#0000dd"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_366"
+     d="M3685.7,306.873 C3711.02,275.776 3744.88,264.351 3765.37,239.79"
+     stroke="#edff11"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_367"
+     d="M3621.17,350.832 C3645.78,337.142 3664.05,327.857 3685.7,306.873"
+     stroke="#00a3ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_368"
+     d="M515.724,1460.29 C528.288,1373.21 520.262,1284.16 517.853,1220.67"
+     stroke="#002aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_369"
+     d="M538.815,1007.32 C547.661,1001.08 543.378,999.392 553.323,986.752"
+     stroke="#ff4500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_370"
+     d="M516.576,1000.83 C577.836,1150.96 637.482,1300.11 688.599,1447.18"
+     stroke="#39ffc5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_371"
+     d="M1421.84,1452.98 C1431.63,1472.11 1429.01,1485.42 1430.74,1501.93"
+     stroke="#14ffea"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_372"
+     d="M262.901,2492.62 Q273.336,2574.41 272.451,2662.41"
+     stroke="#ffe900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_373"
+     d="M138.771,2517.66 C165.422,2488.02 218.131,2495 262.901,2492.62"
+     stroke="#0000c5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_374"
+     d="M3180.45,1168.06 L3068.02,1136"
+     stroke="#ff4a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_375"
+     d="M2840.09,1364.55 C2843.64,1381.11 2847.45,1399.16 2868.62,1412.25"
+     stroke="#ffc300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_376"
+     d="M2771.98,1401.38 C2792.9,1392.93 2813.57,1370.63 2840.09,1364.55"
+     stroke="#eaff14"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_377"
+     d="M1996.4,1159.09 C2073.88,1155.36 2127.83,1133.57 2217.43,1136.58"
+     stroke="#fff900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_378"
+     d="M2882.11,258.698 C2892.24,265.406 2895.46,259.987 2900.54,272.126"
+     stroke="#ffca00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_379"
+     d="M2900.54,272.126 C2917.12,313.679 2962.61,355.411 3010.3,389.322"
+     stroke="#006fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_380"
+     d="M2702.9,1915.6 C2711.55,1931.9 2706.74,1965.32 2723.33,1973.42"
+     stroke="#0019ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_381"
+     d="M2505.36,1610.57 C2528.03,1605.02 2546.75,1617.9 2564.89,1603.1"
+     stroke="#9c0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_382"
+     d="M1563.09,1196.6 C1577.87,1616.97 1584.72,2064.55 1599.89,2477.89"
+     stroke="#c00000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_383"
+     d="M129.627,1012.96 C130.542,960.571 109.848,907.044 123.066,852.223"
+     stroke="#51ffad"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_384"
+     d="M45.1608,735.04 C117.266,736.007 159.448,730.359 228.181,730.227"
+     stroke="#b90000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_385"
+     d="M51.6134,654.074 Q152.327,644.396 247.346,644.192"
+     stroke="#0004ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_386"
+     d="M2955.01,1836.07 C3239.04,1736.45 3578.03,1671.93 3869.51,1585.01"
+     stroke="#ff7400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_387"
+     d="M1331.55,1729.07 C1242.35,1724.3 1137.03,1719.31 1079.05,1680.19"
+     stroke="#6cff92"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_388"
+     d="M2705.23,2597.58 C2683,2591.95 2693.56,2564.96 2698.6,2553.62"
+     stroke="#87ff77"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_389"
+     d="M519.037,2417.91 C545.641,2432.98 534.851,2472.53 544.759,2500.14"
+     stroke="#ff4800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_390"
+     d="M158.921,1855.76 C166.517,1812.23 156.173,1768.46 156.015,1729.87"
+     stroke="#a1ff5d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_391"
+     d="M156.015,1729.87 C179.801,1731.46 192.083,1769.79 218.425,1758.57"
+     stroke="#3dffc1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_392"
+     d="M1374.77,1242.92 C1388.79,1325.74 1366.88,1439.11 1387.83,1539.04"
+     stroke="#ff7d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_393"
+     d="M2771.98,1401.38 C2732.43,1393.68 2726.67,1443.25 2750.65,1473.24"
+     stroke="#00b8ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_394"
+     d="M2665.71,1860.03 C2813.45,1785.65 2998.77,1750.97 3173.52,1688.89"
+     stroke="#61ff9d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_395"
+     d="M696.949,1950.9 C745.451,2007.08 800.446,2052.43 841.852,2108.3"
+     stroke="#0000b4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_396"
+     d="M3145.51,1043.46 C3182.81,1071.53 3222.63,1083.5 3278.29,1110.11"
+     stroke="#ff9e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_397"
+     d="M1087.66,2359.48 C1094.55,2356.69 1093.71,2372.34 1093.47,2371.77"
+     stroke="#ff2100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_398"
+     d="M890.047,2361.34 Q987.961,2355.39 1087.66,2359.48"
+     stroke="#0015ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_399"
+     d="M51.4294,624.408 C75.6564,623.71 83.2475,628.517 103.511,625.557"
+     stroke="#0000f8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_400"
+     d="M780.872,1842.43 C787.18,1816.39 770.333,1783.93 790.154,1762.32"
+     stroke="#0000eb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_401"
+     d="M1154.56,1942.83 C1172.84,1926.52 1150.83,1896.48 1126.78,1909.34"
+     stroke="#ff2b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_402"
+     d="M1053.17,2022.5 C1036.81,2045.5 992.94,2035.9 1019.92,2004"
+     stroke="#0022ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_403"
+     d="M1588.73,1237.03 C1581.88,1021 1575.48,818.047 1570.28,595.577"
+     stroke="#8a0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_404"
+     d="M3429.38,1091.18 Q3466.8,1104.7 3502.06,1073.57"
+     stroke="#00b5ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_405"
+     d="M2729.39,2306.01 C2729.11,2321.28 2750.93,2320.75 2756.66,2302.62"
+     stroke="#ff8500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_406"
+     d="M2697.28,2304.01 C2715.16,2304.16 2718.81,2294.84 2729.39,2306.01"
+     stroke="#ff7a00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_407"
+     d="M3463.27,546.423 C3528.27,539.291 3592.77,545.497 3658,579.121"
+     stroke="#00c1ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_408"
+     d="M3075.33,623.68 C3204.63,552.622 3333.99,542.919 3463.27,546.423"
+     stroke="#ff8900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_409"
+     d="M1211.42,2010 C1229.21,2113.2 1230.85,2228.55 1275.05,2307.01"
+     stroke="#000eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_410"
+     d="M1695.58,1231.44 Q1685.47,841.721 1680.59,447.338"
+     stroke="#f80000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_411"
+     d="M1612.75,450.207 Q1650.02,453.856 1680.59,447.338"
+     stroke="#910000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_412"
+     d="M521.41,1297.75 Q573.153,1313.75 617.712,1322"
+     stroke="#a30000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_413"
+     d="M487.454,994.086 C531.488,1114.54 581.288,1203.08 617.712,1322"
+     stroke="#0063ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_414"
+     d="M3380.93,767.447 Q3419.81,763.83 3454.37,776.964"
+     stroke="#00caff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_415"
+     d="M3365.46,736.372 C3353.85,743.8 3375.87,761.032 3380.93,767.447"
+     stroke="#ff4200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_416"
+     d="M3495.77,2390.09 C3475.95,2356.95 3491.39,2292.09 3493.12,2249.68"
+     stroke="#ab0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_417"
+     d="M841.852,2108.3 C841.59,2225.38 825.553,2340.44 844.83,2456.09"
+     stroke="#ffbe00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_418"
+     d="M791.439,2443.22 C806.235,2450.87 827.925,2454.7 844.83,2456.09"
+     stroke="#57ffa7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_419"
+     d="M1330.25,1333.61 C1348.37,1303.67 1346.13,1273.34 1374.77,1242.92"
+     stroke="#0031ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_420"
+     d="M1349.04,1642.3 C1327.32,1538.89 1339.02,1440.28 1330.25,1333.61"
+     stroke="#fffe00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_421"
+     d="M2929.19,2635.5 Q2935.34,2485.52 2923.5,2338.97"
+     stroke="#fff000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_422"
+     d="M1442.89,1562.7 C1442.81,1524.3 1449.79,1523.83 1430.74,1501.93"
+     stroke="#b0ff4e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_423"
+     d="M149.405,897.088 C220.23,955.301 200.237,1015.91 265.976,1066.47"
+     stroke="#00c3ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_424"
+     d="M149.405,897.088 C144.378,881.907 134.677,855.957 122.374,849.769"
+     stroke="#00a6ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_425"
+     d="M1106.93,2310.67 C1129.65,2292.59 1093.49,2256.11 1074.32,2269.96"
+     stroke="#08fff6"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_426"
+     d="M2571.37,1634.94 C2571.69,1645.84 2571.47,1653.12 2571.4,1659.96"
+     stroke="#3fffbf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_427"
+     d="M1735.72,2601.35 C1610.94,2531.58 1486.24,2518.84 1375.82,2443.2"
+     stroke="#009dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_428"
+     d="M3126.58,1204.17 Q3120.95,1231.02 3140.12,1244.54"
+     stroke="#ff6600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_429"
+     d="M1905.13,2529.61 C1855.5,2523.26 1815.73,2504.13 1753.16,2509.62"
+     stroke="#11ffed"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_430"
+     d="M2771.98,1401.38 C2740.92,1425.62 2781.24,1455.47 2806.85,1450.97"
+     stroke="#ffdd00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_431"
+     d="M2700.07,2142.53 C2664.58,2160.76 2716.48,2219.58 2692.18,2239.96"
+     stroke="#00abff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_432"
+     d="M2185.88,1042.25 C2214.87,1050.68 2221.41,1045.28 2215.95,1010.31"
+     stroke="#ffea00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_433"
+     d="M792.786,2109.68 C758.918,2078.93 729.412,2046.34 684.517,2031.11"
+     stroke="#6fff8f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_434"
+     d="M792.786,2109.68 C797.898,2223.42 782.379,2332.55 791.439,2443.22"
+     stroke="#006eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_435"
+     d="M889.268,2112.02 C913.649,2109.75 922.16,2114.31 944.505,2109.03"
+     stroke="#d6ff28"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_436"
+     d="M889.268,2112.02 C893.439,2206.85 883.042,2325.56 894.756,2422.95"
+     stroke="#00cfff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_437"
+     d="M2763.9,1610.32 C2799.32,1603.21 2841.41,1570.39 2870.86,1575.87"
+     stroke="#930000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_438"
+     d="M2759.54,1478.43 C2737.19,1513.71 2768.47,1570.14 2763.9,1610.32"
+     stroke="#00eaff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_439"
+     d="M1752.62,1299.91 C1775.04,1282.44 1764.39,1258.48 1782,1230.04"
+     stroke="#0000e3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_440"
+     d="M408.393,1312.57 Q397.007,1157.28 421.791,996.049"
+     stroke="#0091ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_441"
+     d="M515.724,1460.29 C483.201,1407.37 444.51,1361.56 408.393,1312.57"
+     stroke="#c50000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_442"
+     d="M2708.16,2426.44 C2710.98,2439.97 2702.25,2444.54 2717.48,2454.04"
+     stroke="#2fffcf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_443"
+     d="M2717.48,2454.04 C2719.28,2463.46 2719.15,2470.65 2717.03,2480.51"
+     stroke="#bc0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_444"
+     d="M2504.4,1404.66 Q2532.34,1397.11 2560.6,1409.09"
+     stroke="#00009f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_445"
+     d="M2502.4,1451.7 Q2497.54,1425.13 2504.4,1404.66"
+     stroke="#ff4e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_446"
+     d="M2868.62,1412.25 C2882.42,1414.36 2918.76,1401.55 2906.32,1381.55"
+     stroke="#ffd800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_447"
+     d="M2906.32,1381.55 C2932.12,1356.94 2959.45,1344.11 2986.13,1328.84"
+     stroke="#80ff7e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_448"
+     d="M1851.56,1335.57 C1837.59,1284.71 1846.54,1243.42 1838.59,1181.98"
+     stroke="#002dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_449"
+     d="M3491.13,311.226 C3527.56,251.807 3549.8,204.558 3580.71,151.696"
+     stroke="#00d0ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_450"
+     d="M2699.02,2024.15 C2699.05,2040.68 2705.95,2040.09 2701.78,2059.56"
+     stroke="#c7ff37"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_451"
+     d="M2141.72,2035.34 C2331.98,2031.79 2513.65,2026.72 2699.02,2024.15"
+     stroke="#68ff96"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_452"
+     d="M2643.1,1343.65 C2658.88,1366.59 2645.92,1367.38 2662.98,1380.51"
+     stroke="#ff6500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_453"
+     d="M341.991,1374.06 C348.937,1223.3 360.579,1076.38 356.408,931.336"
+     stroke="#9d0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_454"
+     d="M2929.19,2635.5 C3112.25,2686.29 3344.07,2703.97 3527.74,2747.82"
+     stroke="#0000bd"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_455"
+     d="M43.855,1857.73 Q42.9933,2058.08 45.7066,2266.35"
+     stroke="#8dff71"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_456"
+     d="M45.3718,2422.69 Q81.7398,2424.88 113.821,2426.75"
+     stroke="#ff8e00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_457"
+     d="M914.627,1569.31 Q924.918,1567.19 931.457,1579.25"
+     stroke="#00daff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_458"
+     d="M914.627,1569.31 C885.301,1563.88 899.379,1611.62 898.686,1614.78"
+     stroke="#ff1900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_459"
+     d="M3903.91,837.412 C3860.83,861.878 3835.18,872.345 3796.33,896.442"
+     stroke="#ff8b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_460"
+     d="M3778.04,834.567 C3776.51,860.252 3772.01,876.397 3796.33,896.442"
+     stroke="#0016ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_461"
+     d="M2739.14,1417.72 C2712.17,1433.71 2697.94,1445.8 2671.84,1459.2"
+     stroke="#007dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_462"
+     d="M1106.4,1637.86 C1094.29,1653.13 1062.79,1668.91 1079.05,1680.19"
+     stroke="#32ffcc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_463"
+     d="M3495.77,2390.09 C3496.53,2425.42 3498.96,2462.96 3503.56,2497.34"
+     stroke="#d5ff29"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_464"
+     d="M671.148,2516.03 C685.019,2504.27 675.164,2490.69 682.89,2482.12"
+     stroke="#eb0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_465"
+     d="M682.89,2482.12 C665.77,2310.59 685,2135.76 685.793,1955.31"
+     stroke="#b2ff4c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_466"
+     d="M3713.04,1283.6 C3772.61,1262.96 3827.2,1250.06 3896.76,1237.86"
+     stroke="#ffc100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_467"
+     d="M3419.12,1046.91 C3377.37,1068.38 3339.9,1083.38 3301.31,1106.52"
+     stroke="#8b0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_468"
+     d="M3320.58,1147.24 C3303.26,1141.92 3307.5,1127.07 3301.31,1106.52"
+     stroke="#0000e8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_469"
+     d="M3163.86,1177.53 C3140.63,1143.18 3093.62,1190.56 3105.01,1210.65"
+     stroke="#e7ff17"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_470"
+     d="M46.7256,2736.1 C66.917,2733.36 76.194,2720.08 93.5988,2717.3"
+     stroke="#00ecff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_471"
+     d="M1187.88,1553.71 C1139.86,1550.24 1078.75,1626.04 1119.99,1678.79"
+     stroke="#00a5ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_472"
+     d="M1181.76,1609.06 C1177.23,1590.4 1177.92,1572.74 1187.88,1553.71"
+     stroke="#1dffe1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_473"
+     d="M3747.76,916.878 C3735.93,865.08 3732.2,833.339 3771.86,796.644"
+     stroke="#ff9d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_474"
+     d="M3643.35,777.919 C3681.78,788.641 3739.18,782.174 3771.86,796.644"
+     stroke="#0000ab"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_475"
+     d="M2471.53,939.307 Q2426.49,986.796 2381,1023.02"
+     stroke="#ff4d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_476"
+     d="M2329.01,2070.28 C2455.38,2080.18 2575.64,2071.64 2687.84,2059.4"
+     stroke="#ff7200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_477"
+     d="M2700.07,2142.53 C2688.21,2112.96 2699.29,2092.32 2687.84,2059.4"
+     stroke="#f1ff0d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_478"
+     d="M2687.84,2059.4 C2737.76,2062.27 2782.99,2038.99 2845.24,2034.71"
+     stroke="#ffa800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_479"
+     d="M3454.37,776.964 C3460.1,763.919 3464.32,742.991 3448.86,739.621"
+     stroke="#c90000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_480"
+     d="M3379.79,852.871 C3374.86,822.481 3391.29,797.297 3380.93,767.447"
+     stroke="#00b2ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_481"
+     d="M648.433,1843.94 C676.751,1897.47 747.476,1933.93 685.793,1955.31"
+     stroke="#0000a3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_482"
+     d="M141.556,2697.2 C138.347,2769 123.625,2796.77 46.5702,2788.95"
+     stroke="#03fffb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_483"
+     d="M3103.63,2346.49 C3105.16,2177.21 3105.33,2048.42 3106.82,1883.02"
+     stroke="#ffc700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_484"
+     d="M2999.94,2653.11 C2999.2,2554.97 3016.87,2446.22 3014.76,2352.04"
+     stroke="#ff3100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_485"
+     d="M3679.37,2210.89 C3747.23,2221.44 3832.85,2216.72 3890.64,2191.55"
+     stroke="#00008d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_486"
+     d="M3679.37,2210.89 C3615.65,2249.33 3558.38,2227.16 3493.12,2249.68"
+     stroke="#000bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_487"
+     d="M2267.11,706.367 C2387.32,732.076 2498.35,723.145 2610.35,709.846"
+     stroke="#8e0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_488"
+     d="M2266.62,657.069 C2416.44,728.747 2569.25,680.374 2721.95,622.465"
+     stroke="#ff1c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_489"
+     d="M2108.39,1869.4 Q2110.16,1900.48 2108.83,1924.68"
+     stroke="#b5ff49"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_490"
+     d="M2665.71,1860.03 Q2669.4,1895.36 2664.61,1916.19"
+     stroke="#78ff86"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_491"
+     d="M3429.38,1091.18 Q3384.94,1127.23 3320.58,1147.24"
+     stroke="#ff9200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_492"
+     d="M1694.39,1184.99 L1838.59,1181.98"
+     stroke="#02fffc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_493"
+     d="M1838.59,1181.98 C1864.95,1150.13 1904.25,1088.67 1936.1,1074.62"
+     stroke="#ffef00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_494"
+     d="M1874.53,1985.17 Q1993.43,1926.75 2100.88,1869.58"
+     stroke="#6eff90"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_495"
+     d="M1920.95,1671.9 Q2016.27,1772.55 2100.88,1869.58"
+     stroke="#0001ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_496"
+     d="M1464.39,2440.32 C1464.1,2367.14 1463.39,2317.03 1464.23,2252.66"
+     stroke="#00e9ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_497"
+     d="M3500.58,1003.53 C3461.78,980.157 3426.94,943.132 3388,930.193"
+     stroke="#ff8c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_498"
+     d="M2906.32,1381.55 C2883.04,1404.92 2853.72,1377.55 2865.62,1352.66"
+     stroke="#f4ff0a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_499"
+     d="M2865.62,1352.66 C2901.33,1325.09 2935.41,1307.42 2977.61,1285.41"
+     stroke="#ac0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_500"
+     d="M2759.79,1668.81 C2799.32,1661.59 2836.71,1630.95 2872.25,1629.35"
+     stroke="#95ff69"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_501"
+     d="M952.089,2162.62 C956.766,2198.68 951.905,2217.02 959.005,2253.79"
+     stroke="#ff5400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_502"
+     d="M890.296,2158.05 C916.4,2160.77 932.741,2157.66 952.089,2162.62"
+     stroke="#90ff6e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_503"
+     d="M299.469,1646.95 C257.781,1542.3 283.068,1414.82 276.496,1294.81"
+     stroke="#fd0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_504"
+     d="M219.037,1670.71 C248.789,1659.85 285.364,1666.27 299.469,1646.95"
+     stroke="#ff2800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_505"
+     d="M3105.01,1210.65 C3103.65,1230.38 3107.79,1241.03 3118.45,1264.76"
+     stroke="#fff800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_506"
+     d="M3600.7,1019.38 Q3618.77,1154.21 3606.86,1315.18"
+     stroke="#a0ff5e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_507"
+     d="M3459.07,1067.08 C3516.08,1068.07 3553.32,996.23 3600.7,1019.38"
+     stroke="#ffe000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_508"
+     d="M2029.04,1215.22 C2028.45,1222.9 2040.66,1239.9 2035.41,1256.1"
+     stroke="#003aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_509"
+     d="M1054.75,1728.66 C1017.18,1758.92 1016.1,1790.02 1047.51,1820.93"
+     stroke="#00f6ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_510"
+     d="M1070.68,1890.35 C1037.66,1887.88 1018.53,1844.03 1047.51,1820.93"
+     stroke="#beff40"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_511"
+     d="M3036.74,1254.19 C3021.29,1225.79 2993.57,1244.66 2985.71,1261.91"
+     stroke="#970000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_512"
+     d="M1458.69,1274.86 Q1471.61,1250.26 1505.28,1223.9"
+     stroke="#4fffaf"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_513"
+     d="M1505.28,1223.9 C1502.49,1196.78 1522.39,1221.04 1563.09,1196.6"
+     stroke="#69ff95"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_514"
+     d="M856.577,2074.19 Q885.196,2060.2 910.009,2059.9"
+     stroke="#ff4b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_515"
+     d="M799.667,2014.37 Q836.333,2009.73 875.18,2000.16"
+     stroke="#ff4700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_516"
+     d="M1905.13,2529.61 C1949.34,2541.73 2017.31,2531.16 2079.17,2531.89"
+     stroke="#ffde00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_517"
+     d="M1905.13,2529.61 C1911.15,2447.88 1902.69,2377.39 1907.6,2308.02"
+     stroke="#00a1ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_518"
+     d="M1627.92,2351.6 Q1654.59,2348.87 1681.9,2347.26"
+     stroke="#0000cb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_519"
+     d="M1621.36,2265.49 Q1622.87,2306.62 1627.92,2351.6"
+     stroke="#00d5ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_520"
+     d="M1830.35,2198.09 C1913.65,2219.32 1994.68,2208.86 2084.38,2208.88"
+     stroke="#0000ef"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_521"
+     d="M2757.63,1658.37 C2768.72,1671.89 2743.19,1680.41 2748.08,1693.55"
+     stroke="#007fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_522"
+     d="M2759.22,1748.27 C2753.7,1727.6 2754.66,1711.82 2748.08,1693.55"
+     stroke="#a7ff57"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_523"
+     d="M931.504,1624 C979.297,1618.81 1029.88,1638.62 1042.36,1601.54"
+     stroke="#0000a2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_524"
+     d="M2076.42,1046.1 C2112.48,1043.72 2124.4,1071.8 2148.05,1045.35"
+     stroke="#b6ff48"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_525"
+     d="M2166.45,1051.06 C2177.3,1085.03 2165.62,1097.89 2172.24,1137.11"
+     stroke="#4effb0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_526"
+     d="M1644.49,2248.61 C1629.57,2244.27 1612.07,2249.33 1621.36,2265.49"
+     stroke="#0044ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_527"
+     d="M415.758,979.602 C436.066,1024.44 453.574,1067.35 482.266,1107.46"
+     stroke="#ffab00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_528"
+     d="M3459.07,1067.08 C3445,1059.32 3434.49,1044.38 3452.48,1028.62"
+     stroke="#ffed00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_529"
+     d="M3776.27,633.163 C3813.75,665.808 3813.96,647.939 3838.18,666.531"
+     stroke="#ffb500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_530"
+     d="M3713.58,407.385 C3752.12,389.857 3782.21,376.057 3819.9,350.232"
+     stroke="#8fff6f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_531"
+     d="M3793.48,272.647 C3789.04,158.799 3676.59,108.956 3615.86,74.8173"
+     stroke="#92ff6c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_532"
+     d="M3010.95,1909.92 C3008.67,2059.23 3005.41,2218.59 3014.76,2352.04"
+     stroke="#ffb800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_533"
+     d="M3010.95,1909.92 Q3190.66,1861.77 3356.58,1800.55"
+     stroke="#2bffd3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_534"
+     d="M3072.45,706.545 C3125.81,671.388 3178.81,651.44 3232.05,639.481"
+     stroke="#b10000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_535"
+     d="M1260.2,2006.92 C1277.6,2029.86 1296.65,2031.54 1313.7,2032.14"
+     stroke="#0047ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_536"
+     d="M340.359,1376.05 Q366.214,1344.24 408.393,1312.57"
+     stroke="#003dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_537"
+     d="M2273.38,1071.3 Q2330.83,1066.2 2381,1023.02"
+     stroke="#008eff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_538"
+     d="M525.249,2647.27 C563.263,2589.84 521.054,2546.59 554.322,2489.98"
+     stroke="#0097ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_539"
+     d="M3492.83,2384.38 C3339.78,2402.09 3177.92,2401.14 3014.79,2383.44"
+     stroke="#ff0d00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_540"
+     d="M3103.63,2346.49 C3226.76,2358.87 3358.82,2344.67 3485.9,2332.92"
+     stroke="#ffe400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_541"
+     d="M3009.99,2251.04 C3178.41,2234.34 3313.51,2219.95 3471.86,2205.17"
+     stroke="#fffc00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_542"
+     d="M952.089,2162.62 C992.424,2172.21 1010.85,2125.94 983.019,2101.36"
+     stroke="#0efff0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_543"
+     d="M3527.74,2747.82 C3585.46,2747.74 3648.48,2762.81 3709.64,2756.58"
+     stroke="#0000f1"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_544"
+     d="M2183.71,2650.77 C2318.78,2670.4 2448.79,2725.2 2585.25,2734.45"
+     stroke="#0000b7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_545"
+     d="M2585.25,2734.45 C2864.02,2828.6 3195.92,2773.72 3506.87,2776.64"
+     stroke="#0000fa"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_546"
+     d="M800.091,1683.9 C822.813,1688.74 856.559,1656.79 868.542,1633.32"
+     stroke="#00d3ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_547"
+     d="M2721.95,622.465 Q2786.74,602.665 2840.02,553.846"
+     stroke="#00bdff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_548"
+     d="M3762.78,2501.34 C3809.02,2509.17 3853.4,2507.21 3900.67,2499.14"
+     stroke="#00efff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_549"
+     d="M3617.12,2502.93 C3665.03,2506.46 3714.43,2493.62 3762.78,2501.34"
+     stroke="#9aff64"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_550"
+     d="M2505.36,1610.57 C2515.59,1617.08 2472.2,1638.77 2501.36,1634.45"
+     stroke="#3cffc2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_551"
+     d="M2501.36,1634.45 C2522.98,1634.86 2548.33,1633.88 2571.37,1634.94"
+     stroke="#ff8800"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_552"
+     d="M3905.13,1054.26 C3897.2,949.971 3901.32,807.981 3915.54,721.984"
+     stroke="#0088ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_553"
+     d="M3838.18,666.531 C3865.61,694.494 3896.22,680.782 3915.54,721.984"
+     stroke="#0077ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_554"
+     d="M3462.55,482.007 C3454.8,454.638 3474.2,409.602 3454.38,387.702"
+     stroke="#00f0ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_555"
+     d="M3378.01,415.523 C3403.66,411.409 3417.63,413.803 3437.55,418.732"
+     stroke="#a4ff5a"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_556"
+     d="M3375.35,461.378 C3406.01,469.755 3411.88,463.283 3444.73,466.346"
+     stroke="#db0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_557"
+     d="M3355.31,398.756 C3404.72,406.851 3367.76,484.249 3362.8,488.873"
+     stroke="#ffcf00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_558"
+     d="M3358.5,488.468 C3388.19,491.352 3437.44,494.504 3462.55,482.007"
+     stroke="#ebff13"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_559"
+     d="M3437.55,418.732 C3446.28,413.95 3451.02,405.664 3461.05,399.506"
+     stroke="#ffdb00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_560"
+     d="M3437.55,418.732 C3444.88,442.038 3432.93,473.097 3461.4,476.678"
+     stroke="#0000f7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_561"
+     d="M3355.31,398.756 C3374.19,376.781 3422.61,395.344 3454.38,387.702"
+     stroke="#00c0ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_562"
+     d="M3358.5,488.468 C3351.19,457.163 3359.42,431.27 3355.31,398.756"
+     stroke="#49ffb5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_563"
+     d="M3122.05,436.39 C3167.79,447.336 3150.56,497.713 3167.38,541.74"
+     stroke="#ff2200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_564"
+     d="M3122.05,436.39 Q3152.98,414.47 3195.63,412.802"
+     stroke="#ffa100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_565"
+     d="M3204.97,529.7 C3183.07,539.083 3158.09,547.36 3142.91,539.116"
+     stroke="#ffd200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_566"
+     d="M3195.63,412.802 Q3200.5,468.206 3204.97,529.7"
+     stroke="#0089ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_567"
+     d="M3150.84,459.797 C3173.41,449.637 3180.14,453.987 3198.78,449.816"
+     stroke="#009bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_568"
+     d="M3142.91,539.116 C3135,500.951 3127.19,466.484 3122.05,436.39"
+     stroke="#b60000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_569"
+     d="M3641.93,514.307 Q3651.67,493.372 3651.67,466.094"
+     stroke="#0000b9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_570"
+     d="M3597.85,496.971 Q3640.21,512.912 3673.11,527.721"
+     stroke="#0000cc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_571"
+     d="M3687.05,450.955 C3661.71,433.584 3641.33,420.441 3612.88,418.738"
+     stroke="#0079ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_572"
+     d="M3597.85,496.971 C3611.02,472.434 3606.51,449.671 3612.88,418.738"
+     stroke="#ff6b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_573"
+     d="M3673.11,527.721 C3679.5,495.564 3684.54,481.516 3687.05,450.955"
+     stroke="#000090"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_574"
+     d="M3608.48,454.272 C3642.26,466.699 3660.65,474.376 3687.05,450.955"
+     stroke="#05fff9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_575"
+     d="M2968.36,531.716 C3003.56,536.219 2995.62,582.917 3001.46,613.746"
+     stroke="#0000a8"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_576"
+     d="M2987.52,541.862 C3026.64,540.041 3015.82,513.235 3005.94,490.417"
+     stroke="#0042ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_577"
+     d="M3012.71,531.563 Q3030.47,573.327 3023.43,607.879"
+     stroke="#fa0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_578"
+     d="M3023.43,607.879 Q2998.29,615.303 2980.45,617.753"
+     stroke="#5effa0"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_579"
+     d="M3005.94,490.417 C2949.08,509.423 2968.84,563.949 2980.45,617.753"
+     stroke="#0000c3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_580"
+     d="M3152.33,854.406 C3174.02,846.919 3189.38,844.939 3212.57,834.941"
+     stroke="#00e3ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_581"
+     d="M3103.02,828.546 C3131.31,801.425 3158.58,778.518 3202.83,777.145"
+     stroke="#ff0700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_582"
+     d="M3152.33,854.406 C3158.11,884.141 3153.18,908.601 3165.8,938.942"
+     stroke="#00e1ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_583"
+     d="M3103.02,828.546 C3123,830.763 3136.76,840.144 3152.33,854.406"
+     stroke="#0000c9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_584"
+     d="M3103.02,828.546 C3111.44,871.352 3112.17,913.613 3126.2,954.823"
+     stroke="#bf0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_585"
+     d="M3126.2,954.823 Q3172.48,937.3 3221.83,913.62"
+     stroke="#acff52"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_586"
+     d="M3202.83,777.145 Q3215.24,841.498 3221.83,913.62"
+     stroke="#ff3300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_587"
+     d="M3020.44,1017.1 L2949.99,1069.5"
+     stroke="#e50000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_588"
+     d="M3020.44,1017.1 L3006.76,867.091"
+     stroke="#0074ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_589"
+     d="M3006.76,867.091 C2970.17,875.082 2910.78,941.695 2971.52,951.541"
+     stroke="#0000c2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_590"
+     d="M2946.26,935.316 Q2936.03,1001.46 2949.99,1069.5"
+     stroke="#00aeff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_591"
+     d="M2971.52,951.541 C2967.13,987.795 2974.64,1012.93 2976.41,1049.85"
+     stroke="#ef0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_592"
+     d="M2971.52,951.541 C2980.51,941.315 2998.29,927.174 3011.89,923.345"
+     stroke="#ffaf00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_593"
+     d="M1527.75,1056.99 C1528.93,1027.23 1515.04,997.484 1519.78,967.016"
+     stroke="#0008ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_594"
+     d="M487.491,1216.03 C498.897,1157.99 464.232,1137.03 436.538,1087.51"
+     stroke="#f50000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_595"
+     d="M436.538,1087.51 Q402.703,1166.82 487.491,1216.03"
+     stroke="#37ffc7"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_596"
+     d="M1457.75,1187.39 Q1467.39,1134.37 1513.96,1108.64"
+     stroke="#7bff83"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_597"
+     d="M217.598,1134.75 C186.792,1227.09 212.68,1305.14 213.344,1384.95"
+     stroke="#dbff23"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_598"
+     d="M3304.69,1342.01 L3315.07,1547.84"
+     stroke="#de0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_599"
+     d="M3420.98,1287.7 L3423.37,1502.84"
+     stroke="#d10000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_600"
+     d="M3502.55,1465.51 C3508.95,1371.95 3515.01,1273.45 3510.17,1173.58"
+     stroke="#0afff4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_601"
+     d="M3214.02,1582.46 C3312.45,1552.77 3413.82,1509.32 3502.55,1465.51"
+     stroke="#72ff8c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_602"
+     d="M3207.39,1389.74 C3217.18,1459.35 3210.02,1512.53 3214.02,1582.46"
+     stroke="#0000ac"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_603"
+     d="M3102.07,1613.72 C3109.69,1549.26 3109,1501 3107.81,1438.45"
+     stroke="#ff6900"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_604"
+     d="M3029.47,1417.3 C3060.72,1433.39 3081.04,1442.69 3107.81,1438.45"
+     stroke="#d2ff2c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_605"
+     d="M3511.92,1249.33 C3364.95,1307.86 3242.02,1374.42 3107.81,1438.45"
+     stroke="#c2ff3c"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_606"
+     d="M3032.82,1640.59 Q3018.03,1522.54 3029.47,1417.3"
+     stroke="#ff2700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_607"
+     d="M3214.02,1582.46 Q3117.28,1603.8 3032.82,1640.59"
+     stroke="#20ffde"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_608"
+     d="M3510.17,1173.58 C3350.48,1250.35 3190.8,1321.94 3029.47,1417.3"
+     stroke="#ffac00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_609"
+     d="M2400.12,1414.47 C2411.43,1481.24 2405.73,1542.81 2401.69,1608.23"
+     stroke="#0000a9"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_610"
+     d="M2343.86,1611.35 C2367.84,1617.28 2376.52,1605.04 2401.69,1608.23"
+     stroke="#00a8ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_611"
+     d="M2337.84,1420.67 C2344.67,1485.07 2337.3,1546.66 2343.86,1611.35"
+     stroke="#ff6c00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_612"
+     d="M2337.84,1420.67 C2359.11,1417.88 2378.1,1405.23 2400.12,1414.47"
+     stroke="#ff6000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_613"
+     d="M1995.39,1420.21 C2003.5,1485.22 1992.38,1545.22 1996.41,1609.88"
+     stroke="#fbff03"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_614"
+     d="M2052.61,1607.39 C2030.24,1600.78 2019.21,1613.96 1996.41,1609.88"
+     stroke="#ff5100"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_615"
+     d="M1995.39,1420.21 C2016.75,1422.15 2041.01,1397.82 2062.32,1418.83"
+     stroke="#00a9ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_616"
+     d="M2062.32,1418.83 C2063.35,1483.63 2054.14,1543.45 2052.61,1607.39"
+     stroke="#0000bc"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_617"
+     d="M2159.84,1420.68 Q2185.77,1408.97 2221.71,1416.57"
+     stroke="#009aff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_618"
+     d="M2159.84,1420.68 Q2164.21,1514.15 2167.19,1607.9"
+     stroke="#00bbff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_619"
+     d="M2167.19,1607.9 Q2194.66,1609.93 2217.23,1607.26"
+     stroke="#0025ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_620"
+     d="M2221.71,1416.57 Q2230.01,1514.11 2217.23,1607.26"
+     stroke="#ff9b00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_621"
+     d="M1476.07,1715.6 C1486.76,1828.03 1482.94,1952.56 1497.85,2080.91"
+     stroke="#ff3400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_622"
+     d="M1520.74,2083.02 C1505.05,2068.55 1486.85,2083.71 1497.32,2098.17"
+     stroke="#008bff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_623"
+     d="M1480.62,1777.33 C1517.21,1751.04 1519.75,1819.83 1481.62,1796.54"
+     stroke="#ff6200"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_624"
+     d="M1398.67,1753.37 L1420.9,2159.12"
+     stroke="#98ff66"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_625"
+     d="M1520.74,2083.02 C1522.95,2097.62 1503.06,2098.82 1497.32,2098.17"
+     stroke="#f6ff08"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_626"
+     d="M1442.83,2143.24 C1433.73,2142.67 1402.04,2171.26 1431.3,2168.13"
+     stroke="#ff2400"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_627"
+     d="M1442.83,2143.24 Q1468.82,2152.11 1497.1,2142.78"
+     stroke="#00beff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_628"
+     d="M1398.67,1753.37 C1405.17,1717.41 1425.8,1715.8 1476.07,1715.6"
+     stroke="#0068ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_629"
+     d="M1431.3,2168.13 C1453.77,2169.66 1496.46,2172.23 1497.1,2142.78"
+     stroke="#ec0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_630"
+     d="M1418.18,1722.31 Q1432.48,1935.84 1442.83,2143.24"
+     stroke="#2cffd2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_631"
+     d="M1497.1,2142.78 Q1495.29,2123.01 1497.32,2098.17"
+     stroke="#0000da"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_632"
+     d="M3559.65,1747.77 C3586.46,1724.18 3631.76,1756.08 3666.46,1752.04"
+     stroke="#77ff87"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_633"
+     d="M3735.16,1812.02 C3752.02,1782.23 3790.35,1791.02 3817.04,1787.49"
+     stroke="#3affc4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_634"
+     d="M3640.16,1806.26 C3608.82,1818.3 3573.65,1815.95 3540.8,1824.5"
+     stroke="#ff7f00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_635"
+     d="M3662.06,1901.73 C3620,1922.65 3566.11,1915.6 3524.29,1931.08"
+     stroke="#00acff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_636"
+     d="M287.657,1961.86 C293.888,2017.99 323.817,2088.29 326.952,2147.3"
+     stroke="#31ffcd"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_637"
+     d="M498.217,2094.78 L411.513,2028.22"
+     stroke="#b8ff46"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_638"
+     d="M403.206,1948.92 C407.563,2009.53 417.318,2059.48 421.482,2128.87"
+     stroke="#003fff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_639"
+     d="M403.206,1948.92 C360.756,1962.15 338.751,1967.45 287.657,1961.86"
+     stroke="#ffc600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_640"
+     d="M421.482,2128.87 Q387.355,2148.94 326.952,2147.3"
+     stroke="#75ff89"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_641"
+     d="M498.217,2094.78 L425.802,2203.07"
+     stroke="#d40000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_642"
+     d="M369.347,2145.38 C382.439,2172.17 400.736,2194.1 425.802,2203.07"
+     stroke="#93ff6b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_643"
+     d="M3685.38,1989.15 C3732.88,1971.63 3779.22,1974.66 3830.83,1962.96"
+     stroke="#c5ff39"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_644"
+     d="M605.396,2007.26 C619.995,2151.08 612.395,2275.34 605.023,2415.36"
+     stroke="#0bfff3"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_645"
+     d="M646.888,2034.77 C630.169,2014.87 610.257,1998.61 585.824,2012.28"
+     stroke="#ff5300"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_646"
+     d="M590.287,2418.45 C584.327,2288.53 594.39,2146.43 585.824,2012.28"
+     stroke="#dfff1f"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_647"
+     d="M648.927,2403.24 Q619.81,2412.73 590.287,2418.45"
+     stroke="#d3ff2b"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_648"
+     d="M646.888,2034.77 C655.168,2159.27 649.292,2279.94 648.927,2403.24"
+     stroke="#0060ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_649"
+     d="M3640.56,2131.89 Q3589.32,2131.9 3516.88,2155.33"
+     stroke="#ff8000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_650"
+     d="M2245.27,2197.24 C2219.43,2176.01 2195.66,2159.82 2170.4,2145.8"
+     stroke="#00ddff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_651"
+     d="M2245.72,2255.19 C2249.87,2285.14 2244.45,2315.17 2248.38,2342.74"
+     stroke="#0080ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_652"
+     d="M2245.72,2255.19 C2230.17,2249.73 2223.86,2257.81 2211.91,2250.56"
+     stroke="#000093"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_653"
+     d="M2125.65,2237.17 C2145.53,2201.52 2152.28,2181.51 2170.4,2145.8"
+     stroke="#ee0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_654"
+     d="M2125.65,2237.17 C2151.58,2242.5 2169.99,2283.36 2194.17,2281.57"
+     stroke="#00c9ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_655"
+     d="M2245.27,2197.24 C2221.36,2231.06 2213.65,2248.66 2194.17,2281.57"
+     stroke="#0000f4"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_656"
+     d="M2248.38,2342.74 C2220.27,2346.02 2197.28,2351.81 2164.16,2348.1"
+     stroke="#000dff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_657"
+     d="M2165.14,2266.46 C2160.67,2296.95 2163.47,2319.37 2164.16,2348.1"
+     stroke="#0072ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_658"
+     d="M3731.54,2163.63 C3768.36,2160.86 3806.4,2167.68 3842.99,2155.91"
+     stroke="#71ff8d"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_659"
+     d="M373.511,2281.43 C368.288,2315.92 381.351,2353.26 359.905,2368.67"
+     stroke="#0040ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_660"
+     d="M307.954,2366.55 Q335.119,2367.55 359.905,2368.67"
+     stroke="#f0ff0e"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_661"
+     d="M297.08,2278.05 Q295.569,2323.43 307.954,2366.55"
+     stroke="#23ffdb"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_662"
+     d="M373.511,2281.43 Q340.522,2266.65 297.08,2278.05"
+     stroke="#ff0500"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_663"
+     d="M343.332,2241 L404.477,2256.64"
+     stroke="#ff9700"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_664"
+     d="M336.712,2273.15 L343.332,2241"
+     stroke="#1cffe2"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_665"
+     d="M404.477,2256.64 L397.38,2355.42"
+     stroke="#ffbb00"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_666"
+     d="M397.38,2355.42 L370.836,2351.61"
+     stroke="#00fcff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_667"
+     d="M3741.18,2295.96 Q3793.9,2279.89 3849.1,2292.17"
+     stroke="#0000a5"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_668"
+     d="M3703.97,2329.99 C3652.76,2341.13 3618.65,2314.42 3569.31,2340.22"
+     stroke="#00b1ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_669"
+     d="M3828.41,2418.54 Q3786.97,2415.39 3737,2418.23"
+     stroke="#ba0000"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_670"
+     d="M3681.38,2452.09 C3640.3,2462.31 3610.61,2432.43 3554.23,2455.66"
+     stroke="#00deff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_671"
+     d="M3782.07,2552.27 C3725.18,2556.95 3689.24,2527.95 3640.71,2552.59"
+     stroke="#ff3600"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     id="curve_672"
+     d="M3736.68,2635.64 C3758.13,2603.66 3794.27,2621.7 3820.99,2638.88"
+     stroke="#0021ff"
+     stroke-width="2"
+     fill="none"
+     style="stroke:#0000ff;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+</svg>
