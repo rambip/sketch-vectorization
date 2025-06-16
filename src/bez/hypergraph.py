@@ -47,9 +47,9 @@ class HyperGraph:
     def merge(self, ha: int, hb: int, node: int):
         sa = self.table[ha].edges
         sb = self.table[hb].edges
-        if self.table[ha].start == node:
+        if self.table[ha].edges[-1][1] != node:
             sa = sa[::-1]
-        if self.table[hb].end == node:
+        if self.table[hb].edges[0][0] != node:
             sb = sb[::-1]
         d = max(self.table[ha].degree, self.table[hb].degree)
         s_merge = sa + sb
