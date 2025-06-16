@@ -28,6 +28,7 @@ def interpolate_bezier(coeffs, t):
     t: a 1d array of instant to evaluate
     """
     assert coeffs.shape == (2, 4)
+
     q = interpolant(t)
     return coeffs @ q
 
@@ -50,7 +51,7 @@ def std_distance(traj, traj_target, weights: Optional[np.ndarray] = None):
     return np.sqrt(d_x + d_y)
 
 
-def fit_bezier(traj, t, weights: Optional[np.ndarray] = None):
+def fit_bezier(traj, t = None, weights: Optional[np.ndarray] = None):
     """
     fit a bezier of degree 3 on a sequence if points.
 
@@ -66,6 +67,9 @@ def fit_bezier(traj, t, weights: Optional[np.ndarray] = None):
 
     weights: optional weights for fitting
     """
+    if t is None :
+        t = np.linspace(0, 1, len(traj[0]))
+
     if weights is None:
         weights = np.ones(t.shape)
 
@@ -84,3 +88,8 @@ def fit_bezier(traj, t, weights: Optional[np.ndarray] = None):
     x_fit = np.linalg.solve(m, bx)
     y_fit = np.linalg.solve(m, by)
     return np.array([x_fit, y_fit])
+
+
+def fit_bezier_T(traj, t = None, weights: Optional[np.ndarray] = None):
+    traj = np.array(traj).T
+    return fit_bezier(traj, t, weights)
