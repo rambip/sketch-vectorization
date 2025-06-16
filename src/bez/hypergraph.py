@@ -47,7 +47,7 @@ class HyperGraph:
             return (nodes[::-1], edges[::-1])
         return (nodes, edges)
 
-    def merge(self, a: HyperEdgeIndex, b: HyperEdgeIndex):
+    def merge(self, a: HyperEdgeIndex, b: HyperEdgeIndex) -> None:
         na, ea = self.get_hyperedge(b)
         nb, eb = self.get_hyperedge(a)
         assert na[-1] == nb[0]
