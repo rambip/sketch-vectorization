@@ -77,7 +77,6 @@ def extract_topology_from_skeleton(skeleton_img):
 
     for node in sk_graph.nodes:
         i, j = node
-        t = sk_graph.nodes[node]["thickness"]
         for ni in range(max(0, i - 1), min(skeleton_img.shape[0], i + 2)):
             for nj in range(max(0, j - 1), min(skeleton_img.shape[1], j + 2)):
                 if (ni, nj) != (i, j) and skeleton_img[ni, nj]:
