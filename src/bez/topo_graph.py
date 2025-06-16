@@ -2,22 +2,52 @@ import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
 
+from skimage.morphology import skeletonize, dilation, erosion, remove_small_holes
+from skimage.morphology import disk
+from skimage.filters import threshold_otsu
+
+
+
 
 def image_to_skeleton(img):
-    pass
+    img = img[:, :, 0]  
+
+    t = threshold_otsu(img)
+    img_binary = img < t
+
+    thicknesses = np.zeros_like(img_binary, dtype=int)
+
+    c = 1
+    max_line_width_detection = img_binary.copy()
+    while np.sum(max_line_width_detection) > 0:
+        # iterate the erosion
+        tmp = erosion(max_line_width_detection, disk(1))
+        # find the difference
+        diff = max_line_width_detection ^ tmp > 0
+        thicknesses[diff] = c
+        max_line_width_detection = tmp
+        c += 1
+
+    img_binary = dilation(img_binary, disk(c//2))
+    img_binary = remove_small_holes(img_binary)
+    skeleton = skeletonize(img_binary, method="zhang")
+
+    return skeleton, thicknesses
 
 
-def visualize_subgraph(G, visu_i=0, visu_j=0, visu_radius=100000):
-    # Code fait par Copilot, marche mais pas testé
 
+def visualize_subgraph(G, visu_i=1335, visu_j=1112, visu_radius=50, full_graph=False): 
     plt.figure(figsize=(8, 8))
-    sub_nodes = [
-        (i, j)
-        for i in range(visu_i - visu_radius, visu_i + visu_radius)
-        for j in range(visu_j - visu_radius, visu_j + visu_radius)
-        if (i, j) in G
-    ]
-    subgraph = G.subgraph(sub_nodes)
+    if full_graph:
+        subgraph = G
+    else:
+        sub_nodes = [
+            (i, j)
+            for i in range(visu_i - visu_radius, visu_i + visu_radius)
+            for j in range(visu_j - visu_radius, visu_j + visu_radius)
+            if (i, j) in G
+        ]
+        subgraph = G.subgraph(sub_nodes)
     pos = {node: (node[1], node[0]) for node in subgraph.nodes}
 
     if isinstance(subgraph, nx.MultiGraph):
@@ -59,12 +89,15 @@ def extract_topology_from_skeleton(skeleton_img):
     Extrait la topologie d'un squelette binaire (image) en un graphe.
     arg:
         skeleton_img (np.ndarray): Image binaire du squelette (shape: H x W, dtype=bool)
+        thicknesses (np.ndarray): Thicknesses (shape: H x W, dtype=int)
     return:
         topological_graph (nx.Graph): Graphe topologique extrait du squelette
     """
 
     # Pour faciliter l'extraction on transforme le squelette en un graphe identique
     # On pourrait effectuer les opérations directement sur le squelette mais c'est moins pratique
+
+
 
     assert skeleton_img.dtype == bool
 
@@ -77,14 +110,10 @@ def extract_topology_from_skeleton(skeleton_img):
 
     for node in sk_graph.nodes:
         i, j = node
-        t = sk_graph.nodes[node]["thickness"]
         for ni in range(max(0, i - 1), min(skeleton_img.shape[0], i + 2)):
             for nj in range(max(0, j - 1), min(skeleton_img.shape[1], j + 2)):
                 if (ni, nj) != (i, j) and skeleton_img[ni, nj]:
-                    sk_graph.add_edge(
-                        (i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2
-                    )
-
+                    sk_graph.add_edge((i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2)
     # Graphe intermédiaire généré, maintenant on extrait la topologie
     # On fait un bfs depuis chaque intersection ou feuille jusqu'à avoir couvert tout le graphe
 
