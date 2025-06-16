@@ -197,14 +197,76 @@ Rq: 2 pixels seems a high treshold, but it may be due to the fact that the bezie
 
 ## Hypergraph
 
-We must define 2 main operations:
+This part is tricky because of the nature of the objects.
 
-*merge*
+For some operations (like merge), we only need to focus on nodes.
+But for other, we need information about edge, and since the topological graph is a multigraph, this is not equivalent.
 
-We want to merge $c = (x_0, ..., x_n)$ with some other.
-First, find other $c'$ which starts or ends with $x_n$. Remove it, and add all the elements to $c$, in reverse.
+Thus, any super-edge will store the information of:
+- the sequence of nodes
+- the sequence of edges in the multigraph (we store keys, these keys will allow to query the pixel chain)
+- the degree of the bezier
 
-*overlap*
+We must define 2 kinds of operations
+
+## Merge / Split
+
+To be able to merge 2 super-edges U and V, we must be in this configuration:
+
+- there exists a node A
+- the super-edge U starts at A
+- the super-edge V ends at A
+- U and V have the same degree
+
+The result is a super-edge that contains the concatenation of both sequences of nodes, and the concatenation of both sequences of edges
+
+The split is the reverse operation
+
+## Overlap / Dissociation
+
+To simplify the operations, we can note that any overlap can be decomposed into a split and a simpler overlap.
+
+Let's take an example
+
+```
+
+                      V
+
+          ┌─────────────────────┐
+          │                     │
+                                │
+  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌─-─┐
+  │ A │  │ B │  │ C │  │ D │  │ E │
+  └───┘  └───┘  └───┘  └───┘  └───┘
+
+  │                        │
+  └────────────────────────┘
+
+             U
+```
+Then, let's split V:
+```
+
+
+
+                                 Y
+                        X    ┌────────┐
+                ┌────────────┼───┐    │
+                │            │   │    │
+                                      │
+        ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌─-─┐
+        │ A │  │ B │  │ C │  │ D │  │ E │
+        └───┘  └───┘  └───┘  └───┘  └───┘
+
+        │                        │
+        └────────────────────────┘
+
+                   U
+```
+Now, to perform a split or a dissociation, we only have to add or remove elements from one extremity of X.
+This is simpler because X and U start with exactly the same sequence.
+
+
 
 We want to overlap $c = (x_0, ..., x_n)$ with some other.
 First, find other $c'$ which contains $x_n$. Look at one of the neighbours in the chain. add this neighbour to $c$
