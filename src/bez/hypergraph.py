@@ -4,54 +4,58 @@ import itertools
 import numpy as np
 from collections import Counter
 import random
+from enum import IntEnum
 
-INCREASE_DEGREE = 0
-DECREASE_DEGREE = 1
-MERGE = 2
-SPLIT = 3
-OVERLAP = 4
-DISSOCIATE = 5
+class Perturbation(IntEnum):
+    INCREASE_DEGREE = 0
+    DECREASE_DEGREE = 1
+    MERGE = 2
+    SPLIT = 3
+    OVERLAP = 4
+    DISSOCIATE = 5
+    REVERSE = 6
 
 SOURCE = "*"
 
 CHOICE_DISTRIBUTION = [
     # change degree
-    1 / 6,
-    1 / 6,
+    1 / 12,
+    1 / 12,
     # merge or split
-    1 / 6,
-    1 / 6,
+    1 / 12,
+    1 / 12,
     # overlap or dissociate
-    1 / 6,
-    1 / 6,
+    1 / 12,
+    1 / 12,
+    # reverse edge
+    1/2,
 ]
 
 HYPER = 0
 EDGE = 1
 NODE = 2
 
-
-#@dataclass
 class HyperEdge:
     edges: list[tuple[int, int, int]]
+    pixels: list[tuple[int, int]]
     degree: int
     score: float | None
 
-    def __init__(self, edges, degree, score):
+    def __init__(self, edges, degree, pixels):
         self.edges = edges
         self.degree = degree
-        self.score = score
+        self.pixels = list(pixels)
 
     def reverse(self):
-        self.edges = [(v, u, k) for (u, v, k) in reversed(self.edges)]
+        self.edges = [(v, u, k) for (u, v, k) in self.edges[::-1]]
+        self.pixels.reverse()
 
     def __repr__(self):
         tokens = []
         tokens.append(f"{self.edges[0][0]}")
-        print(self.edges)
         for (u, v, k) in self.edges:
             tokens.append(f"- [{k}] -> {v}")
-        tokens.append(f"( degree = {self.degree})")
+        tokens.append(f"( degree = {self.degree}, n_pixels = {len(self.pixels)})")
         return " ".join(tokens)
 
 class SampleError(BaseException):
@@ -62,135 +66,125 @@ class HyperGraph:
     def __init__(self, topo_graph: nx.MultiGraph):
         self.g = nx.DiGraph()
         self.topo = topo_graph
-        for u, v, key in topo_graph.edges(keys=True):
-            h = HyperEdge(degree=3, score=None, edges=[(u, v, key)])
+        self.edge2pixel = {}
+        for u, v, key, pixels in topo_graph.edges(keys=True, data="pixels"):
+            if tuple(pixels[0]) != u:
+                pixels = pixels[::-1]
+            assert tuple(pixels[0]) == u
+            self.edge2pixel[(u, v, key)] = pixels
+            self.edge2pixel[(v, u, key)] = pixels[::-1]
+            d = min(len(pixels)-1, 3)
+            h = HyperEdge(degree=d, edges=[(u, v, key)], pixels=pixels)
             self.g.add_edge(h, u)
             self.g.add_edge(h, v)
             self.g.add_edge(SOURCE, h)
 
+    def all_hyperedges(self):
+        return self.g.succ[SOURCE]
 
-    def add_hyperedge(self, edges: list[tuple[int, int, int]], degree: int):
-        h = HyperEdge(degree=degree, edges=edges, score=None)
-        self.g.add_edge(SOURCE, h)
+    def create_hyperedge(self, edges, degree):
+        pixels = []
+        pixels.append(edges[0][0])
         for (u, v, k) in edges:
-            self.g.add_edge(h, u)
-            self.g.add_edge(h, v)
+            pixels.extend(self.edge2pixel[(u, v, k)][1:])
+        return HyperEdge(edges=edges, degree=degree, pixels=pixels)
 
-    def merge(self, a: HyperEdge, b: HyperEdge, node: int):
-        if a.edges[-1][1] != node:
-            a.reverse()
-        if b.edges[0][0] != node:
-            b.reverse()
+    def perturbate(self, old_hyperedges: list[HyperEdge], new_hyperedges: list[HyperEdge]):
+        for old in old_hyperedges:
+            self.g.remove_node(old)
+        for new in new_hyperedges:
+            self.g.add_edge(SOURCE, new)
+            for (u, v, k) in new.edges:
+                self.g.add_edge(new, u)
+                self.g.add_edge(new, v)
+
+    def merge(self, a: HyperEdge, b: HyperEdge):
+        assert(a.edges[-1][1] == b.edges[0][0])
         d = max(a.degree, b.degree)
-        s_merge = a.edges + b.edges
-        self.add_hyperedge(edges=s_merge, degree=d)
-
-        self.g.remove_node(a)
-        self.g.remove_node(b)
+        return self.create_hyperedge(a.edges+b.edges, d)
 
     def split(self, h: HyperEdge, node: int):
         i_split = [i for i, edge in enumerate(h.edges) if edge[1] == node][0]
         sa = h.edges[: i_split + 1]
         sb = h.edges[i_split + 1 :]
-        self.add_hyperedge(degree=h.degree, edges=sa)
-        self.add_hyperedge(degree=h.degree, edges=sb)
-        self.g.remove_node(h)
+        a = self.create_hyperedge(sa, h.degree)
+        b = self.create_hyperedge(sb, h.degree)
+        return (a, b)
 
-    def overlap(self, a: HyperEdge, b: HyperEdge, edge):
-        """
-        we suppose that hyper-edge `ha` starts or ends with u
-        where (u, v) = edge
-        """
-        (u, v, k) = edge
-        if a.edges[-1][1] != u:
-            a.reverse()
-        a.edges.append(edge)
-        # we remove it and add it again to update the "hyperedge -> node" information
-        self.add_hyperedge(edges=a.edges, degree=a.degree)
-        self.g.remove_node(a)
+    def overlap(self, a: HyperEdge, b: HyperEdge):
+        node = a.edges[-1][1]
+        (u, v, k) = [(u,v,k) for (u, v, k) in b.edges if u==node][0]
+        sa2 = a.edges + [(u, v, k)]
+        return self.create_hyperedge(sa2, a.degree)
 
-    def dissociate(self, a: HyperEdge, b: HyperEdge, edge):
-        """
-        We suppose that the hyper-edge starts with (v, u) or ends with (u, v)
-        where (u, v) = edge
-        """
-        (u, v, k) = edge
-        assert (u, v, k) in a.edges or (v, u, k) in b.edges
-        if a.edges[-1] != (u, v, k):
-            a.reverse()
-        a.edges.pop()
-        self.add_hyperedge(edges=a.edges, degree=a.degree)
+    def dissociate(self, a: HyperEdge, b: HyperEdge):
+        (u, v, k) = a.edges[-1]
+        assert (u, v, k) in b.edges
+        assert len(a.edges) >= 2
+        sa2 = a.edges[:-1]
+        return self.create_hyperedge(sa2, a.degree)
         self.g.remove_node(a)
 
     def sample_t(self):
         a = np.random.choice(self.g.succ[SOURCE])
-        x, y = [a.edges[0][0], a.edges[-1][1]]
-        if self.g.degree[x] > self.g.degree[y]:
-            node = x
-        else:
-            node = y
+        node = a.edges[-1][1]
         b = np.random.choice(self.g.pred[node])
-        if a == b:
-            raise SampleError("a = b in sample")
         return (a, b, node)
 
     def increase_degree(self, h: HyperEdge):
         d = h.degree
         assert d < 3
-        h.degree = d + 1
-        h.score = None
+        return HyperEdge(edges=h.edges, degree=d+1, pixels=h.pixels)
 
     def decrease_degree(self, h: HyperEdge):
         d = h.degree
-        assert d > 2
-        h.degree = d - 1
-        h.score = None
+        assert d > 1
+        return HyperEdge(edges=h.edges, degree=d-1, pixels=h.pixels)
 
-    def score(self):
-        ...
-
-    def do_perturbation(self, action):
-        ...
-
-    def undo_perturbation(self, action):
-        ...
-
-    def try_get_random_perturbation(self):
-        choice = np.random.choice(range(6), p=CHOICE_DISTRIBUTION)
+    def try_propose_random_perturbation(self):
+        choice = np.random.choice(Perturbation, p=CHOICE_DISTRIBUTION)
+        choice = Perturbation(choice)
         a, b, node = self.sample_t()
-        if choice == INCREASE_DEGREE:
+        if choice == Perturbation.REVERSE:
+            a.reverse()
+            return choice, [], []
+        if choice == Perturbation.INCREASE_DEGREE:
             if a.degree >= 3:
                 raise SampleError(f"degree too high to increase\n a={a}")
-            return (choice, a)
-        if choice == DECREASE_DEGREE:
+            return choice, [a], [self.increase_degree(a)]
+        if choice == Perturbation.DECREASE_DEGREE:
             if a.degree <= 1:
                 raise SampleError(f"Degree too low to decrease\na={a}")
-            return (choice, a)
-        if choice == OVERLAP:
-            candidates = [edge for edge in b.edges if node in edge]
-            # FIXME: np.random.choice does not work
-            edge = random.choice(candidates)
-            return (choice, a, b, edge)
-        if choice == DISSOCIATE:
-            if a.edges[0][0] != node:
-                a.reverse()
-            (u, v, k) = a.edges[0]
-            if (u, v, k) not in b.edges and (v, u, k) not in b.edges:
-                raise SampleError(f"hypereges do not share an edge for dissociate\na={a}\nb={b}")
-            return (choice, a, b, (u, v, k))
-        if choice == MERGE:
-            if b.edges[0][0] != node and b.edges[-1][1] != node:
-                raise SampleError(f"hyperedges do not share an extremity for merge\na={a}\nb={b}\nnode={node}")
-            return (choice, a, b, node)
-        if choice == SPLIT:
-            if len(b.edges) < 3:
+            return choice, [a], [self.decrease_degree(a)]
+        if choice == Perturbation.SPLIT:
+            if len(b.edges) < 2:
                     raise SampleError(f"hyperedge is too short for split\nb={b}")
             if b.edges[0][0] == node or b.edges[-1][1] == node:
-                raise SampleError(f"node is not at extremity for split\nb={b}")
-            return (choice, b, node)
+                raise SampleError(f"node is at extremity for split\nb={b}")
+            return choice, [b], list(self.split(b, node))
+        if choice == Perturbation.MERGE:
+            if b.edges[0][0] != node:
+                raise SampleError(f"hyperedges do not share an extremity for merge\na={a}\nb={b}\nnode={node}")
+            if a == b:
+                raise SampleError(f"This merge would create a circle\na={a}")
+            return choice, [a, b], [self.merge(a, b)]
+        if choice == Perturbation.OVERLAP:
+            if b.edges[-1][1] == node:
+                raise SampleError(f"overlap impossible: node is at the end of b\na={a}\nb={b}\nnode={node}")
+            return choice, [a], [self.overlap(a, b)]
+        if choice == Perturbation.DISSOCIATE:
+            (u, v, k) = a.edges[-1]
+            if a == b:
+                raise SampleError(f"a = b for dissociate")
+            if len(a.edges) < 2:
+                raise SampleError(f"hyperedge is too short for dissociate\na={a}\nb={b}")
+            if (u, v, k) not in b.edges:
+                raise SampleError(f"hypereges do not share an edge for dissociate\na={a}\nb={b}")
+            return choice, [a], [self.dissociate(a, b)]
 
-    def random_perturbation(self):
+    def propose_random_perturbation(self):
         while True:
             try:
-                self.random_perturbation()
-                return
+                return self.try_propose_random_perturbation()
+            except SampleError as e:
+                pass
