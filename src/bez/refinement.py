@@ -111,7 +111,7 @@ def refine(topo_g: nx.MultiDiGraph, precision: float = 2.0):
             node_b = tuple(map(int, pixels[cuts[i+1]]))
             new_topo_graph.add_node(node_a)
             new_topo_graph.add_node(node_b)
-            new_topo_graph.add_edge(node_a, node_b, pixels = pixels[cuts[i]:cuts[i+1]])
+            new_topo_graph.add_edge(node_a, node_b, pixels = pixels[cuts[i]:cuts[i+1]+1])
 
     # Remplacer topo_c par les courbes mises à jour
     return new_topo_graph
