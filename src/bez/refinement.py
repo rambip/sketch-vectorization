@@ -88,7 +88,7 @@ def refine(topo_g: nx.MultiDiGraph, precision: float = 2.0):
     for u, v, data in topo_g.edges(data=True):
         pixels = data["pixels"]
 
-        if pixels.shape[0] < 3 :
+        if pixels.shape[0] < 4 :
             continue
 
         indices = devide(pixels, precision)
