@@ -8,10 +8,8 @@ from skimage.morphology import disk
 from skimage.filters import threshold_otsu
 
 
-
-
 def image_to_skeleton(img):
-    img = img[:, :, 0]  
+    img = img[:, :, 0]
 
     t = threshold_otsu(img)
     img_binary = img < t
@@ -29,60 +27,11 @@ def image_to_skeleton(img):
         max_line_width_detection = tmp
         c += 1
 
-    img_binary = dilation(img_binary, disk(c//2))
+    img_binary = dilation(img_binary, disk(c // 2))
     img_binary = remove_small_holes(img_binary)
     skeleton = skeletonize(img_binary, method="zhang")
 
     return skeleton, thicknesses
-
-
-
-def visualize_subgraph(G, visu_i=1335, visu_j=1112, visu_radius=50, full_graph=False): 
-    plt.figure(figsize=(8, 8))
-    if full_graph:
-        subgraph = G
-    else:
-        sub_nodes = [
-            (i, j)
-            for i in range(visu_i - visu_radius, visu_i + visu_radius)
-            for j in range(visu_j - visu_radius, visu_j + visu_radius)
-            if (i, j) in G
-        ]
-        subgraph = G.subgraph(sub_nodes)
-    pos = {node: (node[1], node[0]) for node in subgraph.nodes}
-
-    if isinstance(subgraph, nx.MultiGraph):
-        # Draw nodes
-        nx.draw_networkx_nodes(subgraph, pos=pos, node_size=10, node_color="blue")
-        # Draw edges with curvature for multiplicity
-        for u, v, keys in subgraph.edges(keys=True):
-            num_edges = subgraph.number_of_edges(u, v)
-            if num_edges == 1:
-                nx.draw_networkx_edges(
-                    subgraph, pos, edgelist=[(u, v)], edge_color="gray"
-                )
-            else:
-                # Draw each edge with a different curvature
-                for k, key in enumerate(subgraph[u][v]):
-                    rad = 0.1 * (k - (num_edges - 1) / 2)
-                    nx.draw_networkx_edges(
-                        subgraph,
-                        pos,
-                        edgelist=[(u, v)],
-                        edge_color="gray",
-                        connectionstyle=f"arc3,rad={rad}",
-                    )
-    else:
-        nx.draw(
-            subgraph,
-            pos=pos,
-            node_size=10,
-            edge_color="gray",
-            node_color="blue",
-            with_labels=False,
-        )
-    plt.gca().invert_yaxis()
-    plt.show()
 
 
 def extract_topology_from_skeleton(skeleton_img):
@@ -98,8 +47,6 @@ def extract_topology_from_skeleton(skeleton_img):
     # Pour faciliter l'extraction on transforme le squelette en un graphe identique
     # On pourrait effectuer les opérations directement sur le squelette mais c'est moins pratique
 
-
-
     assert skeleton_img.dtype == bool
 
     sk_graph = nx.Graph()  # V = pixels blancs du squelette, E = 8 connexité
@@ -114,7 +61,9 @@ def extract_topology_from_skeleton(skeleton_img):
         for ni in range(max(0, i - 1), min(skeleton_img.shape[0], i + 2)):
             for nj in range(max(0, j - 1), min(skeleton_img.shape[1], j + 2)):
                 if (ni, nj) != (i, j) and skeleton_img[ni, nj]:
-                    sk_graph.add_edge((i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2)
+                    sk_graph.add_edge(
+                        (i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2
+                    )
     # Graphe intermédiaire généré, maintenant on extrait la topologie
     # On fait un bfs depuis chaque intersection ou feuille jusqu'à avoir couvert tout le graphe
 
@@ -189,9 +138,6 @@ def extract_topology_from_skeleton(skeleton_img):
     return topological_graph
 
 
-
-
-
 def pixel_graphe(skeleton_img):
     sk_graph = nx.Graph()
     H, W = skeleton_img.shape
@@ -208,8 +154,10 @@ def pixel_graphe(skeleton_img):
         for ni in range(max(0, i - 1), min(H, i + 2)):
             for nj in range(max(0, j - 1), min(W, j + 2)):
                 if (ni, nj) != (i, j) and skeleton_img[ni, nj]:
-                    sk_graph.add_edge((i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2)
-    
+                    sk_graph.add_edge(
+                        (i, j), (ni, nj), weight=(i - ni) ** 2 + (j - nj) ** 2
+                    )
+
     return sk_graph
 
 
@@ -264,14 +212,13 @@ def merge_clusters_nodes(clusters):
         # S’assurer que center_node fait bien partie du cluster (sinon prendre le plus proche)
         if center_node not in cluster:
             # Trouver le plus proche dans cluster
-            dist = lambda x: (x[0] - median_i)**2 + (x[1] - median_j)**2
+            dist = lambda x: (x[0] - median_i) ** 2 + (x[1] - median_j) ** 2
             center_node = min(cluster, key=dist)
 
         for n in cluster:
             merged_nodes[n] = center_node
 
     return merged_nodes
-
 
 
 def fusion_clusters_in_graph(pix_graph, merged_nodes):
@@ -285,8 +232,8 @@ def fusion_clusters_in_graph(pix_graph, merged_nodes):
         u_fused = merged_nodes.get(u, u)
         v_fused = merged_nodes.get(v, v)
         if u_fused != v_fused:
-            fused_graph.add_edge(u_fused, v_fused, weight=d['weight'])
-    
+            fused_graph.add_edge(u_fused, v_fused, weight=d["weight"])
+
     return fused_graph
 
 
@@ -358,4 +305,3 @@ def extract_simple_topology_from_skeleton(skeleton_img):
         fused_graph.nodes[st]["closed"] = True
 
     return topological_graph
-

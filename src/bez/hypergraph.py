@@ -84,6 +84,9 @@ class HyperGraph:
             self.g.add_edge(h, tuple(v))
             self.g.add_edge(SOURCE, h)
 
+    def __len__(self):
+        return len(self.all_hyperedges())
+
     def all_hyperedges(self):
         return self.g.succ[SOURCE]
 
