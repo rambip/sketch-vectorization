@@ -49,9 +49,15 @@ class HyperEdge:
         self.edges = [(v, u, k) for (u, v, k) in self.edges[::-1]]
         self.pixels.reverse()
 
+    def first(self):
+        return self.edges[0][0]
+
+    def last(self):
+        return self.edges[-1][1]
+
     def __repr__(self):
         tokens = []
-        tokens.append(f"{self.edges[0][0]}")
+        tokens.append(f"{self.first()}")
         for u, v, k in self.edges:
             tokens.append(f"- [{k}] -> {v}")
         tokens.append(f"( degree = {self.degree}, n_pixels = {len(self.pixels)})")
@@ -81,6 +87,30 @@ class HyperGraph:
     def all_hyperedges(self):
         return self.g.succ[SOURCE]
 
+    def hyperedges_ending_at(self, node: int):
+        """
+        return the list of hyperedges that start at the given node.
+        """
+        candidates = self.g.predecessors(node)
+        return [c for c in candidates if c.last() == node]
+
+    def hyperedges_starting_at(self, node: int):
+        """
+        return the list of hyperedges that start at the given node.
+        """
+        candidates = self.g.predecessors(node)
+        return [c for c in candidates if c.first() == node]
+
+    def all_extremity_nodes(self):
+        """
+        return the list of nodes such that at least one hyperedge has the node as an extremity
+        """
+        result = []
+        for h in self.g.succ[SOURCE]:
+            result.append(h.first())
+            result.append(h.last())
+        return np.unique(np.array(result))
+
     def create_hyperedge(self, edges, degree):
         pixels = []
         pixels.append(edges[0][0])
@@ -101,7 +131,7 @@ class HyperGraph:
                 self.g.add_edge(new, tuple(v))
 
     def merge(self, a: HyperEdge, b: HyperEdge):
-        assert a.edges[-1][1] == b.edges[0][0]
+        assert a.last() == b.first()
         d = max(a.degree, b.degree)
         return self.create_hyperedge(a.edges + b.edges, d)
 
@@ -161,11 +191,11 @@ class HyperGraph:
         if choice == Perturbation.SPLIT:
             if len(b.edges) < 2:
                 raise SampleError(f"hyperedge is too short for split\nb={b}")
-            if b.edges[0][0] == node or b.edges[-1][1] == node:
+            if b.first() == node or b.last() == node:
                 raise SampleError(f"node is at extremity for split\nb={b}")
             return choice, [b], list(self.split(b, node))
         if choice == Perturbation.MERGE:
-            if b.edges[0][0] != node:
+            if b.first() != node:
                 raise SampleError(
                     f"hyperedges do not share an extremity for merge\na={a}\nb={b}\nnode={node}"
                 )
@@ -173,7 +203,7 @@ class HyperGraph:
                 raise SampleError(f"This merge would create a cycle\na={a}")
             return choice, [a, b], [self.merge(a, b)]
         if choice == Perturbation.OVERLAP:
-            if b.edges[-1][1] == node:
+            if b.last() == node:
                 raise SampleError(
                     f"overlap impossible: node is at the end of b\na={a}\nb={b}\nnode={node}"
                 )
