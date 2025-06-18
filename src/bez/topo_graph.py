@@ -300,7 +300,6 @@ def extract_simple_topology_from_skeleton(skeleton_img):
     merged_nodes = merge_clusters_nodes(clusters)
 
     fused_graph = fusion_clusters_in_graph(pix_graph, merged_nodes)
-    
 
     def is_junction(node):
         return fused_graph.degree(node) > 2
