@@ -24,7 +24,7 @@ def interpolant(t, degree=3):
                 np.pow(1 - t, 3),
                 3 * np.pow(1 - t, 2) * t,
                 3 * (1 - t) * np.pow(t, 2),
-                np.pow(t, 2),
+                np.pow(t, 3),
             ]
         )
     raise ValueError(f"degree of bezier is {degree}")
