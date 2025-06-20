@@ -23,7 +23,7 @@ def generate_svg_str(image_shape, hyper: HyperGraph):
             d = f"M {x1},{y1} C {x2},{y2} {x3},{y3} {x4},{y4}"
 
         else:
-            d = ""
+            raise ValueError("invalid degree")
 
         svg_elements.append(svg.Path(fill="none", stroke="black", d=d))
     result = svg.SVG(width=image_shape[1], height=image_shape[0], elements=svg_elements)
