@@ -3,6 +3,7 @@ import svg
 from bez.hypergraph import HyperGraph
 from bez.bezier import fit_bezier
 
+
 def generate_svg_str(image_shape, hyper: HyperGraph):
     svg_elements = []
     for h in hyper.all_hyperedges():
@@ -13,25 +14,17 @@ def generate_svg_str(image_shape, hyper: HyperGraph):
             (y1, y2), (x1, x2) = control_points
             d = f"M {x1},{y1} L {x2},{y2}"
 
-        if h.degree == 2:
+        elif h.degree == 2:
             (y1, y2, y3), (x1, x2, x3) = control_points
             d = f"M {x1},{y1} Q {x2},{y2} {x3},{y3}"
 
-        if h.degree == 3:
+        elif h.degree == 3:
             (y1, y2, y3, y4), (x1, x2, x3, x4) = control_points
             d = f"M {x1},{y1} C {x2},{y2} {x3},{y3} {x4},{y4}"
 
         else:
-            d=""
+            d = ""
 
-        svg_elements.append(svg.Path(
-            fill="none",
-            stroke="red",
-            d=d
-        ))
-    result = svg.SVG(
-        width=image_shape[1],
-        height=image_shape[0],
-        elements=svg_elements
-    )
+        svg_elements.append(svg.Path(fill="none", stroke="black", d=d))
+    result = svg.SVG(width=image_shape[1], height=image_shape[0], elements=svg_elements)
     return str(result)
