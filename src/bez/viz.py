@@ -63,3 +63,37 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, full_graph=False
                     edge_color="gray",
                     connectionstyle=f"arc3,rad={rad}",
                 )
+
+
+# mauvais affichage
+def hyper_final_visualisation(hyper: HyperGraph, offset=2):
+    for h in hyper.all_hyperedges():
+        if h.control_points is None:
+            continue  # Skip if control points weren't set
+
+        # Interpolation de la trajectoire à partir des points de contrôle
+        p = interpolate_bezier(h.control_points, np.linspace(0, 1, 100))
+
+        # Affichage de la courbe
+        plt.plot(
+            p[1][offset:-offset],  # y
+            p[0][offset:-offset],  # x
+            linewidth=1,
+            color="red"
+        )
+
+        # Points bleus près des extrémités
+        start_y, start_x = p[0][offset], p[1][offset]
+        end_y, end_x = p[0][-offset - 1], p[1][-offset - 1]
+
+        plt.scatter(
+            [start_x, end_x],
+            [start_y, end_y],
+            color="blue",
+            s=3,
+            alpha=0.5
+        )
+
+    plt.axis('equal')
+    plt.title("Interpolated Bezier Curves (HyperEdges)")
+    plt.show()
