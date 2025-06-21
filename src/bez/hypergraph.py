@@ -1,7 +1,9 @@
 import networkx as nx
 import numpy as np
 from enum import IntEnum
+import matplotlib.pyplot as plt
 
+from bez.bezier import fit_bezier, interpolate_bezier
 
 class Perturbation(IntEnum):
     INCREASE_DEGREE = 0
@@ -44,6 +46,8 @@ class HyperEdge:
         self.edges = edges
         self.degree = degree
         self.pixels = list(pixels)
+
+        self.control_points = None 
 
     def reverse(self):
         self.edges = [(v, u, k) for (u, v, k) in self.edges[::-1]]
@@ -230,3 +234,67 @@ class HyperGraph:
                 return self.try_propose_random_perturbation()
             except SampleError as e:
                 pass
+
+
+
+    def hyperedges_by_node(self) -> dict[tuple[int, int], list[HyperEdge]]:
+        node_to_hyperedges = {}
+
+        for h in self.all_hyperedges():
+            for node in (h.first(), h.last()):
+                if node not in node_to_hyperedges:
+                    node_to_hyperedges[node] = []
+                node_to_hyperedges[node].append(h)
+
+        return node_to_hyperedges
+    
+
+    def smooth_bezier_junctions(self):
+        """Ajuste les points de contrôle extrêmes pour lisser les jonctions entre Bézier sur chaque sommet."""
+        by_node = self.hyperedges_by_node()
+
+        for node, hyperedges in by_node.items():
+            if len(hyperedges) <= 1:
+                continue  # rien à lisser si un seul hyperedge
+
+            control_points_to_average = []
+            edges_with_extremity = []
+
+            for h in hyperedges:
+                cp = getattr(h, "control_points", None)
+                if cp is None:
+                    continue  # le hyperedge n'a pas encore de bezier fitted
+
+                # Vérifie si 'node' est au début ou à la fin de la liste de pixels
+                if tuple(h.pixels[0]) == node:
+                    control_points_to_average.append(cp.T[0])  # point initial
+                    edges_with_extremity.append((h, 0))
+                elif tuple(h.pixels[-1]) == node:
+                    control_points_to_average.append(cp.T[-1])  # point final
+                    edges_with_extremity.append((h, -1))
+
+            if not control_points_to_average:
+                continue  # rien à lisser pour ce sommet
+
+            # Moyenne géométrique des extrémités
+            averaged_point = np.mean(control_points_to_average, axis=0)
+
+            # Réassignation du point moyen à tous les hyperedges concernés
+            for h, idx in edges_with_extremity:
+                h.control_points[:,idx] = averaged_point
+
+
+    def fit_beziers(self):
+        for h in self.all_hyperedges():
+            p = np.array(h.pixels).T  # shape (2, N)
+            instants = np.linspace(0, 1, p.shape[1])
+            h.control_points = fit_bezier(p, instants, degree=h.degree)
+
+
+    def visualize_fiting(self, img = None):
+        for h in self.all_hyperedges() :
+            control_points = h.control_points
+            t = np.linspace(0, 1, 100)
+            bezier_curve = interpolate_bezier(control_points, t)
+            plt.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
+       
