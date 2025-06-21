@@ -43,33 +43,23 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, full_graph=False
 
     plt.gca().invert_yaxis()
 
-    if isinstance(subgraph, nx.MultiGraph):
         # Draw nodes
-        nx.draw_networkx_nodes(subgraph, pos=pos, node_size=10, node_color="blue")
-        # Draw edges with curvature for multiplicity
-        for u, v, keys in subgraph.edges(keys=True):
-            num_edges = subgraph.number_of_edges(u, v)
-            if num_edges == 1:
+    nx.draw_networkx_nodes(subgraph, pos=pos, node_size=5, node_color=(0, 0, 1, 0.2))
+    # Draw edges with curvature for multiplicity
+    for u, v, keys in subgraph.edges(keys=True):
+        num_edges = subgraph.number_of_edges(u, v)
+        if num_edges == 1:
+            nx.draw_networkx_edges(
+                subgraph, pos, edgelist=[(u, v)], edge_color="gray"
+            )
+        else:
+            # Draw each edge with a different curvature
+            for k, key in enumerate(subgraph[u][v]):
+                rad = 0.1 * (k - (num_edges - 1) / 2)
                 nx.draw_networkx_edges(
-                    subgraph, pos, edgelist=[(u, v)], edge_color="gray"
+                    subgraph,
+                    pos,
+                    edgelist=[(u, v)],
+                    edge_color="gray",
+                    connectionstyle=f"arc3,rad={rad}",
                 )
-            else:
-                # Draw each edge with a different curvature
-                for k, key in enumerate(subgraph[u][v]):
-                    rad = 0.1 * (k - (num_edges - 1) / 2)
-                    nx.draw_networkx_edges(
-                        subgraph,
-                        pos,
-                        edgelist=[(u, v)],
-                        edge_color="gray",
-                        connectionstyle=f"arc3,rad={rad}",
-                    )
-    else:
-        nx.draw(
-            subgraph,
-            pos=pos,
-            node_size=10,
-            edge_color="gray",
-            node_color="blue",
-            with_labels=False,
-        )
