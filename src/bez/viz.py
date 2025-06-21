@@ -12,7 +12,7 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
         control_points = fit_bezier(p, instants, degree=h.degree)
         traj = interpolate_bezier(control_points, instants)
         plt.plot(
-            traj[1][offset:-offset], traj[0][offset:-offset], linewidth=1, color="red"
+            traj[1][offset:-offset-1], traj[0][offset:-offset-1], linewidth=1, color="red"
         )
 
         # Get near-extremity points
@@ -28,17 +28,8 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
         )
 
 
-def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, full_graph=False):
-    if full_graph:
-        subgraph = G
-    else:
-        sub_nodes = [
-            (i, j)
-            for i in range(visu_i - visu_radius, visu_i + visu_radius)
-            for j in range(visu_j - visu_radius, visu_j + visu_radius)
-            if (i, j) in G
-        ]
-        subgraph = G.subgraph(sub_nodes)
+def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
+    subgraph = G
     pos = {node: (node[1], node[0]) for node in subgraph.nodes}
 
     plt.gca().invert_yaxis()
