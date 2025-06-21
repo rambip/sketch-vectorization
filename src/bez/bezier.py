@@ -112,8 +112,10 @@ def fit_bezier(traj, t = None, degree=3, weights: Optional[np.ndarray] = None):
         bx[i] = np.sum(weights * (traj_x * q[i]))
         by[i] = np.sum(weights * (traj_y * q[i]))
 
-    x_fit = np.linalg.solve(m, bx)
-    y_fit = np.linalg.solve(m, by)
+    # We use lstsq because the matrix is not always full-rank.
+    # For example, if the degree of the bezier is greater than the length of "traj"
+    x_fit = np.linalg.lstsq(m, bx)[0]
+    y_fit = np.linalg.lstsq(m, by)[0]
     return np.array([x_fit, y_fit])
 
 

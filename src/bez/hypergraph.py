@@ -78,8 +78,7 @@ class HyperGraph:
             assert tuple(pixels[0]) == u
             self.edge2pixel[(u, v, key)] = pixels
             self.edge2pixel[(v, u, key)] = pixels[::-1]
-            d = min(len(pixels) - 1, 3)
-            h = HyperEdge(degree=d, edges=[(u, v, key)], pixels=pixels)
+            h = HyperEdge(degree=3, edges=[(u, v, key)], pixels=pixels)
             self.g.add_edge(h, tuple(u))
             self.g.add_edge(h, tuple(v))
             self.g.add_edge(SOURCE, h)
