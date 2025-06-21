@@ -4,7 +4,7 @@ from bez.hypergraph import HyperGraph
 from bez.bezier import fit_bezier
 
 
-def generate_svg_str(image_shape, hyper: HyperGraph):
+def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
     svg_elements = []
     for h in hyper.all_hyperedges():
         p = np.array(h.pixels).T
@@ -25,6 +25,6 @@ def generate_svg_str(image_shape, hyper: HyperGraph):
         else:
             raise ValueError("invalid degree")
 
-        svg_elements.append(svg.Path(fill="none", stroke="black", d=d))
+        svg_elements.append(svg.Path(fill="none", stroke="black", stroke_width=stroke_width, d=d))
     result = svg.SVG(width=image_shape[1], height=image_shape[0], elements=svg_elements)
     return str(result)
