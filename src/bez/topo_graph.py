@@ -27,7 +27,7 @@ def image_to_skeleton(img):
         max_line_width_detection = tmp
         c += 1
 
-    img_binary = dilation(img_binary, disk(c))
+    img_binary = dilation(img_binary, disk(np.sqrt(c)))
     img_binary = remove_small_holes(img_binary)
     skeleton = skeletonize(img_binary, method="zhang")
 

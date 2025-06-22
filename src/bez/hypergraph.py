@@ -434,11 +434,14 @@ class HyperGraph:
 
 
 
-    def visualize_fiting(self, img = None):
+    def visualize_fiting(self, axins2 = None):
         for h in self.all_hyperedges() :
             control_points = h.control_points
             t = np.linspace(0, 1, 100)
             bezier_curve = interpolate_bezier(control_points, t)
-            plt.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
+            if axins2 is None:
+                plt.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
+            else:
+                axins2.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
        
     
