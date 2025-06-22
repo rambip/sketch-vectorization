@@ -3,6 +3,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 from bez.bezier import fit_bezier, interpolate_bezier, fitting_error
 
+
 def fit_hyperedge(hyperedge):
     p = np.array(hyperedge.pixels).T
     instants = np.linspace(0, 1, p.shape[1])
@@ -11,6 +12,7 @@ def fit_hyperedge(hyperedge):
     u_fidelity = fitting_error(traj, p)
     hyperedge.control_points = control_points
     hyperedge.fitting_error = u_fidelity
+
 
 def score(hyperedge, lam, mu=0.3):
     u_simplicity = 1 + mu * hyperedge.degree
@@ -23,14 +25,15 @@ def score(hyperedge, lam, mu=0.3):
         return float("inf")
 
 
-def optimisation(hyper, lam, mu, temp, t_decrease, t_min, MAX_IT=500_000):
+def optimisation(
+    hyper, lam=0.8, mu=1, temp=0.5, t_decrease=0.99995, t_min=0.05, MAX_IT=500_000
+):
     for h in hyper.all_hyperedges():
         fit_hyperedge(h)
     energy = sum([score(x, lam, mu) for x in hyper.all_hyperedges()])
     error = []
 
     n_it = int(np.log(t_min / temp) / np.log(t_decrease))
-
 
     for i in tqdm(range(n_it)):
         choice, old, new = hyper.propose_random_perturbation()
