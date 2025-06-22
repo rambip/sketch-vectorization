@@ -1,37 +1,6 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
 from collections import deque
-
-from skimage.morphology import skeletonize, dilation, erosion, remove_small_holes
-from skimage.morphology import disk
-from skimage.filters import threshold_otsu
-
-
-def image_to_skeleton(img):
-    img = img[:, :, 0]
-
-    t = threshold_otsu(img)
-    img_binary = img < t
-
-    thicknesses = np.zeros_like(img_binary, dtype=int)
-
-    c = 1
-    max_line_width_detection = img_binary.copy()
-    while np.sum(max_line_width_detection) > 0:
-        # iterate the erosion
-        tmp = erosion(max_line_width_detection, disk(1))
-        # find the difference
-        diff = max_line_width_detection ^ tmp > 0
-        thicknesses[diff] = c
-        max_line_width_detection = tmp
-        c += 1
-
-    img_binary = dilation(img_binary, disk(c))
-    img_binary = remove_small_holes(img_binary)
-    skeleton = skeletonize(img_binary, method="zhang")
-
-    return skeleton, thicknesses
 
 
 def extract_topology_from_skeleton(skeleton_img):
