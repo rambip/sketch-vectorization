@@ -236,6 +236,13 @@ class HyperGraph:
                 pass
 
 
+    # Les methodes suivante sont pour un fitting de bezier et une finalisation enregistrer dans control points des Hyper_Edges
+    def fit_beziers(self):
+        for h in self.all_hyperedges():
+            p = np.array(h.pixels).T  # shape (2, N)
+            instants = np.linspace(0, 1, p.shape[1])
+            h.control_points = fit_bezier(p, instants, degree=h.degree)
+
 
     def hyperedges_passing_through_node(self) -> dict[tuple[int, int], list[HyperEdge]]:
         """Retourne un dictionnaire nœud → liste des HyperEdges qui passent par ce nœud (à n’importe quelle position)."""
@@ -262,6 +269,7 @@ class HyperGraph:
 
         return node_to_hyperedges
     
+
 
     def smooth_bezier_junctions(self, by_extremity_node):
         """Ajuste les points de contrôle extrêmes pour lisser les jonctions entre Bézier sur chaque sommet."""
@@ -295,13 +303,6 @@ class HyperGraph:
             # Réassignation du point moyen à tous les hyperedges concernés
             for h, idx in edges_with_extremity:
                 h.control_points[:,idx] = averaged_point
-
-
-    def fit_beziers(self):
-        for h in self.all_hyperedges():
-            p = np.array(h.pixels).T  # shape (2, N)
-            instants = np.linspace(0, 1, p.shape[1])
-            h.control_points = fit_bezier(p, instants, degree=h.degree)
 
 
     def align_bezier_tangents(self, by_extremity_node, angle_threshold_deg=30):

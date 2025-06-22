@@ -28,6 +28,47 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
         )
 
 
+def visualize_topo_and_save(G, fig_size=6, save_path=None):
+    subgraph = G
+    pos = {node: (node[1], node[0]) for node in subgraph.nodes}
+    node_color = "blue"
+
+    fig, ax = plt.subplots(figsize=(fig_size, fig_size))
+    ax.invert_yaxis()
+
+    # Dessiner les nœuds
+    nx.draw_networkx_nodes(subgraph, pos=pos, node_size=5, node_color=node_color, ax=ax)
+
+    # Dessiner les arêtes avec courbure
+    for u, v, keys in subgraph.edges(keys=True):
+        num_edges = subgraph.number_of_edges(u, v)
+        if num_edges == 1:
+            nx.draw_networkx_edges(subgraph, pos, edgelist=[(u, v)], edge_color="gray", ax=ax)
+        else:
+            for k, key in enumerate(subgraph[u][v]):
+                rad = 0.1 * (k - (num_edges - 1) / 2)
+                nx.draw_networkx_edges(
+                    subgraph,
+                    pos,
+                    edgelist=[(u, v)],
+                    edge_color="gray",
+                    connectionstyle=f"arc3,rad={rad}",
+                    ax=ax,
+                )
+
+    ax.axis("off")
+
+    if save_path:  # Si un chemin est fourni, on enregistre
+        plt.savefig(save_path, dpi=300, bbox_inches='tight', pad_inches=0, transparent=True)
+    
+    plt.show()
+    plt.close(fig)
+    
+        
+
+
+
+
 def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
     subgraph = G
     pos = {node: (node[1], node[0]) for node in subgraph.nodes}
@@ -58,7 +99,7 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
 
 
 # mauvais affichage
-def hyper_final_visualisation(hyper: HyperGraph, offset=2):
+def visualisation_bezier_hyper_final(hyper: HyperGraph, offset=2):
     for h in hyper.all_hyperedges():
         if h.control_points is None:
             continue  # Skip if control points weren't set
@@ -89,3 +130,44 @@ def hyper_final_visualisation(hyper: HyperGraph, offset=2):
     plt.axis('equal')
     plt.title("Interpolated Bezier Curves (HyperEdges)")
     plt.show()
+
+
+def visualize_graph_hypergraph(H: HyperGraph, fig_size=6, save_path=None):
+    fig, ax = plt.subplots(figsize=(fig_size, fig_size))
+    ax.invert_yaxis()
+
+    node_color = "blue"  # (0, 0, 1, 0.2)
+
+    pos = {node: (node[1], node[0]) for node in H.topo.nodes}
+
+    # Pour chaque hyperedge, tracer une ligne droite entre ses deux extrémités
+    for h in H.all_hyperedges():
+        start = h.first()
+        end = h.last()
+
+        # Créer un mini-graph temporaire avec une seule arête (start, end)
+        temp_g = nx.MultiGraph()
+        temp_g.add_edge(start, end)
+
+        # Dessiner cette arête en rouge, épaisseur plus forte, sans courbure (rad=0)
+        nx.draw_networkx_edges(
+            temp_g,
+            pos,
+            edgelist=[(start, end)],
+            edge_color="gray",
+            connectionstyle="arc3,rad=0",
+            # arrows=False,
+            ax=ax,
+        )
+
+        # Draw nodes
+        nx.draw_networkx_nodes(temp_g, pos=pos, node_size=5, node_color=node_color)
+
+
+    if save_path:  # Si un chemin est fourni, on enregistre
+        plt.savefig(save_path, dpi=300, bbox_inches='tight', pad_inches=0, transparent=True)
+        
+    plt.show()
+    plt.close(fig)
+    
+        
