@@ -41,17 +41,21 @@ class HyperEdge:
     pixels: list[tuple[int, int]]
     degree: int
     score: float | None
+    control_points: list[tuple[int, int]] | None
+    fitting_error: float | None
 
     def __init__(self, edges, degree, pixels):
         self.edges = edges
         self.degree = degree
         self.pixels = list(pixels)
 
-        self.control_points = None 
+        self.control_points = None
 
     def reverse(self):
         self.edges = [(v, u, k) for (u, v, k) in self.edges[::-1]]
         self.pixels.reverse()
+        if self.control_points is not None:
+            self.control_points = self.control_points[:, ::-1]
 
     def first(self):
         return self.edges[0][0]
@@ -164,7 +168,7 @@ class HyperGraph:
         self.g.remove_node(a)
 
     def sample_t(self):
-        a = np.random.choice(self.g.succ[SOURCE])
+        a: HyperEdge = np.random.choice(self.g.succ[SOURCE]) # type: ignore
         node = a.edges[-1][1]
         b = np.random.choice(self.g.pred[node])
         return (a, b, node)
@@ -261,7 +265,7 @@ class HyperGraph:
                 node_to_hyperedges[node].append(h)
 
         return node_to_hyperedges
-    
+
 
     def smooth_bezier_junctions(self, by_extremity_node):
         """Ajuste les points de contrôle extrêmes pour lisser les jonctions entre Bézier sur chaque sommet."""
@@ -274,9 +278,7 @@ class HyperGraph:
             edges_with_extremity = []
 
             for h in hyperedges:
-                cp = getattr(h, "control_points", None)
-                if cp is None:
-                    continue  # le hyperedge n'a pas encore de bezier fitted
+                cp = h.control_points
 
                 # Vérifie si 'node' est au début ou à la fin de la liste de pixels
                 if tuple(h.pixels[0]) == node:

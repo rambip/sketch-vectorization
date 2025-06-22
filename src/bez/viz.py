@@ -9,7 +9,10 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
     for h in hyper.all_hyperedges():
         p = np.array(h.pixels).T
         instants = np.linspace(0, 1, p.shape[1])
-        control_points = fit_bezier(p, instants, degree=h.degree)
+        if h.control_points is None:
+            raise ValueError("Hypergraph contains hyperedges that have not been fit")
+        else:
+            control_points = h.control_points
         traj = interpolate_bezier(control_points, instants)
         plt.plot(
             traj[1][offset:-offset-1], traj[0][offset:-offset-1], linewidth=1, color="red"
@@ -55,37 +58,3 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
                     edge_color="gray",
                     connectionstyle=f"arc3,rad={rad}",
                 )
-
-
-# mauvais affichage
-def hyper_final_visualisation(hyper: HyperGraph, offset=2):
-    for h in hyper.all_hyperedges():
-        if h.control_points is None:
-            continue  # Skip if control points weren't set
-
-        # Interpolation de la trajectoire à partir des points de contrôle
-        p = interpolate_bezier(h.control_points, np.linspace(0, 1, 100))
-
-        # Affichage de la courbe
-        plt.plot(
-            p[1][offset:-offset],  # y
-            p[0][offset:-offset],  # x
-            linewidth=1,
-            color="red"
-        )
-
-        # Points bleus près des extrémités
-        start_y, start_x = p[0][offset], p[1][offset]
-        end_y, end_x = p[0][-offset - 1], p[1][-offset - 1]
-
-        plt.scatter(
-            [start_x, end_x],
-            [start_y, end_y],
-            color="blue",
-            s=3,
-            alpha=0.5
-        )
-
-    plt.axis('equal')
-    plt.title("Interpolated Bezier Curves (HyperEdges)")
-    plt.show()
