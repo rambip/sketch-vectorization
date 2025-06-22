@@ -99,7 +99,6 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
                     edge_color="gray",
                     connectionstyle=f"arc3,rad={rad}",
                 )
-<<<<<<< HEAD
 
 
 # mauvais affichage
@@ -175,5 +174,3 @@ def visualize_graph_hypergraph(H: HyperGraph, fig_size=6, save_path=None):
     plt.close(fig)
     
         
-=======
->>>>>>> b7d70ef61672ca59af87adc219752a8fac876383
