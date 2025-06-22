@@ -1,7 +1,7 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
 from collections import deque
+
 
 from skimage.morphology import skeletonize, dilation, erosion, remove_small_holes
 from skimage.morphology import disk

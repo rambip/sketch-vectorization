@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 from bez.hypergraph import HyperGraph
-from bez.bezier import interpolate_bezier, fit_bezier
+from bez.bezier import interpolate_bezier
 import networkx as nx
 import numpy as np
 
 
-def visualize_hyper(hyper: HyperGraph, offset=2):
+def visualize_hyper(hyper: HyperGraph, offset=0):
+    plt.axis("equal")
+    plt.gca().invert_yaxis()
     for h in hyper.all_hyperedges():
         p = np.array(h.pixels).T
         instants = np.linspace(0, 1, p.shape[1])
@@ -15,7 +17,10 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
             control_points = h.control_points
         traj = interpolate_bezier(control_points, instants)
         plt.plot(
-            traj[1][offset:-offset-1], traj[0][offset:-offset-1], linewidth=1, color="red"
+            traj[1][offset : -offset - 1],
+            traj[0][offset : -offset - 1],
+            linewidth=1,
+            color="red",
         )
 
         # Get near-extremity points
@@ -72,22 +77,23 @@ def visualize_topo_and_save(G, fig_size=6, save_path=None):
 
 
 
-def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
+def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, opacity=1.0):
     subgraph = G
     pos = {node: (node[1], node[0]) for node in subgraph.nodes}
-    node_color = "blue"  # (0, 0, 1, 0.2)
+    node_color = "blue"
 
     plt.gca().invert_yaxis()
+    plt.axis("equal")
 
-        # Draw nodes
-    nx.draw_networkx_nodes(subgraph, pos=pos, node_size=5, node_color=node_color)
+    # Draw nodes
+    nx.draw_networkx_nodes(
+        subgraph, pos=pos, node_size=5, node_color=node_color, alpha=opacity
+    )
     # Draw edges with curvature for multiplicity
     for u, v, keys in subgraph.edges(keys=True):
         num_edges = subgraph.number_of_edges(u, v)
         if num_edges == 1:
-            nx.draw_networkx_edges(
-                subgraph, pos, edgelist=[(u, v)], edge_color="gray"
-            )
+            nx.draw_networkx_edges(subgraph, pos, edgelist=[(u, v)], edge_color="gray")
         else:
             # Draw each edge with a different curvature
             for k, key in enumerate(subgraph[u][v]):
