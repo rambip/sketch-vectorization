@@ -9,7 +9,10 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
     for h in hyper.all_hyperedges():
         p = np.array(h.pixels).T
         instants = np.linspace(0, 1, p.shape[1])
-        control_points = fit_bezier(p, instants, degree=h.degree)
+        if h.control_points is None:
+            raise ValueError("Hypergraph contains hyperedges that have not been fit")
+        else:
+            control_points = h.control_points
         traj = interpolate_bezier(control_points, instants)
         plt.plot(
             traj[1][offset:-offset-1], traj[0][offset:-offset-1], linewidth=1, color="red"
@@ -96,6 +99,7 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
                     edge_color="gray",
                     connectionstyle=f"arc3,rad={rad}",
                 )
+<<<<<<< HEAD
 
 
 # mauvais affichage
@@ -171,3 +175,5 @@ def visualize_graph_hypergraph(H: HyperGraph, fig_size=6, save_path=None):
     plt.close(fig)
     
         
+=======
+>>>>>>> b7d70ef61672ca59af87adc219752a8fac876383
