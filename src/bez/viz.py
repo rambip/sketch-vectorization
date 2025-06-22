@@ -31,11 +31,12 @@ def visualize_hyper(hyper: HyperGraph, offset=2):
 def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50):
     subgraph = G
     pos = {node: (node[1], node[0]) for node in subgraph.nodes}
+    node_color = "blue"  # (0, 0, 1, 0.2)
 
     plt.gca().invert_yaxis()
 
         # Draw nodes
-    nx.draw_networkx_nodes(subgraph, pos=pos, node_size=5, node_color=(0, 0, 1, 0.2))
+    nx.draw_networkx_nodes(subgraph, pos=pos, node_size=5, node_color=node_color)
     # Draw edges with curvature for multiplicity
     for u, v, keys in subgraph.edges(keys=True):
         num_edges = subgraph.number_of_edges(u, v)
