@@ -10,6 +10,7 @@ from bez.refinement import refine
 from skimage import io
 from skimage.morphology import skeletonize
 import matplotlib.pyplot as plt
+import sys
 
 
 def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
@@ -58,7 +59,6 @@ def show_example(image_path):
     # Create hypergraph and optimize
     hyper = HyperGraph(topo_graph_refine)
     errors = optimisation(hyper)
-    print(errors[-1])
     hyper.finition()
 
     # Create subplots
@@ -107,3 +107,27 @@ def show_example(image_path):
     plt.show()
 
     return img_binary, hyper
+
+
+if __name__ == "__main__":
+    if len(sys.argv[0]) == 1:
+        print("Please provide an image file to convert")
+        exit(1)
+
+    path = sys.argv[1]
+    img_raw = io.imread(path)
+    img_binary, thickness = preprocess(img_raw)
+    skeleton = skeletonize(img_binary, method="zhang")
+
+    # Extract and refine topology
+    topo_graph = extract_simple_topology_from_skeleton(skeleton)
+    topo_graph_refine = refine(topo_graph)
+
+    # Create hypergraph and optimize
+    hyper = HyperGraph(topo_graph_refine)
+    errors = optimisation(hyper)
+    hyper.finition()
+    result = generate_svg_str(img_binary.shape, hyper)
+    with open(path + ".svg", "w") as f:
+        f.write(result)
+    print(f"svg generated at {path}.svg")
