@@ -13,5 +13,5 @@ Then, you can run `uv run src/bez/app.py some_image.png`. This will create the p
 ## Documentation
 
 You can take a look at:
-- the [Walkthrough](./documentation/walkthrough)
+- the [Walkthrough](./documentation/walkthrough.ipynb)
 - the [Presentation](./documentaion/report.pdf)
