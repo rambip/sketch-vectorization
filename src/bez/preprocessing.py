@@ -46,13 +46,12 @@ def preprocess(img_raw):
         max_line_width_detection = tmp
         i += 1
 
-    c = int(np.median(thicknesses[thicknesses > 0]))
+    c = int(np.quantile(thicknesses[thicknesses > 0], 0.9))
 
     # remove holes, objects and dilate
     img_binary = remove_small_objects(img_binary, 4 * c * c)
     img_binary = remove_small_holes(img_binary, 4 * c * c)
-    img_binary = dilation(img_binary, disk(c))
-    img_binary = dilation(img_binary, disk(c))
+    img_binary = dilation(img_binary, disk(c // 2))
     img_binary = remove_small_holes(img_binary)
     thicknesses = ndi.maximum_filter(thicknesses, footprint=disk(size / 100))
     return img_binary, thicknesses
