@@ -4,7 +4,7 @@ from bez.hypergraph import HyperGraph
 from bez.bezier import fit_bezier
 from bez.viz import visualize_topo, visualize_hyper
 from bez.preprocessing import preprocess
-from bez.global_optim import optimisation
+from bez.global_optim import optimisation, fit_hyperedge
 from bez.topo_graph import extract_simple_topology_from_skeleton
 from bez.refinement import refine
 from skimage import io
@@ -15,9 +15,7 @@ import matplotlib.pyplot as plt
 def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
     svg_elements = []
     for h in hyper.all_hyperedges():
-        p = np.array(h.pixels).T
-        instants = np.linspace(0, 1, p.shape[1])
-        control_points = fit_bezier(p, instants, degree=h.degree)
+        control_points = h.control_points
         if h.degree == 1:
             (y1, y2), (x1, x2) = control_points
             d = f"M {x1},{y1} L {x2},{y2}"
@@ -59,7 +57,8 @@ def show_example(image_path):
 
     # Create hypergraph and optimize
     hyper = HyperGraph(topo_graph_refine)
-    optimisation(hyper)
+    errors = optimisation(hyper)
+    print(errors[-1])
     hyper.finition()
 
     # Create subplots
@@ -106,3 +105,5 @@ def show_example(image_path):
 
     plt.tight_layout()
     plt.show()
+
+    return img_binary, hyper
