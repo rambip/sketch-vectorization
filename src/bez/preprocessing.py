@@ -6,11 +6,32 @@ from skimage.morphology import (
     erosion,
     remove_small_holes,
     remove_small_objects,
-    skeletonize,
 )
 from skimage.morphology import disk
 from skimage.filters import gaussian, threshold_local, threshold_otsu
 from skimage.color import rgb2gray
+
+# experimental code (not used)
+"""
+def drawing_size(img):
+    fft_img = np.fft.fft2(img)
+    power_spectrum = np.abs(np.fft.fftshift(fft_img)) ** 2
+
+    # Create radial frequency array
+    h, w = img.shape
+    y, x = np.ogrid[:h, :w]
+    center = (h // 2, w // 2)
+    r_grid = np.sqrt((x - center[1]) ** 2 + (y - center[0]) ** 2)
+    r_max = max(100, int(np.min(center)))
+    r = np.arange(5, r_max, 2)
+    radial_profile = []
+
+    for i in r:
+        mask = (r_grid >= i - 1) & (r_grid < i + 1)
+        radial_profile.append(np.mean(power_spectrum[mask]) * i)
+
+    return r[np.argmax(radial_profile)]
+"""
 
 
 def preprocess(img_raw):
