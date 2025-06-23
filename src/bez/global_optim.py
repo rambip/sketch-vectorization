@@ -1,6 +1,5 @@
 import numpy as np
 from tqdm import tqdm
-import matplotlib.pyplot as plt
 from bez.bezier import fit_bezier, interpolate_bezier, fitting_error
 
 
