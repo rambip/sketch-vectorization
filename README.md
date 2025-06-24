@@ -1,5 +1,7 @@
 # sketch-vectorization
 
+![](./images/illustration_pipeline.png)
+
 ## Goal
 
 The goal of this project is to implement the following paper: <https://www-sop.inria.fr/reves/Basilic/2016/FLB16/fidelity_simplicity.pdf>
