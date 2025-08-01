@@ -1,5 +1,4 @@
 import numpy as np
-import svg
 from bez.hypergraph import HyperGraph
 from bez.bezier import fit_bezier
 from bez.viz import visualize_topo, visualize_hyper
@@ -14,7 +13,7 @@ import sys
 
 
 def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
-    svg_elements = []
+    svg_paths = []
     for h in hyper.all_hyperedges():
         control_points = h.control_points
         if h.degree == 1:
@@ -32,11 +31,16 @@ def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
         else:
             raise ValueError("invalid degree")
 
-        svg_elements.append(
-            svg.Path(fill="none", stroke="black", stroke_width=stroke_width, d=d)
+        svg_paths.append(
+            f'  <path fill="none" stroke="black" stroke-width="{stroke_width}" d="{d}"/>'
         )
-    result = svg.SVG(width=image_shape[1], height=image_shape[0], elements=svg_elements)
-    return str(result)
+
+    paths_str = "\n".join(svg_paths)
+    svg_content = f'''<svg width="{image_shape[1]}" height="{image_shape[0]}" xmlns="http://www.w3.org/2000/svg">
+{paths_str}
+</svg>'''
+
+    return svg_content
 
 
 def show_example(image_path):
@@ -109,8 +113,8 @@ def show_example(image_path):
     return img_binary, hyper
 
 
-if __name__ == "__main__":
-    if len(sys.argv[0]) == 1:
+def cli():
+    if len(sys.argv) == 1:
         print("Please provide an image file to convert")
         exit(1)
 
@@ -131,3 +135,7 @@ if __name__ == "__main__":
     with open(path + ".svg", "w") as f:
         f.write(result)
     print(f"svg generated at {path}.svg")
+
+
+if __name__ == "__main__":
+    cli()
