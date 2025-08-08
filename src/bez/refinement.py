@@ -33,7 +33,7 @@ def fit_bezier_error_T(pixel_c: np.array):
     return fit_bezier_error(traj)
 
 
-def devide(pixel_c: np.ndarray, precision: float = 2.0) -> List[int]:
+def devide(pixel_c: np.ndarray, precision: float = 1) -> List[int]:
     _, e = fit_bezier_error_T(pixel_c)
     if e <= precision:
         return np.array([])
