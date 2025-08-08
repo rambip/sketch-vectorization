@@ -60,7 +60,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "hypernetx", specifier = ">=2.4.0" },
-    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "ipykernel", specifier = ">=6.0.0" },
     { name = "matplotlib", specifier = ">=3.10.1" },
     { name = "numpy", specifier = ">=2.2.5" },
     { name = "onnx", specifier = ">=1.18.0" },
