@@ -1,14 +1,14 @@
-import numpy as np
 from bez.hypergraph import HyperGraph
-from bez.bezier import fit_bezier
 from bez.viz import visualize_topo, visualize_hyper
 from bez.preprocessing import preprocess
-from bez.global_optim import optimisation, fit_hyperedge
+from bez.global_optim import optimisation
 from bez.topo_graph import extract_simple_topology_from_skeleton
+from bez.cnn import load_trained_model
 from bez.refinement import refine
-from skimage import io
+from skimage import io, transform
 from skimage.morphology import skeletonize
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
 
 
@@ -53,7 +53,11 @@ def show_example(image_path):
 
     # Process the image
     img_raw = io.imread(image_path)
-    img_binary, thickness = preprocess(img_raw)
+    img = preprocess(img_raw)
+    print(img.shape)
+    model = load_trained_model()
+    img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.3
+    # todo: dilation
     skeleton = skeletonize(img_binary, method="zhang")
 
     # Extract and refine topology
