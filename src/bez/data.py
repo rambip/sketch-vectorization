@@ -15,14 +15,14 @@ def load_normalized(path):
     elif img_raw.shape[2] == 2:
         img = img_raw[:, :, 0]
     elif img_raw.shape[2] == 3:
-        img = (rgb2gray(img_raw) * 255).astype(int)
+        img = rgb2gray(img_raw)
     elif img_raw.shape[2] == 4:
-        img = (rgb2gray(img_raw[:, :, :3]) * (img_raw[:, :, 3])).astype(int)
+        img = rgb2gray(img_raw[:, :, :3]) * (img_raw[:, :, 3]) / 256
     else:
         raise ValueError(f"invalid image shape: {img_raw.shape}")
 
     size = min(img.shape[0], img.shape[1])
-    img = 1 - rescale(img, 512 / size)
+    img = 1 - rescale(img, 512 / size, anti_aliasing=False)
     img = img - np.min(img)
     img = img / np.max(img)
     img = img.astype(np.float32)
