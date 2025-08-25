@@ -16,14 +16,14 @@ dependencies = [
     "skan>=0.12.2",
 ]
 
-[tool.uv.sources]
-torch = { index = "pytorch" }
-torchvision = { index = "pytorch" }
+#[tool.uv.sources]
+#torch = { index = "pytorch" }
+#torchvision = { index = "pytorch" }
 
-[[tool.uv.index]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
+#[[tool.uv.index]]
+#name = "pytorch"
+#url = "https://download.pytorch.org/whl/cpu"
+#explicit = true
 
 [project.scripts]
 cli = "bez:cli"
@@ -33,5 +33,5 @@ cli = "bez:cli"
 requires = ["uv_build>=0.8.4,<0.9.0"]
 build-backend = "uv_build"
 
-[dependency-groups]
-dev = ["ty>=0.0.1a16", "torch", "torchvision"]
+#[dependency-groups]
+#dev = ["ty>=0.0.1a16", "torch", "torchvision"]

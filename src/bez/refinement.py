@@ -74,7 +74,7 @@ def devide(pixel_c: np.ndarray, precision: float = 1) -> List[int]:
         return np.concatenate([first, idx, second])
 
 
-def refine(topo_g: nx.MultiGraph, precision: float = 2.0):
+def refine(topo_g: nx.MultiGraph, precision: float = 0.5):
     new_topo_graph = nx.MultiGraph()
 
     for u, v, data in topo_g.edges(data=True):

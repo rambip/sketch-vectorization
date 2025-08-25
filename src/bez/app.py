@@ -56,7 +56,7 @@ def show_example(image_path):
     img = preprocess(img_raw)
     print(img.shape)
     model = load_trained_model()
-    img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.3
+    img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.5
     # todo: dilation
     skeleton = skeletonize(img_binary, method="zhang")
 
