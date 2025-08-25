@@ -6,6 +6,8 @@
 
 The goal of this project is to implement the following paper: <https://www-sop.inria.fr/reves/Basilic/2016/FLB16/fidelity_simplicity.pdf>
 
+We also implemented several new ideas, such as a [convolutional neural network](./notebooks/cnn.ipynb) with synthetic data augmentation for preprocessing.
+
 ## Use
 
 To install the dependencies, install [uv](https://github.com/astral-sh/uv) and run `uv sync`.
