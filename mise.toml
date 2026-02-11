@@ -1,0 +1,5 @@
+[tools]
+uv = "latest"
+
+[tasks.edit]
+run = "uv run marimo edit . --no-token"
