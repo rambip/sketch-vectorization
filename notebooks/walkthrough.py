@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.9"
+__generated_with = "0.19.10"
 app = marimo.App()
 
 
@@ -67,15 +67,12 @@ def _():
     from skimage.morphology import disk
     from skimage.filters import threshold_otsu, threshold_local, threshold_mean, rank, gaussian, gabor_kernel
 
-    # magic command not supported in marimo; please file an issue to add support
-    # %load_ext autoreload
-    # '%autoreload 2' command supported automatically in marimo
     return ROOT_DIR, dilation, disk, erosion, load_normalized, ndi, np, plt
 
 
 @app.cell
 def _(ROOT_DIR, load_normalized, plt):
-    img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png")
+    img = load_normalized(ROOT_DIR / "data/sketches/house.png")
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     plt.show()
@@ -110,9 +107,10 @@ def _(load_trained_model):
 
 @app.cell
 def _(img, model, np, plt):
-    img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.3
+    img_binary = model.run(["output"], {"input": img[np.newaxis, np.newaxis, :, :]})[0][0][0] > 0.5
     plt.imshow(img_binary)
     plt.colorbar()
+    plt.show()
     return (img_binary,)
 
 
@@ -177,8 +175,8 @@ def _(mo):
 
 
 @app.cell
-def _(dilation, disk, img_binary, np, plt, thicknesses):
-    c = int(0.5*np.max(thicknesses))
+def _(dilation, disk, img_binary, plt):
+    c = 1
 
     # remove holes, objects and dilate
     img_binary_dilated = dilation(img_binary, disk(c))
@@ -374,7 +372,7 @@ def _(
     topo_graph_1,
     visualize_hyper,
 ):
-    topo_graph_refine = refine(topo_graph_1, 0.5)
+    topo_graph_refine = refine(topo_graph_1, 0.1)
     hyper_1 = HyperGraph(topo_graph_refine)
     for _h in hyper_1.all_hyperedges():
         fit_hyperedge(_h)
@@ -429,7 +427,7 @@ def _(hyper_1, optimisation, topo_graph_1):
     lam = 0.2
     temp = 0.5
     t_min = 0.05
-    mu = 0.3
+    mu = 0.2
     t_decrease = 0.99 ** (1 / len(topo_graph_1.nodes))
     error = optimisation(hyper_1, lam=lam, mu=mu, temp=temp, t_decrease=t_decrease, t_min=t_min)
     return (error,)

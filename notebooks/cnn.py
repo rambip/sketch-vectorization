@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.9"
+__generated_with = "0.19.10"
 app = marimo.App()
 
 
@@ -9,134 +9,106 @@ def _():
     import matplotlib.pyplot as plt
     import numpy as np
     from tqdm import trange
-    from bez.cnn.model import Rasterizer
+    from bez.cnn.model import SketchDenoiser
     from bez.data import load_normalized
     import torch
     from meta import ROOT_DIR
     from torchvision.transforms import v2
     import random
+    from pathlib import Path
 
-    # magic command not supported in marimo; please file an issue to add support
-    # %load_ext autoreload
-    # '%autoreload 2' command supported automatically in marimo
-    return (
-        ROOT_DIR,
-        Rasterizer,
-        load_normalized,
-        plt,
-        random,
-        torch,
-        trange,
-        v2,
-    )
+    return Path, ROOT_DIR, SketchDenoiser, load_normalized, plt, torch
 
 
 @app.cell
-def _(ROOT_DIR, load_normalized, random, torch, v2):
-    transforms = v2.Compose([v2.RandomRotation((-180, 180)), v2.RandomCrop(size=(128, 128)), v2.RandomHorizontalFlip(p=0.5)])
-    N_IMAGES = 4
+def _(Path, load_normalized, torch):
+    N_IMAGES = 3000
 
-    def load_data_pair(path_x, path_y, device):
-        source_x = load_normalized(path_x)
-        source_y = 1 - load_normalized(path_y, only_alpha=True)
-        return (torch.tensor(source_x, device=device, dtype=torch.float32), torch.tensor(source_y, device=device, dtype=torch.float32))
-    sources = [(load_normalized(ROOT_DIR / 'data' / 'train' / f'x_00{i}.png'), 1 - load_normalized(ROOT_DIR / 'data' / 'train' / f'y_00{i}.png', only_alpha=True)) for i in range(N_IMAGES)]
 
-    def load_original_dataset(device='cuda'):
-        base = ROOT_DIR / 'data' / 'train'
-        return [load_data_pair(base / f'x_00{i}.png', base / f'y_00{i}.png', device) for i in range(N_IMAGES)]
-    preloaded_sources = load_original_dataset()
+    class SVGDataset:
+        def __init__(self, path: Path, std_noise=0.1):
+            self.std_noise = std_noise
+            self.x_images = [
+                load_normalized(path / f"x_{i}.png", only_alpha=True)
+                for i in range(N_IMAGES)
+            ]
+            self.y_images = [
+                load_normalized(path / f"y_{i}.png", only_alpha=True)
+                for i in range(N_IMAGES)
+            ]
 
-    def random_labeled_img(batch_size, device='cuda'):
-        result_x = []
-        result_y = []
-        for _ in range(batch_size):
-            source_id = random.randint(0, N_IMAGES - 1)
-            (source_x_t, source_y_t) = preloaded_sources[source_id]
-            while True:
-                input_tensor = torch.cat([source_x_t.unsqueeze(0), source_y_t.unsqueeze(0)], dim=0)
-                transformed = transforms(input_tensor)
-                (_x, _y) = (transformed[0], transformed[1])
-                if _y.sum() > 0:
-                    break
-            noise = 0.02 * torch.randn(128, 128, device=device, dtype=torch.float32)
-            _x = _x + noise
-            result_x.append(_x)
-            result_y.append(_y)
-        batch_x = torch.stack(result_x).unsqueeze(1)
-        batch_y = torch.stack(result_y).unsqueeze(1)
-        return (batch_x, batch_y)  # Randomly choose one of the preloaded source images.  # Keep applying transforms until a valid label (non-zero sum) is produced.  # Concatenate image and label along a new batch dimension.  # Shape: [1, H, W]  # Combined shape: [2, H, W]  # Apply transforms (ensure transforms support GPU tensors).  # Add noise directly on the GPU.  # Stack and add an extra channel dimension.
+        def __len__(self):
+            return N_IMAGES
 
-    return (random_labeled_img,)
+        def __getitem__(self, idx):
+            x = self.x_images[idx]
+            y = self.y_images[idx]
+            return (
+                torch.tensor(x, dtype=torch.float32).unsqueeze(0)
+                + self.std_noise *
+                torch.randn((1, 200, 200)),
+                torch.tensor(y, dtype=torch.float32).unsqueeze(0),
+            )
+
+    return (SVGDataset,)
 
 
 @app.cell
-def _(plt, random_labeled_img):
-    (_x, _y) = random_labeled_img(1)
-    plt.imshow(_x.cpu()[0][0])
-    plt.colorbar()
-    plt.show()
-    plt.imshow(_y.cpu()[0][0])
-    plt.colorbar()
+def _(ROOT_DIR, SVGDataset):
+    dataset = SVGDataset(ROOT_DIR / "data" / "train", std_noise=0.05)
+    return (dataset,)
+
+
+@app.cell
+def _(dataset, plt):
+    _img_x = dataset[0][0][0].numpy()
+    _img_y = dataset[0][1][0].numpy()
+    # stack horizontally
+    fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+    axs[0].imshow(_img_x, cmap="binary")
+    axs[0].set_title("Input Image")
+    axs[0].axis("off")
+    axs[1].imshow(_img_y, cmap="binary")
+    axs[1].set_title("Ground truth")
+    axs[1].axis("off")
     plt.show()
     return
 
 
 @app.cell
-def _(torch):
-    def total_variation_loss_l1(image):
-        """L1 version of TV loss - often less aggressive"""
-        batch_size, channels, height, width = image.size()
-    
-        tv_h = torch.abs(image[:, :, 1:, :] - image[:, :, :-1, :]).sum()
-        tv_w = torch.abs(image[:, :, :, 1:] - image[:, :, :, :-1]).sum()
-    
-        return (tv_h + tv_w) / (batch_size * channels * height * width)
-
-    return (total_variation_loss_l1,)
+def _(dataset, torch):
+    dataloader = torch.utils.data.DataLoader(dataset, batch_size=50, shuffle=True)
+    return (dataloader,)
 
 
 @app.cell
-def _(
-    Rasterizer,
-    plt,
-    random_labeled_img,
-    torch,
-    total_variation_loss_l1,
-    trange,
-):
-    N_iter = 300
-    tv_weight = 1
-    model = Rasterizer(32).to('cuda')
+def _(torch):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    return (device,)
+
+
+@app.cell
+def _(SketchDenoiser, dataloader, device, torch):
+    N_EPOCH = 10
+    model = SketchDenoiser(16).to(device)
     criterion = torch.nn.BCELoss()
     opti = torch.optim.AdamW(model.parameters(), lr=0.005)
     losses = []
-    for step in trange(N_iter):
-        (_x, _y) = random_labeled_img(300)
-        opti.zero_grad()  # Generate synthetic data
-        y_pred = model.forward(_x)
-        pred_loss = criterion(y_pred, _y)
-        tv_loss = total_variation_loss_l1(y_pred)  # Training step
-        loss = pred_loss + tv_weight * tv_loss
-        loss.backward()
-        opti.step()
-        if step % 30 == 0:
-            (fig, axes) = plt.subplots(1, 3, figsize=(15, 5))
-            im1 = axes[0].imshow(_y[0][0].detach().cpu(), cmap='gray')
-            axes[0].set_title('Original (Binary)')
-            axes[0].axis('off')
-            plt.colorbar(im1, ax=axes[0], fraction=0.046, pad=0.04)  # Display triplets every 20 steps
-            im2 = axes[1].imshow(_x[0][0].detach().cpu(), cmap='gray')
-            axes[1].set_title('Noisy')
-            axes[1].axis('off')  # Original (binary)
-            plt.colorbar(im2, ax=axes[1], fraction=0.046, pad=0.04)  # Original (binary)
-            im3 = axes[2].imshow(y_pred[0][0].detach().cpu(), cmap='gray')
-            axes[2].set_title('Reconstructed')
-            axes[2].axis('off')
-            plt.colorbar(im3, ax=axes[2], fraction=0.046, pad=0.04)
-            plt.tight_layout()
-            plt.show()  # Noisy
-        losses.append(loss.detach().cpu())  # Reconstructed
+    for epoch in range(N_EPOCH):
+        epoch_loss = 0
+        for batch_x, batch_y in dataloader:
+            batch_x = batch_x.to(device)
+            batch_y = batch_y.to(device)
+            opti.zero_grad()
+            y_pred = model.forward(batch_x)
+            loss = criterion(y_pred, batch_y)
+            loss.backward()
+            opti.step()
+            epoch_loss += loss.item()
+        avg_loss = epoch_loss / len(dataloader)
+        losses.append(avg_loss)
+        print(f"Epoch {epoch+1}/{N_EPOCH}, Loss: {avg_loss:.4f}")
+    torch.save(model.state_dict(), "model.pt2")
     return losses, model
 
 
@@ -152,37 +124,67 @@ def _(losses, plt):
 
 
 @app.cell
-def _(ROOT_DIR, load_normalized, plt):
-    test = load_normalized(ROOT_DIR / "data/sketches/house.png")
-    plt.imshow(test, cmap="binary")
-    plt.show()
-    return (test,)
-
-
-@app.cell
-def _(model, plt, test, torch):
-    pred = model.forward(torch.tensor(test).cuda().unsqueeze(0))
-    plt.imshow(pred.detach().cpu()[0])
-    plt.colorbar()
+def _(dataset, device, model, plt):
+    _fig, _axs = plt.subplots(5, 3, figsize=(5, 12))
+    for i in range(5):
+        test = dataset[i][0]
+        gold = dataset[i][1]
+        predicted = model.forward(test.to(device).unsqueeze(0))
+        _axs[i][0].imshow(test.detach().cpu().squeeze(0), cmap="binary")
+        _axs[i][0].axis("off")
+        _axs[i][1].imshow(predicted.detach().cpu().squeeze(0).squeeze(0), cmap="binary")
+        _axs[i][1].axis("off")
+        _axs[i][2].imshow(gold.detach().cpu().squeeze(0), cmap="binary")
+        _axs[i][2].axis("off")
     plt.show()
     return
 
 
 @app.cell
-def _(ROOT_DIR, model, torch):
-    dummy_input = torch.rand((1, 256, 256), dtype=torch.float32)
-    torch.onnx.export(
-        model.cpu(),
-        (dummy_input,),
-        ROOT_DIR / "src" / "bez" / "cnn" / "model.onnx",
-        input_names=["input"],
-        output_names=["output"],
-        export_params=True,
-        dynamic_axes={
-            "input": {1: "height", 2: "width"},  # Variable H, W
-            "output": {1: "height", 2: "width"},  # Variable H, W
-        },
-    )
+def _(ROOT_DIR, device, load_normalized, model, plt, torch):
+    for name in ["butterfly", "dress", "piano"]:
+        _test = load_normalized(ROOT_DIR / "data" / "sketches" / f"{name}.png")
+        _predicted = model.forward(torch.tensor(_test).to(device).unsqueeze(0).unsqueeze(0))
+        # stack horizontally
+        _fig, _axs = plt.subplots(1, 2, figsize=(10, 5))
+        _axs[0].imshow(_test, cmap="binary")
+        _axs[0].set_title("Input Image")
+        _axs[0].axis("off")
+        _axs[1].imshow(_predicted.detach().cpu().squeeze(0).squeeze(0), cmap="binary")
+        _axs[1].set_title("predicted")
+        _axs[1].axis("off")
+        plt.show()
+    return
+
+
+@app.cell
+def _(model, torch):
+    def export_onnx(out_path):
+        dummy_input = torch.rand((1, 1, 256, 256), dtype=torch.float32)
+        torch.onnx.export(
+            model.cpu(),
+            (dummy_input,),
+            out_path,
+            input_names=["input"],
+            output_names=["output"],
+            export_params=True,
+            dynamic_axes={
+                "input": {2: "height", 3: "width"},  # Variable H, W
+                "output": {2: "height", 3: "width"},  # Variable H, W
+            },
+        )
+
+    return (export_onnx,)
+
+
+@app.cell
+def _(ROOT_DIR, export_onnx):
+    export_onnx(ROOT_DIR / "src" / "bez" / "cnn" / "model.onnx")
+    return
+
+
+@app.cell
+def _():
     return
 
 
