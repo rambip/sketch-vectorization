@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.9"
+__generated_with = "0.19.10"
 app = marimo.App(width="columns")
 
 
@@ -16,6 +16,7 @@ def _():
     from cairosvg import svg2png
     from perlin_numpy import generate_perlin_noise_2d
     from PIL import Image, ImageChops, ImageDraw
+    import random
 
     from meta import ROOT_DIR
 
@@ -31,44 +32,43 @@ def _():
         mo,
         np,
         pl,
+        random,
         svg2png,
     )
 
 
 @app.cell
-def _(dotenv, environ, mo, pl, ROOT_DIR):
-    dotenv.load_dotenv()
-
+def _(ROOT_DIR, dotenv, environ, pl):
+    dotenv.load_dotenv(ROOT_DIR / ".env")
     def collect_hg_dataset():
         df = pl.scan_parquet(
             "hf://datasets/OmniSVG/MMSVG-Icon/data/train-*-of-*.parquet",
             storage_options={"token": environ["HF_TOKEN"]},
         )
-        df.select("svg", "keywords").head(1000).collect().write_csv(
+        df.select("svg", "keywords").head(5000).collect().write_csv(
             ROOT_DIR / "data" / "svg_dataset.csv"
         )
 
-    mo.ui.run_button(
-        label="download SVGs from huggingface", on_change=collect_hg_dataset
-    )
+    if not (ROOT_DIR / "data" / "svg_dataset.csv").exists():
+        collect_hg_dataset()
     return
 
 
 @app.cell
-def _(pl):
-    df = pl.read_csv("svg_dataset.csv")
+def _(ROOT_DIR, pl):
+    df = pl.read_csv(ROOT_DIR / "data" / "svg_dataset.csv")
     return (df,)
 
 
 @app.cell
 def _():
     # number of images
-    N = 100
+    N = 3000
     return (N,)
 
 
 @app.cell
-def _(BytesIO, Image, N, ROOT_DIR, df, svg2png):
+def _(BytesIO, Image, N, ROOT_DIR, df, random, svg2png):
     import re
 
     svg_raw, keywords = df.sample(1).row()
@@ -88,9 +88,9 @@ def _(BytesIO, Image, N, ROOT_DIR, df, svg2png):
     y_images = []
     for i, svg_item in enumerate(df["svg"].sample(N)):
         x_images.append(svg2image(svg_item, 3))
-        y_images.append(svg2image(svg_item, 5))
+        y_images.append(svg2image(svg_item, random.randint(1, 4)))
     x_images[0], y_images[0]
-    return i, out_path, x_images, y_images
+    return out_path, x_images, y_images
 
 
 @app.cell
@@ -101,10 +101,11 @@ def _(mo, x_images):
 
 @app.cell
 def _(Image, ImageChops, ImageDraw, generate_perlin_noise_2d, np):
-    def post_process(image):
+    def post_process(image, d=10):
         noise = generate_perlin_noise_2d((200, 200), (5, 5))
-        noise += generate_perlin_noise_2d((200, 200), (20, 20))
-        noise = (noise - np.min(noise)) / (np.max(noise) - np.min(noise))
+        noise += 0.3*generate_perlin_noise_2d((200, 200), (10, 10))
+        noise += generate_perlin_noise_2d((200, 200), (50, 50))
+        noise = np.exp(d*noise)
         noise_img = Image.fromarray((noise * 255).astype(np.uint8), mode="L")
 
         # Extract alpha and multiply with noise
@@ -113,9 +114,10 @@ def _(Image, ImageChops, ImageDraw, generate_perlin_noise_2d, np):
 
         # Add random line
         draw = ImageDraw.Draw(result)
-        x1, y1 = np.random.randint(0, 200, 2)
-        x2, y2 = np.random.randint(0, 200, 2)
-        draw.line([(x1, y1), (x2, y2)], fill=100, width=1)
+        # for _ in range(5):
+        #     x1, y1 = np.random.randint(0, 200, 2)
+        #     x2, y2 = np.random.randint(0, 200, 2)
+        #     draw.line([(x1, y1), (x2, y2)], fill=100, width=1)
 
         # Convert to RGBA: white RGB, result as alpha
         rgba = Image.new("RGBA", (200, 200), (0, 0, 0, 0))
@@ -133,12 +135,12 @@ def _(mo, post_process, x_images, y_images):
 
 
 @app.cell
-def _(N, i, mo, out_path, post_process, x_images, y_images):
+def _(N, mo, out_path, post_process, x_images, y_images):
     for j in mo.status.progress_bar(range(N), title="Generating png images ..."):
-        x = x_images[i]
-        y = y_images[i]
-        x.save(out_path / f"x_{j}.png")
-        post_process(y).save(out_path / f"y_{j}.png")
+        x = x_images[j]
+        y = y_images[j]
+        x.save(out_path / f"y_{j}.png")
+        post_process(y).save(out_path / f"x_{j}.png")
     return
 
 

@@ -1,7 +1,10 @@
-from skimage import io
-from skimage.transform import rescale
-from skimage.color import rgb2gray
 import numpy as np
+from skimage import io
+from skimage.color import rgb2gray
+from skimage.transform import rescale
+
+D = 200
+
 
 def load_rgb(path, only_alpha=True):
     img_raw = io.imread(path).astype(np.float32)
@@ -20,7 +23,7 @@ def load_rgb(path, only_alpha=True):
             raise ValueError("this image has no alpha channel")
 
     if n_channels == 2:
-        return img_raw[:, :, 0] * img_raw[:, :, 1] / 255.
+        return img_raw[:, :, 0] * img_raw[:, :, 1] / 255.0
     elif n_channels == 3:
         return rgb2gray(img_raw)
     elif n_channels == 4:
@@ -31,11 +34,13 @@ def load_rgb(path, only_alpha=True):
 
 def load_normalized(path, only_alpha=False):
     """
-    load the image with values between 0 and 1, and with smallest dimension equal to 512 pixels
+    load the image with values between 0 and 1, and with smallest dimension equal to 200 pixels
     """
     img = load_rgb(path, only_alpha)
     size = min(img.shape[0], img.shape[1])
-    img = 1 - rescale(img, 512 / size, anti_aliasing=False)
+    img = rescale(img, D / size, anti_aliasing=False)
+    if not only_alpha:
+        img = 1 - img
     img = img - np.min(img)
     img = img / np.max(img)
     img = img.astype(np.float32)
