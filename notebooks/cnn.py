@@ -17,8 +17,9 @@ def _():
     import random
     from pathlib import Path
     import marimo as mo
+    import polars as pl
 
-    return Path, ROOT_DIR, SketchDenoiser, load_normalized, mo, plt, torch
+    return Path, ROOT_DIR, SketchDenoiser, load_normalized, mo, pl, plt, torch
 
 
 @app.cell(hide_code=True)
@@ -74,6 +75,7 @@ def _(ROOT_DIR, SVGDataset):
 @app.cell
 def _(D_IMAGE, plt):
     def figure(data, w=D_IMAGE, h=D_IMAGE, cmap="binary"):
+    
         ax = plt.figure().gca()
         ax.imshow(data.reshape(h, w), cmap=cmap)
         ax.axis(False)
@@ -83,9 +85,40 @@ def _(D_IMAGE, plt):
 
 
 @app.cell
-def _(dataset, figure, mo):
+def _(mo, pl):
+    def table(data):
+        df = pl.DataFrame(data)
+        # Build the table HTML
+        html_parts = ['<table>']
+    
+        # Add table header with centered text
+        html_parts.append('<thead>')
+        html_parts.append('<tr>')
+        for col in df.columns:
+            html_parts.append(f'<th style="text-align: center;">{mo.as_html(col).text}</th>')
+        html_parts.append('</tr>')
+        html_parts.append('</thead>')
+    
+        # Add table body
+        html_parts.append('<tbody>')
+        for row in df.iter_rows(named=False):
+            html_parts.append('<tr>')
+            for cell_value in row:
+                html_parts.append(f'<td>{mo.as_html(cell_value).text}</td>')
+            html_parts.append('</tr>')
+        html_parts.append('</tbody>')
+    
+        html_parts.append('</table>')
+    
+        return mo.Html(''.join(html_parts))
+
+    return (table,)
+
+
+@app.cell
+def _(dataset, figure, table):
     _x, _y = dataset[0]
-    mo.ui.table([{"Input": figure(_x), "Ground Truth": figure(_y)}])
+    table([{"Input": figure(_x), "Ground Truth": figure(_y)}])
     return
 
 
@@ -167,9 +200,11 @@ def _(mo):
 
 
 @app.cell
-def _(dataloader, figure, mo, model_cpu):
+def _(dataloader, figure, model_cpu, table):
     _sample_x, _sample_y = next(iter(dataloader))
-    mo.ui.table(
+    _sample_x = _sample_x[:6]
+    _sample_y = _sample_y[:6]
+    table(
         {
             "Input": [figure(x) for x in _sample_x],
             "Predicted": [
@@ -190,7 +225,7 @@ def _(mo):
 
 
 @app.cell
-def _(ROOT_DIR, dataloader, figure, load_normalized, mo, model_cpu, torch):
+def _(ROOT_DIR, dataloader, figure, load_normalized, model_cpu, table, torch):
     _sample_x, _sample_y = next(iter(dataloader))
     test_x = [
         torch.tensor(
@@ -198,7 +233,7 @@ def _(ROOT_DIR, dataloader, figure, load_normalized, mo, model_cpu, torch):
         ).unsqueeze(0)
         for name in ["butterfly", "dress", "piano"]
     ]
-    mo.ui.table(
+    table(
         [
             {
                 "Input": figure(x),
