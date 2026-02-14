@@ -32,25 +32,32 @@ def _():
         mo,
         np,
         pl,
-        random,
         svg2png,
     )
 
 
 @app.cell
-def _(ROOT_DIR, dotenv, environ, pl):
+def _(ROOT_DIR, dotenv, environ, mo, pl):
     dotenv.load_dotenv(ROOT_DIR / ".env")
+
+
     def collect_hg_dataset():
         df = pl.scan_parquet(
             "hf://datasets/OmniSVG/MMSVG-Icon/data/train-*-of-*.parquet",
             storage_options={"token": environ["HF_TOKEN"]},
         )
-        df.select("svg", "keywords").head(5000).collect().write_csv(
-            ROOT_DIR / "data" / "svg_dataset.csv"
-        )
+        path = ROOT_DIR / "data" / "svg_dataset.csv"
+        print("started download")
+        df.select("svg", "keywords").head(5000).collect().write_csv(path)
+        print(f"dataset saved at {path}")
+
 
     if not (ROOT_DIR / "data" / "svg_dataset.csv").exists():
         collect_hg_dataset()
+
+    mo.ui.run_button(
+        label="Download svg dataset", on_change=lambda x: collect_hg_dataset()
+    )
     return
 
 
@@ -64,48 +71,75 @@ def _(ROOT_DIR, pl):
 def _():
     # number of images
     N = 3000
-    return (N,)
+    # dimension of generated image
+    D = 256
+    return D, N
 
 
 @app.cell
-def _(BytesIO, Image, N, ROOT_DIR, df, random, svg2png):
-    import re
+def _(D, N, df, np, pl):
+    paths = (
+        df.sample(N)
+        .select(path=pl.col("svg").str.extract_all(r"<path .*></path>\s?"))
+        .with_row_index("svg_idx")
+        .explode("path")
+    )
+    synthetic_svg = (
+        paths.with_columns(width=0.3*np.exp(3*np.random.random(size=len(paths))))
+        .group_by("svg_idx")
+        .agg(
+            pl.col("path").str.replace(
+                r'fill="#?\w*" *fill-opacity="1.0" *filling="0',
+                pl.format(
+                    'stroke="black" stroke-width="{}" fill="none',
+                    pl.col("width"),
+                ),
+            )
+        )
+        .select(
+            svg=pl.format(
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 0.0 200.0 200.0" height="{}.0px" width="{}.0px">{}</svg>',
+                D, D, pl.col("path").list.join(""),
+            )
+        )["svg"]
+    )
+    return (synthetic_svg,)
 
-    svg_raw, keywords = df.sample(1).row()
+
+@app.cell
+def _(BytesIO, Image, ROOT_DIR, mo, svg2png, synthetic_svg):
     out_path = ROOT_DIR / "data" / "train"
     out_path.mkdir(exist_ok=True)
 
-    def svg2image(raw_svg, stroke_width):
-        svg_source = re.sub(
-            r'fill="#?\w*"',
-            f'stroke="black" stroke-width="{stroke_width}" fill="none"',
-            raw_svg,
-        )
-        png_data = BytesIO(svg2png(svg_source))
+    def svg2image(source):
+        png_data = BytesIO(svg2png(source))
         return Image.open(png_data)
 
-    x_images = []
-    y_images = []
-    for i, svg_item in enumerate(df["svg"].sample(N)):
-        x_images.append(svg2image(svg_item, 3))
-        y_images.append(svg2image(svg_item, random.randint(1, 4)))
-    x_images[0], y_images[0]
-    return out_path, x_images, y_images
+    images = [svg2image(x) for x in mo.status.progress_bar(synthetic_svg, title="Drawing SVG pictures")]
+    return images, out_path
 
 
 @app.cell
-def _(mo, x_images):
-    mo.inspect(x_images[0])
+def _(images, mo):
+    mo.hstack(images[:10])
     return
 
 
 @app.cell
-def _(Image, ImageChops, ImageDraw, generate_perlin_noise_2d, np):
-    def post_process(image, d=10):
-        noise = generate_perlin_noise_2d((200, 200), (5, 5))
-        noise += 0.3*generate_perlin_noise_2d((200, 200), (10, 10))
-        noise += generate_perlin_noise_2d((200, 200), (50, 50))
-        noise = np.exp(d*noise)
+def _(D, Image, ImageChops, ImageDraw, generate_perlin_noise_2d, np):
+    def to_binary(image):
+        rgba = Image.new("RGBA", (D, D), (0, 0, 0, 0))
+        rgba.putalpha(
+            Image.fromarray(np.asarray(image).sum(-1) > 1)
+        )
+        return rgba
+
+    def post_process(image):
+        noise = 1.0*generate_perlin_noise_2d((D, D), (2, 2))
+        noise += 1.0*generate_perlin_noise_2d((D, D), (8, 8))
+        noise += 1.0*generate_perlin_noise_2d((D, D), (32, 32))
+        noise = np.exp(noise)
+        noise = noise / np.max(noise)
         noise_img = Image.fromarray((noise * 255).astype(np.uint8), mode="L")
 
         # Extract alpha and multiply with noise
@@ -114,33 +148,29 @@ def _(Image, ImageChops, ImageDraw, generate_perlin_noise_2d, np):
 
         # Add random line
         draw = ImageDraw.Draw(result)
-        # for _ in range(5):
-        #     x1, y1 = np.random.randint(0, 200, 2)
-        #     x2, y2 = np.random.randint(0, 200, 2)
-        #     draw.line([(x1, y1), (x2, y2)], fill=100, width=1)
 
         # Convert to RGBA: white RGB, result as alpha
-        rgba = Image.new("RGBA", (200, 200), (0, 0, 0, 0))
+        rgba = Image.new("RGBA", (D, D), (0, 0, 0, 0))
         rgba.putalpha(result)
 
         return rgba
 
-    return (post_process,)
+    return post_process, to_binary
 
 
 @app.cell
-def _(mo, post_process, x_images, y_images):
-    mo.hstack([mo.vstack([x_images[i], post_process(y_images[i])]) for i in range(10)])
+def _(images, mo, post_process, to_binary):
+    mo.hstack([mo.vstack([to_binary(images[i]), post_process(images[i])]) for i in range(10)])
     return
 
 
 @app.cell
-def _(N, mo, out_path, post_process, x_images, y_images):
-    for j in mo.status.progress_bar(range(N), title="Generating png images ..."):
-        x = x_images[j]
-        y = y_images[j]
-        x.save(out_path / f"y_{j}.png")
-        post_process(y).save(out_path / f"x_{j}.png")
+def _(images, mo, out_path, post_process, to_binary):
+    for i, im in enumerate(
+        mo.status.progress_bar(images, title="Adding noise and exporting ...")
+    ):
+        to_binary(im).save(out_path / f"y_{i}.png")
+        post_process(im).save(out_path / f"x_{i}.png")
     return
 
 
