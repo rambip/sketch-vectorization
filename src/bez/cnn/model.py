@@ -1,40 +1,35 @@
-import torch
+from torch import nn
 
 
-class SketchDenoiser(torch.nn.Module):
-    def __init__(self, d_model):
+class ResBlock(nn.Module):
+    def __init__(self, d, kernel_size, dilation=3):
         super().__init__()
-        high_dim = d_model * 2
-        low_dim = d_model
-
-        # Stem
-        self.stem = torch.nn.Conv2d(1, high_dim, 5, padding=2)
-        self.bn_stem = torch.nn.BatchNorm2d(high_dim)  # Add BN here
-
-        # Convolutions
-        self.conv2 = torch.nn.Conv2d(high_dim, low_dim, 5, dilation=3, padding=6)
-        self.bn2 = torch.nn.BatchNorm2d(low_dim)
-
-        self.conv3 = torch.nn.Conv2d(low_dim, low_dim, 5, dilation=3, padding=6)
-        self.bn3 = torch.nn.BatchNorm2d(low_dim)
-
-        self.conv4 = torch.nn.Conv2d(low_dim, low_dim, 5, dilation=3, padding=6)
-        self.bn4 = torch.nn.BatchNorm2d(low_dim)
-
-        self.conv5 = torch.nn.Conv2d(low_dim, high_dim, 5, dilation=3, padding=6)
-        self.bn5 = torch.nn.BatchNorm2d(high_dim)
-
-        self.reg = torch.nn.SiLU()
-        self.mlp = torch.nn.Conv2d(high_dim, 1, 1)
-        self.final = torch.nn.Sigmoid()
+        padding = (dilation * (kernel_size - 1)) // 2
+        self.conv = nn.Conv2d(d, d, kernel_size, dilation=dilation, padding=padding)
+        self.reg = nn.SiLU()
 
     def forward(self, x):
-        x = self.reg(self.bn_stem(self.stem(x)))
+        r = self.conv(x)
+        r = self.reg(r)
+        # residual connection
+        return r + x
 
-        res = x
-        x = self.reg(self.bn2(self.conv2(x)))
-        x = self.reg(self.bn3(self.conv3(x)))
-        x = self.reg(self.bn4(self.conv4(x)))
-        x = self.reg(self.bn5(self.conv5(x)))
 
-        return self.final(self.mlp(x + res))
+class SketchDenoiser(nn.Module):
+    def __init__(self, d_model):
+        super().__init__()
+
+        self.l0 = nn.Sequential(
+            nn.Conv2d(1, d_model, 3, padding=1, dilation=1, bias=False), nn.SiLU()
+        )
+
+        self.layers = nn.Sequential(
+            *(ResBlock(d_model, 3, dilation=3) for _ in range(7))
+        )
+
+        self.head = nn.Sequential(nn.Conv2d(d_model, 1, 1), nn.Sigmoid())
+
+    def forward(self, x):
+        x = self.l0(x)
+        x = self.layers(x)
+        return self.head(x)
