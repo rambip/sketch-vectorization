@@ -18,8 +18,20 @@ def _():
     from pathlib import Path
     import marimo as mo
     import polars as pl
+    import base64
+    from io import BytesIO
 
-    return Path, ROOT_DIR, SketchDenoiser, load_normalized, mo, pl, plt, torch
+    return (
+        BytesIO,
+        Path,
+        ROOT_DIR,
+        SketchDenoiser,
+        load_normalized,
+        mo,
+        pl,
+        plt,
+        torch,
+    )
 
 
 @app.cell(hide_code=True)
@@ -73,13 +85,26 @@ def _(ROOT_DIR, SVGDataset):
 
 
 @app.cell
-def _(D_IMAGE, plt):
+def _(BytesIO, D_IMAGE, mo, plt):
     def figure(data, w=D_IMAGE, h=D_IMAGE, cmap="binary"):
-    
-        ax = plt.figure().gca()
+        fig = plt.figure()
+        ax = fig.gca()
         ax.imshow(data.reshape(h, w), cmap=cmap)
         ax.axis(False)
-        return ax
+        import base64
+
+
+        # Save plot to a BytesIO object
+        buffer = BytesIO()
+        fig.savefig(buffer, format='png')
+        buffer.seek(0)
+
+        # Encode the image in base64
+        image_base64 = base64.b64encode(buffer.getvalue()).decode()
+
+        # HTML embedding
+        html_string = f'<img src="data:image/png;base64,{image_base64}" />'
+        return mo.Html(html_string)
 
     return (figure,)
 
@@ -90,26 +115,26 @@ def _(mo, pl):
         df = pl.DataFrame(data)
         # Build the table HTML
         html_parts = ['<table>']
-    
+
         # Add table header with centered text
         html_parts.append('<thead>')
         html_parts.append('<tr>')
         for col in df.columns:
-            html_parts.append(f'<th style="text-align: center;">{mo.as_html(col).text}</th>')
+            html_parts.append(f'<th style="text-align: center;">{col}</th>')
         html_parts.append('</tr>')
         html_parts.append('</thead>')
-    
+
         # Add table body
         html_parts.append('<tbody>')
         for row in df.iter_rows(named=False):
             html_parts.append('<tr>')
             for cell_value in row:
-                html_parts.append(f'<td>{mo.as_html(cell_value).text}</td>')
+                html_parts.append(f'<td>{cell_value}</td>')
             html_parts.append('</tr>')
         html_parts.append('</tbody>')
-    
+
         html_parts.append('</table>')
-    
+
         return mo.Html(''.join(html_parts))
 
     return (table,)
@@ -118,7 +143,7 @@ def _(mo, pl):
 @app.cell
 def _(dataset, figure, table):
     _x, _y = dataset[0]
-    table([{"Input": figure(_x), "Ground Truth": figure(_y)}])
+    table([{"Input": figure(_x).text, "Ground Truth": figure(_y).text}])
     return
 
 
@@ -206,11 +231,11 @@ def _(dataloader, figure, model_cpu, table):
     _sample_y = _sample_y[:6]
     table(
         {
-            "Input": [figure(x) for x in _sample_x],
+            "Input": [figure(x).text for x in _sample_x],
             "Predicted": [
-                figure(p.detach()) for p in model_cpu.forward(_sample_x)
+                figure(p.detach()).text for p in model_cpu.forward(_sample_x)
             ],
-            "Ground truth": [figure(y) for y in _sample_y],
+            "Ground truth": [figure(y).text for y in _sample_y],
         }
     )
     return
