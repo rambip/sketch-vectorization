@@ -1,14 +1,24 @@
 import marimo
 
 __generated_with = "0.19.10"
-app = marimo.App()
+app = marimo.App(width="full", auto_download=["ipynb"])
 
 
 @app.cell
 def _():
     import marimo as mo
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from meta import ROOT_DIR
+    from scipy import ndimage as ndi
+    from bez.data import load_normalized
 
-    return (mo,)
+    from skimage import io, data, morphology
+    from skimage.morphology import dilation, erosion, remove_small_holes, remove_small_objects
+    from skimage.morphology import disk
+    from skimage.filters import threshold_otsu, threshold_local, threshold_mean, rank, gaussian, gabor_kernel
+
+    return ROOT_DIR, dilation, erosion, load_normalized, mo, np, plt
 
 
 @app.cell(hide_code=True)
@@ -35,7 +45,7 @@ def _(mo):
     ![](../images/illustration_butterfly.png)
 
     In order, we
-    - apply **preprocessing** to have a information about the pixels
+    - apply **preprocessing** to translate the image into a black and white mask
     - create a **skeleton** and convert it to a graph (chains of pixels)
     - use **hypergraph optimization** to find the optimal curves to approximate these chains of pixels
     """)
@@ -45,34 +55,14 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Preprocessing
-
-    Before anything, we need a binary representation of our drawing.
-
-    The paper uses advanced trapped-ball techniques, but we chose to implement something simple. We expected to get results a lot worse than the paper, but most of the time the results are ok. For this reason, we did not spend more time implementing the contour detection phase.
+    Here is the image we will use for demonstration purposes:
     """)
     return
 
 
 @app.cell
-def _():
-    import matplotlib.pyplot as plt
-    import numpy as np
-    from meta import ROOT_DIR
-    from scipy import ndimage as ndi
-    from bez.data import load_normalized
-
-    from skimage import io, data, morphology
-    from skimage.morphology import dilation, erosion, remove_small_holes, remove_small_objects
-    from skimage.morphology import disk
-    from skimage.filters import threshold_otsu, threshold_local, threshold_mean, rank, gaussian, gabor_kernel
-
-    return ROOT_DIR, dilation, disk, erosion, load_normalized, ndi, np, plt
-
-
-@app.cell
 def _(ROOT_DIR, load_normalized, plt):
-    img = load_normalized(ROOT_DIR / "data/sketches/house.png")
+    img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png", d=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     plt.show()
@@ -82,12 +72,61 @@ def _(ROOT_DIR, load_normalized, plt):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    There are 3 challenges when we want to find the contours of the drawing:
-    - the pen creates a complex texture on the image (and this depends on the pen)
-    - the thickness of the line varies a lot in the drawing
-    - some lines are "frayed", with multiple strokes approximately at the same place.
+    ## Preprocessing
 
-    Let's zoom in at one particular location:
+    Before anything, we need a binary representation of our drawing.
+
+    The paper uses advanced trapped-ball and paint-filling techniques, but that would be a lot of work, to be honnest. And not that interesting !
+
+    At this point, I was wondering: what if we cloud cheat ? Going from someone's drawing to a logo-like black and white image sounds a lot like a [Style transfer](https://en.wikipedia.org/wiki/Neural_style_transfer):
+
+    ![](https://s3.amazonaws.com/book.keras.io/img/ch8/style_transfer.png)
+
+    We are in 2025 after all, since we don't have a huge brain and a lot of time, maybe we could use a GPU and a lot of data instead ?
+
+    So, that's what we did !
+
+
+    Basically, we followed a simple recipe:
+    1. Get a good quality SVG dataset
+    2. Convert the SVG to a sketch-like black and white representation
+    3. Add different kind of noises and texture to simulate drawing on paper
+    4. Train a CNN to denoise the images.
+
+    This was not very hard conceptually, if you're curious you can look at the notebooks "cnn.py" and "svg_dataset.py" in one of these places:
+    - https://github.com/rambip/sketch-vectorization/tree/main/notebooks/ -> the code
+    - https://github.com/rambip/sketch-vectorization/tree/main/notebooks/__marimo__ -> the exported notebooks
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    _details = mo.as_html(mo.md("""
+    - the noise must really look like your test images. Otherwise, you're too much out of distribution and the model can't learn properly.
+    - There is a tradeoff for the resolution: we want a model that can process large images, but it's more costly to train.
+    - **Don't try a small model**. I thought that a model with an inner dimension of 8 and 4 layers was enough, but it was not the case. Don't fear the overfitting: if you train for long enough and you have diverse enough datapoints, your model will generalize even if it has a lot of parameters. If that seems counter-intuitive to you, go read about [Double Descent](https://en.wikipedia.org/wiki/Double_descent)
+    - residual connections work really well. We ended up adding them at each layer.
+
+    We ended up with: 
+    - 3000 data points of 256x256
+    - 8 layers of 3x3 convolutions
+    - an inner dimension of 32
+    - SiLU activation function
+    - 30 epochs, with a batch size of 50
+    - running on T4 gpus for something like 15min
+    """))
+    mo.md(f"""
+    <details>
+    <summary>
+    In a nutshell, a few lessons we learned:
+    </summary>
+    {_details.text}
+    </details>
+
+    But now, let's try it !
+
+    We converted it to ONNX format, so it can run without a gpu.
     """)
     return
 
@@ -107,9 +146,11 @@ def _(load_trained_model):
 
 @app.cell
 def _(img, model, np, plt):
-    img_binary = model.run(["output"], {"input": img[np.newaxis, np.newaxis, :, :]})[0][0][0] > 0.5
-    plt.imshow(img_binary)
-    plt.colorbar()
+    img_one_channel = img[np.newaxis, :, :]
+    # we consider it's black if the model
+    img_binary = model.run(["output"], {"input": img_one_channel})[0][0] > 0.5
+    plt.imshow(img_binary, cmap="binary")
+    plt.axis(False)
     plt.show()
     return (img_binary,)
 
@@ -117,22 +158,35 @@ def _(img, model, np, plt):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    We now have black and white pixels, but we did not solve the issue of multiple strokes. And a new artefact appeared: small dots everywhere.
-    We follow the methodoloy of the paper and perform a dilation.
-
-    But we don't know what diameter to use !
-    In order to get it, we first it to compute the thickness map.
-
-    We erode the image iteratively, and for each pixel we keep track of the moment at which it disappeared.
+    Since the model is not perfect, there are still a few artefacts in the image.
+    To remove them, we do a simple 1pixel-dilation.
     """)
     return
 
 
 @app.cell
-def _(erosion, img_binary, np, plt):
-    thicknesses = np.zeros_like(img_binary, dtype=int)
-    max_line_width_detection = img_binary.copy()
-    i = 0
+def _(dilation, img_binary, plt):
+    img_binary_dilated = dilation(img_binary)
+    plt.imshow(img_binary_dilated)
+    plt.title("final drawing after dilation")
+    plt.axis(False)
+    plt.show()
+    return (img_binary_dilated,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Next, we compute the thickness of the drawing using erosion:
+    """)
+    return
+
+
+@app.cell
+def _(erosion, img_binary_dilated, np, plt):
+    thicknesses = np.array(img_binary_dilated, dtype=int)
+    max_line_width_detection = img_binary_dilated.copy()
+    i = 2
     while np.sum(max_line_width_detection) > 0:
         tmp = erosion(max_line_width_detection)
         diff = max_line_width_detection ^ tmp > 0  # iterate the erosion
@@ -140,50 +194,11 @@ def _(erosion, img_binary, np, plt):
         max_line_width_detection = tmp  # find the difference
         i = i + 1
     plt.imshow(thicknesses)
+    plt.axis(False)
+    plt.colorbar()
     plt.title('Thickness of the drawing')
     plt.show()
-    return (thicknesses,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    We barely see the thickness. We will make it more visible by finding the maximum values of thickness locally.
-    """)
     return
-
-
-@app.cell
-def _(disk, ndi, plt, thicknesses):
-    thickness_for_display = ndi.maximum_filter(thicknesses, footprint=disk(5))
-    plt.imshow(thickness_for_display)
-    plt.title("Thickness of the drawing (after local maxima)")
-    plt.show()
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    Finally, we can compute the value of the dilation parameter.
-
-    We could chose the maximum thickness, but if the thickness of the drawing is not uniform, we will a lot of details in regions where the thickness is very small.
-
-    After some experimentation, we decided to take the median of all thickness values.
-    """)
-    return
-
-
-@app.cell
-def _(dilation, disk, img_binary, plt):
-    c = 1
-
-    # remove holes, objects and dilate
-    img_binary_dilated = dilation(img_binary, disk(c))
-    plt.imshow(img_binary_dilated)
-    plt.title("final drawing after dilation")
-    plt.show()
-    return (img_binary_dilated,)
 
 
 @app.cell(hide_code=True)
@@ -218,6 +233,7 @@ def _(img_binary_dilated, plt, skeletonize):
 
     plt.imshow(1-skeleton, cmap="gray")
     plt.title("skeleton")
+    plt.axis(False)
     plt.show()
     return (skeleton,)
 
@@ -235,14 +251,29 @@ def _(mo):
 @app.cell
 def _(np, plt, scipy, skeleton):
     kernel = np.ones((3, 3), dtype=int)
-    neighbours = scipy.signal.convolve2d(skeleton.astype(int), kernel, mode='same')
+    neighbours = scipy.signal.convolve2d(skeleton.astype(int), kernel, mode="same")
     neighbours = neighbours * skeleton
-    plt.imshow(1 - skeleton, cmap='gray')
-    plt.scatter(np.where(neighbours == 2)[1], np.where(neighbours == 2)[0], label='2 neighbours', s=1)
-    plt.scatter(np.where(neighbours >= 4)[1], np.where(neighbours >= 4)[0], label='4 neighbours', s=1)
-    plt.scatter(np.where(neighbours > 4)[1], np.where(neighbours > 4)[0], label='>4 neighbours', s=1)
+    def pos_where(mask):
+        return np.where(mask)[1], np.where(mask)[0]
+
+    plt.imshow(1 - skeleton, cmap="gray")
+    plt.scatter(
+        *pos_where(neighbours==2),
+        label="2 neighbours",
+        s=5,
+    )
+    plt.scatter(
+        *pos_where(neighbours==4),
+        label="4 neighbours",
+        s=5,
+    )
+    plt.scatter(
+        *pos_where(neighbours>4),
+        label=">4 neighbours",
+        s=5,
+    )
     plt.legend()
-    plt.title('skeleton with number of neighbours')
+    plt.title("skeleton with number of neighbours")
     plt.show()
     return
 
@@ -427,7 +458,7 @@ def _(hyper_1, optimisation, topo_graph_1):
     lam = 0.2
     temp = 0.5
     t_min = 0.05
-    mu = 0.2
+    mu = 0.8
     t_decrease = 0.99 ** (1 / len(topo_graph_1.nodes))
     error = optimisation(hyper_1, lam=lam, mu=mu, temp=temp, t_decrease=t_decrease, t_min=t_min)
     return (error,)
@@ -544,7 +575,7 @@ def _(ROOT_DIR, show_example):
 
 @app.cell
 def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/010_1.png")
+    show_example(ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png")
     return
 
 
@@ -557,6 +588,11 @@ def _(ROOT_DIR, show_example):
 @app.cell
 def _(ROOT_DIR, show_example):
     show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
+    return
+
+
+@app.cell
+def _():
     return
 
 
