@@ -1,15 +1,18 @@
-from bez.hypergraph import HyperGraph
-from bez.viz import visualize_topo, visualize_hyper
-from bez.preprocessing import preprocess
-from bez.global_optim import optimisation
-from bez.topo_graph import extract_simple_topology_from_skeleton
-from bez.cnn import load_trained_model
-from bez.refinement import refine
-from skimage import io, transform
-from skimage.morphology import skeletonize
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
+from skimage import io, morphology
+from skimage.morphology import skeletonize
+
+from bez.cnn import load_trained_model
+from bez.data import load_normalized
+from bez.global_optim import optimisation
+from bez.hypergraph import HyperGraph
+from bez.preprocessing import preprocess
+from bez.refinement import refine
+from bez.topo_graph import extract_simple_topology_from_skeleton
+from bez.viz import visualize_hyper, visualize_topo
 
 
 def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
@@ -52,11 +55,10 @@ def show_example(image_path):
     """
 
     # Process the image
-    img_raw = io.imread(image_path)
-    img = preprocess(img_raw)
-    print(img.shape)
+    img = load_normalized(image_path)
     model = load_trained_model()
     img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.5
+    img_binary = morphology.dilation(img_binary)
     # todo: dilation
     skeleton = skeletonize(img_binary, method="zhang")
 
@@ -67,23 +69,18 @@ def show_example(image_path):
     # Create hypergraph and optimize
     hyper = HyperGraph(topo_graph_refine)
     errors = optimisation(hyper)
-    hyper.finition()
+    # FIXME: finition does not work
+    # hyper.finition()
 
     # Create subplots
     fig, axes = plt.subplots(1, 4, figsize=(20, 5))
 
-    # Plot 1: Original image
-    if len(img_raw.shape) == 2:
-        axes[0].imshow(img_raw, cmap="gray")
-    elif img_raw.shape[-1] == 2:
-        axes[0].imshow(img_raw[:, :, 0], cmap="gray")
-    else:
-        axes[0].imshow(img_raw)
+    axes[0].imshow(img, cmap="binary")
     axes[0].set_title("Original Image")
     axes[0].axis("off")
 
     # Plot 2: Binary image
-    axes[1].imshow(~img_binary, cmap="gray")
+    axes[1].imshow(img_binary, cmap="binary")
     axes[1].set_title("Binary Image")
     axes[1].axis("off")
 
