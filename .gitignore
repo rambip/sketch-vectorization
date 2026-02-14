@@ -5,4 +5,4 @@
 **/*.egg-info
 .jupyter**
 data/train
-**/__marimo__
+**/__marimo__/session

@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.19.10"
-app = marimo.App()
+app = marimo.App(auto_download=["ipynb"])
 
 
 @app.cell
@@ -19,6 +19,16 @@ def _():
     import marimo as mo
 
     return Path, ROOT_DIR, SketchDenoiser, load_normalized, mo, plt, torch
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Load generated images
+
+    See svg_dataset.py for information about how we generated the images
+    """)
+    return
 
 
 @app.cell
@@ -85,6 +95,18 @@ def _(dataset, torch):
     return (dataloader,)
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Model training
+
+    This model is a 7-layer CNN
+
+    Each convolution kernel is of size 3x3 with 32 channels.
+    """)
+    return
+
+
 @app.cell
 def _(torch):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -120,6 +142,7 @@ def _(SketchDenoiser, dataloader, device, torch):
 def _(losses, plt):
     plt.figure(figsize=(10, 6))
     plt.plot(range(len(losses)), losses, label="reconstruction loss")
+    plt.title("Reconstruction loss")
     plt.xlabel('Iteration')
     plt.ylabel('Loss')
     plt.legend()
@@ -129,19 +152,40 @@ def _(losses, plt):
 
 @app.cell
 def _(model):
+    # we convert
     model.eval()
     model_cpu = model.cpu()
     return (model_cpu,)
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Visualisation of model outputs
+    """)
+    return
+
+
 @app.cell
 def _(dataloader, figure, mo, model_cpu):
     _sample_x, _sample_y = next(iter(dataloader))
-    mo.ui.table({
-        "Input": [figure(x) for x in _sample_x],
-        "Predicted": [figure(p.detach()) for p in model_cpu.forward(_sample_x)],
-        "Ground truth": [figure(y) for y in _sample_y],
-        })
+    mo.ui.table(
+        {
+            "Input": [figure(x) for x in _sample_x],
+            "Predicted": [
+                figure(p.detach()) for p in model_cpu.forward(_sample_x)
+            ],
+            "Ground truth": [figure(y) for y in _sample_y],
+        }
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    On the test images (not synthetic):
+    """)
     return
 
 
@@ -163,6 +207,16 @@ def _(ROOT_DIR, dataloader, figure, load_normalized, mo, model_cpu, torch):
             for x in test_x
         ]
     )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Model export
+
+    To use the model easily in the main pipeline, we convert it to [ONNX](https://onnx.ai/), a standard format for neural networks.
+    """)
     return
 
 
@@ -190,11 +244,6 @@ def _(torch):
 @app.cell
 def _(ROOT_DIR, export_onnx, model_cpu):
     export_onnx(model_cpu, ROOT_DIR / "src" / "bez" / "cnn" / "model.onnx")
-    return
-
-
-@app.cell
-def _():
     return
 
 
