@@ -2,7 +2,7 @@ import numpy as np
 from skimage import io, transform
 from skimage.color import rgb2gray
 
-D = 128
+D = 256
 
 
 def load_rgb(path, only_alpha=True):
