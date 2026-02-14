@@ -1,9 +1,8 @@
 import numpy as np
-from skimage import io
+from skimage import io, transform
 from skimage.color import rgb2gray
-from skimage.transform import rescale
 
-D = 200
+D = 128
 
 
 def load_rgb(path, only_alpha=True):
@@ -32,13 +31,13 @@ def load_rgb(path, only_alpha=True):
         raise ValueError(f"invalid image shape: {img_raw.shape}")
 
 
-def load_normalized(path, only_alpha=False):
+def load_normalized(path, only_alpha=False, d=D):
     """
-    load the image with values between 0 and 1, and with smallest dimension equal to 200 pixels
+    load the image with values between 0 and 1
     """
     img = load_rgb(path, only_alpha)
     size = min(img.shape[0], img.shape[1])
-    img = rescale(img, D / size, anti_aliasing=False)
+    img = transform.rescale(img, d / size, anti_aliasing=True)
     if not only_alpha:
         img = 1 - img
     img = img - np.min(img)
