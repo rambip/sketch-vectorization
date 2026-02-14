@@ -16,24 +16,26 @@ def _():
     from torchvision.transforms import v2
     import random
     from pathlib import Path
+    import marimo as mo
 
-    return Path, ROOT_DIR, SketchDenoiser, load_normalized, plt, torch
+    return Path, ROOT_DIR, SketchDenoiser, load_normalized, mo, plt, torch
 
 
 @app.cell
 def _(Path, load_normalized, torch):
     N_IMAGES = 3000
+    D_IMAGE = 256
 
 
     class SVGDataset:
         def __init__(self, path: Path, std_noise=0.1):
             self.std_noise = std_noise
             self.x_images = [
-                load_normalized(path / f"x_{i}.png", only_alpha=True)
+                load_normalized(path / f"x_{i}.png", only_alpha=True, d=256)
                 for i in range(N_IMAGES)
             ]
             self.y_images = [
-                load_normalized(path / f"y_{i}.png", only_alpha=True)
+                load_normalized(path / f"y_{i}.png", only_alpha=True, d=256)
                 for i in range(N_IMAGES)
             ]
 
@@ -43,14 +45,14 @@ def _(Path, load_normalized, torch):
         def __getitem__(self, idx):
             x = self.x_images[idx]
             y = self.y_images[idx]
+            noise = self.std_noise * torch.randn((1, D_IMAGE, D_IMAGE))
             return (
-                torch.tensor(x, dtype=torch.float32).unsqueeze(0)
-                + self.std_noise *
-                torch.randn((1, 200, 200)),
-                torch.tensor(y, dtype=torch.float32).unsqueeze(0),
+                torch.tensor(x, dtype=torch.float32).unsqueeze(0) + noise,
+                # very important for numerical stability (BCE loss)
+                0.99 * torch.tensor(y, dtype=torch.float32).unsqueeze(0),
             )
 
-    return (SVGDataset,)
+    return D_IMAGE, SVGDataset
 
 
 @app.cell
@@ -60,18 +62,20 @@ def _(ROOT_DIR, SVGDataset):
 
 
 @app.cell
-def _(dataset, plt):
-    _img_x = dataset[0][0][0].numpy()
-    _img_y = dataset[0][1][0].numpy()
-    # stack horizontally
-    fig, axs = plt.subplots(1, 2, figsize=(10, 5))
-    axs[0].imshow(_img_x, cmap="binary")
-    axs[0].set_title("Input Image")
-    axs[0].axis("off")
-    axs[1].imshow(_img_y, cmap="binary")
-    axs[1].set_title("Ground truth")
-    axs[1].axis("off")
-    plt.show()
+def _(D_IMAGE, plt):
+    def figure(data, w=D_IMAGE, h=D_IMAGE, cmap="binary"):
+        ax = plt.figure().gca()
+        ax.imshow(data.reshape(h, w), cmap=cmap)
+        ax.axis(False)
+        return ax
+
+    return (figure,)
+
+
+@app.cell
+def _(dataset, figure, mo):
+    _x, _y = dataset[0]
+    mo.ui.table([{"Input": figure(_x), "Ground Truth": figure(_y)}])
     return
 
 
@@ -89,8 +93,8 @@ def _(torch):
 
 @app.cell
 def _(SketchDenoiser, dataloader, device, torch):
-    N_EPOCH = 10
-    model = SketchDenoiser(16).to(device)
+    N_EPOCH = 30
+    model = SketchDenoiser(32).to(device)
     criterion = torch.nn.BCELoss()
     opti = torch.optim.AdamW(model.parameters(), lr=0.005)
     losses = []
@@ -119,48 +123,53 @@ def _(losses, plt):
     plt.xlabel('Iteration')
     plt.ylabel('Loss')
     plt.legend()
-    plt.show()
+    plt.gca()
     return
 
 
 @app.cell
-def _(dataset, device, model, plt):
-    _fig, _axs = plt.subplots(5, 3, figsize=(5, 12))
-    for i in range(5):
-        test = dataset[i][0]
-        gold = dataset[i][1]
-        predicted = model.forward(test.to(device).unsqueeze(0))
-        _axs[i][0].imshow(test.detach().cpu().squeeze(0), cmap="binary")
-        _axs[i][0].axis("off")
-        _axs[i][1].imshow(predicted.detach().cpu().squeeze(0).squeeze(0), cmap="binary")
-        _axs[i][1].axis("off")
-        _axs[i][2].imshow(gold.detach().cpu().squeeze(0), cmap="binary")
-        _axs[i][2].axis("off")
-    plt.show()
+def _(model):
+    model.eval()
+    model_cpu = model.cpu()
+    return (model_cpu,)
+
+
+@app.cell
+def _(dataloader, figure, mo, model_cpu):
+    _sample_x, _sample_y = next(iter(dataloader))
+    mo.ui.table({
+        "Input": [figure(x) for x in _sample_x],
+        "Predicted": [figure(p.detach()) for p in model_cpu.forward(_sample_x)],
+        "Ground truth": [figure(y) for y in _sample_y],
+        })
     return
 
 
 @app.cell
-def _(ROOT_DIR, device, load_normalized, model, plt, torch):
-    for name in ["butterfly", "dress", "piano"]:
-        _test = load_normalized(ROOT_DIR / "data" / "sketches" / f"{name}.png")
-        _predicted = model.forward(torch.tensor(_test).to(device).unsqueeze(0).unsqueeze(0))
-        # stack horizontally
-        _fig, _axs = plt.subplots(1, 2, figsize=(10, 5))
-        _axs[0].imshow(_test, cmap="binary")
-        _axs[0].set_title("Input Image")
-        _axs[0].axis("off")
-        _axs[1].imshow(_predicted.detach().cpu().squeeze(0).squeeze(0), cmap="binary")
-        _axs[1].set_title("predicted")
-        _axs[1].axis("off")
-        plt.show()
+def _(ROOT_DIR, dataloader, figure, load_normalized, mo, model_cpu, torch):
+    _sample_x, _sample_y = next(iter(dataloader))
+    test_x = [
+        torch.tensor(
+            load_normalized(ROOT_DIR / "data" / "sketches" / f"{name}.png", d=256)
+        ).unsqueeze(0)
+        for name in ["butterfly", "dress", "piano"]
+    ]
+    mo.ui.table(
+        [
+            {
+                "Input": figure(x),
+                "Predicted": figure(model_cpu.forward(x).detach()),
+            }
+            for x in test_x
+        ]
+    )
     return
 
 
 @app.cell
-def _(model, torch):
-    def export_onnx(out_path):
-        dummy_input = torch.rand((1, 1, 256, 256), dtype=torch.float32)
+def _(torch):
+    def export_onnx(model, out_path):
+        dummy_input = torch.rand((1, 256, 256), dtype=torch.float32)
         torch.onnx.export(
             model.cpu(),
             (dummy_input,),
@@ -169,17 +178,18 @@ def _(model, torch):
             output_names=["output"],
             export_params=True,
             dynamic_axes={
-                "input": {2: "height", 3: "width"},  # Variable H, W
-                "output": {2: "height", 3: "width"},  # Variable H, W
+                "input": {1: "height", 2: "width"},  # Variable H, W
+                "output": {1: "height", 2: "width"},  # Variable H, W
             },
+            dynamo=True
         )
 
     return (export_onnx,)
 
 
 @app.cell
-def _(ROOT_DIR, export_onnx):
-    export_onnx(ROOT_DIR / "src" / "bez" / "cnn" / "model.onnx")
+def _(ROOT_DIR, export_onnx, model_cpu):
+    export_onnx(model_cpu, ROOT_DIR / "src" / "bez" / "cnn" / "model.onnx")
     return
 
 
