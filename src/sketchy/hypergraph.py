@@ -1,9 +1,11 @@
+from enum import IntEnum
+
+import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
-from enum import IntEnum
-import matplotlib.pyplot as plt
 
-from bez.bezier import fit_bezier, interpolate_bezier
+from .bezier import fit_bezier, interpolate_bezier
+
 
 class Perturbation(IntEnum):
     INCREASE_DEGREE = 0
@@ -168,7 +170,7 @@ class HyperGraph:
         self.g.remove_node(a)
 
     def sample_t(self):
-        a: HyperEdge = np.random.choice(self.g.succ[SOURCE]) # type: ignore
+        a: HyperEdge = np.random.choice(self.g.succ[SOURCE])  # type: ignore
         node = a.edges[-1][1]
         b = np.random.choice(self.g.pred[node])
         return (a, b, node)
@@ -239,14 +241,12 @@ class HyperGraph:
             except SampleError as e:
                 pass
 
-
     # Les methodes suivante sont pour un fitting de bezier et une finalisation enregistrer dans control points des Hyper_Edges
     def fit_beziers(self):
         for h in self.all_hyperedges():
             p = np.array(h.pixels).T  # shape (2, N)
             instants = np.linspace(0, 1, p.shape[1])
             h.control_points = fit_bezier(p, instants, degree=h.degree)
-
 
     def hyperedges_passing_through_node(self) -> dict[tuple[int, int], list[HyperEdge]]:
         """Retourne un dictionnaire nœud → liste des HyperEdges qui passent par ce nœud (à n’importe quelle position)."""
@@ -261,7 +261,6 @@ class HyperGraph:
 
         return node_to_hyperedges
 
-
     def hyperedges_by_node(self) -> dict[tuple[int, int], list[HyperEdge]]:
         node_to_hyperedges = {}
 
@@ -272,8 +271,6 @@ class HyperGraph:
                 node_to_hyperedges[node].append(h)
 
         return node_to_hyperedges
-
-
 
     def smooth_bezier_junctions(self, by_extremity_node):
         """Ajuste les points de contrôle extrêmes pour lisser les jonctions entre Bézier sur chaque sommet."""
@@ -304,8 +301,7 @@ class HyperGraph:
 
             # Réassignation du point moyen à tous les hyperedges concernés
             for h, idx in edges_with_extremity:
-                h.control_points[:,idx] = averaged_point
-
+                h.control_points[:, idx] = averaged_point
 
     def align_bezier_tangents(self, by_extremity_node, angle_threshold_deg=30):
         """Aligne les tangentes de Bézier sur les jonctions où l’angle entre les directions est petit."""
@@ -343,18 +339,28 @@ class HyperGraph:
                         np.clip(
                             np.dot(d1, d2) / (np.linalg.norm(d1) * np.linalg.norm(d2)),
                             -1.0,
-                            1.0
+                            1.0,
                         )
                     )
 
                     if angle < angle_threshold_rad:
                         # On crée une tangente moyenne
-                        avg_tangent = (d1 / np.linalg.norm(d1) + d2 / np.linalg.norm(d2)) / 2
+                        avg_tangent = (
+                            d1 / np.linalg.norm(d1) + d2 / np.linalg.norm(d2)
+                        ) / 2
                         avg_tangent /= np.linalg.norm(avg_tangent)
 
                         # Longueurs originales
-                        len1 = np.linalg.norm(cp1[:, 1] - cp1[:, 0]) if idx1 == 0 else np.linalg.norm(cp1[:, -1] - cp1[:, -2])
-                        len2 = np.linalg.norm(cp2[:, 1] - cp2[:, 0]) if idx2 == 0 else np.linalg.norm(cp2[:, -1] - cp2[:, -2])
+                        len1 = (
+                            np.linalg.norm(cp1[:, 1] - cp1[:, 0])
+                            if idx1 == 0
+                            else np.linalg.norm(cp1[:, -1] - cp1[:, -2])
+                        )
+                        len2 = (
+                            np.linalg.norm(cp2[:, 1] - cp2[:, 0])
+                            if idx2 == 0
+                            else np.linalg.norm(cp2[:, -1] - cp2[:, -2])
+                        )
 
                         # Ajustement des points de contrôle voisins
                         if idx1 == 0:
@@ -370,8 +376,6 @@ class HyperGraph:
                         # Réaffectation
                         h1.control_points = cp1
                         h2.control_points = cp2
-
-
 
     def project_extremity_on_middle_bezier(self, by_any_node, nb_samples=100):
         """Ajuste les extrémités des hyperedges se terminant au milieu d’un autre hyperedge."""
@@ -416,7 +420,6 @@ class HyperGraph:
 
                     h1.control_points = cp1
 
-
     def finition(self, angle_threshold_deg=30):
         """Effectue les trois étapes de finition sur les courbes de Bézier :
         1. Lissage des jonctions
@@ -424,7 +427,7 @@ class HyperGraph:
         3. Projection des extrémités sur courbes voisines
         """
 
-        # Pour chaque noeud associer les hyper_edges passant par ce noeud 
+        # Pour chaque noeud associer les hyper_edges passant par ce noeud
         by_extremity_node = self.hyperedges_by_node()
         by_any_node = self.hyperedges_passing_through_node()
 
@@ -432,16 +435,12 @@ class HyperGraph:
         self.align_bezier_tangents(by_extremity_node, angle_threshold_deg)
         self.project_extremity_on_middle_bezier(by_any_node)
 
-
-
-    def visualize_fiting(self, axins2 = None):
-        for h in self.all_hyperedges() :
+    def visualize_fiting(self, axins2=None):
+        for h in self.all_hyperedges():
             control_points = h.control_points
             t = np.linspace(0, 1, 100)
             bezier_curve = interpolate_bezier(control_points, t)
             if axins2 is None:
-                plt.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
+                plt.plot(bezier_curve[1], bezier_curve[0], color="red", linewidth=1)
             else:
-                axins2.plot(bezier_curve[1], bezier_curve[0], color='red', linewidth=1)
-       
-    
+                axins2.plot(bezier_curve[1], bezier_curve[0], color="red", linewidth=1)

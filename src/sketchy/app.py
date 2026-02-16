@@ -5,14 +5,14 @@ import numpy as np
 from skimage import io, morphology
 from skimage.morphology import skeletonize
 
-from bez.cnn import load_trained_model
-from bez.data import load_normalized
-from bez.global_optim import optimisation
-from bez.hypergraph import HyperGraph
-from bez.preprocessing import preprocess
-from bez.refinement import refine
-from bez.topo_graph import extract_simple_topology_from_skeleton
-from bez.viz import visualize_hyper, visualize_topo
+from .cnn import load_trained_model
+from .data import load_normalized
+from .global_optim import optimisation
+from .hypergraph import HyperGraph
+from .preprocessing import preprocess
+from .refinement import refine
+from .topo_graph import extract_simple_topology_from_skeleton
+from .viz import visualize_hyper, visualize_topo
 
 
 def generate_svg_str(image_shape, hyper: HyperGraph, stroke_width=5):
@@ -58,7 +58,6 @@ def show_example(image_path):
     img = load_normalized(image_path)
     model = load_trained_model()
     img_binary = model.run(["output"], {"input": img[np.newaxis, :, :]})[0][0] > 0.5
-    img_binary = morphology.dilation(img_binary)
     # todo: dilation
     skeleton = skeletonize(img_binary, method="zhang")
 
@@ -68,9 +67,10 @@ def show_example(image_path):
 
     # Create hypergraph and optimize
     hyper = HyperGraph(topo_graph_refine)
+    hyper.fit_beziers()
     errors = optimisation(hyper)
     # FIXME: finition does not work
-    # hyper.finition()
+    hyper.finition()
 
     # Create subplots
     fig, axes = plt.subplots(1, 4, figsize=(20, 5))
@@ -87,6 +87,7 @@ def show_example(image_path):
     # Plot 4: Topology visualization
     plt.sca(axes[2])  # Set current axes
     visualize_topo(topo_graph_refine)
+    plt.imshow(skeleton, cmap="binary")
     axes[2].set_title("Refined Topology")
     axes[2].axis("equal")  # Ensure equal scaling
     axes[2].axis("off")
@@ -109,9 +110,7 @@ def show_example(image_path):
         axes[3].legend(handles, labels, loc="upper right", fontsize="small")
 
     plt.tight_layout()
-    plt.show()
-
-    return img_binary, hyper
+    return fig.gca()
 
 
 def cli():

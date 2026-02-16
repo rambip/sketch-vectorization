@@ -1,11 +1,13 @@
+from typing import List
+
 import networkx as nx
 import numpy as np
-from typing import List, Optional
+from numpy.typing import ArrayLike
 
-from bez.bezier import fit_bezier, interpolate_bezier, std_distance
+from .bezier import fit_bezier, interpolate_bezier, std_distance
 
 
-def fit_bezier_error(pixel_c: np.array):
+def fit_bezier_error(pixel_c: ArrayLike):
     """
     arg :
         pixel_c (nd.array): 2 x N
@@ -22,7 +24,7 @@ def fit_bezier_error(pixel_c: np.array):
     return control_points, error
 
 
-def fit_bezier_error_T(pixel_c: np.array):
+def fit_bezier_error_T(pixel_c: ArrayLike):
     """
     arg :
         pixel_c (nd.array): N x 2
@@ -33,7 +35,7 @@ def fit_bezier_error_T(pixel_c: np.array):
     return fit_bezier_error(traj)
 
 
-def devide(pixel_c: np.ndarray, precision: float = 1) -> List[int]:
+def devide(pixel_c: np.ndarray, precision: float = 1) -> np.ndarray:
     _, e = fit_bezier_error_T(pixel_c)
     if e <= precision:
         return np.array([])
@@ -74,7 +76,8 @@ def devide(pixel_c: np.ndarray, precision: float = 1) -> List[int]:
         return np.concatenate([first, idx, second])
 
 
-def refine(topo_g: nx.MultiGraph, precision: float = 0.5):
+def refine(topo_g: nx.MultiGraph, precision: float = 0.1):
+    # TODO: why precision needs to be this small ? It's supposed to be equal to 2
     new_topo_graph = nx.MultiGraph()
 
     for u, v, data in topo_g.edges(data=True):

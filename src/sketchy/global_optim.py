@@ -1,6 +1,7 @@
 import numpy as np
 from tqdm import tqdm
-from bez.bezier import fit_bezier, interpolate_bezier, fitting_error
+
+from .bezier import fit_bezier, fitting_error, interpolate_bezier
 
 
 def fit_hyperedge(hyperedge):
@@ -25,7 +26,7 @@ def score(hyperedge, lam, mu=0.3):
 
 
 def optimisation(
-    hyper, lam=0.8, mu=1, temp=0.5, t_decrease=0.99995, t_min=0.05, MAX_IT=500_000
+    hyper, lam=0.5, mu=0.2, temp=0.5, t_decrease=0.99995, t_min=0.05, MAX_IT=500_000
 ):
     for h in hyper.all_hyperedges():
         fit_hyperedge(h)

@@ -1,11 +1,9 @@
-import numpy as np
-import networkx as nx
 from collections import deque
 
-
-from skimage.morphology import skeletonize, dilation, erosion, remove_small_holes
-from skimage.morphology import disk
+import networkx as nx
+import numpy as np
 from skimage.filters import threshold_otsu
+from skimage.morphology import dilation, disk, erosion, remove_small_holes, skeletonize
 
 
 def image_to_skeleton(img):

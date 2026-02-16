@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
-from bez.hypergraph import HyperGraph
-from bez.bezier import interpolate_bezier
 import networkx as nx
 import numpy as np
+
+from .bezier import interpolate_bezier
+from .hypergraph import HyperGraph
 
 
 def visualize_hyper(hyper: HyperGraph, offset=0):
@@ -51,7 +52,9 @@ def visualize_topo_and_save(G, fig_size=6, save_path=None):
     for u, v, keys in subgraph.edges(keys=True):
         num_edges = subgraph.number_of_edges(u, v)
         if num_edges == 1:
-            nx.draw_networkx_edges(subgraph, pos, edgelist=[(u, v)], edge_color="gray", ax=ax)
+            nx.draw_networkx_edges(
+                subgraph, pos, edgelist=[(u, v)], edge_color="gray", ax=ax
+            )
         else:
             for k, key in enumerate(subgraph[u][v]):
                 rad = 0.1 * (k - (num_edges - 1) / 2)
@@ -67,14 +70,12 @@ def visualize_topo_and_save(G, fig_size=6, save_path=None):
     ax.axis("off")
 
     if save_path:  # Si un chemin est fourni, on enregistre
-        plt.savefig(save_path, dpi=300, bbox_inches='tight', pad_inches=0, transparent=True)
-    
+        plt.savefig(
+            save_path, dpi=300, bbox_inches="tight", pad_inches=0, transparent=True
+        )
+
     plt.show()
     plt.close(fig)
-    
-        
-
-
 
 
 def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, opacity=1.0):
@@ -93,7 +94,7 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, opacity=1.0):
     for u, v, keys in subgraph.edges(keys=True):
         num_edges = subgraph.number_of_edges(u, v)
         if num_edges == 1:
-            nx.draw_networkx_edges(subgraph, pos, edgelist=[(u, v)], edge_color="gray")
+            nx.draw_networkx_edges(subgraph, pos, edgelist=[(u, v)], edge_color="green")
         else:
             # Draw each edge with a different curvature
             for k, key in enumerate(subgraph[u][v]):
@@ -102,7 +103,7 @@ def visualize_topo(G, visu_i=1335, visu_j=1112, visu_radius=50, opacity=1.0):
                     subgraph,
                     pos,
                     edgelist=[(u, v)],
-                    edge_color="gray",
+                    edge_color="green",
                     connectionstyle=f"arc3,rad={rad}",
                 )
 
@@ -121,22 +122,16 @@ def visualisation_bezier_hyper_final(hyper: HyperGraph, offset=2):
             p[1][offset:-offset],  # y
             p[0][offset:-offset],  # x
             linewidth=1,
-            color="red"
+            color="red",
         )
 
         # Points bleus près des extrémités
         start_y, start_x = p[0][offset], p[1][offset]
         end_y, end_x = p[0][-offset - 1], p[1][-offset - 1]
 
-        plt.scatter(
-            [start_x, end_x],
-            [start_y, end_y],
-            color="blue",
-            s=3,
-            alpha=0.5
-        )
+        plt.scatter([start_x, end_x], [start_y, end_y], color="blue", s=3, alpha=0.5)
 
-    plt.axis('equal')
+    plt.axis("equal")
     plt.title("Interpolated Bezier Curves (HyperEdges)")
     plt.show()
 
@@ -172,11 +167,10 @@ def visualize_graph_hypergraph(H: HyperGraph, fig_size=6, save_path=None):
         # Draw nodes
         nx.draw_networkx_nodes(temp_g, pos=pos, node_size=5, node_color=node_color)
 
-
     if save_path:  # Si un chemin est fourni, on enregistre
-        plt.savefig(save_path, dpi=300, bbox_inches='tight', pad_inches=0, transparent=True)
-        
+        plt.savefig(
+            save_path, dpi=300, bbox_inches="tight", pad_inches=0, transparent=True
+        )
+
     plt.show()
     plt.close(fig)
-    
-        

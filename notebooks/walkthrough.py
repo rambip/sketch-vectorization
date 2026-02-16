@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.10"
+__generated_with = "0.19.9"
 app = marimo.App(width="full", auto_download=["ipynb"])
 
 
@@ -11,14 +11,14 @@ def _():
     import numpy as np
     from meta import ROOT_DIR
     from scipy import ndimage as ndi
-    from bez.data import load_normalized
+    from sketchy.data import load_normalized
 
     from skimage import io, data, morphology
     from skimage.morphology import dilation, erosion, remove_small_holes, remove_small_objects
     from skimage.morphology import disk
     from skimage.filters import threshold_otsu, threshold_local, threshold_mean, rank, gaussian, gabor_kernel
 
-    return ROOT_DIR, dilation, erosion, load_normalized, mo, np, plt
+    return ROOT_DIR, erosion, gaussian, load_normalized, mo, np, plt
 
 
 @app.cell(hide_code=True)
@@ -62,7 +62,7 @@ def _(mo):
 
 @app.cell
 def _(ROOT_DIR, load_normalized, plt):
-    img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png", d=256)
+    img = load_normalized(ROOT_DIR / "data/original_paper/figure_2/input.png", d=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     plt.show()
@@ -133,7 +133,7 @@ def _(mo):
 
 @app.cell
 def _():
-    from bez.cnn import load_trained_model
+    from sketchy.cnn import load_trained_model
 
     return (load_trained_model,)
 
@@ -160,13 +160,14 @@ def _(mo):
     mo.md(r"""
     Since the model is not perfect, there are still a few artefacts in the image.
     To remove them, we do a simple 1pixel-dilation.
+    > We do it here for illustration purposes, but in most cases not doing the dilation still gives good results.
     """)
     return
 
 
 @app.cell
-def _(dilation, img_binary, plt):
-    img_binary_dilated = dilation(img_binary)
+def _(gaussian, img_binary, plt):
+    img_binary_dilated = gaussian(img_binary, sigma=1) > 0.5
     plt.imshow(img_binary_dilated)
     plt.title("final drawing after dilation")
     plt.axis(False)
@@ -215,8 +216,8 @@ def _(mo):
 def _():
     from skimage.morphology import skeletonize
     import scipy
-    from bez.topo_graph import extract_simple_topology_from_skeleton, extract_topology_from_skeleton
-    from bez.viz import visualize_topo
+    from sketchy.topo_graph import extract_simple_topology_from_skeleton, extract_topology_from_skeleton
+    from sketchy.viz import visualize_topo
 
     return (
         extract_simple_topology_from_skeleton,
@@ -231,7 +232,7 @@ def _():
 def _(img_binary_dilated, plt, skeletonize):
     skeleton = skeletonize(img_binary_dilated, method="zhang")
 
-    plt.imshow(1-skeleton, cmap="gray")
+    plt.imshow(skeleton, cmap="binary")
     plt.title("skeleton")
     plt.axis(False)
     plt.show()
@@ -274,6 +275,7 @@ def _(np, plt, scipy, skeleton):
     )
     plt.legend()
     plt.title("skeleton with number of neighbours")
+    plt.axis(False)
     plt.show()
     return
 
@@ -356,10 +358,10 @@ def _(mo):
 
 @app.cell
 def _():
-    from bez.refinement import  refine
-    from bez.hypergraph import HyperGraph
-    from bez.viz import visualize_hyper
-    from bez.global_optim import optimisation, fit_hyperedge
+    from sketchy.refinement import  refine
+    from sketchy.hypergraph import HyperGraph
+    from sketchy.viz import visualize_hyper
+    from sketchy.global_optim import optimisation, fit_hyperedge
 
     return HyperGraph, fit_hyperedge, optimisation, refine, visualize_hyper
 
@@ -458,9 +460,10 @@ def _(hyper_1, optimisation, topo_graph_1):
     lam = 0.2
     temp = 0.5
     t_min = 0.05
-    mu = 0.8
-    t_decrease = 0.99 ** (1 / len(topo_graph_1.nodes))
-    error = optimisation(hyper_1, lam=lam, mu=mu, temp=temp, t_decrease=t_decrease, t_min=t_min)
+    mu = 0.1
+    t_decrease = 0.999 ** (1 / len(topo_graph_1.nodes))
+    #error = optimisation(hyper_1, lam=lam, mu=mu, temp=temp, t_decrease=t_decrease, t_min=t_min)
+    error = optimisation(hyper_1)
     return (error,)
 
 
@@ -523,22 +526,22 @@ def _(mo):
 
 @app.cell
 def _():
-    from IPython.display import SVG
-    from bez.app import generate_svg_str
+    from marimo import Html
+    from sketchy.app import generate_svg_str
 
-    return SVG, generate_svg_str
+    return Html, generate_svg_str
 
 
 @app.cell
-def _(SVG, generate_svg_str, hyper_1, img):
+def _(Html, generate_svg_str, hyper_1, img):
     out = generate_svg_str(img.shape, hyper_1, stroke_width=2)
-    SVG(out)
+    Html(out)
     return
 
 
 @app.cell
 def _():
-    from bez.app import show_example
+    from sketchy.app import show_example
 
     return (show_example,)
 
@@ -588,11 +591,6 @@ def _(ROOT_DIR, show_example):
 @app.cell
 def _(ROOT_DIR, show_example):
     show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
-    return
-
-
-@app.cell
-def _():
     return
 
 

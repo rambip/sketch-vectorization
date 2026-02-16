@@ -1,6 +1,6 @@
-import onnxruntime as ort
-import numpy as np
 from pathlib import Path
+
+import onnxruntime as ort
 
 
 def load_trained_model(path=None):
