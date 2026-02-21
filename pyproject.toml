@@ -5,18 +5,24 @@ description = "A png drawing to svg converter"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "anywidget>=0.9.21",
     "cairosvg>=2.8.2",
     "hypernetx>=2.4.0",
+    "marimo>=0.20.1",
     "matplotlib>=3.10.1",
+    "mpld3>=0.5.12",
+    "nbformat>=5.10.4",
     "numpy>=2.2.5",
     "onnx>=1.18.0",
     "onnxruntime>=1.22.1",
     "perlin-numpy>=0.0.1",
     "pillow>=11.2.1",
     "polars>=1.38.1",
+    "pytest>=9.0.2",
     "python-dotenv>=1.2.1",
     "scikit-image>=0.25.2",
     "scipy>=1.15.2",
+    "traitlets>=5.14.3",
 ]
 
 [project.scripts]

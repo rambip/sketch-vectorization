@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.9"
+__generated_with = "0.20.1"
 app = marimo.App(width="full", auto_download=["ipynb"])
 
 
@@ -9,16 +9,23 @@ def _():
     import marimo as mo
     import matplotlib.pyplot as plt
     import numpy as np
+
     from meta import ROOT_DIR
-    from scipy import ndimage as ndi
-    from sketchy.data import load_normalized
+    from sketchy.prepare import (
+        BinarySketchPredictor,
+        compute_thickness_map,
+        load_normalized,
+    )
 
-    from skimage import io, data, morphology
-    from skimage.morphology import dilation, erosion, remove_small_holes, remove_small_objects
-    from skimage.morphology import disk
-    from skimage.filters import threshold_otsu, threshold_local, threshold_mean, rank, gaussian, gabor_kernel
-
-    return ROOT_DIR, erosion, gaussian, load_normalized, mo, np, plt
+    return (
+        BinarySketchPredictor,
+        ROOT_DIR,
+        compute_thickness_map,
+        load_normalized,
+        mo,
+        np,
+        plt,
+    )
 
 
 @app.cell(hide_code=True)
@@ -44,10 +51,10 @@ def _(mo):
 
     ![](../images/illustration_butterfly.png)
 
-    In order, we
-    - apply **preprocessing** to translate the image into a black and white mask
-    - create a **skeleton** and convert it to a graph (chains of pixels)
-    - use **hypergraph optimization** to find the optimal curves to approximate these chains of pixels
+    In a nushell, here is what we do:
+    - we apply **preprocessing** to translate the image into a black and white mask
+    - we create a **skeleton** and convert it to a graph (chains of pixels)
+    - we use **hypergraph optimization** to find the optimal curves to approximate these chains of pixels
     """)
     return
 
@@ -61,11 +68,24 @@ def _(mo):
 
 
 @app.cell
-def _(ROOT_DIR, load_normalized, plt):
-    img = load_normalized(ROOT_DIR / "data/original_paper/figure_2/input.png", d=256)
+def _(mo):
+    def show(ax, title, axis=False):
+        ax.axis("equal")
+        ax.axis(axis)
+        if not ax.yaxis_inverted():
+            ax.invert_yaxis()
+        ax.set_title(title)
+        return mo.mpl.interactive(ax)
+
+    return (show,)
+
+
+@app.cell
+def _(ROOT_DIR, load_normalized, plt, show):
+    img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png", size=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
-    plt.show()
+    show(plt.gca(), "original image", axis=True)
     return (img,)
 
 
@@ -102,20 +122,22 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    _details = mo.as_html(mo.md("""
+    _details = mo.as_html(
+        mo.md("""
     - the noise must really look like your test images. Otherwise, you're too much out of distribution and the model can't learn properly.
     - There is a tradeoff for the resolution: we want a model that can process large images, but it's more costly to train.
     - **Don't try a small model**. I thought that a model with an inner dimension of 8 and 4 layers was enough, but it was not the case. Don't fear the overfitting: if you train for long enough and you have diverse enough datapoints, your model will generalize even if it has a lot of parameters. If that seems counter-intuitive to you, go read about [Double Descent](https://en.wikipedia.org/wiki/Double_descent)
     - residual connections work really well. We ended up adding them at each layer.
 
-    We ended up with: 
+    We ended up with:
     - 3000 data points of 256x256
     - 8 layers of 3x3 convolutions
     - an inner dimension of 32
     - SiLU activation function
     - 30 epochs, with a batch size of 50
     - running on T4 gpus for something like 15min
-    """))
+    """)
+    )
     mo.md(f"""
     <details>
     <summary>
@@ -132,110 +154,149 @@ def _(mo):
 
 
 @app.cell
-def _():
-    from sketchy.cnn import load_trained_model
-
-    return (load_trained_model,)
-
-
-@app.cell
-def _(load_trained_model):
-    model = load_trained_model()
-    return (model,)
-
-
-@app.cell
-def _(img, model, np, plt):
-    img_one_channel = img[np.newaxis, :, :]
-    # we consider it's black if the model
-    img_binary = model.run(["output"], {"input": img_one_channel})[0][0] > 0.5
-    plt.imshow(img_binary, cmap="binary")
-    plt.axis(False)
-    plt.show()
-    return (img_binary,)
+def _(BinarySketchPredictor, img, plt, show):
+    classifier = BinarySketchPredictor(gaussian_blur_sigma=1)
+    proba = classifier.predict_proba(img)
+    plt.imshow(proba, cmap="binary")
+    plt.colorbar()
+    show(plt.gca(), "Predicted probability for each pixel")
+    return (classifier,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     Since the model is not perfect, there are still a few artefacts in the image.
-    To remove them, we do a simple 1pixel-dilation.
-    > We do it here for illustration purposes, but in most cases not doing the dilation still gives good results.
+    To remove them, we use a simple gaussian filter before thresholding.
     """)
     return
 
 
 @app.cell
-def _(gaussian, img_binary, plt):
-    img_binary_dilated = gaussian(img_binary, sigma=1) > 0.5
-    plt.imshow(img_binary_dilated)
-    plt.title("final drawing after dilation")
-    plt.axis(False)
-    plt.show()
-    return (img_binary_dilated,)
+def _(classifier, img, plt, show):
+    img_binary = classifier.predict(img)
+    plt.imshow(img_binary, cmap="binary")
+    show(plt.gca(), title="Predicted pixels")
+    return (img_binary,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    Next, we compute the thickness of the drawing using erosion:
+    Next, we compute the thickness of the drawing using erosion. For each pixel $P$, we want to get the number of time we have to "erode" the image before $P$ disappear.
+
+    > Note: erosion consists in taking the minimum value of all pixels in a 3x3 neighborhood.
     """)
     return
 
 
 @app.cell
-def _(erosion, img_binary_dilated, np, plt):
-    thicknesses = np.array(img_binary_dilated, dtype=int)
-    max_line_width_detection = img_binary_dilated.copy()
-    i = 2
-    while np.sum(max_line_width_detection) > 0:
-        tmp = erosion(max_line_width_detection)
-        diff = max_line_width_detection ^ tmp > 0  # iterate the erosion
-        thicknesses[diff] = i
-        max_line_width_detection = tmp  # find the difference
-        i = i + 1
-    plt.imshow(thicknesses)
-    plt.axis(False)
+def _(compute_thickness_map, img_binary, plt, show):
+    thickness_map = compute_thickness_map(img_binary)
+    plt.imshow(thickness_map)
     plt.colorbar()
-    plt.title('Thickness of the drawing')
-    plt.show()
+    show(plt.gca(), "Thickness of the drawing")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
+    _skeleton_illustration = mo.Html("""
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 150" width="400px">
+      <defs>
+        <style>
+          .grid-bg { fill: #e0e0e0; }
+          .pixel { fill: black; stroke: #333; stroke-width: 1; }
+          .touch { fill: #888; }
+        </style>
+      </defs>
+
+      <!-- Grid 1 -->
+      <g transform="translate(10, 10)">
+        <rect class="grid-bg" width="130" height="130" rx="5"/>
+        <g transform="translate(25, 25)">
+          <!-- Pixels -->
+          <rect class="pixel" x="28" y="28" width="24" height="24"/>
+          <rect class="pixel" x="54" y="28" width="24" height="24"/>
+          <rect class="pixel" x="2" y="54" width="24" height="24"/>
+          <!-- Touch points -->
+          <circle class="touch" cx="53" cy="40" r="5"/>
+          <circle class="touch" cx="27" cy="53" r="5"/>
+        </g>
+      </g>
+
+      <!-- Grid 2 -->
+      <g transform="translate(160, 10)">
+        <rect class="grid-bg" width="130" height="130" rx="5"/>
+        <g transform="translate(25, 25)">
+          <!-- Pixels -->
+          <rect class="pixel" x="54" y="2" width="24" height="24"/>
+          <rect class="pixel" x="28" y="28" width="24" height="24"/>
+          <rect class="pixel" x="2" y="54" width="24" height="24"/>
+          <!-- Touch points -->
+          <circle class="touch" cx="53" cy="27" r="5"/>
+          <circle class="touch" cx="27" cy="53" r="5"/>
+        </g>
+      </g>
+
+      <!-- Grid 3 -->
+      <g transform="translate(310, 10)">
+        <rect class="grid-bg" width="130" height="130" rx="5"/>
+        <g transform="translate(25, 25)">
+          <!-- Pixels -->
+          <rect class="pixel" x="2" y="28" width="24" height="24"/>
+          <rect class="pixel" x="28" y="28" width="24" height="24"/>
+          <rect class="pixel" x="54" y="28" width="24" height="24"/>
+          <!-- Touch points -->
+          <circle class="touch" cx="27" cy="40" r="5"/>
+          <circle class="touch" cx="53" cy="40" r="5"/>
+        </g>
+      </g>
+    </svg>
+    """)
+    mo.md(rf"""
     ## Skeleton and topological graph
 
     Once we have a nice black and white image, we can create the skeleton very easily using iterative thining.
+
+    > A **skeleton** is a new binary image where all pixels have only 2 neighbors, like this:
+
+    > {_skeleton_illustration}
+
+    Hopefuly, this is already implemented in `scikit-learn`.
     """)
     return
 
 
 @app.cell
 def _():
+    from scipy import signal
     from skimage.morphology import skeletonize
-    import scipy
-    from sketchy.topo_graph import extract_simple_topology_from_skeleton, extract_topology_from_skeleton
-    from sketchy.viz import visualize_topo
+
+    from sketchy.bezier import fit_bezier, interpolate_bezier
+    from sketchy.topology import (
+        extract_chains,
+        refine_all_chains,
+        remove_parasite_chains,
+    )
 
     return (
-        extract_simple_topology_from_skeleton,
-        extract_topology_from_skeleton,
-        scipy,
+        extract_chains,
+        fit_bezier,
+        interpolate_bezier,
+        refine_all_chains,
+        remove_parasite_chains,
+        signal,
         skeletonize,
-        visualize_topo,
     )
 
 
 @app.cell
-def _(img_binary_dilated, plt, skeletonize):
-    skeleton = skeletonize(img_binary_dilated, method="zhang")
+def _(img_binary, plt, show, skeletonize):
+    skeleton = skeletonize(img_binary, method="zhang")
 
     plt.imshow(skeleton, cmap="binary")
-    plt.title("skeleton")
-    plt.axis(False)
-    plt.show()
+    show(plt.gca(), "Skeleton of the sketch")
     return (skeleton,)
 
 
@@ -244,179 +305,207 @@ def _(mo):
     mo.md(r"""
     Once we have this graph, we traverse it in order to get the pixel chains.
 
-    This is not explained explicitely in the original paper, but the trick is to look at the **number of neighbours** in the skeleton. Indeed, most nodes in the skeleton have only 3 neighbours. If it is not the case, we call it a "special" pixel
+    This is not explained explicitely in the original paper, but the trick is to look at the **number of neighbours** in the skeleton. Indeed, most nodes in the skeleton have only 2 neighbours. If it is not the case, we call it a "special" pixel or an "endpoint".
     """)
     return
 
 
 @app.cell
-def _(np, plt, scipy, skeleton):
-    kernel = np.ones((3, 3), dtype=int)
-    neighbours = scipy.signal.convolve2d(skeleton.astype(int), kernel, mode="same")
+def _(np, plt, show, signal, skeleton):
+    kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
+    neighbours = signal.convolve2d(skeleton.astype(int), kernel, mode="same")
     neighbours = neighbours * skeleton
+
     def pos_where(mask):
         return np.where(mask)[1], np.where(mask)[0]
 
     plt.imshow(1 - skeleton, cmap="gray")
     plt.scatter(
-        *pos_where(neighbours==2),
-        label="2 neighbours",
+        *pos_where(neighbours == 1),
+        label="1 neighbour",
         s=5,
     )
     plt.scatter(
-        *pos_where(neighbours==4),
-        label="4 neighbours",
+        *pos_where(neighbours == 3),
+        label="3 neighbours",
         s=5,
     )
     plt.scatter(
-        *pos_where(neighbours>4),
-        label=">4 neighbours",
+        *pos_where(neighbours > 3),
+        label=">3 neighbours",
         s=5,
     )
     plt.legend()
-    plt.title("skeleton with number of neighbours")
-    plt.axis(False)
-    plt.show()
+    show(plt.gca(), "skeleton with number of neighbours")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    We use this information to perform a graph traversal, from arbitrary pixels to "special" pixels.
+    We use this information to perform a graph traversal, from arbitrary pixels to these "special" pixels.
     For the special case of loops, we break them into a chain that ends where it starts.
+
+    We get a list of pixel "chains":
+
+    > Note: we have to be careful about "clusters". If you zoom in on the previous image, you will see clusters of pixels with at least 3 neighbours. We merge them into one single mega-pixel when it's the case.
     """)
     return
 
 
 @app.cell
-def _(extract_topology_from_skeleton, plt, skeleton, visualize_topo):
-    topo_graph = extract_topology_from_skeleton(skeleton)
-    visualize_topo(topo_graph, visu_radius=5, opacity=0.2)
-    print(f"number of nodes: {len(topo_graph.nodes())}")
-    plt.show()
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    This graph can be used for the next steps. Unfortunately, we can see that some groups of pixels are clustered together, which will cause a lot of problems.
-
-    With a modified algorithm, we are able to merge some of these clusters together.
-    """)
-    return
-
-
-@app.cell
-def _(extract_simple_topology_from_skeleton, plt, skeleton, visualize_topo):
-    topo_graph_1 = extract_simple_topology_from_skeleton(skeleton)
-    visualize_topo(topo_graph_1, visu_radius=5, opacity=0.2)
-    print(f'number of nodes: {len(topo_graph_1.nodes())}')
-    plt.show()
-    return (topo_graph_1,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ## Hyper graph and bezier fiting
-
-    Once we have our hypergraph, we can start to use bezier curves to approximate it.
-    Since it is a simple least square problem, we have derived the closed solution in the form of a linear system to solve.
-    The code below shows this logic.
-    Here $q(t)$ is a vector defined as
-    $$
-    q(t) = \begin{pmatrix}
-    (1-t)^3 \\ 3 t (1-t)^2 \\ 2 t^2 (1-t) \\ t^3
-    \end{pmatrix}
-    $$
-
-    ```python
-    def fit_bezier(traj, t):
-        traj_x, traj_y = traj
-        m = np.zeros((4, 4))
-        bx = np.zeros(4)
-        by = np.zeros(4)
-
-        # this equation follows from the minimization of the pixel standard distance
-        for i in range(k):
-            q = interpolant(t, degree)
-            m[i] = np.sum(weights * (q * q[i]), axis=1)
-            bx[i] = np.sum(weights * (traj_x * q[i]))
-            by[i] = np.sum(weights * (traj_y * q[i]))
-
-        # We use lstsq because the matrix is not always full-rank.
-        # For example, if the degree of the bezier is greater than the length of "traj"
-        x_fit = np.linalg.lstsq(m, bx)[0]
-        y_fit = np.linalg.lstsq(m, by)[0]
-        return np.array([x_fit, y_fit])
-    ```
-    """)
-    return
-
-
-@app.cell
-def _():
-    from sketchy.refinement import  refine
-    from sketchy.hypergraph import HyperGraph
-    from sketchy.viz import visualize_hyper
-    from sketchy.global_optim import optimisation, fit_hyperedge
-
-    return HyperGraph, fit_hyperedge, optimisation, refine, visualize_hyper
-
-
-@app.cell
-def _(HyperGraph, topo_graph_1):
-    hyper = HyperGraph(topo_graph_1)
-    return (hyper,)
-
-
-@app.cell
-def _(fit_hyperedge, hyper, img, plt, visualize_hyper):
-    for _h in hyper.all_hyperedges():
-        fit_hyperedge(_h)
-    visualize_hyper(hyper, offset=0)
-    plt.imshow(img, alpha=0.5, cmap='gray')
+def _(extract_chains, plt, show, skeleton):
+    pixel_chains = extract_chains(skeleton)
     _ax = plt.gca()
-    _ax.axis('off')
-    plt.title('Initial hyper-graph')
-    _ax.text(0.5, -0.1, f'number of bezier: {len(hyper)}', ha='center', va='top', transform=_ax.transAxes)
-    plt.show()
-    return
+    for chain in pixel_chains:
+        # chain is shape (N, 2) where each row is [row, col] or [y, x]
+        _ax.plot(chain[:, 1], chain[:, 0], "-o", markersize=2, linewidth=1)
+
+    show(_ax, "Pixel chains")
+    return (pixel_chains,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    The main issue with this initial hypergraph is that some curves should be broken down to better fit the image.
-    We implement the next part of the paper, a dichotomy-based refinement.
+    Let's remove the pixel chains that are too small:
+
+    > Note: we only remove small pixel chains that don't affect the *connectivity*, like chains that have a dead end or multiple chains that start and end at the same place.
+    """)
+    return
+
+
+@app.cell
+def _(pixel_chains, plt, remove_parasite_chains, show):
+    pixel_chains_clean = remove_parasite_chains(pixel_chains, min_length=5)
+    ax_chain_clean = plt.gca()
+    for _chain in pixel_chains_clean:
+        # chain is shape (N, 2) where each row is [row, col] or [y, x]
+        ax_chain_clean.plot(_chain[:, 1], _chain[:, 0], "-o", markersize=2, linewidth=1)
+
+    show(ax_chain_clean, "Pixel chains (cheaned)")
+    return ax_chain_clean, pixel_chains_clean
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Now that he have a clean skeleton, the goal will be to approximate as well as possible using [Bezier curves](https://pomax.github.io/bezierinfo/).
+
+    We figured that fitting a bezier on a chain of pixel is pretty cheap once you have the right representation.
+
+    You want to minimize $\mathcal L(\omega) = \sum_t ||B(\omega)_t - C_t||^2$ where $\omega$ are the 8 parameters of our bezier curve, $B(\omega)$ is the list of positions of the bezier with parameters $\omega$, and $C$ is the list of positions in our pixel chains.
+
+    For a fixed $t$, we know that $\omega \to B(\omega)_t$ is linear, and we can construct the transformation matrix pretty easily. This means that the problems boils down to a **linear least-square problem** (see [this wiki page](https://en.wikipedia.org/wiki/Linear_least_squares#Applications) for more information)
+    """)
+    return
+
+
+@app.cell
+def _(fit_bezier, interpolate_bezier, np):
+    def show_fitted(ax, chain):
+        # Fit Bézier curve
+        instants = np.linspace(0, 1, len(chain))
+        control_points = fit_bezier(chain, instants, degree=3)
+        bezier_curve = interpolate_bezier(control_points, instants)
+
+        # Plot the original pixels
+        ax.plot(chain[:, 1], chain[:, 0], "o", markersize=3, alpha=0.3, color="gray")
+
+        # Plot the Bézier curve
+        ax.plot(
+            bezier_curve[:, 1],
+            bezier_curve[:, 0],
+            "-",
+            linewidth=1,
+            alpha=1,
+            color="red",
+        )
+
+    return (show_fitted,)
+
+
+@app.cell
+def _(pixel_chains_clean, plt, show, show_fitted):
+    ax_fitted = plt.gca()
+    for _chain in pixel_chains_clean:
+        show_fitted(ax_fitted, _chain)
+    show(ax_fitted, "Fitted Bézier Curves")
+    return (ax_fitted,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    This already looks pretty good, but we see that some curves fit better than other. This is because in our skeleton, some chains of pixels where very long and with complicated shapes.
+    To solve this problem, we split our pixel chains into pieces when the fitting error is too high.
+
+    Here is what we get:
+    """)
+    return
+
+
+@app.cell
+def _(pixel_chains_clean, plt, refine_all_chains, show):
+    pixel_chains_refined = refine_all_chains(pixel_chains_clean, tolerance=2)
+    ax_chain_refined = plt.gca()
+    for _chain in pixel_chains_refined:
+        # chain is shape (N, 2) where each row is [row, col] or [y, x]
+        ax_chain_refined.plot(
+            _chain[:, 1], _chain[:, 0], "-o", markersize=2, linewidth=1
+        )
+    show(ax_chain_refined, "Pixel chains (refined)")
+    return ax_chain_refined, pixel_chains_refined
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    The pixel chains seem simpler this way. Let's check that the curves fit better this time:
     """)
     return
 
 
 @app.cell
 def _(
-    HyperGraph,
-    fit_hyperedge,
-    img,
+    ax_chain_clean,
+    ax_chain_refined,
+    ax_fitted,
+    mo,
+    pixel_chains_refined,
     plt,
-    refine,
-    topo_graph_1,
-    visualize_hyper,
+    show,
+    show_fitted,
 ):
-    topo_graph_refine = refine(topo_graph_1, 0.1)
-    hyper_1 = HyperGraph(topo_graph_refine)
-    for _h in hyper_1.all_hyperedges():
-        fit_hyperedge(_h)
-    visualize_hyper(hyper_1, offset=0)
-    plt.imshow(img, alpha=0.5, cmap='gray')
-    _ax = plt.gca()
-    _ax.axis('off')
-    plt.title('After refine')
-    plt.text(0.5, -0.1, f'number of bezier: {len(hyper_1)}', fontsize=10, ha='center', va='top', transform=_ax.transAxes)
-    plt.show()
-    return (hyper_1,)
+    ax_fitted_refined = plt.gca()
+    for _chain in pixel_chains_refined:
+        show_fitted(ax_fitted_refined, _chain)
+
+    mo.vstack(
+        [
+            mo.hstack(
+                [
+                    show(ax_chain_clean, "Pixel chains before refine").style(
+                        {"width": "100%"}
+                    ),
+                    show(ax_fitted, "Fitted curves before refine").style(
+                        {"width": "100%"}
+                    ),
+                ]
+            ),
+            mo.hstack(
+                [
+                    show(ax_chain_refined, "Pixel chains after refine").style(
+                        {"width": "100%"}
+                    ),
+                    show(ax_fitted_refined, "Fitted curves after refine").style(
+                        {"width": "100%"}
+                    ),
+                ]
+            ),
+        ]
+    )
+    return
 
 
 @app.cell(hide_code=True)
@@ -456,20 +545,27 @@ def _(mo):
 
 
 @app.cell
-def _(hyper_1, optimisation, topo_graph_1):
-    lam = 0.2
-    temp = 0.5
-    t_min = 0.05
-    mu = 0.1
-    t_decrease = 0.999 ** (1 / len(topo_graph_1.nodes))
-    #error = optimisation(hyper_1, lam=lam, mu=mu, temp=temp, t_decrease=t_decrease, t_min=t_min)
-    error = optimisation(hyper_1)
-    return (error,)
+def _():
+    from sketchy.optim import SketchOptimizer, SuperGraph, align_boundaries
+    from sketchy.viz import OptimPlayBack
+
+    return OptimPlayBack, SketchOptimizer, align_boundaries
 
 
 @app.cell
-def _(error, plt):
-    plt.plot(range(len(error)), error)
+def _(SketchOptimizer, pixel_chains_refined):
+    lam = 0.6
+    t_min = 0.003
+    mu = 0.3
+    t_decrease = 0.9997
+    optim = SketchOptimizer(lam=lam, t_min=t_min, mu=mu, t_decrease=t_decrease)
+    curves, mapping = optim.fit_transform(pixel_chains_refined)
+    return curves, mapping, optim
+
+
+@app.cell
+def _(optim, plt):
+    plt.plot(range(len(optim.error_)), optim.error_)
     plt.ylabel("Energy")
     plt.xlabel("steps")
     plt.title("evolution of energy during optimization")
@@ -478,14 +574,34 @@ def _(error, plt):
 
 
 @app.cell
-def _(hyper_1, img, plt, visualize_hyper):
-    visualize_hyper(hyper_1)
-    plt.imshow(img, alpha=0.5, cmap='gray')
+def _(curves, interpolate_bezier, np, plt, show):
+    instants = np.linspace(0, 1, 100)
     _ax = plt.gca()
-    _ax.axis('off')
-    plt.title('Bezier fit, after global optimization')
-    _ax.text(0.5, -0.1, f'number of bezier: {len(hyper_1)}', ha='center', transform=_ax.transAxes)
-    plt.show()
+    for i, _c in enumerate(curves):
+        bezier_curve = interpolate_bezier(_c.control_points, instants)
+
+        # Plot the Bézier curve
+        _ax.plot(bezier_curve[:, 1], bezier_curve[:, 0], "-", linewidth=1, alpha=1)
+        _ax.text(
+            bezier_curve[:, 1].mean(), bezier_curve[:, 0].mean(), str(i), fontsize=10
+        )
+    show(_ax, "final curves")
+    return (instants,)
+
+
+@app.cell
+def _(OptimPlayBack, mo, optim, pixel_chains_refined):
+    N = len(pixel_chains_refined)
+    f = mo.ui.anywidget(OptimPlayBack(pixel_chains_refined, optim.history_))
+    f
+    return
+
+
+@app.cell
+def _(optim):
+    from collections import Counter
+
+    Counter([x[0] for x in optim.history_])
     return
 
 
@@ -505,15 +621,24 @@ def _(mo):
 
 
 @app.cell
-def _(hyper_1, img, plt, visualize_hyper):
-    hyper_1.finition()
-    visualize_hyper(hyper_1)
-    plt.imshow(img, alpha=0.5, cmap='gray')
+def _(
+    align_boundaries,
+    curves,
+    instants,
+    interpolate_bezier,
+    mapping,
+    plt,
+    show,
+):
+    final_curves = align_boundaries(curves, mapping)
     _ax = plt.gca()
-    _ax.axis('off')
-    plt.title('Bezier fit, after finition')
-    plt.show()
-    return
+    for _i, _c in enumerate(final_curves):
+        _bezier_curve = interpolate_bezier(_c.control_points, instants)
+
+        # Plot the Bézier curve
+        _ax.plot(_bezier_curve[:, 1], _bezier_curve[:, 0], "-", linewidth=1, alpha=1)
+    show(_ax, "final curves")
+    return (final_curves,)
 
 
 @app.cell(hide_code=True)
@@ -527,23 +652,24 @@ def _(mo):
 @app.cell
 def _():
     from marimo import Html
-    from sketchy.app import generate_svg_str
 
-    return Html, generate_svg_str
+    from sketchy.export import export_svg
+    from sketchy.viz import show_example
+
+    return Html, export_svg, show_example
 
 
 @app.cell
-def _(Html, generate_svg_str, hyper_1, img):
-    out = generate_svg_str(img.shape, hyper_1, stroke_width=2)
+def _(Html, export_svg, final_curves, img):
+    out = export_svg(final_curves, img.shape)
     Html(out)
     return
 
 
 @app.cell
-def _():
-    from sketchy.app import show_example
-
-    return (show_example,)
+def _(ROOT_DIR, show_example):
+    show_example(ROOT_DIR / "data/sketches/butterfly.png")
+    return
 
 
 @app.cell
@@ -572,13 +698,23 @@ def _(ROOT_DIR, show_example):
 
 @app.cell
 def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png")
+    show_example(ROOT_DIR / "data/sketches/piano.png")
     return
 
 
 @app.cell
 def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png")
+    show_example(
+        ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
+    )
+    return
+
+
+@app.cell
+def _(ROOT_DIR, show_example):
+    show_example(
+        ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
+    )
     return
 
 
