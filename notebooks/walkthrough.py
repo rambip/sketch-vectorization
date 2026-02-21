@@ -541,12 +541,18 @@ def _():
 
 
 @app.cell
-def _(SketchOptimizer, pixel_chains_refined):
-    lam = 0.6 # interpolation between fidelity and simplicity
-    mu = 0.3 # penalty for high degree
-    t_decrease = 0.9997 # rate of temperature decrease
+def _(SketchOptimizer, mo, pixel_chains_refined):
+    lam = 0.6  # interpolation between fidelity and simplicity
+    mu = 0.3  # penalty for high degree
+    t_decrease = 0.9997  # rate of temperature decrease
     t_min = 0.003
-    optim = SketchOptimizer(lam=lam, t_min=t_min, mu=mu, t_decrease=t_decrease)
+    optim = SketchOptimizer(
+        lam=lam,
+        t_min=t_min,
+        mu=mu,
+        t_decrease=t_decrease,
+        status_function=lambda x, title: mo.status.progress_bar(x, title=title),
+    )
     curves, mapping = optim.fit_transform(pixel_chains_refined)
     return curves, mapping, optim
 
@@ -580,24 +586,15 @@ def _(curves, interpolate_bezier, np, plt):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    If you are viewing the interactive version, you can
+    If you are viewing the interactive version, you can view the entire history of transformations done to the network of curves:
     """)
     return
 
 
 @app.cell
 def _(OptimPlayBack, mo, optim, pixel_chains_refined):
-    N = len(pixel_chains_refined)
     f = mo.ui.anywidget(OptimPlayBack(pixel_chains_refined, optim.history_))
     f
-    return
-
-
-@app.cell
-def _(optim):
-    from collections import Counter
-
-    Counter([x[0] for x in optim.history_])
     return
 
 
@@ -625,7 +622,7 @@ def _(align_boundaries, curves, instants, interpolate_bezier, mapping, plt):
 
         # Plot the Bézier curve
         _ax.plot(_bezier_curve[:, 1], _bezier_curve[:, 0], "-", linewidth=1, alpha=1)
-    show(_ax, "final curves")
+    show(_ax, "final curves (with junction)")
     return (final_curves,)
 
 
@@ -656,7 +653,7 @@ def _(Html, export_svg, final_curves, img):
 
 @app.cell
 def _(Demo, mo):
-    demo = Demo(status_function=mo.status.progress_bar)
+    demo = Demo(status_function=lambda x, title: mo.status.progress_bar(x, title=title))
     return (demo,)
 
 
