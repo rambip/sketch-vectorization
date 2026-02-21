@@ -1,6 +1,6 @@
 from collections import defaultdict
 from enum import IntEnum
-from typing import Generator, List, Optional, Tuple
+from typing import Callable, Generator, List, Optional, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
@@ -438,7 +438,14 @@ CHOICE_DISTRIBUTION = [
 
 
 class SketchOptimizer(base.TransformerMixin, base.BaseEstimator):
-    def __init__(self, lam=0.5, mu=0.3, t_decrease=0.9999, t_min=0.05):
+    def __init__(
+        self,
+        lam=0.5,
+        mu=0.3,
+        t_decrease=0.9999,
+        t_min=0.05,
+        status_function: Callable = tqdm,
+    ):
         self.lam = lam
         self.mu = mu
         self.mapping = None
@@ -446,6 +453,7 @@ class SketchOptimizer(base.TransformerMixin, base.BaseEstimator):
         self.t_min = t_min
         self.t_decrease = t_decrease
         self.history_ = []
+        self.status_function = status_function
 
     def fit_transform(
         self, X: List[PixelChain], y: None = None, **fit_params
@@ -461,7 +469,7 @@ class SketchOptimizer(base.TransformerMixin, base.BaseEstimator):
 
         n = len(self.supergraph_)
 
-        for i in tqdm(range(n_it)):
+        for _ in self.status_function(range(n_it), "Optimizing curve network"):
             assert sum(len(x.parts) for x in self.supergraph_.superedges) >= n, (
                 "Some chains have disappeared !"
             )

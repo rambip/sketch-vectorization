@@ -67,21 +67,18 @@ def _(mo):
     return
 
 
-@app.cell
-def _(mo):
-    def show(ax, title, axis=False):
-        ax.axis("equal")
-        ax.axis(axis)
-        if not ax.yaxis_inverted():
-            ax.invert_yaxis()
-        ax.set_title(title)
-        return mo.mpl.interactive(ax)
-
-    return (show,)
+@app.function
+def show(ax, title, axis=False):
+    ax.axis("equal")
+    ax.axis(axis)
+    if not ax.yaxis_inverted():
+        ax.invert_yaxis()
+    ax.set_title(title)
+    return ax
 
 
 @app.cell
-def _(ROOT_DIR, load_normalized, plt, show):
+def _(ROOT_DIR, load_normalized, plt):
     img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png", size=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
@@ -154,7 +151,7 @@ def _(mo):
 
 
 @app.cell
-def _(BinarySketchPredictor, img, plt, show):
+def _(BinarySketchPredictor, img, plt):
     classifier = BinarySketchPredictor(gaussian_blur_sigma=1)
     proba = classifier.predict_proba(img)
     plt.imshow(proba, cmap="binary")
@@ -173,7 +170,7 @@ def _(mo):
 
 
 @app.cell
-def _(classifier, img, plt, show):
+def _(classifier, img, plt):
     img_binary = classifier.predict(img)
     plt.imshow(img_binary, cmap="binary")
     show(plt.gca(), title="Predicted pixels")
@@ -191,7 +188,7 @@ def _(mo):
 
 
 @app.cell
-def _(compute_thickness_map, img_binary, plt, show):
+def _(compute_thickness_map, img_binary, plt):
     thickness_map = compute_thickness_map(img_binary)
     plt.imshow(thickness_map)
     plt.colorbar()
@@ -292,7 +289,7 @@ def _():
 
 
 @app.cell
-def _(img_binary, plt, show, skeletonize):
+def _(img_binary, plt, skeletonize):
     skeleton = skeletonize(img_binary, method="zhang")
 
     plt.imshow(skeleton, cmap="binary")
@@ -311,7 +308,7 @@ def _(mo):
 
 
 @app.cell
-def _(np, plt, show, signal, skeleton):
+def _(np, plt, signal, skeleton):
     kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
     neighbours = signal.convolve2d(skeleton.astype(int), kernel, mode="same")
     neighbours = neighbours * skeleton
@@ -354,7 +351,7 @@ def _(mo):
 
 
 @app.cell
-def _(extract_chains, plt, show, skeleton):
+def _(extract_chains, plt, skeleton):
     pixel_chains = extract_chains(skeleton)
     _ax = plt.gca()
     for chain in pixel_chains:
@@ -376,7 +373,7 @@ def _(mo):
 
 
 @app.cell
-def _(pixel_chains, plt, remove_parasite_chains, show):
+def _(pixel_chains, plt, remove_parasite_chains):
     pixel_chains_clean = remove_parasite_chains(pixel_chains, min_length=5)
     ax_chain_clean = plt.gca()
     for _chain in pixel_chains_clean:
@@ -426,7 +423,7 @@ def _(fit_bezier, interpolate_bezier, np):
 
 
 @app.cell
-def _(pixel_chains_clean, plt, show, show_fitted):
+def _(pixel_chains_clean, plt, show_fitted):
     ax_fitted = plt.gca()
     for _chain in pixel_chains_clean:
         show_fitted(ax_fitted, _chain)
@@ -446,7 +443,7 @@ def _(mo):
 
 
 @app.cell
-def _(pixel_chains_clean, plt, refine_all_chains, show):
+def _(pixel_chains_clean, plt, refine_all_chains):
     pixel_chains_refined = refine_all_chains(pixel_chains_clean, tolerance=2)
     ax_chain_refined = plt.gca()
     for _chain in pixel_chains_refined:
@@ -474,7 +471,6 @@ def _(
     mo,
     pixel_chains_refined,
     plt,
-    show,
     show_fitted,
 ):
     ax_fitted_refined = plt.gca()
@@ -485,22 +481,14 @@ def _(
         [
             mo.hstack(
                 [
-                    show(ax_chain_clean, "Pixel chains before refine").style(
-                        {"width": "100%"}
-                    ),
-                    show(ax_fitted, "Fitted curves before refine").style(
-                        {"width": "100%"}
-                    ),
+                    show(ax_chain_clean, "Pixel chains before refine"),
+                    show(ax_fitted, "Fitted curves before refine")
                 ]
             ),
             mo.hstack(
                 [
-                    show(ax_chain_refined, "Pixel chains after refine").style(
-                        {"width": "100%"}
-                    ),
-                    show(ax_fitted_refined, "Fitted curves after refine").style(
-                        {"width": "100%"}
-                    ),
+                    show(ax_chain_refined, "Pixel chains after refine"),
+                    show(ax_fitted_refined, "Fitted curves after refine"),
                 ]
             ),
         ]
@@ -522,7 +510,7 @@ def _(mo):
 
     We first sample pairs of hyperedges $(U, V)$ such that $U$ end at a node that is anywhere inside $V$. We call such a configuation a "T" configuration.
 
-    ![](../images/schema_t.svg)
+    ![](https://raw.githubusercontent.com/rambip/sketch-vectorization/refs/heads/main/images/schema_t2.svg)
 
     Note that hyperedges are oriented. Once we sample one "T", we can apply 6 different transformations:
 
@@ -532,7 +520,7 @@ def _(mo):
     - dissociating V from U (for that, the last edge of V must be in U)
     - merging V and U. This is only possible when the T is in the special configuration showed below:
 
-    ![](../images/schema_t2.svg)
+    ![](https://raw.githubusercontent.com/rambip/sketch-vectorization/refs/heads/main/images/schema_t2.svg)
 
     We add a special transformation: **reverse**. As the name suggests, we reverse the order of all nodes in the sequence.
 
@@ -554,10 +542,10 @@ def _():
 
 @app.cell
 def _(SketchOptimizer, pixel_chains_refined):
-    lam = 0.6
+    lam = 0.6 # interpolation between fidelity and simplicity
+    mu = 0.3 # penalty for high degree
+    t_decrease = 0.9997 # rate of temperature decrease
     t_min = 0.003
-    mu = 0.3
-    t_decrease = 0.9997
     optim = SketchOptimizer(lam=lam, t_min=t_min, mu=mu, t_decrease=t_decrease)
     curves, mapping = optim.fit_transform(pixel_chains_refined)
     return curves, mapping, optim
@@ -574,7 +562,7 @@ def _(optim, plt):
 
 
 @app.cell
-def _(curves, interpolate_bezier, np, plt, show):
+def _(curves, interpolate_bezier, np, plt):
     instants = np.linspace(0, 1, 100)
     _ax = plt.gca()
     for i, _c in enumerate(curves):
@@ -587,6 +575,14 @@ def _(curves, interpolate_bezier, np, plt, show):
         )
     show(_ax, "final curves")
     return (instants,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    If you are viewing the interactive version, you can
+    """)
+    return
 
 
 @app.cell
@@ -621,15 +617,7 @@ def _(mo):
 
 
 @app.cell
-def _(
-    align_boundaries,
-    curves,
-    instants,
-    interpolate_bezier,
-    mapping,
-    plt,
-    show,
-):
+def _(align_boundaries, curves, instants, interpolate_bezier, mapping, plt):
     final_curves = align_boundaries(curves, mapping)
     _ax = plt.gca()
     for _i, _c in enumerate(final_curves):
@@ -654,9 +642,9 @@ def _():
     from marimo import Html
 
     from sketchy.export import export_svg
-    from sketchy.viz import show_example
+    from sketchy.viz import Demo
 
-    return Html, export_svg, show_example
+    return Demo, Html, export_svg
 
 
 @app.cell
@@ -667,66 +655,90 @@ def _(Html, export_svg, final_curves, img):
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/sketches/butterfly.png")
+def _(Demo, mo):
+    demo = Demo(status_function=mo.status.progress_bar)
+    return (demo,)
+
+
+@app.cell
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/butterfly.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/original_paper/figure_2/input.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/original_paper/figure_2/input.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/original_paper/figure_1/input.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/original_paper/figure_1/input.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/sketches/triangle.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/triangle.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/sketches/dress.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/dress.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/sketches/piano.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/piano.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/house.png")
+    return
+
+
+@app.cell
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/cube_bend.png")
+    return
+
+
+@app.cell
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/sketches/smiley.png")
+    return
+
+
+@app.cell
+def _(ROOT_DIR, demo):
+    demo.show_example(
         ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
     )
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(
+def _(ROOT_DIR, demo):
+    demo.show_example(
         ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
     )
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/original_paper/figure_10/archi.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/original_paper/figure_10/archi.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, show_example):
-    show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
+def _(ROOT_DIR, demo):
+    demo.show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
     return
 
 

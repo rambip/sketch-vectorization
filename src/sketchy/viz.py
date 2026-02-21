@@ -483,88 +483,92 @@ class OptimPlayBack(anywidget.AnyWidget):
         self._update_display()
 
 
-def show_example(path):
-    img = load_normalized(path)
-    classifier = BinarySketchPredictor()
-    prediction = classifier.predict(img)
-    skeleton = skeletonize(prediction)
-    chains = extract_chains(skeleton)
-    pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))
+class Demo:
+    def __init__(self, status_function):
+        self.status_function = status_function
 
-    optim = SketchOptimizer()
-    curves, mapping = optim.fit_transform(pixel_chains_refine)
-    final_curves = align_boundaries(curves, mapping)
+    def show_example(self, path):
+        img = load_normalized(path)
+        classifier = BinarySketchPredictor()
+        prediction = classifier.predict(img)
+        skeleton = skeletonize(prediction)
+        chains = extract_chains(skeleton)
+        pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))
 
-    fig, axes = plt.subplots(2, 3, figsize=(12, 5))
-    axes[0, 0].imshow(img, cmap="binary")
-    axes[0, 0].set_title("Original image")
-    axes[0, 0].axis(False)
-    axes[0, 0].axis("equal")
+        optim = SketchOptimizer(status_function=self.status_function)
+        curves, mapping = optim.fit_transform(pixel_chains_refine)
+        final_curves = align_boundaries(curves, mapping)
 
-    axes[0, 1].imshow(prediction, cmap="binary")
-    axes[0, 1].set_title("Black and white prediction")
-    axes[0, 1].axis(False)
-    axes[0, 1].axis("equal")
+        fig, axes = plt.subplots(2, 3, figsize=(12, 5))
+        axes[0, 0].imshow(img, cmap="binary")
+        axes[0, 0].set_title("Original image")
+        axes[0, 0].axis(False)
+        axes[0, 0].axis("equal")
 
-    axes[0, 2].imshow(skeleton, cmap="binary")
-    axes[0, 2].set_title("Skeleton")
-    axes[0, 2].axis(False)
-    axes[0, 2].axis("equal")
+        axes[0, 1].imshow(prediction, cmap="binary")
+        axes[0, 1].set_title("Black and white prediction")
+        axes[0, 1].axis(False)
+        axes[0, 1].axis("equal")
 
-    for c in pixel_chains_refine:
-        axes[1, 2].plot(c[:, 1], c[:, 0], linewidth=1)
-    axes[1, 2].set_title("Refined pixel chains")
-    axes[1, 2].invert_yaxis()
-    axes[1, 2].axis(False)
-    axes[1, 2].axis("equal")
+        axes[0, 2].imshow(skeleton, cmap="binary")
+        axes[0, 2].set_title("Skeleton")
+        axes[0, 2].axis(False)
+        axes[0, 2].axis("equal")
 
-    for cu in curves:
-        plot_directed_edge(axes[1, 1], cu.control_points)
-    axes[1, 1].set_title("Curves after optimization")
-    axes[1, 1].invert_yaxis()
-    axes[1, 1].axis(False)
-    axes[1, 1].axis("equal")
+        for c in pixel_chains_refine:
+            axes[1, 2].plot(c[:, 1], c[:, 0], linewidth=1)
+        axes[1, 2].set_title("Refined pixel chains")
+        axes[1, 2].invert_yaxis()
+        axes[1, 2].axis(False)
+        axes[1, 2].axis("equal")
 
-    time = np.linspace(0, 1, 100)
-    for cu in final_curves:
-        bezier_points = interpolate_bezier(cu.control_points, time)
-        axes[1, 0].plot(bezier_points[:, 1], bezier_points[:, 0], color="black")
-    axes[1, 0].set_title("Final SVG")
-    axes[1, 0].invert_yaxis()
-    axes[1, 0].axis(False)
-    axes[1, 0].axis("equal")
+        for cu in curves:
+            plot_directed_edge(axes[1, 1], cu.control_points)
+        axes[1, 1].set_title("Curves after optimization")
+        axes[1, 1].invert_yaxis()
+        axes[1, 1].axis(False)
+        axes[1, 1].axis("equal")
 
-    plt.tight_layout()
-    fig.canvas.draw()
+        time = np.linspace(0, 1, 100)
+        for cu in final_curves:
+            bezier_points = interpolate_bezier(cu.control_points, time)
+            axes[1, 0].plot(bezier_points[:, 1], bezier_points[:, 0], color="black")
+        axes[1, 0].set_title("Final SVG")
+        axes[1, 0].invert_yaxis()
+        axes[1, 0].axis(False)
+        axes[1, 0].axis("equal")
 
-    arrow_kw = dict(
-        transform=fig.transFigure,
-        arrowstyle="-|>",
-        mutation_scale=25,
-        lw=2.5,
-        color="tomato",
-        clip_on=False,
-        zorder=10,
-    )
+        plt.tight_layout()
+        fig.canvas.draw()
 
-    def addarrow(start, end, connectionstyle=None):
-        fig.add_artist(
-            FancyArrowPatch(start, end, connectionstyle=connectionstyle, **arrow_kw)  # type: ignore
+        arrow_kw = dict(
+            transform=fig.transFigure,
+            arrowstyle="-|>",
+            mutation_scale=25,
+            lw=2.5,
+            color="tomato",
+            clip_on=False,
+            zorder=10,
         )
 
-    # Top row: left to right
-    addarrow((0.320, 0.720), (0.350, 0.720))
-    addarrow((0.633, 0.720), (0.663, 0.720))
+        def addarrow(start, end, connectionstyle=None):
+            fig.add_artist(
+                FancyArrowPatch(start, end, connectionstyle=connectionstyle, **arrow_kw)  # type: ignore
+            )
 
-    # Right column: top to bottom, bendy
-    addarrow(
-        (0.95, 0.6),
-        (0.95, 0.4),
-        connectionstyle=ConnectionStyle("Arc3", rad=-0.4),
-    )
+        # Top row: left to right
+        addarrow((0.320, 0.720), (0.350, 0.720))
+        addarrow((0.633, 0.720), (0.663, 0.720))
 
-    # Bottom row: right to left
-    addarrow((0.680, 0.235), (0.650, 0.235))
-    addarrow((0.350, 0.235), (0.320, 0.235))
+        # Right column: top to bottom, bendy
+        addarrow(
+            (0.95, 0.6),
+            (0.95, 0.4),
+            connectionstyle=ConnectionStyle("Arc3", rad=-0.4),
+        )
 
-    return fig
+        # Bottom row: right to left
+        addarrow((0.680, 0.235), (0.650, 0.235))
+        addarrow((0.350, 0.235), (0.320, 0.235))
+
+        return fig
