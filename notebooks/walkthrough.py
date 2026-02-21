@@ -510,7 +510,7 @@ def _(mo):
 
     We first sample pairs of hyperedges $(U, V)$ such that $U$ end at a node that is anywhere inside $V$. We call such a configuation a "T" configuration.
 
-    ![](https://raw.githubusercontent.com/rambip/sketch-vectorization/refs/heads/main/images/schema_t2.svg)
+    ![](https://raw.githubusercontent.com/rambip/sketch-vectorization/refs/heads/main/images/schema_t.svg)
 
     Note that hyperedges are oriented. Once we sample one "T", we can apply 6 different transformations:
 
