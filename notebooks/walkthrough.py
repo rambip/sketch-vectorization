@@ -29,7 +29,9 @@ async def _():
         from sketchy_svg.onnxruntime_compat import patch_onnx
 
         await patch_onnx()
-        DATA_DIR = URL("https://github.com/rambip/sketch-vectorization/blob/main/data")
+        DATA_DIR = URL(
+            "https://raw.githubusercontent.com/rambip/sketch-vectorization/refs/heads/main/data"
+        )
 
     from sketchy_svg.prepare import (
         BinarySketchPredictor,
