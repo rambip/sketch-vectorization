@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "sketchy-svg",
+#     "marimo",
+# ]
+# ///
 import marimo
 
 __generated_with = "0.20.1"
@@ -13,7 +20,7 @@ async def _():
     import numpy as np
 
     if find_spec("js"):
-        import mircopip
+        import micropip
 
         await micropip.install("sketchy-svg")
         from sketchy_svg.onnxruntime_compat import patch_onnx
