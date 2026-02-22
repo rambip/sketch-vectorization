@@ -3,6 +3,7 @@
 # dependencies = [
 #     "sketchy-svg",
 #     "marimo",
+#     "yarl"
 # ]
 # ///
 import marimo
@@ -14,22 +15,21 @@ app = marimo.App(width="full", auto_download=["ipynb"])
 @app.cell
 async def _():
     from importlib.util import find_spec
+    from pathlib import Path
 
     import marimo as mo
     import matplotlib.pyplot as plt
     import numpy as np
 
-    if find_spec("js"):
-        import micropip
+    DATA_DIR = Path(__file__).parent.parent / "data"
 
-        await micropip.install("sketchy-svg")
+    if find_spec("js"):
+        from yarl import URL  # type: ignore
+
         from sketchy_svg.onnxruntime_compat import patch_onnx
 
         await patch_onnx()
-
-    from pathlib import Path
-
-    DATA_DIR = Path(__file__).parent.parent / "data"
+        DATA_DIR = URL("https://github.com/rambip/sketch-vectorization/blob/main/data")
 
     from sketchy_svg.prepare import (
         BinarySketchPredictor,
