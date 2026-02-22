@@ -13,11 +13,17 @@ async def _():
     import numpy as np
 
     if find_spec("js"):
+        import mircopip
+
+        await micropip.install("sketchy-svg")
         from sketchy_svg.onnxruntime_compat import patch_onnx
 
         await patch_onnx()
 
-    from meta import ROOT_DIR
+    from pathlib import Path
+
+    DATA_DIR = Path(__file__).parent.parent / "data"
+
     from sketchy_svg.prepare import (
         BinarySketchPredictor,
         compute_thickness_map,
@@ -26,7 +32,7 @@ async def _():
 
     return (
         BinarySketchPredictor,
-        ROOT_DIR,
+        DATA_DIR,
         compute_thickness_map,
         load_normalized,
         mo,
@@ -85,8 +91,8 @@ def show(ax, title, axis=False):
 
 
 @app.cell
-def _(ROOT_DIR, load_normalized, plt):
-    img = load_normalized(ROOT_DIR / "data/sketches/butterfly.png", size=256)
+def _(DATA_DIR, load_normalized, plt):
+    img = load_normalized(DATA_DIR / "sketches/butterfly.png", size=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     show(plt.gca(), "original image", axis=True)
@@ -665,84 +671,84 @@ def _(Demo, mo):
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/butterfly.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/butterfly.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/original_paper/figure_2/input.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "original_paper/figure_2/input.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/original_paper/figure_1/input.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "original_paper/figure_1/input.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/triangle.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/triangle.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/dress.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/dress.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/piano.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/piano.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/house.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/house.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/cube_bend.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/cube_bend.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/sketches/smiley.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "sketches/smiley.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
+async def _(DATA_DIR, demo):
     await demo.show_example(
-        ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
+        DATA_DIR / "CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
     )
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
+async def _(DATA_DIR, demo):
     await demo.show_example(
-        ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
+        DATA_DIR / "CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
     )
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/original_paper/figure_10/archi.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "original_paper/figure_10/archi.png")
     return
 
 
 @app.cell
-async def _(ROOT_DIR, demo):
-    await demo.show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
+async def _(DATA_DIR, demo):
+    await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
     return
 
 
