@@ -3,7 +3,7 @@ from typing import List
 from .utils import Curve
 
 
-def export_svg(curves: List[Curve], image_shape: tuple[int, int]) -> str:
+def export_svg(curves: List[Curve], height: int, width: int) -> str:
     """
     Export the list of curves to an SVG string.
     Args:
@@ -12,6 +12,8 @@ def export_svg(curves: List[Curve], image_shape: tuple[int, int]) -> str:
     Returns:
         A string containing the SVG representation of the curves.
     """
-    svg_paths = "\n".join(curve.to_svg(color="black") for curve in curves)
-    svg_content = f'<svg width="{image_shape[1]}" height="{image_shape[0]}" xmlns="http://www.w3.org/2000/svg"> {svg_paths} </svg>'
+    svg_paths = "\n".join(
+        curve.to_svg(color="black", stroke_width=2) for curve in curves
+    )
+    svg_content = f'<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg"> {svg_paths} </svg>'
     return svg_content

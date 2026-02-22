@@ -6,13 +6,14 @@
 #     "yarl"
 # ]
 # ///
+
 import marimo
 
 __generated_with = "0.20.1"
 app = marimo.App(width="full", auto_download=["ipynb"])
 
 
-@app.cell
+@app.cell(hide_code=True)
 async def _():
     from importlib.util import find_spec
     from pathlib import Path
@@ -101,7 +102,7 @@ def show(ax, title, axis=False):
 
 @app.cell
 def _(DATA_DIR, load_normalized, plt):
-    img = load_normalized(DATA_DIR / "sketches/butterfly.png", size=256)
+    img = load_normalized(DATA_DIR / "original_paper/figure_1/input.png", size=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     show(plt.gca(), "original image", axis=True)
@@ -174,7 +175,7 @@ def _(mo):
 
 @app.cell
 async def _(BinarySketchPredictor, img, plt):
-    classifier = BinarySketchPredictor(gaussian_blur_sigma=1)
+    classifier = BinarySketchPredictor(0.5, gaussian_blur_sigma=1)
     proba = await classifier.predict_proba(img)
     plt.imshow(proba, cmap="binary")
     plt.colorbar()
@@ -396,7 +397,7 @@ def _(mo):
 
 @app.cell
 def _(pixel_chains, plt, remove_parasite_chains):
-    pixel_chains_clean = remove_parasite_chains(pixel_chains, min_length=5)
+    pixel_chains_clean = remove_parasite_chains(pixel_chains, min_length=10)
     ax_chain_clean = plt.gca()
     for _chain in pixel_chains_clean:
         # chain is shape (N, 2) where each row is [row, col] or [y, x]
@@ -565,9 +566,9 @@ def _():
 @app.cell
 def _(SketchOptimizer, mo, pixel_chains_refined):
     lam = 0.6  # interpolation between fidelity and simplicity
-    mu = 0.3  # penalty for high degree
+    mu = 0.2  # penalty for high degree
     t_decrease = 0.9997  # rate of temperature decrease
-    t_min = 0.003
+    t_min = 0.001
     optim = SketchOptimizer(
         lam=lam,
         t_min=t_min,
@@ -586,6 +587,18 @@ def _(optim, plt):
     plt.xlabel("steps")
     plt.title("evolution of energy during optimization")
     plt.show()
+    return
+
+
+@app.cell
+def _(optim, plt):
+    from collections import Counter
+    from sketchy_svg.optim import Perturbation
+    counts = Counter(x[0] for x in optim.history_)
+    axes = plt.figure(figsize=[12, 6])
+    plt.bar(range(7), [counts[i] for i in range(7)])
+    plt.xticks(range(7), [x.name for x in Perturbation], rotation=0, fontsize=8)
+    plt.gca()
     return
 
 
@@ -668,7 +681,7 @@ def _():
 
 @app.cell
 def _(Html, export_svg, final_curves, img):
-    out = export_svg(final_curves, img.shape)
+    out = export_svg(final_curves, img.shape[0], img.shape[1])
     Html(out)
     return
 
@@ -758,6 +771,11 @@ async def _(DATA_DIR, demo):
 @app.cell
 async def _(DATA_DIR, demo):
     await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
+    return
+
+
+@app.cell
+def _():
     return
 
 

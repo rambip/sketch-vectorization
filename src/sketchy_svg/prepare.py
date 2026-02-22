@@ -1,23 +1,32 @@
+from io import BytesIO
 from pathlib import Path
 from typing import Optional
 
 import numpy as np
 from numpy.typing import NDArray
-from skimage import filters, io, transform
+from PIL import Image
+from skimage import filters, transform
 from skimage.color import rgb2gray
 
 from .onnxruntime_compat import InferenceSession
 from .utils import DEFAULT_SIZE
 
 
-def load_normalized(path: Path, size: int = DEFAULT_SIZE) -> NDArray[np.float32]:
+def load_normalized(
+    path_or_bytes: Path | bytes, size: int = DEFAULT_SIZE
+) -> NDArray[np.float32]:
     """
     Load an image and normalize to [0, 1] range, resized to target size.
 
     If image has a varying alpha channel, use that. Otherwise convert to grayscale.
     Prints a warning if both alpha and intensity vary significantly.
     """
-    img_raw = io.imread(str(path))
+    if isinstance(path_or_bytes, bytes):
+        img_raw = Image.open(BytesIO(path_or_bytes))
+    else:
+        img_raw = Image.open(path_or_bytes)
+
+    img_raw = np.array(img_raw)
 
     # Handle images with alpha channel (2 or 4 channels)
     if img_raw.ndim == 3 and img_raw.shape[2] in (2, 4):
@@ -105,7 +114,9 @@ class BinarySketchPredictor:
         """
         proba = await self.predict_proba(X)
         if self.gaussian_blur_sigma is not None:
-            proba = filters.gaussian(proba, sigma=self.gaussian_blur_sigma)
+            proba = filters.gaussian(
+                proba, sigma=self.gaussian_blur_sigma, preserve_range=True
+            )
         return proba > self.threshold
 
     async def predict_proba(self, X: NDArray[np.float32]) -> NDArray[np.float32]:
