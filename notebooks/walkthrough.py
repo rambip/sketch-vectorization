@@ -5,13 +5,20 @@ app = marimo.App(width="full", auto_download=["ipynb"])
 
 
 @app.cell
-def _():
+async def _():
+    from importlib.util import find_spec
+
     import marimo as mo
     import matplotlib.pyplot as plt
     import numpy as np
 
+    if find_spec("js"):
+        from sketchy_svg.onnxruntime_compat import patch_onnx
+
+        await patch_onnx()
+
     from meta import ROOT_DIR
-    from sketchy.prepare import (
+    from sketchy_svg.prepare import (
         BinarySketchPredictor,
         compute_thickness_map,
         load_normalized,
@@ -151,9 +158,9 @@ def _(mo):
 
 
 @app.cell
-def _(BinarySketchPredictor, img, plt):
+async def _(BinarySketchPredictor, img, plt):
     classifier = BinarySketchPredictor(gaussian_blur_sigma=1)
-    proba = classifier.predict_proba(img)
+    proba = await classifier.predict_proba(img)
     plt.imshow(proba, cmap="binary")
     plt.colorbar()
     show(plt.gca(), "Predicted probability for each pixel")
@@ -170,8 +177,8 @@ def _(mo):
 
 
 @app.cell
-def _(classifier, img, plt):
-    img_binary = classifier.predict(img)
+async def _(classifier, img, plt):
+    img_binary = await classifier.predict(img)
     plt.imshow(img_binary, cmap="binary")
     show(plt.gca(), title="Predicted pixels")
     return (img_binary,)
@@ -270,8 +277,8 @@ def _():
     from scipy import signal
     from skimage.morphology import skeletonize
 
-    from sketchy.bezier import fit_bezier, interpolate_bezier
-    from sketchy.topology import (
+    from sketchy_svg.bezier import fit_bezier, interpolate_bezier
+    from sketchy_svg.topology import (
         extract_chains,
         refine_all_chains,
         remove_parasite_chains,
@@ -482,7 +489,7 @@ def _(
             mo.hstack(
                 [
                     show(ax_chain_clean, "Pixel chains before refine"),
-                    show(ax_fitted, "Fitted curves before refine")
+                    show(ax_fitted, "Fitted curves before refine"),
                 ]
             ),
             mo.hstack(
@@ -534,8 +541,8 @@ def _(mo):
 
 @app.cell
 def _():
-    from sketchy.optim import SketchOptimizer, SuperGraph, align_boundaries
-    from sketchy.viz import OptimPlayBack
+    from sketchy_svg.optim import SketchOptimizer, SuperGraph, align_boundaries
+    from sketchy_svg.viz import OptimPlayBack
 
     return OptimPlayBack, SketchOptimizer, align_boundaries
 
@@ -638,8 +645,8 @@ def _(mo):
 def _():
     from marimo import Html
 
-    from sketchy.export import export_svg
-    from sketchy.viz import Demo
+    from sketchy_svg.export import export_svg
+    from sketchy_svg.viz import Demo
 
     return Demo, Html, export_svg
 
@@ -658,84 +665,84 @@ def _(Demo, mo):
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/butterfly.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/butterfly.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/original_paper/figure_2/input.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/original_paper/figure_2/input.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/original_paper/figure_1/input.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/original_paper/figure_1/input.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/triangle.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/triangle.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/dress.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/dress.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/piano.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/piano.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/house.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/house.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/cube_bend.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/cube_bend.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/sketches/smiley.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/sketches/smiley.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(
+async def _(ROOT_DIR, demo):
+    await demo.show_example(
         ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
     )
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(
+async def _(ROOT_DIR, demo):
+    await demo.show_example(
         ROOT_DIR / "data/CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
     )
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/original_paper/figure_10/archi.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/original_paper/figure_10/archi.png")
     return
 
 
 @app.cell
-def _(ROOT_DIR, demo):
-    demo.show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
+async def _(ROOT_DIR, demo):
+    await demo.show_example(ROOT_DIR / "data/original_paper/figure_14/bag/input.png")
     return
 
 

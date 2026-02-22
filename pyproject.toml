@@ -1,28 +1,25 @@
 [project]
-name = "sketchy"
+name = "sketchy-svg"
 version = "0.1.0"
 description = "A png drawing to svg converter"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "anywidget>=0.9.21",
-    "cairosvg>=2.8.2",
-    "hypernetx>=2.4.0",
     "marimo>=0.20.1",
-    "matplotlib>=3.10.1",
+    "matplotlib>=3.8.0",
     "mpld3>=0.5.12",
-    "nbformat>=5.10.4",
-    "numpy>=2.2.5",
-    "onnx>=1.18.0",
-    "onnxruntime>=1.22.1",
-    "perlin-numpy>=0.0.1",
-    "pillow>=11.2.1",
-    "polars>=1.38.1",
+    "networkx>=3.4.2",
+    "numpy",
+    "pillow>=10.2.0",
     "pytest>=9.0.2",
     "python-dotenv>=1.2.1",
-    "scikit-image>=0.25.2",
-    "scipy>=1.15.2",
+    "scikit-image>=0.20.0",
     "traitlets>=5.14.3",
+]
+[project.optional-dependencies]
+onnx = [
+"onnxruntime>=1.22.1",
 ]
 
 [project.scripts]
@@ -38,10 +35,15 @@ build-backend = "uv_build"
 train = [
     "torch",
     "torchvision",
+    "perlin-numpy>=0.0.1",
+    "polars>=1.38.1",
+    "cairosvg>=2.8.2",
+    "onnx>=1.18.0",
 ]
 # linter and type checker
 dev = [
     "ty>=0.0.1a16",
     "marimo>=0.19.9",
     "ruff",
+    "nbformat>=5.10.4",
 ]

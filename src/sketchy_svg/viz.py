@@ -45,7 +45,7 @@ class OptimPlayBack(anywidget.AnyWidget):
       padding: 16px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      width: 500px;
+      width: 450px;
     }
     .optim-chart {
       margin-bottom: 16px;
@@ -58,10 +58,10 @@ class OptimPlayBack(anywidget.AnyWidget):
       display: block;
     }
     .optim-info-container {
-      margin-bottom: 16px;
+      flex: 1;
     }
     .optim-row {
-      margin-bottom: 8px;
+      margin-bottom: 3px;
       font-size: 14px;
     }
     .optim-label {
@@ -85,9 +85,14 @@ class OptimPlayBack(anywidget.AnyWidget):
     .optim-delta.zero {
       color: #999999;
     }
+    .optim-controls {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
     .optim-button-container {
       display: flex;
-      gap: 8px;
+      align-items: center;
     }
     .optim-btn {
       padding: 8px 16px;
@@ -98,12 +103,6 @@ class OptimPlayBack(anywidget.AnyWidget):
     .optim-btn:disabled {
       background-color: #f5f5f5;
       cursor: not-allowed;
-    }
-    .optim-btn-prev {
-      background-color: #f5f5f5;
-    }
-    .optim-btn-prev:disabled {
-      background-color: #f5f5f5;
     }
     .optim-btn-next {
       background-color: #4CAF50;
@@ -194,24 +193,22 @@ class OptimPlayBack(anywidget.AnyWidget):
       const buttonContainer = document.createElement('div');
       buttonContainer.classList.add('optim-button-container');
 
-      // Previous button (for future use)
-      const prevButton = document.createElement('button');
-      prevButton.textContent = 'Previous';
-      prevButton.classList.add('optim-btn', 'optim-btn-prev');
-      prevButton.disabled = true;
-
       // Next button
       const nextButton = document.createElement('button');
       nextButton.textContent = 'Next';
       nextButton.classList.add('optim-btn', 'optim-btn-next');
 
-      buttonContainer.appendChild(prevButton);
       buttonContainer.appendChild(nextButton);
+
+      // Controls row: info on the left, button on the right
+      const controlsRow = document.createElement('div');
+      controlsRow.classList.add('optim-controls');
+      controlsRow.appendChild(infoContainer);
+      controlsRow.appendChild(buttonContainer);
 
       // Assemble widget
       el.appendChild(chartContainer);
-      el.appendChild(infoContainer);
-      el.appendChild(buttonContainer);
+      el.appendChild(controlsRow);
 
       // Update function - use direct references to elements
       function updateDisplay() {
@@ -484,13 +481,13 @@ class OptimPlayBack(anywidget.AnyWidget):
 
 
 class Demo:
-    def __init__(self, status_function):
+    def __init__(self, status_function=lambda x, title: x):
         self.status_function = status_function
 
-    def show_example(self, path):
+    async def show_example(self, path):
         img = load_normalized(path)
         classifier = BinarySketchPredictor()
-        prediction = classifier.predict(img)
+        prediction = await classifier.predict(img)
         skeleton = skeletonize(prediction)
         chains = extract_chains(skeleton)
         pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))

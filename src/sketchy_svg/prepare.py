@@ -2,12 +2,11 @@ from pathlib import Path
 from typing import Optional
 
 import numpy as np
-import onnxruntime as ort
 from numpy.typing import NDArray
 from skimage import filters, io, transform
 from skimage.color import rgb2gray
-from sklearn import base
 
+from .onnxruntime_compat import InferenceSession
 from .utils import DEFAULT_SIZE
 
 
@@ -76,7 +75,7 @@ def compute_thickness_map(image: NDArray[np.bool]) -> NDArray[np.float32]:
     return thicknesses.astype(np.float32)
 
 
-class BinarySketchPredictor(base.BaseEstimator):
+class BinarySketchPredictor:
     def __init__(
         self,
         threshold: float = 0.5,
@@ -89,14 +88,14 @@ class BinarySketchPredictor(base.BaseEstimator):
         self.gaussian_blur_sigma = gaussian_blur_sigma
         if model_path is None:
             model_path = Path(__file__).parent / "cnn/model.onnx"
-        self.model = ort.InferenceSession(model_path)
+        self.inference = InferenceSession(model_path)
 
     def fit(self, X: NDArray[np.float32], y: NDArray[np.float32]):
         raise ValueError(
             "This model is not trainable. It is a pre-trained model that can only be used for prediction."
         )
 
-    def predict(self, X: NDArray[np.float32]) -> NDArray[np.bool]:
+    async def predict(self, X: NDArray[np.float32]) -> NDArray[np.bool]:
         """
         Predict a binary mask indicating which pixels are part of the sketch.
         Args:
@@ -104,12 +103,12 @@ class BinarySketchPredictor(base.BaseEstimator):
         Returns:
             NDArray[bool]: A 2D array of booleans where True indicates that the pixel is predicted to be part of the sketch, and False indicates background.
         """
-        proba = self.predict_proba(X)
+        proba = await self.predict_proba(X)
         if self.gaussian_blur_sigma is not None:
             proba = filters.gaussian(proba, sigma=self.gaussian_blur_sigma)
         return proba > self.threshold
 
-    def predict_proba(self, X: NDArray[np.float32]) -> NDArray[np.float32]:
+    async def predict_proba(self, X: NDArray[np.float32]) -> NDArray[np.float32]:
         """
         Predict the probability of each pixel being part of the sketch.
         Args:
@@ -118,4 +117,5 @@ class BinarySketchPredictor(base.BaseEstimator):
             NDArray[float]: A 2D array of floats representing the predicted probabilities for each pixel.
         """
         X_with_color = X[np.newaxis, :, :]
-        return self.model.run(["output"], {"input": X_with_color})[0][0]  # type: ignore
+        result = await self.inference.run(["output"], {"input": X_with_color})
+        return result[0][0]

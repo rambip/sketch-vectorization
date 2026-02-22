@@ -4,8 +4,6 @@ from typing import Callable, Generator, List, Optional, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
-from sklearn import base
-from tqdm import tqdm
 
 from .bezier import fit_bezier, fitting_error, interpolate_bezier
 from .utils import Curve, Pixel, PixelChain, PixelEdge
@@ -437,14 +435,14 @@ CHOICE_DISTRIBUTION = [
 ]
 
 
-class SketchOptimizer(base.TransformerMixin, base.BaseEstimator):
+class SketchOptimizer:
     def __init__(
         self,
         lam=0.5,
         mu=0.3,
         t_decrease=0.9999,
         t_min=0.05,
-        status_function: Callable = tqdm,
+        status_function: Callable = lambda x, title: x,
     ):
         self.lam = lam
         self.mu = mu
