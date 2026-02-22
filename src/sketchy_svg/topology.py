@@ -288,7 +288,7 @@ def _find_best_split(chain: PixelChain, degree: int = 3, margin=2) -> int:
 
 
 def refine_chain(
-    chain: PixelChain, tolerance: float = 1.0, degree: int = 3, margin=2
+    chain: PixelChain, tolerance: float = 2.0, degree: int = 3, margin=2
 ) -> Iterator[PixelChain]:
     """
     Subdivide a pixel chain into smaller chains where each can be accurately

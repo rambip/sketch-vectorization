@@ -21,18 +21,17 @@ PixelChain = NDArray[np.int_]
 
 
 class Curve:
-    def __init__(self, control_points: NDArray[np.float32], width: float):
+    def __init__(self, control_points: NDArray[np.float32]):
         self.control_points = control_points
         n_control_points = len(control_points)
         if n_control_points < 2 or n_control_points > 4:
             raise ValueError(f"invalid number of control points: {n_control_points}")
-        self.width = width
 
     @property
     def degree(self) -> int:
         return len(self.control_points) - 1
 
-    def to_svg(self, color: str) -> str:
+    def to_svg(self, color: str, stroke_width=2) -> str:
         """
         Return the svg path representation depending on the degree
         Arg:
@@ -50,4 +49,4 @@ class Curve:
         y1, x1 = self.control_points[0]
         # rest of control points
         rest = " ".join(f"{x},{y}" for y, x in self.control_points[1:])
-        return f'  <path fill="none" stroke="{color}" stroke-width="{self.width}" d="M {x1},{y1} {symbol} {rest}"/>'
+        return f'  <path fill="none" stroke="{color}" stroke-width="{stroke_width}" d="M {x1},{y1} {symbol} {rest}"/>'

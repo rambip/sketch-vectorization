@@ -121,6 +121,25 @@ class SuperGraph:
             self.incidence[c.start_pixel].append(i)
             self.incidence[c.end_pixel].append(i)
 
+    def check_valid_incidence(self, msg):
+        for e, occurences in self.incidence.items():
+            for s_id2 in occurences:
+                assert s_id2 < len(self.superedges), (
+                    f"{msg}: node {e} is connected to the new id {s_id2} () but len is {len(self.superedges)}"
+                )
+
+        for i, s in enumerate(self.superedges):
+            for e in s.endpoints():
+                assert i in self.incidence[e], (
+                    f"{msg}: incidence is not up to date: endpoint {e} should be registered in {s} (id={i}) but does not"
+                )
+                assert e in list(s.endpoints()), (
+                    f"incidence has a lier: endpoint {e} is registered as en enpoint of {s} (id={i}) but is not"
+                )
+        for e, chains in self.incidence.items():
+            for s in chains:
+                assert e in list(self.superedges[s].endpoints())
+
     def add(self, superedge: SuperEdge) -> int:
         new_id = len(self.superedges)
         self.superedges.append(superedge)
@@ -129,6 +148,7 @@ class SuperGraph:
         return new_id
 
     def remove(self, s_id: int):
+        # self.check_valid_incidence(f"BEFORE REMOVE {s_id}")
         superedge = self.superedges[s_id]
         for e in superedge.endpoints():
             occurences = self.incidence[e].count(s_id)
@@ -145,9 +165,18 @@ class SuperGraph:
                     if self.incidence[e][i] == id_removed:
                         self.incidence[e][i] = s_id
 
+        # self.check_valid_incidence(f"AFTER REMOVE {s_id}")
+
     def remove_many(self, ids: List[int]):
         for s_id in sorted(ids, reverse=True):
             self.remove(s_id)
+
+    def add_incidence(self, s_id: int, pixel: Pixel):
+        occurences = self.incidence[pixel].count(s_id)
+        # if occurences != 0:
+        # breakpoint()
+        # assert occurences == 0, "The superedge is already incident to this pixel"
+        self.incidence[pixel].append(s_id)
 
     def remove_incidence(self, s_id: int, pixel: Pixel):
         occurences = self.incidence[pixel].count(s_id)
@@ -187,6 +216,7 @@ class SuperGraph:
         Merge the two superedges with id s_id1 and s_id2, by concatenating their list of edges.
         The new superedge will have the same id as s_id1, and s_id2 will be removed from the supergraph.
         """
+        n = len(self)
         # Get values BEFORE merging
         join_pixel = self.superedges[s_id2].start_pixel
 
@@ -217,13 +247,13 @@ class SuperGraph:
         The new superedge will have the same id as s_id1.
         s_id2 remains in the supergraph but loses the overlapped part.
         """
+        # self.check_valid_incidence("BEFORE OVERLAP")
         # Get the end pixel of s_id1
-        old_end_pixel = self.superedges[s_id1].end_pixel
+        a = self.superedges[s_id1]
+        b = self.superedges[s_id2]
 
         # Use overlap_on to extend s_id1 with a part from s_id2
-        self.superedges[s_id1] = self.superedges[s_id1].overlap_on(
-            self.superedges[s_id2]
-        )
+        self.superedges[s_id1] = a.overlap_on(b)
 
         # Get the new end pixel after overlap
         new_end_pixel = self.superedges[s_id1].end_pixel
@@ -233,8 +263,8 @@ class SuperGraph:
         # as an internal point could be tracked separately. For now, we don't remove it
         # from incidence since incidence tracks all endpoints.
         # Actually, after overlap, old_end_pixel becomes an internal point, not an endpoint
-        self.remove_incidence(s_id1, old_end_pixel)
-        self.incidence[new_end_pixel].append(s_id1)
+        self.add_incidence(s_id1, new_end_pixel)
+        # self.check_valid_incidence("AFTER OVERLAP")
 
     def dissociate(self, s_id1: int, s_id2: int):
         """
@@ -250,12 +280,9 @@ class SuperGraph:
             self.superedges[s_id2]
         )
 
-        # Get the new end pixel after dissociation
-        new_end_pixel = self.superedges[s_id1].end_pixel
-
         # Update incidence: remove old end, add new end
         self.remove_incidence(s_id1, old_end_pixel)
-        self.incidence[new_end_pixel].append(s_id1)
+        # self.check_valid_incidence("AFTER DISSOCIATE")
 
     def __len__(self):
         return len(self.superedges)
@@ -271,7 +298,12 @@ class SuperGraph:
         """
         id_a = np.random.choice(len(self.superedges))
         endpoints = list(self.superedges[id_a].endpoints())
-        i_pixel = np.random.choice(len(endpoints))
+        if len(endpoints) == 2:
+            i_pixel = np.random.choice([0, 1])
+        else:
+            distrib = np.ones(len(endpoints)) / 4
+            distrib[1:-1] = 1 / (2 * (len(endpoints) - 2))
+            i_pixel = np.random.choice(len(endpoints), p=distrib)
         pixel = endpoints[i_pixel]
         candidates_b = [
             s_id
@@ -422,16 +454,16 @@ class SuperGraph:
 
 CHOICE_DISTRIBUTION = [
     # change degree
-    1 / 8,
-    1 / 8,
+    1 / 16,
+    1 / 16,
     # merge or split
-    1 / 4,  # we strongly bias merging, since it's the most usefull
-    1 / 8,
+    4 / 16,  # we strongly bias merging, since it's the most usefull
+    3 / 16,
     # overlap or dissociate
-    1 / 8,
-    1 / 8,
+    3 / 16,
+    3 / 16,
     # reverse edge
-    1 / 8,
+    1 / 16,
 ]
 
 
@@ -440,8 +472,8 @@ class SketchOptimizer:
         self,
         lam=0.5,
         mu=0.3,
-        t_decrease=0.9999,
-        t_min=0.05,
+        t_decrease=0.999,
+        t_min=0.001,
         status_function: Callable = lambda x, title: x,
     ):
         self.lam = lam
@@ -461,7 +493,7 @@ class SketchOptimizer:
 
         energy = sum(x.score(self.lam, self.mu) for x in self.supergraph_.superedges)
         self.error_ = [energy]
-        temp = 0.2
+        temp = 1
 
         n_it = int(np.log(self.t_min / temp) / np.log(self.t_decrease))
 
@@ -486,9 +518,7 @@ class SketchOptimizer:
                 temp = temp * self.t_decrease
 
         curves = [
-            Curve(
-                control_points=self.supergraph_.superedges[i].control_points, width=1.0
-            )
+            Curve(control_points=self.supergraph_.superedges[i].control_points)
             for i in range(len(self.supergraph_))
         ]
         mapping = {
