@@ -248,7 +248,7 @@ def _fit_error(chain: PixelChain, degree: int = 3) -> float:
     fitted = interpolate_bezier(control_points, instants)
 
     # Compute error
-    return fitting_error(fitted, chain)
+    return fitting_error(fitted, chain) / np.log(len(chain))
 
 
 def _find_best_split(chain: PixelChain, degree: int = 3, margin=2) -> int:
@@ -288,7 +288,7 @@ def _find_best_split(chain: PixelChain, degree: int = 3, margin=2) -> int:
 
 
 def refine_chain(
-    chain: PixelChain, tolerance: float = 2.0, degree: int = 3, margin=2
+    chain: PixelChain, tolerance: float, degree: int = 3, margin=2
 ) -> Iterator[PixelChain]:
     """
     Subdivide a pixel chain into smaller chains where each can be accurately
@@ -327,7 +327,7 @@ def refine_chain(
 
 
 def refine_all_chains(
-    chains: List[PixelChain], tolerance: float = 2.0, degree: int = 3
+    chains: List[PixelChain], tolerance: float = 1.0, degree: int = 3
 ) -> List[PixelChain]:
     """
     Refine all chains by subdividing them where necessary for accurate Bézier fitting.

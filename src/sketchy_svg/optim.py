@@ -13,41 +13,72 @@ SuperEdgeId = int  # NewType("SuperEdgeId", int)
 
 class SuperEdge:
     parts: List[PixelChain]
-    chain: PixelChain
-    control_points: NDArray
-    fitting_error: float
+    parts_w: List[NDArray]  # weights of each pixel in each part
 
-    def __init__(self, chains: List[PixelChain], degree: int):
+    def __init__(self, chains: List[PixelChain], parts_w: List[NDArray], degree: int):
         self.parts = chains
+        self.parts_w = parts_w
         self.degree = degree
-        # concatenate all chains without the endpoints
-        self.chain = np.concatenate([chains[0]] + [c[1:] for c in chains[1:]], axis=0)
-        self._fit()
+
+        # Concatenate parts into a single chain and weight array, deduplicating
+        # the shared boundary pixel between consecutive parts.
+        self.chain: NDArray = np.concatenate(
+            [self.parts[0]] + [c[1:] for c in self.parts[1:]], axis=0
+        )
+        thicknesses: NDArray = np.concatenate(
+            [self.parts_w[0]] + [w[1:] for w in self.parts_w[1:]], axis=0
+        )
+        self.weights: NDArray = 1 - 0.5 * thicknesses
+
+        # Precompute pixel-level structural attributes.
+        self.start_pixel: Pixel = (int(chains[0][0][0]), int(chains[0][0][1]))
+        self.end_pixel: Pixel = (int(chains[-1][-1][0]), int(chains[-1][-1][1]))
+        self.interior_pixels: list[Pixel] = [
+            (int(part[-1][0]), int(part[-1][1])) for part in chains[:-1]
+        ]
+
+        # Fit the Bezier curve and store control points and fitting error.
+        self._refit()
+
+    def _refit(self) -> None:
+        """Fit the Bezier curve from the precomputed chain and weights."""
+        time = np.linspace(0, 1, len(self.chain))
+        self.control_points: NDArray = fit_bezier(
+            self.chain, time, degree=self.degree, weights=self.weights
+        )
+        self.fitting_error: float = fitting_error(
+            interpolate_bezier(self.control_points, time), self.chain
+        )
 
     def endpoints(self) -> Generator[Pixel, None, None]:
         for p in self.parts:
             yield (int(p[0][0]), int(p[0][1]))
         yield self.end_pixel
 
-    def _fit(self):
-        time = np.linspace(0, 1, len(self.chain))
-        self.control_points = fit_bezier(self.chain, time, degree=self.degree)
-        self.fitting_error = fitting_error(
-            interpolate_bezier(self.control_points, time), self.chain
+    def merge(self, other: "SuperEdge") -> "SuperEdge":
+        return SuperEdge(
+            self.parts + other.parts,
+            self.parts_w + other.parts_w,
+            max(self.degree, other.degree),
         )
 
-    def merge(self, other: "SuperEdge") -> "SuperEdge":
-        return SuperEdge(self.parts + other.parts, max(self.degree, other.degree))
-
     def reverse(self) -> "SuperEdge":
-        return SuperEdge([c[::-1] for c in reversed(self.parts)], self.degree)
+        return SuperEdge(
+            [c[::-1] for c in reversed(self.parts)],
+            [c[::-1] for c in reversed(self.parts_w)],
+            self.degree,
+        )
 
     def split(self, pixel: Pixel) -> Tuple["SuperEdge", "SuperEdge"]:
         # split the chain into two parts, the prefix and the rest
         i_part = [i for i, c in enumerate(self.parts) if tuple(c[-1]) == pixel][0]
         prefix = self.parts[: i_part + 1]
         rest = self.parts[i_part + 1 :]
-        return SuperEdge(prefix, self.degree), SuperEdge(rest, self.degree)
+        prefix_weight = self.parts_w[: i_part + 1]
+        rest_weight = self.parts_w[i_part + 1 :]
+        return SuperEdge(prefix, prefix_weight, self.degree), SuperEdge(
+            rest, rest_weight, self.degree
+        )
 
     def overlap_on(self, other: "SuperEdge"):
         """
@@ -55,13 +86,17 @@ class SuperEdge:
         The added part is the one which starts at the end of this superedge.
         If there is no such part, an assertion error is raised.
         """
-        end_pixel = self.end_pixel
-        singleton = [c for c in other.parts if (tuple(c[0]) == end_pixel)]
-        assert len(singleton) >= 1, (
+        candidates = [
+            i for i, c in enumerate(other.parts) if (tuple(c[0]) == self.end_pixel)
+        ]
+        assert len(candidates) >= 1, (
             "The other superedge does not have a part that starts at the end of this superedge"
         )
-        part_other = singleton[0]
-        return SuperEdge(self.parts + [part_other], self.degree)
+        part_other = other.parts[candidates[0]]
+        weight_other = other.parts_w[candidates[0]]
+        return SuperEdge(
+            self.parts + [part_other], self.parts_w + [weight_other], self.degree
+        )
 
     def dissociate_on(self, other: "SuperEdge"):
         """
@@ -72,23 +107,11 @@ class SuperEdge:
         assert any(np.array_equal(removed_part, c) for c in other.parts), (
             "The last part of this superedge is not a part of the other superedge and cannot be removed"
         )
-        return SuperEdge(self.parts[:-1], self.degree)
+        return SuperEdge(self.parts[:-1], self.parts_w[:-1], self.degree)
 
-    def change_degree(self, new_degree: int):
-        """
-        Return a new superedge with the same chain but with a new degree
-        """
-        return SuperEdge(self.parts, new_degree)
-
-    @property
-    def start_pixel(self) -> Pixel:
-        """Return the first pixel of the chain as a tuple."""
-        return (int(self.chain[0][0]), int(self.chain[0][1]))
-
-    @property
-    def end_pixel(self) -> Pixel:
-        """Return the last pixel of the chain as a tuple."""
-        return (int(self.chain[-1][0]), int(self.chain[-1][1]))
+    def change_degree(self, new_degree: int) -> "SuperEdge":
+        """Return a new superedge with the same chain but a different degree."""
+        return SuperEdge(self.parts, self.parts_w, new_degree)
 
     def score(self, lam=0.5, mu=0.3) -> float:
         u_simplicity = 1 + mu * self.degree
@@ -114,8 +137,12 @@ class SuperGraph:
     # when the node is first
     incidence: defaultdict[Pixel, List[SuperEdgeId]]
 
-    def __init__(self, chains: List[PixelChain]):
-        self.superedges = [SuperEdge([c], 3) for c in chains]
+    def __init__(self, chains: List[PixelChain], thickness_map: NDArray[np.float32]):
+        self.max_thickness = thickness_map.max()
+        self.superedges = [
+            SuperEdge([c], [thickness_map[c[:, 0], c[:, 1]] / self.max_thickness], 3)
+            for c in chains
+        ]
         self.incidence = defaultdict(list)
         for i, c in enumerate(self.superedges):
             self.incidence[c.start_pixel].append(i)
@@ -172,10 +199,6 @@ class SuperGraph:
             self.remove(s_id)
 
     def add_incidence(self, s_id: int, pixel: Pixel):
-        occurences = self.incidence[pixel].count(s_id)
-        # if occurences != 0:
-        # breakpoint()
-        # assert occurences == 0, "The superedge is already incident to this pixel"
         self.incidence[pixel].append(s_id)
 
     def remove_incidence(self, s_id: int, pixel: Pixel):
@@ -298,12 +321,7 @@ class SuperGraph:
         """
         id_a = np.random.choice(len(self.superedges))
         endpoints = list(self.superedges[id_a].endpoints())
-        if len(endpoints) == 2:
-            i_pixel = np.random.choice([0, 1])
-        else:
-            distrib = np.ones(len(endpoints)) / 4
-            distrib[1:-1] = 1 / (2 * (len(endpoints) - 2))
-            i_pixel = np.random.choice(len(endpoints), p=distrib)
+        i_pixel = np.random.choice(len(endpoints))
         pixel = endpoints[i_pixel]
         candidates_b = [
             s_id
@@ -454,16 +472,16 @@ class SuperGraph:
 
 CHOICE_DISTRIBUTION = [
     # change degree
-    1 / 16,
-    1 / 16,
+    1 / 8,
+    1 / 8,
     # merge or split
-    4 / 16,  # we strongly bias merging, since it's the most usefull
-    3 / 16,
+    2 / 8,  # we strongly bias merging, since it's the most usefull
+    1 / 8,
     # overlap or dissociate
-    3 / 16,
-    3 / 16,
+    1 / 8,
+    1 / 8,
     # reverse edge
-    1 / 16,
+    1 / 8,
 ]
 
 
@@ -472,13 +490,12 @@ class SketchOptimizer:
         self,
         lam=0.5,
         mu=0.3,
-        t_decrease=0.999,
+        t_decrease=0.9995,
         t_min=0.001,
         status_function: Callable = lambda x, title: x,
     ):
         self.lam = lam
         self.mu = mu
-        self.mapping = None
         self.error_ = []
         self.t_min = t_min
         self.t_decrease = t_decrease
@@ -486,10 +503,23 @@ class SketchOptimizer:
         self.status_function = status_function
 
     def fit_transform(
-        self, X: List[PixelChain], y: None = None, **fit_params
-    ) -> tuple[List[Curve], dict[Curve, PixelEdge]]:
+        self, X: List[PixelChain], y: NDArray[np.float32], **fit_params
+    ) -> List[Curve]:
+        """
+        Fit and transform pixel chains into Bezier curves.
+
+        After calling this method the following attributes are set:
+
+        - ``endpoint_mapping_``: maps each Curve to its ``(start_pixel, end_pixel)``.
+        - ``interior_mapping_``: maps each Curve to its list of interior junction
+          pixels (pixels between consecutive parts of the superedge that lie in
+          the interior of the fitted Bezier).
+
+        Returns:
+            curves: List of fitted Curve objects.
+        """
         chains = X
-        self.supergraph_ = SuperGraph(chains)
+        self.supergraph_ = SuperGraph(chains, y)
 
         energy = sum(x.score(self.lam, self.mu) for x in self.supergraph_.superedges)
         self.error_ = [energy]
@@ -497,13 +527,10 @@ class SketchOptimizer:
 
         n_it = int(np.log(self.t_min / temp) / np.log(self.t_decrease))
 
-        n = len(self.supergraph_)
+        perturbations = list(Perturbation)  # allocated once, reused each iteration
 
         for _ in self.status_function(range(n_it), "Optimizing curve network"):
-            assert sum(len(x.parts) for x in self.supergraph_.superedges) >= n, (
-                "Some chains have disappeared !"
-            )
-            perturbation = np.random.choice(list(Perturbation), p=CHOICE_DISTRIBUTION)
+            perturbation = np.random.choice(perturbations, p=CHOICE_DISTRIBUTION)
             a, pix, b = self.supergraph_.sample_connected_pair()
             delta = self.supergraph_.compute_delta_score(
                 perturbation, a, pix, b, lam=self.lam, mu=self.mu
@@ -517,140 +544,133 @@ class SketchOptimizer:
             else:
                 temp = temp * self.t_decrease
 
+        max_w = self.supergraph_.max_thickness
         curves = [
-            Curve(control_points=self.supergraph_.superedges[i].control_points)
-            for i in range(len(self.supergraph_))
+            Curve(
+                control_points=s.control_points,
+                stroke_width=np.hstack(s.parts_w).mean() * max_w,
+            )
+            for s in self.supergraph_.superedges
         ]
-        mapping = {
+        self.endpoint_mapping_ = {
             curves[i]: (
                 self.supergraph_.superedges[i].start_pixel,
                 self.supergraph_.superedges[i].end_pixel,
             )
             for i in range(len(curves))
         }
-        return curves, mapping
+        self.interior_mapping_ = {
+            curves[i]: self.supergraph_.superedges[i].interior_pixels
+            for i in range(len(curves))
+        }
+        return curves
 
 
 def align_boundaries(
-    chains: List[Curve], mapping: dict[Curve, PixelEdge]
+    chains: List[Curve],
+    endpoint_mapping: dict[Curve, PixelEdge],
+    interior_mapping: dict[Curve, list[Pixel]],
 ) -> List[Curve]:
     """
-    Join the curves in `chains` according to the mapping from curves to pixel edges.
+    Align curve endpoints at shared pixel junctions.
+
+    Two passes:
+
+    - **Phase 1 – C0 at endpoints**: for each pixel that is the endpoint of
+      two or more curves, snap all those endpoint control points to their mean
+      position.
+    - **Phase 2 – snap to interior**: for each pixel that is the endpoint of
+      exactly one curve *and* lies in the interior of exactly one other curve,
+      find the parameter ``t`` on the interior curve that is closest to the
+      endpoint (by bisection) and move the endpoint control point there.
+
+    Control points follow the ``[row, col]`` (i.e. ``[y, x]``) convention.
+
     Args:
-        chains: List of Curve objects to be joined.
-        mapping: A dictionary mapping each Curve to a PixelEdge that indicates how the curves should be joined.
+        chains: Curve objects whose control points are mutated in place.
+        endpoint_mapping: Maps each Curve to its ``(start_pixel, end_pixel)``.
+        interior_mapping: Maps each Curve to the list of interior junction
+            pixels (between its consecutive parts).
     """
-    import math
+    # ------------------------------------------------------------------
+    # Build lookup tables
+    # ------------------------------------------------------------------
 
-    # Group incident endpoints per pixel
-    by_pixel: dict[Pixel, list[tuple[Curve, str]]] = defaultdict(list)
+    # endpoint_curves[pixel] = list of (curve, "start"|"end")
+    endpoint_curves: dict[Pixel, list[tuple[Curve, str]]] = defaultdict(list)
     for curve in chains:
-        if curve not in mapping:
+        if curve not in endpoint_mapping:
             continue
-        start_pix, end_pix = mapping[curve]
-        by_pixel[start_pix].append((curve, "start"))
-        by_pixel[end_pix].append((curve, "end"))
+        start_pix, end_pix = endpoint_mapping[curve]
+        endpoint_curves[start_pix].append((curve, "start"))
+        endpoint_curves[end_pix].append((curve, "end"))
 
-    # Phase 1: C0 position alignment at endpoints (average anchors)
-    for pixel, incidents in by_pixel.items():
+    # interior_curves[pixel] = list of curves that pass through pixel internally
+    interior_curves: dict[Pixel, list[Curve]] = defaultdict(list)
+    for curve, pixels in interior_mapping.items():
+        for pix in pixels:
+            interior_curves[pix].append(curve)
+
+    # ------------------------------------------------------------------
+    # Phase 1: C0 – average endpoints when multiple curves terminate here
+    # ------------------------------------------------------------------
+    for pixel, incidents in endpoint_curves.items():
         if len(incidents) < 2:
-            continue  # nothing to align
-
-        # Collect current anchor positions in (x,y)
-        anchors = []
-        for curve, pos in incidents:
-            cp = curve.control_points
-            if pos == "start":
-                anchors.append(np.array([cp[0][0], cp[0][1]], dtype=float))
-            else:  # end
-                anchors.append(np.array([cp[-1][0], cp[-1][1]], dtype=float))
-
-        if len(anchors) == 0:
             continue
 
-        avg_anchor = np.mean(np.stack(anchors, axis=0), axis=0)
+        anchors = [
+            np.array(curve.control_points[0 if pos == "start" else -1], dtype=float)
+            for curve, pos in incidents
+        ]
+        avg_anchor = np.mean(np.stack(anchors), axis=0)
 
-        # Set anchors to the averaged value
         for curve, pos in incidents:
             cp = curve.control_points
             if pos == "start":
-                cp[0] = (float(avg_anchor[0]), float(avg_anchor[1]))
+                cp[0] = avg_anchor
             else:
-                cp[-1] = (float(avg_anchor[0]), float(avg_anchor[1]))
+                cp[-1] = avg_anchor
 
-    # Phase 2: C1 tangent alignment when angles are small
-    ANGLE_THRESHOLD_DEG = 30.0
-    ANGLE_THRESHOLD_RAD = math.radians(ANGLE_THRESHOLD_DEG)
-    EPS = 1e-9
+    # ------------------------------------------------------------------
+    # Phase 2: snap lone endpoint to the closest point on a passing curve
+    # ------------------------------------------------------------------
+    # A pixel qualifies when exactly one curve ends there and exactly one
+    # other curve passes through it as an interior point.
+    for pixel in set(endpoint_curves) & set(interior_curves):
+        ep_incidents = endpoint_curves[pixel]
+        int_incidents = interior_curves[pixel]
 
-    def norm(v: np.ndarray) -> float:
-        return float(np.linalg.norm(v))
-
-    def unit(v: np.ndarray) -> np.ndarray:
-        n = np.linalg.norm(v)
-        if n < EPS:
-            return np.zeros_like(v)
-        return v / n
-
-    for pixel, incidents in by_pixel.items():
-        if len(incidents) < 2:
+        if len(ep_incidents) != 1 or len(int_incidents) != 1:
             continue
 
-        # Build outgoing tangent directions from the junction
-        dirs: list[tuple[Curve, str, np.ndarray, float]] = []  # (curve,pos,dir,mag)
-        for curve, pos in incidents:
-            cp = curve.control_points
-            # Ensure we have enough control points
-            if len(cp) < 2:
-                continue
-            p0 = np.array(cp[0], dtype=float)
-            p1 = np.array(cp[1], dtype=float)
-            pe = np.array(cp[-1], dtype=float)
-            p_e1 = np.array(cp[-2], dtype=float) if len(cp) >= 2 else pe
+        ep_curve, ep_pos = ep_incidents[0]
+        through_curve = int_incidents[0]
 
-            if pos == "start":
-                t = p1 - p0
-                mag = norm(t)
-                d = unit(t)
-            else:  # end
-                t = pe - p_e1
-                mag = norm(t)
-                # Outgoing direction away from the end anchor is opposite of the end tangent
-                d = unit(-t)
+        # Bisection search for the t on through_curve closest to the endpoint.
+        # Each iteration evaluates 5 points and zooms into the best interval.
+        t_lo, t_hi = 0.0, 1.0
+        for _ in range(2):
+            ts = np.linspace(t_lo, t_hi, 5)
+            points = interpolate_bezier(through_curve.control_points, ts)
+            # endpoint control point (already updated by Phase 1 if applicable)
+            ep_pt = np.array(
+                ep_curve.control_points[0 if ep_pos == "start" else -1],
+                dtype=float,
+            )
+            dists = np.linalg.norm(points - ep_pt, axis=1)
+            best = int(np.argmin(dists))
+            t_lo = ts[max(0, best - 1)]
+            t_hi = ts[min(len(ts) - 1, best + 1)]
 
-            if mag < EPS:
-                continue
-            dirs.append((curve, pos, d, mag))
+        t_best = (t_lo + t_hi) / 2.0
+        closest_pt = interpolate_bezier(
+            through_curve.control_points, np.array([t_best])
+        )[0]
 
-        if len(dirs) < 2:
-            continue
-
-        # Compute a common direction if they are sufficiently aligned
-        mean_dir = unit(np.sum([d for (_, _, d, _) in dirs], axis=0))
-        # Check maximum angular deviation
-        ok = True
-        for _, _, d, _ in dirs:
-            dot = float(np.clip(np.dot(d, mean_dir), -1.0, 1.0))
-            ang = math.acos(dot)
-            if ang > ANGLE_THRESHOLD_RAD:
-                ok = False
-                break
-
-        if not ok or np.allclose(mean_dir, 0.0):
-            continue
-
-        # Apply C1 alignment: keep magnitudes, set directions to mean_dir
-        for curve, pos, _, mag in dirs:
-            cp = curve.control_points
-            if pos == "start":
-                p0 = np.array(cp[0], dtype=float)
-                new_p1 = p0 + mean_dir * mag
-                cp[1] = (float(new_p1[0]), float(new_p1[1]))
-            else:  # end
-                pe = np.array(cp[-1], dtype=float)
-                new_p_e1 = pe - mean_dir * mag
-                cp[-2] = (float(new_p_e1[0]), float(new_p_e1[1]))
-
-    # No explicit mid-curve projection implemented here due to endpoint-only mapping input.
+        cp = ep_curve.control_points
+        if ep_pos == "start":
+            cp[0] = closest_pt
+        else:
+            cp[-1] = closest_pt
 
     return chains

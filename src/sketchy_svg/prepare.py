@@ -7,6 +7,7 @@ from numpy.typing import NDArray
 from PIL import Image
 from skimage import filters, transform
 from skimage.color import rgb2gray
+from skimage.morphology import remove_small_holes
 
 from .onnxruntime_compat import InferenceSession
 from .utils import DEFAULT_SIZE
@@ -81,7 +82,7 @@ def compute_thickness_map(image: NDArray[np.bool]) -> NDArray[np.float32]:
         eroding = eroded
         i += 1
 
-    return thicknesses.astype(np.float32)
+    return thicknesses.astype(np.float32) / 2.0
 
 
 class BinarySketchPredictor:
@@ -89,7 +90,7 @@ class BinarySketchPredictor:
         self,
         threshold: float = 0.5,
         model_path: Optional[Path] = None,
-        gaussian_blur_sigma: Optional[float] = None,
+        gaussian_blur_sigma: Optional[float] = 1,
     ):
         # Initialize any necessary parameters or model components here
         self.threshold = threshold

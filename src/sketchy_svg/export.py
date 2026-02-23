@@ -12,8 +12,6 @@ def export_svg(curves: List[Curve], height: int, width: int) -> str:
     Returns:
         A string containing the SVG representation of the curves.
     """
-    svg_paths = "\n".join(
-        curve.to_svg(color="black", stroke_width=2) for curve in curves
-    )
+    svg_paths = "\n".join(curve.to_svg(color="black") for curve in curves)
     svg_content = f'<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg"> {svg_paths} </svg>'
     return svg_content

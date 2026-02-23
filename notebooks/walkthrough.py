@@ -102,7 +102,7 @@ def show(ax, title, axis=False):
 
 @app.cell
 def _(DATA_DIR, load_normalized, plt):
-    img = load_normalized(DATA_DIR / "original_paper/figure_1/input.png", size=256)
+    img = load_normalized(DATA_DIR / "sketches/butterfly.png", size=256)
     plt.imshow(img, cmap="binary")
     plt.colorbar()
     show(plt.gca(), "original image", axis=True)
@@ -216,7 +216,7 @@ def _(compute_thickness_map, img_binary, plt):
     plt.imshow(thickness_map)
     plt.colorbar()
     show(plt.gca(), "Thickness of the drawing")
-    return
+    return (thickness_map,)
 
 
 @app.cell(hide_code=True)
@@ -460,6 +460,12 @@ def _(mo):
     This already looks pretty good, but we see that some curves fit better than other. This is because in our skeleton, some chains of pixels where very long and with complicated shapes.
     To solve this problem, we split our pixel chains into pieces when the fitting error is too high.
 
+    > Note that we modified the original metric used for fitting. Instead of using $\sum_{i=1}^n \|p_i - q_i\|^2$ (total distance between the 2 pixel chains), we use :
+
+    > $\displaystyle \frac{\sum_{i=1}^n \|p_i - q_i\|^2}{\ln(n)}$
+    >
+    > This ensures that long chains that are almost perfect will not be split, and so we get fewer refined parts.
+
     Here is what we get:
     """)
     return
@@ -564,7 +570,7 @@ def _():
 
 
 @app.cell
-def _(SketchOptimizer, mo, pixel_chains_refined):
+def _(SketchOptimizer, mo, pixel_chains_refined, thickness_map):
     lam = 0.6  # interpolation between fidelity and simplicity
     mu = 0.2  # penalty for high degree
     t_decrease = 0.9997  # rate of temperature decrease
@@ -576,8 +582,8 @@ def _(SketchOptimizer, mo, pixel_chains_refined):
         t_decrease=t_decrease,
         status_function=lambda x, title: mo.status.progress_bar(x, title=title),
     )
-    curves, mapping = optim.fit_transform(pixel_chains_refined)
-    return curves, mapping, optim
+    curves = optim.fit_transform(pixel_chains_refined, thickness_map)
+    return curves, optim
 
 
 @app.cell
@@ -627,8 +633,8 @@ def _(mo):
 
 
 @app.cell
-def _(OptimPlayBack, mo, optim, pixel_chains_refined):
-    f = mo.ui.anywidget(OptimPlayBack(pixel_chains_refined, optim.history_))
+def _(OptimPlayBack, mo, optim, pixel_chains_refined, thickness_map):
+    f = mo.ui.anywidget(OptimPlayBack(pixel_chains_refined, thickness_map, optim.history_))
     f
     return
 
@@ -649,8 +655,8 @@ def _(mo):
 
 
 @app.cell
-def _(align_boundaries, curves, instants, interpolate_bezier, mapping, plt):
-    final_curves = align_boundaries(curves, mapping)
+def _(align_boundaries, curves, instants, interpolate_bezier, optim, plt):
+    final_curves = align_boundaries(curves, optim.endpoint_mapping_, optim.interior_mapping_)
     _ax = plt.gca()
     for _i, _c in enumerate(final_curves):
         _bezier_curve = interpolate_bezier(_c.control_points, instants)
@@ -769,8 +775,8 @@ async def _(DATA_DIR, demo):
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
+async def _(DATA_DIR, demo, mo):
+    mo.mpl.interactive(await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png"))
     return
 
 

@@ -13,7 +13,7 @@ from skimage.morphology import skeletonize
 
 from .bezier import interpolate_bezier
 from .optim import Perturbation, SketchOptimizer, SuperGraph, align_boundaries
-from .prepare import BinarySketchPredictor, load_normalized
+from .prepare import BinarySketchPredictor, compute_thickness_map, load_normalized
 from .topology import extract_chains, refine_all_chains, remove_parasite_chains
 from .utils import PixelChain
 
@@ -281,6 +281,7 @@ class OptimPlayBack(anywidget.AnyWidget):
     def __init__(
         self,
         initial_chains: list[PixelChain],
+        thickness_map: NDArray,
         history: list[tuple],
         lam: float = 0.6,
         mu: float = 0.3,
@@ -296,12 +297,13 @@ class OptimPlayBack(anywidget.AnyWidget):
         """
         super().__init__(**kwargs)
         self._initial_chains = initial_chains
+        self._thickness_map = thickness_map
         self._history = history
         self._lam = lam
         self._mu = mu
 
         # Initialize supergraph and state
-        self._supergraph = SuperGraph(initial_chains)
+        self._supergraph = SuperGraph(initial_chains, thickness_map)
         self._current_idx = 0
         self._energies = [self._compute_energy()]
 
@@ -472,7 +474,7 @@ class OptimPlayBack(anywidget.AnyWidget):
 
     def reset(self):
         """Reset to initial state."""
-        self._supergraph = SuperGraph(self._initial_chains)
+        self._supergraph = SuperGraph(self._initial_chains, self._thickness_map)
         self._prev_supergraph = None
         self._last_new_ids = []
         self._current_idx = 0
@@ -488,13 +490,16 @@ class Demo:
         img = load_normalized(path)
         classifier = BinarySketchPredictor()
         prediction = await classifier.predict(img)
+        thickness_map = compute_thickness_map(prediction)
         skeleton = skeletonize(prediction)
         chains = extract_chains(skeleton)
         pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))
 
         optim = SketchOptimizer(status_function=self.status_function)
-        curves, mapping = optim.fit_transform(pixel_chains_refine)
-        final_curves = align_boundaries(curves, mapping)
+        curves = optim.fit_transform(pixel_chains_refine, thickness_map)
+        final_curves = align_boundaries(
+            curves, optim.endpoint_mapping_, optim.interior_mapping_
+        )
 
         fig, axes = plt.subplots(2, 3, figsize=(12, 5))
         axes[0, 0].imshow(img, cmap="binary")
@@ -529,7 +534,12 @@ class Demo:
         time = np.linspace(0, 1, 100)
         for cu in final_curves:
             bezier_points = interpolate_bezier(cu.control_points, time)
-            axes[1, 0].plot(bezier_points[:, 1], bezier_points[:, 0], color="black")
+            axes[1, 0].plot(
+                bezier_points[:, 1],
+                bezier_points[:, 0],
+                color="black",
+                linewidth=cu.stroke_width,
+            )
         axes[1, 0].set_title("Final SVG")
         axes[1, 0].invert_yaxis()
         axes[1, 0].axis(False)

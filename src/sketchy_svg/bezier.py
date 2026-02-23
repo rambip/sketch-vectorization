@@ -94,11 +94,12 @@ def fit_bezier(traj, t=None, degree=3, weights: Optional[np.ndarray] = None):
     by = np.zeros(k)
 
     # this equation follows from the minimization of the pixel standard distance
+    q = _interpolant(t, degree)  # shape (k, N) — computed once for all i
+    wq = weights * q  # shape (k, N)
     for i in range(k):
-        q = _interpolant(t, degree)
-        m[i] = np.sum(weights * (q * q[i]), axis=1)
-        bx[i] = np.sum(weights * (traj_x * q[i]))
-        by[i] = np.sum(weights * (traj_y * q[i]))
+        m[i] = np.sum(wq * q[i], axis=1)
+        bx[i] = np.sum(wq[i] * traj_x)
+        by[i] = np.sum(wq[i] * traj_y)
 
     # We use lstsq because the matrix is not always full-rank.
     # For example, if the degree of the bezier is greater than the length of "traj"
