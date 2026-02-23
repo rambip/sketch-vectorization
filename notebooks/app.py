@@ -6,11 +6,11 @@ app = marimo.App(width="columns")
 
 @app.cell
 def _():
-    from sketchy_svg import load_normalized, sketch2svg, Demo
+    from sketchy_svg import load_normalized, sketch2svg, demo
     import marimo as mo
     import matplotlib.pyplot as plt
 
-    return Demo, load_normalized, mo, plt, sketch2svg
+    return demo, load_normalized, mo, plt, sketch2svg
 
 
 @app.cell(hide_code=True)
@@ -25,14 +25,15 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    browser = mo.ui.file(label="Upload your image here (png, jpeg ...)")
-    browser
-    return (browser,)
+    picker = mo.ui.file(label="Upload your image here (png, jpeg ...)")
+    picker
+    return (picker,)
 
 
 @app.cell
-def _(browser, load_normalized, plt):
-    img = load_normalized(browser.value[0].contents)
+def _(load_normalized, mo, picker, plt):
+    mo.stop(len(picker.value)==0)
+    img = load_normalized(picker.value[0].contents)
     plt.imshow(img, cmap="binary")
     plt.title("Your image:")
     plt.axis(False)
@@ -48,17 +49,24 @@ async def _(img, mo, sketch2svg):
 
 
 @app.cell
-def _(mo):
+def _(demo, mo):
+    demo.set_options(
+        dict(
+            status_function=lambda x, title: mo.status.progress_bar(
+                x, title=title
+            ),
+            mpl_wrapper=mo.mpl.interactive,
+        ),
+    )
     button = mo.ui.run_button(label="show each step")
     button
     return (button,)
 
 
 @app.cell
-async def _(Demo, browser, button, mo):
+async def _(button, demo, mo, picker):
     mo.stop(not button.value)
-    demo = Demo(status_function=lambda x, title: mo.status.progress_bar(x, title=title))
-    await demo.show_example(browser.value[0].contents)
+    await demo.show_example(picker.value[0].contents)
     return
 
 

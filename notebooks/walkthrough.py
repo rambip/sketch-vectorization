@@ -10,7 +10,7 @@
 import marimo
 
 __generated_with = "0.20.1"
-app = marimo.App(width="full", auto_download=["ipynb"])
+app = marimo.App(width="full")
 
 
 @app.cell(hide_code=True)
@@ -564,7 +564,7 @@ def _(mo):
 @app.cell
 def _():
     from sketchy_svg.optim import SketchOptimizer, SuperGraph, align_boundaries
-    from sketchy_svg.viz import OptimPlayBack
+    from sketchy_svg.demo import OptimPlayBack
 
     return OptimPlayBack, SketchOptimizer, align_boundaries
 
@@ -680,9 +680,9 @@ def _():
     from marimo import Html
 
     from sketchy_svg.export import export_svg
-    from sketchy_svg.viz import Demo
+    from sketchy_svg.demo import set_options, show_example
 
-    return Demo, Html, export_svg
+    return Html, export_svg, set_options, show_example
 
 
 @app.cell
@@ -693,95 +693,93 @@ def _(Html, export_svg, final_curves, img):
 
 
 @app.cell
-def _(Demo, mo):
-    demo = Demo(status_function=lambda x, title: mo.status.progress_bar(x, title=title))
-    return (demo,)
-
-
-@app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/butterfly.png")
+def _(mo, set_options):
+    set_options({
+        "status_function": lambda x, title: mo.status.progress_bar(x, title=title),
+        "mpl_wrapper": mo.mpl.interactive
+    })
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "original_paper/figure_2/input.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/butterfly.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "original_paper/figure_1/input.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "original_paper/figure_2/input.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/triangle.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "original_paper/figure_1/input.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/dress.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/triangle.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/piano.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/dress.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/house.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/piano.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/cube_bend.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/house.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "sketches/smiley.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/cube_bend.png")
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "sketches/smiley.png")
+    return
+
+
+@app.cell
+async def _(DATA_DIR, show_example):
+    await show_example(
         DATA_DIR / "CAD_dataset/Dataset_B/ESB_Sketches/90 degree elbows/001_1.png"
     )
     return
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(
+async def _(DATA_DIR, show_example):
+    await show_example(
         DATA_DIR / "CAD_dataset/Dataset_B/ESB_Sketches/U shaped parts/005_1.png"
     )
     return
 
 
 @app.cell
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "original_paper/figure_10/archi.png")
+    return
+
+
+@app.cell
 async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "original_paper/figure_10/archi.png")
-    return
-
-
-@app.cell
-async def _(DATA_DIR, demo, mo):
-    mo.mpl.interactive(await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png"))
-    return
-
-
-@app.cell
-def _():
+    await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
     return
 
 

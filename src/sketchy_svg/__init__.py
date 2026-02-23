@@ -5,7 +5,7 @@ __all__ = [
     "optim",
     "topology",
     "export",
-    "Demo",
+    "demo",
     "patch_onnx",
     "load_normalized",
     "sketch2svg",
@@ -15,10 +15,9 @@ import numpy as np
 from numpy.typing import NDArray
 from skimage import morphology
 
-from . import export, optim, prepare, topology
+from . import demo, export, optim, prepare, topology
 from .onnxruntime_compat import patch_onnx
 from .prepare import load_normalized
-from .viz import Demo
 
 
 async def sketch2svg(
