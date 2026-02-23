@@ -5,7 +5,7 @@ from typing import Optional
 import numpy as np
 from numpy.typing import NDArray
 from PIL import Image
-from skimage import filters, transform
+from skimage import filters, io, transform
 from skimage.color import rgb2gray
 
 from .onnxruntime_compat import InferenceSession
@@ -24,7 +24,7 @@ def load_normalized(
     if isinstance(path_or_bytes, bytes):
         img_raw = Image.open(BytesIO(path_or_bytes))
     else:
-        img_raw = Image.open(path_or_bytes)
+        img_raw = io.imread(path_or_bytes)
 
     img_raw = np.array(img_raw)
 
