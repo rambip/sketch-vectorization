@@ -7,7 +7,6 @@ from numpy.typing import NDArray
 from PIL import Image
 from skimage import filters, transform
 from skimage.color import rgb2gray
-from skimage.morphology import remove_small_holes
 
 from .onnxruntime_compat import InferenceSession
 from .utils import DEFAULT_SIZE

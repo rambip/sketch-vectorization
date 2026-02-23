@@ -239,8 +239,6 @@ class SuperGraph:
         Merge the two superedges with id s_id1 and s_id2, by concatenating their list of edges.
         The new superedge will have the same id as s_id1, and s_id2 will be removed from the supergraph.
         """
-        n = len(self)
-        # Get values BEFORE merging
         join_pixel = self.superedges[s_id2].start_pixel
 
         assert self.superedges[s_id1].end_pixel == join_pixel, (
