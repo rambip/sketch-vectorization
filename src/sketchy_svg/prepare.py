@@ -13,7 +13,7 @@ from .utils import DEFAULT_SIZE
 
 
 def load_normalized(
-    path_or_bytes: Path | bytes, size: int = DEFAULT_SIZE
+    path_or_url_or_bytes: Path | str | bytes, size: int = DEFAULT_SIZE
 ) -> NDArray[np.float32]:
     """
     Load an image and normalize to [0, 1] range, resized to target size.
@@ -21,10 +21,10 @@ def load_normalized(
     If image has a varying alpha channel, use that. Otherwise convert to grayscale.
     Prints a warning if both alpha and intensity vary significantly.
     """
-    if isinstance(path_or_bytes, bytes):
-        img_raw = Image.open(BytesIO(path_or_bytes))
+    if isinstance(path_or_url_or_bytes, bytes):
+        img_raw = Image.open(BytesIO(path_or_url_or_bytes))
     else:
-        img_raw = io.imread(path_or_bytes)
+        img_raw = io.imread(str(path_or_url_or_bytes))
 
     img_raw = np.array(img_raw)
 
