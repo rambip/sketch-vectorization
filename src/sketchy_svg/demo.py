@@ -482,18 +482,15 @@ class OptimPlayBack(anywidget.AnyWidget):
         self._update_display()
 
 
-def STATUS_FUNCTION(x, title):
-    return x
-
-
 MPL_WRAPPER = None
+STATUS_FUNCTION = None
 
 
 def set_options(options: dict):
     global STATUS_FUNCTION
     global MPL_WRAPPER
-    STATUS_FUNCTION = options.get("status_function", STATUS_FUNCTION)
-    MPL_WRAPPER = options.get("mpl_wrapper", MPL_WRAPPER)
+    STATUS_FUNCTION = options.get("status_function", lambda x, title: x)
+    MPL_WRAPPER = options.get("mpl_wrapper", None)
 
 
 async def show_example(path):
@@ -505,6 +502,7 @@ async def show_example(path):
     chains = extract_chains(skeleton)
     pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))
 
+    assert STATUS_FUNCTION is not None
     optim = SketchOptimizer(status_function=STATUS_FUNCTION)
     curves = optim.fit_transform(pixel_chains_refine, thickness_map)
     final_curves = align_boundaries(
