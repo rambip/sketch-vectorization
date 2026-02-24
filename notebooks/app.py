@@ -5,10 +5,18 @@ app = marimo.App(width="columns")
 
 
 @app.cell
-def _():
-    from sketchy_svg import load_normalized, sketch2svg, demo
+async def _():
+    from importlib.util import find_spec
+
     import marimo as mo
     import matplotlib.pyplot as plt
+
+    from sketchy_svg import demo, load_normalized, sketch2svg
+
+    if find_spec("js"):
+        from sketchy_svg import patch_onnx
+
+        await patch_onnx()
 
     return demo, load_normalized, mo, plt, sketch2svg
 
@@ -32,7 +40,7 @@ def _(mo):
 
 @app.cell
 def _(load_normalized, mo, picker, plt):
-    mo.stop(len(picker.value)==0)
+    mo.stop(len(picker.value) == 0)
     img = load_normalized(picker.value[0].contents)
     plt.imshow(img, cmap="binary")
     plt.title("Your image:")
@@ -43,7 +51,9 @@ def _(load_normalized, mo, picker, plt):
 
 @app.cell
 async def _(img, mo, sketch2svg):
-    result = await sketch2svg(img, status_function=lambda x, title: mo.status.progress_bar(x, title=title))
+    result = await sketch2svg(
+        img, status_function=lambda x, title: mo.status.progress_bar(x, title=title)
+    )
     mo.Html(result)
     return
 
@@ -52,9 +62,7 @@ async def _(img, mo, sketch2svg):
 def _(demo, mo):
     demo.set_options(
         dict(
-            status_function=lambda x, title: mo.status.progress_bar(
-                x, title=title
-            ),
+            status_function=lambda x, title: mo.status.progress_bar(x, title=title),
             mpl_wrapper=mo.mpl.interactive,
         ),
     )
