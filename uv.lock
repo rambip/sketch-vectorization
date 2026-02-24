@@ -2188,6 +2188,9 @@ cpu = [
     { name = "torchvision", version = "0.25.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'darwin'" },
     { name = "torchvision", version = "0.25.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform != 'darwin'" },
 ]
+onnx = [
+    { name = "onnxruntime" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -2195,9 +2198,6 @@ dev = [
     { name = "nbformat" },
     { name = "ruff" },
     { name = "ty" },
-]
-onnx = [
-    { name = "onnxruntime" },
 ]
 train = [
     { name = "cairosvg" },
@@ -2219,6 +2219,7 @@ requires-dist = [
     { name = "mpld3", specifier = ">=0.5.12" },
     { name = "networkx", specifier = ">=3.4.2" },
     { name = "numpy" },
+    { name = "onnxruntime", marker = "extra == 'onnx'", specifier = ">=1.22.1" },
     { name = "pillow", specifier = ">=10.2.0" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
@@ -2227,7 +2228,7 @@ requires-dist = [
     { name = "torchvision", marker = "extra == 'cpu'", specifier = ">=0.15.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "sketchy-svg", extra = "cpu" } },
     { name = "traitlets", specifier = ">=5.14.3" },
 ]
-provides-extras = ["cpu"]
+provides-extras = ["cpu", "onnx"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -2236,7 +2237,6 @@ dev = [
     { name = "ruff" },
     { name = "ty", specifier = ">=0.0.1a16" },
 ]
-onnx = [{ name = "onnxruntime", specifier = ">=1.22.1" }]
 train = [
     { name = "cairosvg", specifier = ">=2.8.2" },
     { name = "onnx", specifier = ">=1.18.0" },
