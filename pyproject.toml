@@ -1,6 +1,6 @@
 [project]
 name = "sketchy-svg"
-version = "0.2.4"
+version = "0.2.6"
 description = "A png drawing to svg converter"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,7 +14,6 @@ dependencies = [
     "pillow>=10.2.0",
     "pytest>=9.0.2",
     "python-dotenv>=1.2.1",
-    "rayrun>=0.1.0",
     "scikit-image>=0.20.0",
     "traitlets>=5.14.3",
 ]
@@ -46,7 +45,6 @@ train = [
     "polars>=1.38.1",
     "cairosvg>=2.8.2",
     "onnx>=1.18.0",
-    "ray>=2.0.0",
     "onnxscript>=0.6.2",
 ]
 # linter and type checker
