@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.10"
+# requires-python = ">=3.12"
 # dependencies = [
 #     "sketchy-svg",
 #     "marimo",
@@ -563,8 +563,8 @@ def _(mo):
 
 @app.cell
 def _():
-    from sketchy_svg.optim import SketchOptimizer, SuperGraph, align_boundaries
     from sketchy_svg.demo import OptimPlayBack
+    from sketchy_svg.optim import SketchOptimizer, SuperGraph, align_boundaries
 
     return OptimPlayBack, SketchOptimizer, align_boundaries
 
@@ -599,7 +599,9 @@ def _(optim, plt):
 @app.cell
 def _(optim, plt):
     from collections import Counter
+
     from sketchy_svg.optim import Perturbation
+
     counts = Counter(x[0] for x in optim.history_)
     axes = plt.figure(figsize=[12, 6])
     plt.bar(range(7), [counts[i] for i in range(7)])
@@ -634,7 +636,9 @@ def _(mo):
 
 @app.cell
 def _(OptimPlayBack, mo, optim, pixel_chains_refined, thickness_map):
-    f = mo.ui.anywidget(OptimPlayBack(pixel_chains_refined, thickness_map, optim.history_))
+    f = mo.ui.anywidget(
+        OptimPlayBack(pixel_chains_refined, thickness_map, optim.history_)
+    )
     f
     return
 
@@ -656,7 +660,9 @@ def _(mo):
 
 @app.cell
 def _(align_boundaries, curves, instants, interpolate_bezier, optim, plt):
-    final_curves = align_boundaries(curves, optim.endpoint_mapping_, optim.interior_mapping_)
+    final_curves = align_boundaries(
+        curves, optim.endpoint_mapping_, optim.interior_mapping_
+    )
     _ax = plt.gca()
     for _i, _c in enumerate(final_curves):
         _bezier_curve = interpolate_bezier(_c.control_points, instants)
@@ -679,8 +685,8 @@ def _(mo):
 def _():
     from marimo import Html
 
-    from sketchy_svg.export import export_svg
     from sketchy_svg.demo import set_options, show_example
+    from sketchy_svg.export import export_svg
 
     return Html, export_svg, set_options, show_example
 
@@ -694,10 +700,12 @@ def _(Html, export_svg, final_curves, img):
 
 @app.cell
 def _(mo, set_options):
-    set_options({
-        "status_function": lambda x, title: mo.status.progress_bar(x, title=title),
-        "mpl_wrapper": mo.mpl.interactive
-    })
+    set_options(
+        {
+            "status_function": lambda x, title: mo.status.progress_bar(x, title=title),
+            "mpl_wrapper": mo.mpl.interactive,
+        }
+    )
     return
 
 
