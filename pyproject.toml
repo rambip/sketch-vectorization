@@ -3,7 +3,7 @@ name = "sketchy-svg"
 version = "0.2.4"
 description = "A png drawing to svg converter"
 readme = "README.md"
-requires-python = "==3.12.*"
+requires-python = ">=3.10"
 dependencies = [
     "anywidget>=0.9.21",
     "marimo>=0.20.1",
