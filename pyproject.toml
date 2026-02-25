@@ -11,6 +11,7 @@ dependencies = [
     "mpld3>=0.5.12",
     "networkx>=3.4.2",
     "numpy",
+    "packaging>=24.2",
     "pillow>=10.2.0",
     "pytest>=9.0.2",
     "python-dotenv>=1.2.1",
