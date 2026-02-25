@@ -502,8 +502,7 @@ async def show_example(path):
     chains = extract_chains(skeleton)
     pixel_chains_refine = refine_all_chains(remove_parasite_chains(chains))
 
-    assert STATUS_FUNCTION is not None
-    optim = SketchOptimizer(status_function=STATUS_FUNCTION)
+    optim = SketchOptimizer(status_function=STATUS_FUNCTION or (lambda x, title: x))
     curves = optim.fit_transform(pixel_chains_refine, thickness_map)
     final_curves = align_boundaries(
         curves, optim.endpoint_mapping_, optim.interior_mapping_

@@ -778,8 +778,13 @@ async def _(DATA_DIR, show_example):
 
 
 @app.cell
-async def _(DATA_DIR, demo):
-    await demo.show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
+async def _(DATA_DIR, show_example):
+    await show_example(DATA_DIR / "original_paper/figure_14/bag/input.png")
+    return
+
+
+@app.cell
+def _():
     return
 
 

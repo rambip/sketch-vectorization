@@ -1,92 +1,92 @@
 
-pytorch2.8.0+cu128:—æ
-¬
+pytorch	2.9.0+cpu:ﬂú
+¯
 input
-val_6val_7node_Unsqueeze_7"	UnsqueezeJï
-	namespaceá: bez.cnn.model.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
+val_6val_7node_Unsqueeze_7"	UnsqueezeJì
+	namespaceÖ: sketchy_cnn.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
 pkg.torch.onnx.fx_nodeç%conv2d : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%x, %p_l0_0_weight, None, [1, 1], [1, 1]), kwargs = {})J:
-pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 33, in forward
+pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']J£
+pkg.torch.onnx.stack_traceÑFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 33, in forward
     x = self.l0(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ﬁ	
+î	
 val_7
 l0.0.weightval_8node_Conv_53"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†Jï
-	namespaceá: bez.cnn.model.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ?
-!pkg.onnxscript.rewriter.rule_nameRemoveOptionalBiasFromConvJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
+	dilations@@†Jì
+	namespaceÖ: sketchy_cnn.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ?
+!pkg.onnxscript.rewriter.rule_nameRemoveOptionalBiasFromConvJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
 pkg.torch.onnx.fx_nodeç%conv2d : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%x, %p_l0_0_weight, None, [1, 1], [1, 1]), kwargs = {})J:
-pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 33, in forward
+pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']J£
+pkg.torch.onnx.stack_traceÑFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 33, in forward
     x = self.l0(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-º
+Ú
 val_8
-val_6conv2dnode_conv2d"SqueezeJï
-	namespaceá: bez.cnn.model.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
+val_6conv2dnode_conv2d"SqueezeJì
+	namespaceÖ: sketchy_cnn.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J®
 pkg.torch.onnx.fx_nodeç%conv2d : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%x, %p_l0_0_weight, None, [1, 1], [1, 1]), kwargs = {})J:
-pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 33, in forward
+pkg.torch.onnx.name_scopes['', 'l0', 'l0.0', 'conv2d']J£
+pkg.torch.onnx.stack_traceÑFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 33, in forward
     x = self.l0(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ç
-conv2dval_10node_Sigmoid_10"SigmoidJï
-	namespaceá: bez.cnn.model.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.1: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ•
-pkg.torch.onnx.class_hierarchyÇ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']JÉ
+ƒ
+conv2dval_10node_Sigmoid_10"SigmoidJì
+	namespaceÖ: sketchy_cnn.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.1: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ£
+pkg.torch.onnx.class_hierarchyÄ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']JÉ
 pkg.torch.onnx.fx_nodei%silu : [num_users=2] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d,), kwargs = {})J8
-pkg.torch.onnx.name_scopes['', 'l0', 'l0.1', 'silu']J‡
-pkg.torch.onnx.stack_trace¡File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 33, in forward
+pkg.torch.onnx.name_scopes['', 'l0', 'l0.1', 'silu']Jõ
+pkg.torch.onnx.stack_trace¸File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 33, in forward
     x = self.l0(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-â
+¿
 conv2d
-val_10silu	node_silu"MulJï
-	namespaceá: bez.cnn.model.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.1: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ•
-pkg.torch.onnx.class_hierarchyÇ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']JÉ
+val_10silu	node_silu"MulJì
+	namespaceÖ: sketchy_cnn.SketchDenoiser/l0: torch.nn.modules.container.Sequential/l0.1: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ£
+pkg.torch.onnx.class_hierarchyÄ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']JÉ
 pkg.torch.onnx.fx_nodei%silu : [num_users=2] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d,), kwargs = {})J8
-pkg.torch.onnx.name_scopes['', 'l0', 'l0.1', 'silu']J‡
-pkg.torch.onnx.stack_trace¡File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 33, in forward
+pkg.torch.onnx.name_scopes['', 'l0', 'l0.1', 'silu']Jõ
+pkg.torch.onnx.stack_trace¸File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 33, in forward
     x = self.l0(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-œ
-
+Û	
 silu
-val_6val_12node_Unsqueeze_12"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
+val_6val_12node_Unsqueeze_12"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
 pkg.torch.onnx.fx_node¥%conv2d_1 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%silu, %p_layers_0_conv_weight, %p_layers_0_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-»
+Ï
+
 val_12
 layers.0.conv.weight
 layers.0.conv.biasval_13node_Conv_13"Conv*
@@ -94,94 +94,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
 pkg.torch.onnx.fx_node¥%conv2d_1 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%silu, %p_layers_0_conv_weight, %p_layers_0_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-Õ
-
+Ò	
 val_13
-val_6conv2d_1node_conv2d_1"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
+val_6conv2d_1node_conv2d_1"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/layers.0.conv: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jœ
 pkg.torch.onnx.fx_node¥%conv2d_1 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%silu, %p_layers_0_conv_weight, %p_layers_0_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.0', 'layers.0.conv', 'conv2d_1']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_1val_15node_Sigmoid_15"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/layers.0.reg: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_1val_15node_Sigmoid_15"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/layers.0.reg: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_1 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_1,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.0', 'layers.0.reg', 'silu_1']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.0', 'layers.0.reg', 'silu_1']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_1
-val_15silu_1node_silu_1"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/layers.0.reg: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_15silu_1node_silu_1"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/layers.0.reg: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_1 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_1,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.0', 'layers.0.reg', 'silu_1']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.0', 'layers.0.reg', 'silu_1']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ÿ
+ó
 silu_1
-siluadd_16node_add_16"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: bez.cnn.model.ResBlock/add_16: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jâ
+siluadd_16node_add_16"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.0: sketchy_cnn.ResBlock/add_16: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jâ
 pkg.torch.onnx.fx_nodeo%add_16 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_1, %silu), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.0', 'add_16']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.0', 'add_16']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_16
-val_6val_17node_Unsqueeze_17"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_17node_Unsqueeze_17"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_2 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_16, %p_layers_1_conv_weight, %p_layers_1_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_17
 layers.1.conv.weight
 layers.1.conv.biasval_18node_Conv_18"Conv*
@@ -189,94 +188,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_2 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_16, %p_layers_1_conv_weight, %p_layers_1_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_18
-val_6conv2d_2node_conv2d_2"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_2node_conv2d_2"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/layers.1.conv: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_2 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_16, %p_layers_1_conv_weight, %p_layers_1_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.1', 'layers.1.conv', 'conv2d_2']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_2val_20node_Sigmoid_20"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/layers.1.reg: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_2val_20node_Sigmoid_20"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/layers.1.reg: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_2 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_2,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.1', 'layers.1.reg', 'silu_2']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.1', 'layers.1.reg', 'silu_2']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_2
-val_20silu_2node_silu_2"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/layers.1.reg: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_20silu_2node_silu_2"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/layers.1.reg: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_2 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_2,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.1', 'layers.1.reg', 'silu_2']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.1', 'layers.1.reg', 'silu_2']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_2
-add_16add_29node_add_29"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: bez.cnn.model.ResBlock/add_29: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_16add_29node_add_29"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.1: sketchy_cnn.ResBlock/add_29: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_29 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_2, %add_16), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.1', 'add_29']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.1', 'add_29']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_29
-val_6val_22node_Unsqueeze_22"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_22node_Unsqueeze_22"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_3 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_29, %p_layers_2_conv_weight, %p_layers_2_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_22
 layers.2.conv.weight
 layers.2.conv.biasval_23node_Conv_23"Conv*
@@ -284,94 +282,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_3 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_29, %p_layers_2_conv_weight, %p_layers_2_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_23
-val_6conv2d_3node_conv2d_3"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_3node_conv2d_3"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/layers.2.conv: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_3 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_29, %p_layers_2_conv_weight, %p_layers_2_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.2', 'layers.2.conv', 'conv2d_3']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_3val_25node_Sigmoid_25"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/layers.2.reg: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_3val_25node_Sigmoid_25"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/layers.2.reg: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_3 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_3,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.2', 'layers.2.reg', 'silu_3']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.2', 'layers.2.reg', 'silu_3']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_3
-val_25silu_3node_silu_3"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/layers.2.reg: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_25silu_3node_silu_3"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/layers.2.reg: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_3 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_3,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.2', 'layers.2.reg', 'silu_3']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.2', 'layers.2.reg', 'silu_3']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_3
-add_29add_42node_add_42"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: bez.cnn.model.ResBlock/add_42: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_29add_42node_add_42"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.2: sketchy_cnn.ResBlock/add_42: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_42 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_3, %add_29), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.2', 'add_42']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.2', 'add_42']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_42
-val_6val_27node_Unsqueeze_27"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_27node_Unsqueeze_27"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_4 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_42, %p_layers_3_conv_weight, %p_layers_3_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_27
 layers.3.conv.weight
 layers.3.conv.biasval_28node_Conv_28"Conv*
@@ -379,94 +376,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_4 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_42, %p_layers_3_conv_weight, %p_layers_3_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_28
-val_6conv2d_4node_conv2d_4"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_4node_conv2d_4"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/layers.3.conv: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_4 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_42, %p_layers_3_conv_weight, %p_layers_3_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.3', 'layers.3.conv', 'conv2d_4']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_4val_30node_Sigmoid_30"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/layers.3.reg: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_4val_30node_Sigmoid_30"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/layers.3.reg: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_4 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_4,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.3', 'layers.3.reg', 'silu_4']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.3', 'layers.3.reg', 'silu_4']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_4
-val_30silu_4node_silu_4"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/layers.3.reg: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_30silu_4node_silu_4"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/layers.3.reg: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_4 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_4,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.3', 'layers.3.reg', 'silu_4']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.3', 'layers.3.reg', 'silu_4']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_4
-add_42add_55node_add_55"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: bez.cnn.model.ResBlock/add_55: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_42add_55node_add_55"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.3: sketchy_cnn.ResBlock/add_55: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_55 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_4, %add_42), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.3', 'add_55']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.3', 'add_55']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_55
-val_6val_32node_Unsqueeze_32"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_32node_Unsqueeze_32"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_5 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_55, %p_layers_4_conv_weight, %p_layers_4_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_32
 layers.4.conv.weight
 layers.4.conv.biasval_33node_Conv_33"Conv*
@@ -474,94 +470,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_5 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_55, %p_layers_4_conv_weight, %p_layers_4_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_33
-val_6conv2d_5node_conv2d_5"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_5node_conv2d_5"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/layers.4.conv: torch.nn.modules.conv.Conv2d/conv2d_5: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_5 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_55, %p_layers_4_conv_weight, %p_layers_4_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.4', 'layers.4.conv', 'conv2d_5']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_5val_35node_Sigmoid_35"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/layers.4.reg: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_5val_35node_Sigmoid_35"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/layers.4.reg: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_5 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_5,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.4', 'layers.4.reg', 'silu_5']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.4', 'layers.4.reg', 'silu_5']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_5
-val_35silu_5node_silu_5"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/layers.4.reg: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_35silu_5node_silu_5"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/layers.4.reg: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_5 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_5,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.4', 'layers.4.reg', 'silu_5']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.4', 'layers.4.reg', 'silu_5']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_5
-add_55add_68node_add_68"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: bez.cnn.model.ResBlock/add_68: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_55add_68node_add_68"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.4: sketchy_cnn.ResBlock/add_68: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_68 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_5, %add_55), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.4', 'add_68']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.4', 'add_68']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_68
-val_6val_37node_Unsqueeze_37"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_37node_Unsqueeze_37"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_6 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_68, %p_layers_5_conv_weight, %p_layers_5_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_37
 layers.5.conv.weight
 layers.5.conv.biasval_38node_Conv_38"Conv*
@@ -569,94 +564,93 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_6 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_68, %p_layers_5_conv_weight, %p_layers_5_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_38
-val_6conv2d_6node_conv2d_6"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_6node_conv2d_6"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/layers.5.conv: torch.nn.modules.conv.Conv2d/conv2d_6: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_6 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_68, %p_layers_5_conv_weight, %p_layers_5_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.5', 'layers.5.conv', 'conv2d_6']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_6val_40node_Sigmoid_40"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/layers.5.reg: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_6val_40node_Sigmoid_40"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/layers.5.reg: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_6 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_6,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.5', 'layers.5.reg', 'silu_6']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.5', 'layers.5.reg', 'silu_6']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_6
-val_40silu_6node_silu_6"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/layers.5.reg: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_40silu_6node_silu_6"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/layers.5.reg: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_6 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_6,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.5', 'layers.5.reg', 'silu_6']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.5', 'layers.5.reg', 'silu_6']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_6
-add_68add_81node_add_81"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: bez.cnn.model.ResBlock/add_81: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_68add_81node_add_81"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.5: sketchy_cnn.ResBlock/add_81: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_81 : [num_users=2] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_6, %add_68), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.5', 'add_81']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.5', 'add_81']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-”
-
+˜	
 add_81
-val_6val_42node_Unsqueeze_42"	UnsqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6val_42node_Unsqueeze_42"	UnsqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_7 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_81, %p_layers_6_conv_weight, %p_layers_6_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
- 
+Ó
+
 val_42
 layers.6.conv.weight
 layers.6.conv.biasval_43node_Conv_43"Conv*
@@ -664,91 +658,90 @@
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†J≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+	dilations@@†J¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_7 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_81, %p_layers_6_conv_weight, %p_layers_6_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-œ
-
+Û	
 val_43
-val_6conv2d_7node_conv2d_7"SqueezeJ≈
-	namespace∑: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJΩ
-pkg.torch.onnx.class_hierarchyö['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
+val_6conv2d_7node_conv2d_7"SqueezeJ¡
+	namespace≥: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/layers.6.conv: torch.nn.modules.conv.Conv2d/conv2d_7: aten.conv2d.defaultJπ
+pkg.torch.onnx.class_hierarchyñ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J—
 pkg.torch.onnx.fx_node∂%conv2d_7 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_81, %p_layers_6_conv_weight, %p_layers_6_conv_bias, [1, 1], [3, 3], [3, 3]), kwargs = {})JU
-pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']JË
-pkg.torch.onnx.stack_trace…File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes7['', 'layers', 'layers.6', 'layers.6.conv', 'conv2d_7']Jî
+pkg.torch.onnx.stack_traceıFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 12, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 12, in forward
     r = self.conv(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ı	
-conv2d_7val_45node_Sigmoid_45"SigmoidJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/layers.6.reg: torch.nn.modules.activation.SiLU/silu_7: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+ô	
+conv2d_7val_45node_Sigmoid_45"SigmoidJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/layers.6.reg: torch.nn.modules.activation.SiLU/silu_7: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_7 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_7,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.6', 'layers.6.reg', 'silu_7']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.6', 'layers.6.reg', 'silu_7']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-ı	
+ô	
 conv2d_7
-val_45silu_7node_silu_7"MulJƒ
-	namespace∂: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/layers.6.reg: torch.nn.modules.activation.SiLU/silu_7: aten.silu.defaultJø
-pkg.torch.onnx.class_hierarchyú['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
+val_45silu_7node_silu_7"MulJ¿
+	namespace≤: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/layers.6.reg: torch.nn.modules.activation.SiLU/silu_7: aten.silu.defaultJª
+pkg.torch.onnx.class_hierarchyò['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Já
 pkg.torch.onnx.fx_nodem%silu_7 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%conv2d_7,), kwargs = {})JR
-pkg.torch.onnx.name_scopes4['', 'layers', 'layers.6', 'layers.6.reg', 'silu_7']Jﬂ
-pkg.torch.onnx.stack_trace¿File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes4['', 'layers', 'layers.6', 'layers.6.reg', 'silu_7']Jã
+pkg.torch.onnx.stack_traceÏFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 13, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 13, in forward
     r = self.reg(r)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 434, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 473, in forward
     return F.silu(input, inplace=self.inplace)
-‹
+õ
 silu_7
-add_81add_94node_add_94"AddJì
-	namespaceÖ: bez.cnn.model.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: bez.cnn.model.ResBlock/add_94: aten.add.TensorJò
-pkg.torch.onnx.class_hierarchyv['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'bez.cnn.model.ResBlock', 'aten.add.Tensor']Jã
+add_81add_94node_add_94"AddJè
+	namespaceÅ: sketchy_cnn.SketchDenoiser/layers: torch.nn.modules.container.Sequential/layers.6: sketchy_cnn.ResBlock/add_94: aten.add.TensorJî
+pkg.torch.onnx.class_hierarchyr['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'sketchy_cnn.ResBlock', 'aten.add.Tensor']Jã
 pkg.torch.onnx.fx_nodeq%add_94 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%silu_7, %add_81), kwargs = {})JB
-pkg.torch.onnx.name_scopes$['', 'layers', 'layers.6', 'add_94']J¨
-pkg.torch.onnx.stack_traceçFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 34, in forward
+pkg.torch.onnx.name_scopes$['', 'layers', 'layers.6', 'add_94']JÛ
+pkg.torch.onnx.stack_trace‘File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 34, in forward
     x = self.layers(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 15, in forward
+  File "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 15, in forward
     return r + x
-Ÿ
+è
 add_94
-val_6val_47node_Unsqueeze_47"	UnsqueezeJõ
-	namespaceç: bez.cnn.model.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
+val_6val_47node_Unsqueeze_47"	UnsqueezeJô
+	namespaceã: sketchy_cnn.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
 pkg.torch.onnx.fx_nodeê%conv2d_8 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_94, %p_head_0_weight, %p_head_0_bias), kwargs = {})J@
-pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']JÌ
-pkg.torch.onnx.stack_traceŒFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 35, in forward
+pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']J®
+pkg.torch.onnx.stack_traceâFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 35, in forward
     return self.head(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-¬	
+¯
 val_47
 head.0.weight
 head.0.biasval_48node_Conv_48"Conv*
@@ -756,41 +749,41 @@
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
-	dilations@@†Jõ
-	namespaceç: bez.cnn.model.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
+	dilations@@†Jô
+	namespaceã: sketchy_cnn.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
 pkg.torch.onnx.fx_nodeê%conv2d_8 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_94, %p_head_0_weight, %p_head_0_bias), kwargs = {})J@
-pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']JÌ
-pkg.torch.onnx.stack_traceŒFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 35, in forward
+pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']J®
+pkg.torch.onnx.stack_traceâFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 35, in forward
     return self.head(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-’
+ã
 val_48
-val_6conv2d_8node_conv2d_8"SqueezeJõ
-	namespaceç: bez.cnn.model.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ£
-pkg.torch.onnx.class_hierarchyÄ['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
+val_6conv2d_8node_conv2d_8"SqueezeJô
+	namespaceã: sketchy_cnn.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.conv.Conv2d/conv2d_8: aten.conv2d.defaultJ†
+pkg.torch.onnx.class_hierarchy~['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J´
 pkg.torch.onnx.fx_nodeê%conv2d_8 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%add_94, %p_head_0_weight, %p_head_0_bias), kwargs = {})J@
-pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']JÌ
-pkg.torch.onnx.stack_traceŒFile "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 35, in forward
+pkg.torch.onnx.name_scopes"['', 'head', 'head.0', 'conv2d_8']J®
+pkg.torch.onnx.stack_traceâFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 35, in forward
     return self.head(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 548, in forward
     return self._conv_forward(input, self.weight, self.bias)
-§
-conv2d_8outputnode_sigmoid"SigmoidJ¢
-	namespaceî: bez.cnn.model.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.1: torch.nn.modules.activation.Sigmoid/sigmoid: aten.sigmoid.defaultJ´
-pkg.torch.onnx.class_hierarchyà['bez.cnn.model.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.Sigmoid', 'aten.sigmoid.default']Jã
+€
+conv2d_8outputnode_sigmoid"SigmoidJ†
+	namespaceí: sketchy_cnn.SketchDenoiser/head: torch.nn.modules.container.Sequential/head.1: torch.nn.modules.activation.Sigmoid/sigmoid: aten.sigmoid.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['sketchy_cnn.SketchDenoiser', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.Sigmoid', 'aten.sigmoid.default']Jã
 pkg.torch.onnx.fx_nodeq%sigmoid : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%conv2d_8,), kwargs = {})J?
-pkg.torch.onnx.name_scopes!['', 'head', 'head.1', 'sigmoid']J÷
-pkg.torch.onnx.stack_trace∑File "/teamspace/studios/this_studio/sketch-vectorization/src/bez/cnn/model.py", line 35, in forward
+pkg.torch.onnx.name_scopes!['', 'head', 'head.1', 'sigmoid']Jë
+pkg.torch.onnx.stack_traceÚFile "/content/sketch-vectorization/src/sketchy_cnn/__init__.py", line 35, in forward
     return self.head(x)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
     input = module(input)
-  File "/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 329, in forward
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 359, in forward
     return torch.sigmoid(input)
 main_graph*S Bl0.0.weightj
 locationmodel.onnx.dataj
@@ -798,28 +791,28 @@ main_graph*S Bl0.0.weightj
 length1152p*`  Blayers.0.conv.weightj
 locationmodel.onnx.dataj
 offset1152j
-length36864p*õ Blayers.0.conv.biasJÄAã∫ºπ<¸dì<¶≤Œºry·<è<=‚ÌΩŒº|;œƒº≥_=òΩK∑°Ωí≥=È2+Ω|ü3Ω≥œEº`û<⁄·_Ω¸ä=)Tˆº›esΩçj4ºå“!=!BºGUΩ≈Ω*ñ⁄º¡z<ΩΩú<j·<ìWbΩjô=*a  Blayers.1.conv.weightj
+length36864p*õ Blayers.0.conv.biasJÄi≤bΩÕ—Äº\êMΩg =»9iΩ≠ôÄ=Ë>wv]=>~îΩñ5=ÚÏ%>"≥6=ÁwÊ=à`Ø=äõÅæ4Ì>∆aµ=6/Ω‘Øæ◊n+ΩöwS<\rÂΩt˛}æÓÕ÷<∫@æ=Oìﬁ=ÈÈIæ¥¢=Únú;≈_==Ñ®Ω]™#=*a  Blayers.1.conv.weightj
 locationmodel.onnx.dataj
 offset38016j
-length36864p*õ Blayers.1.conv.biasJÄ_ÎìΩﬂ=‘#=Ér∆<°!Ω¥9=0Õ;≈¿ìΩeeJΩÎ¿Ä=úÎxΩŸâΩ/v=rh∂º+RÙª"ıÜº„tè=≤Ω=2ˆô<»ˇEΩ„mÂº))…<{˝ê=û¬êΩˆévºéÃºDÜõºÃ¬=<5$<û¨:ÂÍ;*a  Blayers.2.conv.weightj
+length36864p*õ Blayers.1.conv.biasJÄ£ä£ΩÓp;Ux=ûR=zîÈ;íE.ΩÈé´=VZ=ÑwƒΩœ“º\
+ù=–znΩYÂïºjøÑΩ⁄ﬁ;Ωj$—∫æ'–<ı0«=ﬁ]êªŸ ºëjÇ;éZ(=m_∞Ωµ◊Ωò∑ºæ˚J<◊ì∂Ω%µO=•dï∫X~º=É–ªm$…<*a  Blayers.2.conv.weightj
 locationmodel.onnx.dataj
 offset74880j
-length36864p*õ Blayers.2.conv.biasJÄSƒÀΩb÷=L˜{=»ãΩñ3Ω£ed=sZ
-<ΩäΩ),~=Ü]c=˙=™Ω™ßÊΩ≈…"ΩêÁ¢ΩŒërΩØâÖºŒrï=ECòΩÿ0<v	3=≈j»Ωåﬂ·=Ë!=ÿ±==^œ º∆ ÇΩö–Ω‹m†<ƒ ‚ºΩRq=ÙÙÖΩÎ“/º*b  Blayers.3.conv.weightj
+length36864p*õ Blayers.2.conv.biasJÄ6£ùΩ€Ãö=÷S=1öã='Ω4@rΩë1S<S"Ω¬¿æ<t≈Ωí5W=P‘a=í&#Ωx= äXæv™*>ÍKõ=ÈÕ=L∆Ωï
+|Ω20æ/˚ó<˜*±Ω—ê˛Ωœ<ÇΩ÷K==¥¡∂ΩŸ„<ø◊=øÎ∏ΩÌà©ΩSX=*b  Blayers.3.conv.weightj
 locationmodel.onnx.dataj
 offset111744j
-length36864p*õ Blayers.3.conv.biasJÄŸqÆΩ˘Rè=ä∂W=ÅöæDÂæ˝ZÄ=<jkΩÅ•íΩ·G∆ºîñ=≈√â;≠ΩS k=ºº1Ω&TAΩp„ÑΩ_a™=vLsΩÄï=∞£ªB»·Ωìª<Èo/;!,s=/§ΩΩX:3Ω`¨≠Ω6WdΩ—úÚº§íM<¶V'ºç¨DΩ*b  Blayers.4.conv.weightj
+length36864p*õ Blayers.3.conv.biasJÄúÕ;é-'ªÓ∆(=Ó.>Ñ¨Ω˘‡=‰Î‡=˘°Mætîæ{ÕPæÀ"=:º“ΩŒ'ôΩƒœæ:Âyæ¶.^>âüW>Y¬°=ëåº¶4'ælK•ºTé›=c¬ΩÚ{…ΩÁ‚Äæ{⁄2>(%4æÌWµ=ÿ¢9faì:◊=ZΩÙª§º*b  Blayers.4.conv.weightj
 locationmodel.onnx.dataj
 offset148608j
-length36864p*õ Blayers.4.conv.biasJÄoéΩß‰»= J`ºø˜OΩló!æÉt=ÁæÂ∂øΩr#æÈˆÃ=õŸƒΩ2ùΩíù˛ªJ˛PΩçﬁäº§a3ΩΩÏä;˝ﬂÔΩ§º†<≠ÒæHæ7bàº®f´=g†=L=õÕµ<,»˙<õ‘˝ºW^-<wß´Ω Tc=Ä#∏*b  Blayers.5.conv.weightj
+length36864p*õ Blayers.4.conv.biasJÄ6@æÂ˘ïªòD<DÃ>ï∏™Ω≠∞yΩ+2Õ∫d° Ω1¥ıΩ·ã.ætmÿº˛ﬂæ‚˙∫)æIì æà9%>≥?¿ºi¯Ø;‹¨¶º4Ú9ævJπΩñO∆=˘⁄’ΩåÅæfC.æÊ±∆;ﬂoFæˇ"îΩ¡]; P◊<íYπΩƒ°º*b  Blayers.5.conv.weightj
 locationmodel.onnx.dataj
 offset185472j
-length36864p*õ Blayers.5.conv.biasJÄYÉÀΩÅï<…µ=àí†;ø™•ΩDF˜=u∂Cæg7zΩ[FΩ˘bº<aﬂ≠º˚∆ ærÇΩOO¿Ωi8∫ªì‰Ωœı<æŒ∫Ω5ëP=¶‡Ω§¸ﬁΩM
-Ä;3u<Iﬁ;⁄ôx=‰¸[ºè¢À=>=„gº<≈ñ“Ω8Óp=–HNΩ*b  Blayers.6.conv.weightj
+length36864p*õ Blayers.5.conv.biasJÄˆc#æìs1ΩÏ>¢[>IŸS>%Pêæ˘Äπ=’x®ΩVà¸Ωü‡ Ω¿í∏Ω˚æ„<j=.›Ω9X)æÔ-ÎΩ˙y>#ÛÕΩIÁ≥∫<tŒΩ–7ØΩïu=ïÌΩ˘Ô8æÙ|æpm7>%˘Bæ´Ók<hë√Ω“fb=Ñ¸?;xÇ=Ω*b  Blayers.6.conv.weightj
 locationmodel.onnx.dataj
 offset222336j
-length36864p*õ Blayers.6.conv.biasJÄåΩ=†>“¯cΩ òΩ!~ﬂΩ˝Ëü=≠=›ΩÃ¸•ΩÍ}XΩÆsúºx’º&˜±<3›Ó<¢ÜB;¶sö=ï†oΩ/_’=µﬁqºõ¨+=Àπ±Ω ≠ãΩIıkΩ®5>Kx∏=‡òªgG†=Q6æÚow<∆)>•û∫>]:>ç‘õΩ*ú Bhead.0.weightJÄºP2>z›Éæ.b–=ﬁ"7>…πû=îqTæ»=5>≈Ö>zL
-=r∏Ωï*=ƒè„=ûî*æ˚/⁄=û5Bæ÷ÿ”=‹§EæK)3>næç=—So>§'>yiÚΩÙ∆4æ-}¿Ω5"&æ!√áΩQΩƒnªΩíoæ*Yæœj:>*Bhead.0.biasJ5q÷º*Bval_6J        Z«
+length36864p*õ Blayers.6.conv.biasJÄƒ\$æÒ…8>ëΩΩfuå>ñ&)æçcg>Bò>g°B>ƒ∂/Ωé÷°Ω¡Çà=ª]yª≈ÓF>’L‘ΩÒ2 >‹ >œa·=D∏=€†JΩrüæ„·îΩ˜©
+>¯uŒ=Yæ±ºå=±&/>ëw‹ΩF‡>≈÷(>TÀΩ‘>'©C>*ú Bhead.0.weightJÄ≈X?«ÏJæøcK>∑øæı¬ó>¯h=æOfæıÎ≈æ@ﬁs>Ä«>¡úBæçí>€…`æjâ>›†Bæ¯p‹Ω—Ωªdæ»¢á>˙∫å>Jò=/Q/æ÷Q◊Ωo‹l>Í_æ‰Zhæ◊Zˇ>öπhæ3$æ˜!F>x{Xæ∫„àæ*Bhead.0.biasJ’<Äæ*Bval_6J        Z«
 input
 
 
@@ -1270,4 +1263,4 @@ x: USER_INPUT
 sigmoid: USER_OUTPUT
 Ç^
 2pkg.torch.export.ExportedProgram.range_constraints({s27: VR[0, int_oo], s53: VR[0, int_oo]}B
- 
+ 
