@@ -4,9 +4,9 @@ from pathlib import Path
 import numpy as np
 import polars as pl
 import torch
-from PIL import Image, ImageChops, ImageDraw
 from cairosvg import svg2png
 from perlin_numpy import generate_perlin_noise_2d
+from PIL import Image, ImageChops
 from torch.utils.data import Dataset
 
 
@@ -103,26 +103,23 @@ def image_to_tensor(image: Image.Image) -> torch.Tensor:
 
 
 class SVGDataset(Dataset):
-    def __init__(self, svg_strings: list[str], d: int = 256, std_noise: float = 0.05):
+    def __init__(self, df: pl.DataFrame, n: int, d: int = 256, std_noise: float = 0.05):
+        svg_strings = build_synthetic_svg(df, n, d)
         self.svg_strings = svg_strings
-        self.d = d
+        self.x_images = [
+            image_to_tensor(post_process(svg2image(svg), d)) for svg in svg_strings
+        ]
+        self.y_images = [
+            image_to_tensor(to_binary(svg2image(svg), d)) for svg in svg_strings
+        ]
         self.std_noise = std_noise
 
     def __len__(self) -> int:
-        return len(self.svg_strings)
+        return len(self.x_images)
 
     def __getitem__(self, idx: int) -> tuple[torch.Tensor, torch.Tensor]:
-        image = svg2image(self.svg_strings[idx])
-        y = image_to_tensor(to_binary(image, self.d))
-        x = image_to_tensor(post_process(image, self.d))
+        y = self.y_images[idx]
+        x = self.x_images[idx]
         noise = self.std_noise * torch.randn_like(x)
         # 0.99 factor: important for numerical stability with BCE loss
         return x + noise, 0.99 * y
-
-    @classmethod
-    def from_csv(
-        cls, csv_bytes: bytes, n: int, d: int = 256, std_noise: float = 0.05
-    ) -> "SVGDataset":
-        df = pl.read_csv(BytesIO(csv_bytes))
-        svg_strings = build_synthetic_svg(df, n, d)
-        return cls(svg_strings, d=d, std_noise=std_noise)
