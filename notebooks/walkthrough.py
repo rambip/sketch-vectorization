@@ -703,7 +703,6 @@ def _(mo, set_options):
     set_options(
         {
             "status_function": lambda x, title: mo.status.progress_bar(x, title=title),
-            "mpl_wrapper": mo.mpl.interactive,
         }
     )
     return
