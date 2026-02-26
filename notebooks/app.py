@@ -63,7 +63,6 @@ def _(demo, mo):
     demo.set_options(
         dict(
             status_function=lambda x, title: mo.status.progress_bar(x, title=title),
-            mpl_wrapper=mo.mpl.interactive,
         ),
     )
     button = mo.ui.run_button(label="show each step")
