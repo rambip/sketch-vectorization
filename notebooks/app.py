@@ -11,12 +11,15 @@ async def _():
     import marimo as mo
     import matplotlib.pyplot as plt
 
-    from sketchy_svg import demo, load_normalized, sketch2svg
-
     if find_spec("js"):
+        import micropip
+        await micropip.install("sketchy-svg")
+
         from sketchy_svg import patch_onnx
 
         await patch_onnx()
+
+    from sketchy_svg import demo, load_normalized, sketch2svg
 
     return demo, load_normalized, mo, plt, sketch2svg
 

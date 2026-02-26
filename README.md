@@ -15,11 +15,11 @@ Guess what: the entire library can run in your browser !
 
 If you want a guided tour of how the library works, go here:
 
-[![](https://camo.githubusercontent.com/a282692dfebd373e3a0e43e39d1e412d356432c480f6240a4dd39d3122096580/68747470733a2f2f6d6172696d6f2e696f2f736869656c642e737667)](https://marimo.app/github.com/rambip/sketch-vectorization/blob/main/notebooks/walkthrough.py)
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/rambip/sketch-vectorization/blob/main/notebooks/walkthrough.py/wasm)
 
 If you just want to test it for yourself, with your own drawings, go here:
 
-[![](https://camo.githubusercontent.com/a282692dfebd373e3a0e43e39d1e412d356432c480f6240a4dd39d3122096580/68747470733a2f2f6d6172696d6f2e696f2f736869656c642e737667)](https://marimo.app/github.com/rambip/sketch-vectorization/blob/main/notebooks/app.py)
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/rambip/sketch-vectorization/blob/main/notebooks/app.py/wasm)
 
 ## Install
 
