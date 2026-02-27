@@ -54,13 +54,21 @@ async def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Walkthrough of the pipeline
+    # From sketch to vector graphics
 
-    This project aims to (re-)implement this paper: [Fidelity vs. Simplicity: a Global Approach to Line Drawing Vectorization](https://www-sop.inria.fr/reves/Basilic/2016/FLB16/fidelity_simplicity.pdf)
 
-    In this notebook, we will try to give a complete overview of the techniques used and the implementation choices in order to do it.
+    You probably have already heard about SVG, or Scalable Vector Graphics. It is a file format that represents images as a collection of curves, instead of pixels. This allows to have very small files, and to scale them without losing quality.
 
-    We strongly advise to read the paper a first time before looking at the notebook. Except for some details, it is well written and have nice illustrations
+    But SVG can be complicated and counter-intuitive to create. Some artists prefer staying on pen and paper because of the expressivity this provide.
+
+    So naturally, people have tried to convert raster images (or photographs) of drawn sketches and convert them to SVG.
+
+    This (this notebook and the library it uses) is our attempt to re-implement the paper [Fidelity vs. Simplicity: a Global Approach to Line Drawing Vectorization](https://www-sop.inria.fr/reves/Basilic/2016/FLB16/fidelity_simplicity.pdf).
+    It started up as a School project (Telecom Paris), but I ended up spending a lot of time on it, to create a usable library.
+
+    In this notebook, we will try to give a complete overview of the techniques used and the implementation choices we made.
+
+    We strongly advise to read the paper a first time before looking at the notebook. Except for some details, it is well written and have nice illustrations.
     """)
     return
 
@@ -114,21 +122,21 @@ def _(mo):
     mo.md(r"""
     ## Preprocessing
 
-    Before anything, we need a binary representation of our drawing.
+    Before doing anything, we need a binary representation of our drawing: black and white pixels, not gray.
 
     The paper uses advanced trapped-ball and paint-filling techniques, but that would be a lot of work, to be honnest. And not that interesting !
 
-    At this point, I was wondering: what if we cloud cheat ? Going from someone's drawing to a logo-like black and white image sounds a lot like a [Style transfer](https://en.wikipedia.org/wiki/Neural_style_transfer):
+    Because I'm lazy, I was wondering: what if we cloud cheat ? Going from someone's drawing to a logo-like black and white image sounds a lot like a [Style transfer](https://en.wikipedia.org/wiki/Neural_style_transfer):
 
     ![](https://s3.amazonaws.com/book.keras.io/img/ch8/style_transfer.png)
 
     We are in 2025 after all, since we don't have a huge brain and a lot of time, maybe we could use a GPU and a lot of data instead ?
 
-    So, that's what we did !
+    So, that's what I did !
 
 
-    Basically, we followed a simple recipe:
-    1. Get a good quality SVG dataset
+    Basically, I followed a simple recipe:
+    1. Get a good quality SVG dataset ([this one](https://huggingface.co/datasets/OmniSVG/MMSVG-Icon))
     2. Convert the SVG to a sketch-like black and white representation
     3. Add different kind of noises and texture to simulate drawing on paper
     4. Train a CNN to denoise the images.
@@ -148,14 +156,15 @@ def _(mo):
     - There is a tradeoff for the resolution: we want a model that can process large images, but it's more costly to train.
     - **Don't try a small model**. I thought that a model with an inner dimension of 8 and 4 layers was enough, but it was not the case. Don't fear the overfitting: if you train for long enough and you have diverse enough datapoints, your model will generalize even if it has a lot of parameters. If that seems counter-intuitive to you, go read about [Double Descent](https://en.wikipedia.org/wiki/Double_descent)
     - residual connections work really well. We ended up adding them at each layer.
+    - The loss is key. We started with BCE, but the model had too much false negative, which broke the connectivity of the figure. We used our custom loss instead, $L = L_1 + \lambda L_2$ where $L_1$ penalized false negatives and $L_2$ penalized overall positives.
 
     We ended up with:
     - 3000 data points of 256x256
-    - 8 layers of 3x3 convolutions
+    - 8 layers of 3x3 convolutions, with a direct residual connection from the input to the output
     - an inner dimension of 32
     - SiLU activation function
-    - 30 epochs, with a batch size of 50
-    - running on T4 gpus for something like 15min
+    - 50 epochs, with a batch size of 50
+    - running on T4 gpus for something like 20min
     """)
     )
     mo.md(f"""
@@ -412,7 +421,7 @@ def _(mo):
     mo.md(r"""
     Now that he have a clean skeleton, the goal will be to approximate as well as possible using [Bezier curves](https://pomax.github.io/bezierinfo/).
 
-    We figured that fitting a bezier on a chain of pixel is pretty cheap once you have the right representation.
+    This was not explicit in the paper, but fitting a bezier on a chain of pixel is pretty cheap once you have the right representation.
 
     You want to minimize $\mathcal L(\omega) = \sum_t ||B(\omega)_t - C_t||^2$ where $\omega$ are the 8 parameters of our bezier curve, $B(\omega)$ is the list of positions of the bezier with parameters $\omega$, and $C$ is the list of positions in our pixel chains.
 
@@ -530,12 +539,13 @@ def _(mo):
     mo.md(r"""
     Now, we have to implement what is probably the most difficult part of the paper: the global optimisation.
 
+    Here is the intuition: if there are multiple chains of pixels that could be joined into a nice curve, we do it. But we have to be careful about which chains we join !
 
-    We will manipulate sequences of edges, that we will call **hyperedges**. The intuition if they are multiple chains of pixels aligned with each other in the topological graph, they should be grouped together to form a longer chain.
 
+    We will manipulate sequences of edges, that we call **hyperedges**.
     This optimisation process is based on the idea of doing **perturbations** on these sequences.
 
-    Since the paper is not very explicit about these perturbations, we implemented it in a slightly different (but similar) way.
+    Since the paper leaves room for interpretation on how to implement, we implemented it in a slightly different (but similar) way as they describe.
 
     We first sample pairs of hyperedges $(U, V)$ such that $U$ end at a node that is anywhere inside $V$. We call such a configuation a "T" configuration.
 
@@ -564,7 +574,7 @@ def _(mo):
 @app.cell
 def _():
     from sketchy_svg.demo import OptimPlayBack
-    from sketchy_svg.optim import SketchOptimizer, SuperGraph, align_boundaries
+    from sketchy_svg.optim import SketchOptimizer, align_boundaries
 
     return OptimPlayBack, SketchOptimizer, align_boundaries
 
@@ -591,7 +601,7 @@ def _(optim, plt):
     plt.plot(range(len(optim.error_)), optim.error_)
     plt.ylabel("Energy")
     plt.xlabel("steps")
-    plt.title("evolution of energy during optimization")
+    plt.title("Evolution of energy during optimization")
     plt.show()
     return
 
@@ -603,7 +613,7 @@ def _(optim, plt):
     from sketchy_svg.optim import Perturbation
 
     counts = Counter(x[0] for x in optim.history_)
-    axes = plt.figure(figsize=[12, 6])
+    plt.figure(figsize=[12, 6])
     plt.bar(range(7), [counts[i] for i in range(7)])
     plt.xticks(range(7), [x.name for x in Perturbation], rotation=0, fontsize=8)
     plt.gca()
@@ -677,6 +687,8 @@ def _(align_boundaries, curves, instants, interpolate_bezier, optim, plt):
 def _(mo):
     mo.md(r"""
     ## SVG export
+
+    Here is the final result:
     """)
     return
 
@@ -695,6 +707,14 @@ def _():
 def _(Html, export_svg, final_curves, img):
     out = export_svg(final_curves, img.shape[0], img.shape[1])
     Html(out)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Gallery
+    """)
     return
 
 
