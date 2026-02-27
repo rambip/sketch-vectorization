@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "sketchy-svg",
+#     "marimo",
+# ]
+# ///
 import marimo
 
 __generated_with = "0.20.1"
